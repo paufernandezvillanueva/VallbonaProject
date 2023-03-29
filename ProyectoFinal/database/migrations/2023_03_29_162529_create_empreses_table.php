@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('empreses', function (Blueprint $table) {
+        Schema::create('empresas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('cif')->unique();
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('sector');
             $table->unsignedBigInteger('poblacio_id');
 
-            $table->foreign('poblacio_id')->references('id')->on('poblacions');
+            $table->foreign('poblacio_id')->references('id')->on('poblacios');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('empreses');
+        Schema::dropIfExists('empresas');
     }
 };
