@@ -19,7 +19,7 @@ class CursController extends Controller
     function new(Request $request) 
     {
         if ($request->isMethod('post')) {   
-            $curs = new Biblioteca;
+            $curs = new Curs;
             $curs->name = $request->name;
             $curs->save();
 
