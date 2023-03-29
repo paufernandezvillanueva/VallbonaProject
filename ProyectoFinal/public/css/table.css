@@ -1,0 +1,147 @@
+.bodyTable{
+    width: 100%;
+}
+
+.bodyEmpresa{
+    width: 100%;
+}
+.titulo {
+    width: 95%;
+    height: 100px;
+    margin: auto;
+    background-color: #212529;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bodyTable .table{
+    width: 95%;
+    margin: auto;
+}
+
+.containerEmpresa {
+    width: 95%;
+    margin: auto;
+    height: 83%;
+    background-color: #212529;
+
+
+}
+.labels{
+    color: white;
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    height: 400px;
+}
+.contactes{
+    width: auto;
+    height: 400px;
+    justify-content: end;
+    margin-top: 50px;
+}
+#contactes{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#estades{
+    color:white;
+
+}
+.estades{
+    padding: 20px;
+}
+.infoEmpresa{
+    margin-top: 50px;
+    width: 350px;
+    margin-right: 200px;
+}
+
+.filtro {
+    width: 95%;
+    margin: auto;
+    height: 50px;
+    background-color: #212529;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.filtrar {
+    border-radius: 20px;
+    font-size: 13px;
+    min-width: 70px;
+    border: none;
+    height: 25px;
+    margin-right: 20px;
+    padding: 0px 10px;
+}
+
+
+#form_filtro {
+    width: 95%;
+    margin: auto;
+    height: 0px;
+    background-color: #212529;
+}
+
+.animate {
+    animation: expand;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.animate-reverse {
+    animation: reduct;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#form_filtro .container {
+    margin-top: 20px;
+}
+
+form {
+    color: white;
+}
+
+@keyframes expand {
+    0% {
+        visibility: visible;
+        height: 0px;
+    }
+
+    100% {
+
+        visibility: visible;
+        border-top: 1px solid white;
+        height: 300px;
+        margin-bottom: 7px;
+    }
+
+}
+
+@keyframes reduct {
+    0% {
+        height: 300px;
+    }
+
+    100% {
+        height: 0px;
+    }
+
+}
