@@ -1,14 +1,14 @@
 @extends('layout')
 
-@section('title', 'Llistat de llibres')
+@section('title', 'Llistat de users')
 
 @section('stylesheets')
     @parent
 @endsection
 
 @section('content')
-    <h1>Llistat de llibres</h1>
-    <a href="{{ route('llibre_new') }}">+ Nou llibre</a>
+    <h1>Llistat de users</h1>
+    <a href="{{ route('user_new') }}">+ Nou user</a>
 
     @if (session('status'))
         <div>
@@ -19,18 +19,18 @@
     <table style="margin-top: 20px;margin-bottom: 10px;">
         <thead>
             <tr>
-                <th>Títol</th><th>Data de publicació</th><th>Vendes</th><th>Autor</th>
+                <th>Username</th><th>Email</th><th>Cicle ID</th><th>Rol ID</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($llibres as $llibre)
+            @foreach ($users as $user)
                 <tr>
-                    <td>{{ $llibre->titol }}</td><td>{{ $llibre->dataP->format("d-m-Y") }}</td><td>{{ $llibre->vendes }}</td><td>@isset($llibre->autor_id) {{ $llibre->autor->nomCognoms() }} @endisset </td>
+                    <td>{{ $user->username }}</td><td>{{ $user->email }}</td><td>{{ $user->cicle_id }}</td><td>{{ $user->rol_id }}</td>
                     <td>
-                        <a href="{{ route('llibre_delete', ['id' => $llibre->id]) }}">Eliminar</a>
+                        <a href="{{ route('user_delete', ['id' => $user->id]) }}">Eliminar</a>
                     </td>
                     <td>
-                        <a href="{{ route('llibre_edit', ['id' => $llibre->id]) }}">Editar</a>
+                        <a href="{{ route('user_edit', ['id' => $user->id]) }}">Editar</a>
                     </td>
                 </tr>
             @endforeach

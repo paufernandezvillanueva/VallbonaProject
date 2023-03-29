@@ -1,39 +1,34 @@
 @extends('layout')
 
-@section('title', 'Nou Llibre')
+@section('title', 'Nou User')
 
 @section('stylesheets')
 @parent
 @endsection
 
 @section('content')
-<h1>Nou Llibre</h1>
-<a href="{{ route('llibre_list') }}">&laquo; Torna</a>
+<h1>Nou User</h1>
+<a href="{{ route('user_list') }}">&laquo; Torna</a>
 <div style="margin-top: 20px">
-    <form method="POST" action="{{ route('llibre_new') }}">
+    <form method="POST" action="{{ route('user_new') }}">
         @csrf
         <div>
-            <label for="titol">Títol</label>
-            <input type="text" name="titol" />
+            <label for="username">Username</label>
+            <input type="text" name="username" />
         </div>
         <div>
-            <label for="dataP">Data de publicació</label>
-            <input type="date" name="dataP" value='{{ date("Y-m-d") }}' />
+            <label for="email">Email</label>
+            <input type="text" name="email" />
         </div>
         <div>
-            <label for="vendes">Vendes</label>
-            <input type="number" name="vendes" />
+            <label for="cicle_id">Cicle_id</label>
+            <input type="number" name="cicle_id" />
         </div>
         <div>
-            <label for="autor_id">Autor</label>
-            <select name="autor_id">
-                <option value="">«-- Selecciona un autor --»</option>
-                @foreach ($autors as $autor)
-                <option value="{{ $autor->id }}" @selected($autorId==$autor->id)>{{ $autor->nom }} {{ $autor->cognoms }}</option>
-                @endforeach
-            </select>
+            <label for="rol_id">Rol_id</label>
+            <input type="number" name="rol_id" />
         </div>
-        <button type="submit">Crear Llibre</button>
+        <button type="submit">Crear User</button>
     </form>
 </div>
 @endsection

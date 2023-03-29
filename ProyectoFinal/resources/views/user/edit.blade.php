@@ -8,31 +8,26 @@
 
 @section('content')
     <h1>Editar Llibre</h1>
-    <a href="{{ route('llibre_list') }}">&laquo; Torna</a>
+    <a href="{{ route('user_list') }}">&laquo; Torna</a>
 	<div style="margin-top: 20px">
-        <form method="POST" action="{{ route('llibre_edit', ['id' => $llibre->id]) }}">
+        <form method="POST" action="{{ route('user_edit', ['id' => $user->id]) }}">
             @csrf
             <div>
-                <label for="titol">Títol</label>
-                <input type="text" name="titol" value="{{ $llibre->titol }}"/>
-            </div>
-            <div>            
-                <label for="dataP">Data de publicació</label>
-                <input type="date" name="dataP" value="{{ $llibre->dataP->format('Y-m-d') }}"/>
-            </div>
-            <div>                            
-                <label for="vendes">Vendes</label>
-                <input type="number" name="vendes" value="{{ $llibre->vendes }}"/>
-            </div>
-            <div>
-                <label for="autor_id">Autor</label>
-                <select name="autor_id">
-                    <option value="">«-- Selecciona un autor --»</option>
-                    @foreach ($autors as $autor)
-                        <option value="{{ $autor->id }}" @selected($autor->id == $llibre->autor_id)>{{ $autor->nom }} {{ $autor->cognoms }}</option>
-                    @endforeach
-                </select>
-            </div>
+            <label for="username">Username</label>
+            <input type="text" name="username" value="{{ $user->username }}"/>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email" value="{{ $user->email }}"/>
+        </div>
+        <div>
+            <label for="cicle_id">Cicle_id</label>
+            <input type="number" name="cicle_id" value="{{ $user->cicle_id }}"/>
+        </div>
+        <div>
+            <label for="rol_id">Rol_id</label>
+            <input type="number" name="rol_id" value="{{ $user->rol_id }}"/>
+        </div>
             <button type="submit">Editar Llibre</button>
         </form>
 	</div>
