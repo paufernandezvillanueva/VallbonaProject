@@ -40,147 +40,153 @@ class ComarcaSeeder extends Seeder
         ]);
         DB::table('comarques')->insert([
             'id' => 7,
-            'name' => "Aran",
-        ]);
-        DB::table('comarques')->insert([
-            'id' => 8,
             'name' => "Bages",
         ]);
         DB::table('comarques')->insert([
-            'id' => 9,
+            'id' => 8,
             'name' => "Baix Camp",
         ]);
         DB::table('comarques')->insert([
-            'id' => 10,
+            'id' => 9,
             'name' => "Baix Ebre",
         ]);
         DB::table('comarques')->insert([
-            'id' => 11,
+            'id' => 10,
             'name' => "Baix Empordà",
         ]);
         DB::table('comarques')->insert([
-            'id' => 12,
+            'id' => 11,
             'name' => "Baix Llobregat",
         ]);
         DB::table('comarques')->insert([
-            'id' => 13,
+            'id' => 12,
             'name' => "Baix Penedès",
         ]);
         DB::table('comarques')->insert([
-            'id' => 14,
+            'id' => 13,
             'name' => "Barcelonès",
         ]);
         DB::table('comarques')->insert([
-            'id' => 15,
+            'id' => 14,
             'name' => "Berguedà",
         ]);
         DB::table('comarques')->insert([
-            'id' => 16,
+            'id' => 15,
             'name' => "Cerdanya",
         ]);
         DB::table('comarques')->insert([
-            'id' => 17,
+            'id' => 16,
             'name' => "Conca de Barberà",
         ]);
         DB::table('comarques')->insert([
-            'id' => 18,
+            'id' => 17,
             'name' => "Garraf",
         ]);
         DB::table('comarques')->insert([
-            'id' => 19,
+            'id' => 18,
             'name' => "Garrigues",
         ]);
         DB::table('comarques')->insert([
-            'id' => 20,
+            'id' => 19,
             'name' => "Garrotxa",
         ]);
         DB::table('comarques')->insert([
-            'id' => 21,
+            'id' => 20,
             'name' => "Gironès",
         ]);
         DB::table('comarques')->insert([
-            'id' => 22,
+            'id' => 21,
             'name' => "Maresme",
         ]);
         DB::table('comarques')->insert([
-            'id' => 23,
-            'name' => "Moianès",
-        ]);
-        DB::table('comarques')->insert([
-            'id' => 24,
+            'id' => 22,
             'name' => "Montsià",
         ]);
         DB::table('comarques')->insert([
-            'id' => 25,
+            'id' => 23,
             'name' => "Noguera",
         ]);
         DB::table('comarques')->insert([
-            'id' => 26,
+            'id' => 24,
             'name' => "Osona",
         ]);
         DB::table('comarques')->insert([
-            'id' => 27,
+            'id' => 25,
             'name' => "Pallars Jussà",
         ]);
         DB::table('comarques')->insert([
-            'id' => 28,
+            'id' => 26,
             'name' => "Pallars Sobirà",
         ]);
         DB::table('comarques')->insert([
-            'id' => 29,
+            'id' => 27,
             'name' => "Pla d'Urgell",
         ]);
         DB::table('comarques')->insert([
-            'id' => 30,
+            'id' => 28,
             'name' => "Pla de l'Estany",
         ]);
         DB::table('comarques')->insert([
-            'id' => 31,
+            'id' => 29,
             'name' => "Priorat",
         ]);
         DB::table('comarques')->insert([
-            'id' => 32,
+            'id' => 30,
             'name' => "Ribera d'Ebre",
         ]);
         DB::table('comarques')->insert([
-            'id' => 33,
+            'id' => 31,
             'name' => "Ripollès",
         ]);
         DB::table('comarques')->insert([
-            'id' => 34,
+            'id' => 32,
             'name' => "Segarra",
         ]);
         DB::table('comarques')->insert([
-            'id' => 35,
+            'id' => 33,
             'name' => "Segrià",
         ]);
         DB::table('comarques')->insert([
-            'id' => 36,
+            'id' => 34,
             'name' => "Selva",
         ]);
         DB::table('comarques')->insert([
-            'id' => 37,
+            'id' => 35,
             'name' => "Solsonès",
         ]);
         DB::table('comarques')->insert([
-            'id' => 38,
+            'id' => 36,
             'name' => "Tarragonès",
         ]);
         DB::table('comarques')->insert([
-            'id' => 39,
+            'id' => 37,
             'name' => "Terra Alta",
         ]);
         DB::table('comarques')->insert([
-            'id' => 40,
+            'id' => 38,
             'name' => "Urgell",
         ]);
         DB::table('comarques')->insert([
-            'id' => 41,
+            'id' => 39,
+            'name' => "Aran",
+        ]);
+        DB::table('comarques')->insert([
+            'id' => 40,
             'name' => "Vallès Occidental",
         ]);
         DB::table('comarques')->insert([
-            'id' => 42,
+            'id' => 41,
             'name' => "Vallès Oriental",
         ]);
+        DB::table('comarques')->insert([
+            'id' => 42,
+            'name' => "Moianès",
+        ]);
+
+
+
+        
+        
+        
     }
 }
