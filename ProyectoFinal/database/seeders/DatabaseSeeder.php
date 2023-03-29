@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             RolSeeder::class,
             UserSeeder::class,
             ComarcaSeeder::class,
+            PoblacioSeeder::class,
         ]);
     }
 }
