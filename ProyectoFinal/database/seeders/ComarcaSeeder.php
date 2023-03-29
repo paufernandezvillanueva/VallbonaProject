@@ -182,11 +182,5 @@ class ComarcaSeeder extends Seeder
             'id' => 42,
             'name' => "Moianès",
         ]);
-
-
-
-        
-        
-        
     }
 }

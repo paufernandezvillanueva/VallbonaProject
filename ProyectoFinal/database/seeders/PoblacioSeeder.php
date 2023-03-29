@@ -3791,6 +3791,5 @@ class PoblacioSeeder extends Seeder
             'name' => "Santa Maria d'Oló",
             'comarca_id' => 42,
         ]); 
-
     }
 }
