@@ -11,7 +11,6 @@
     <h1>Llista d'empreses</h1>
 </div>
 <!-- <a href="{{ route('empresa_new') }}">+ Nova empresa</a> -->
-
 <table class="table table-striped table-dark">
     <thead>
         <tr>
