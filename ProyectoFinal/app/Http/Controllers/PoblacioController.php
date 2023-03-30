@@ -18,7 +18,7 @@ class PoblacioController extends Controller
     function new(Request $request) 
     {
         if ($request->isMethod('post')) {   
-            $poblacio = new Biblioteca;
+            $poblacio = new Poblacio;
             $poblacio->name = $request->name;
             $poblacio->comarca_id = $request->comarca_id;
             $poblacio->save();
