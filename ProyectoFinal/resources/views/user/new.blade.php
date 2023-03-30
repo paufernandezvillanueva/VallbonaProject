@@ -13,8 +13,12 @@
     <form method="POST" action="{{ route('user_new') }}">
         @csrf
         <div>
-            <label for="username">Username</label>
-            <input type="text" name="username" />
+            <label for="firstname">Firstname</label>
+            <input type="text" name="firstname" />
+        </div>
+        <div>
+            <label for="lastname">Lastname</label>
+            <input type="text" name="lastname" />
         </div>
         <div>
             <label for="email">Email</label>
