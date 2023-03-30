@@ -29,14 +29,15 @@ class UserController extends BaseController
         // recollim els camps del formulari en un objecte user
 
         //$user = new User;
-        $user->username = $request->username;
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->cicle_id = $request->cicle_id;
         $user->rol_id = $request->rol_id;
         $user->save();
 
-        return redirect()->route('user_list')->with('status', 'User '.$user->username.' modificat!');
+        return redirect()->route('user_list')->with('status', 'User '.$user->firstname. ' ' .$user->lastname.' modificat!');
       }
       // si no venim de fer submit al formulari, hem de mostrar el formulari
 
@@ -51,14 +52,15 @@ class UserController extends BaseController
         // recollim els camps del formulari en un objecte user
 
         $user = new User;
-        $user->username = $request->username;
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->cicle_id = $request->cicle_id;
         $user->rol_id = $request->rol_id;
         $user->save();
 
-        return redirect()->route('user_list')->with('status', 'Nou user '.$user->username.' creat!');
+        return redirect()->route('user_list')->with('status', 'User '.$user->firstname. ' ' .$user->lastname.' creat!');
       }
       // si no venim de fer submit al formulari, hem de mostrar el formulari
 
@@ -72,6 +74,6 @@ class UserController extends BaseController
       $user = User::find($id);
       $user->delete();
 
-      return redirect()->route('user_list')->with('status', 'User '.$user->username.' eliminat!');
+      return redirect()->route('user_list')->with('status', 'User '.$user->firstname. ' ' .$user->lastname.' eliminat!');
     }
 }
