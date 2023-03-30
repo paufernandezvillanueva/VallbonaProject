@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phonenumber');
 
-            $table->foreign('empresa_id')->references('id')->on('empreses');
+            $table->foreign('empresa_id')->references('id')->on('empresas');
         });
     }
 
