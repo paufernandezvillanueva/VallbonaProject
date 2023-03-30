@@ -22,11 +22,11 @@ use App\Http\Controllers\PoblacioController;
 //     return view('welcome');
 // });
 
-Route::get('/home', function (){
-    return view('default.home');
-});
+// Route::get('/home', function (){
+//     return view('default.home');
+// });
 
-Route::get('/', [DefaultController::class, 'home'])->name('home');
+// Route::get('/', [DefaultController::class, 'home'])->name('home');
 
 //// USERS
 
@@ -41,7 +41,8 @@ Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user_d
 
 //// EMPRESES
 
-Route::get('/empresa/list', [EmpresaController::class, 'list'])->name('empresa_list');
+Route::get('/', [EmpresaController::class, 'list'])->name('empresa_list');
+// Route::get('/empresa/list', [EmpresaController::class, 'list'])->name('empresa_list');
 
 Route::match(['get', 'post'], '/empresa/edit/{id}', [EmpresaController::class, 'edit'])->name('empresa_edit');
 
