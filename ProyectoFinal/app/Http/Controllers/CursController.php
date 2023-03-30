@@ -51,7 +51,7 @@ class CursController extends Controller
     }
 
     function delete($id) 
-    { 
+    {
         $curs = Curs::find($id);
         $curs->delete();
 
