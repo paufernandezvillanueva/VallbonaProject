@@ -16,6 +16,15 @@
                 <label for="name">Name</label>
                 <input type="text" name="name" />
             </div>
+            <div>
+                <label for="comarca_id">Autor</label>
+                <select name="comarca_id">
+                    <option value="">-- selecciona una comarca --</option>
+                    @foreach ($comarques as $comarca)
+                        <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <button type="submit" name="submit">Crear Poblacio</button>
         </form>
 	</div>

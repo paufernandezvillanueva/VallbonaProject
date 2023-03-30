@@ -8,7 +8,7 @@
 
 @section('content')
     <h1>Llistat de poblacions</h1>
-    <a href="{{ route('poblacio_new') }}">+ Nou llibre</a>
+    <a href="{{ route('poblacio_new') }}">+ Nova poblacio</a>
 
     @if (session('status'))
         <div>
@@ -26,6 +26,7 @@
             @foreach ($poblacions as $poblacio)
                 <tr>
                     <td>{{ $poblacio->name }}</td>
+                    <td>{{ $poblacio->comarca->name }}</td>
                     <td>
                         <a href="{{ route('poblacio_edit', ['id' => $poblacio->id]) }}">Editar</a>
                         <a href="{{ route('poblacio_delete', ['id' => $poblacio->id]) }}" name="{{ $poblacio->name }}" class="delete">Eliminar</a>
