@@ -19,6 +19,10 @@ use App\Http\Controllers\UserController;
 //     return view('welcome');
 // });
 
+Route::get('/home', function (){
+    return view('default.home');
+});
+
 Route::get('/', [DefaultController::class, 'home'])->name('home');
 //// LLIBRES
 Route::get('/user/list', [UserController::class, 'list'])->name('user_list');

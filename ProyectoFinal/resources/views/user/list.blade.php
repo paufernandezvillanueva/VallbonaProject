@@ -7,14 +7,17 @@
 @endsection
 
 @section('content')
-<h1>Llistat de users</h1>
-<a href="{{ route('user_new') }}">+ Nou user</a>
+    <div class="titulo">
+        <h1>Llista d'usuaris</h1>
+    </div>
+    <a href="{{ route('user_new') }}">+ Nou user</a>
 
-@if (session('status'))
-<div>
-    <strong>Success!</strong> {{ session('status') }}
-</div>
-@endif
+    @if (session('status'))
+        <div>
+            <strong>Success!</strong> {{ session('status') }}
+        </div>
+    @endif
+
 
 <table style="margin-top: 20px;margin-bottom: 10px;">
     <thead>
@@ -44,6 +47,5 @@
         @endforeach
     </tbody>
 </table>
-
 <br>
 @endsection
