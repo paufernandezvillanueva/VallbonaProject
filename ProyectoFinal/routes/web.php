@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DefaultController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CicleController;
+use App\Http\Controllers\ComarcaController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PoblacioController;
 
@@ -43,6 +44,7 @@ Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user_d
 
 
 //// CICLES
+
 Route::get('/cicles/list', [CicleController::class, 'list'])->name('cicle_list');
 
 Route::match(['get', 'post'], '/cicle/edit/{id}', [CicleController::class, 'edit'])->name('cicle_edit');
@@ -71,3 +73,12 @@ Route::match(['get', 'post'], '/poblacions/new', [PoblacioController::class, 'ne
 
 Route::get('/poblacions/delete/{id}', [PoblacioController::class, 'delete'])->name('poblacio_delete');
 
+////COMARCAS
+
+Route::get('/comarcas/list', [ComarcaController::class, 'list'])->name('comarca_list');
+
+Route::match(['get', 'post'], '/comarcas/edit/{id}', [ComarcaController::class, 'edit'])->name('comarca_edit');
+
+Route::match(['get', 'post'], '/comarcas/new', [ComarcaController::class, 'new'])->name('comarca_new');
+
+Route::get('/comarcas/delete/{id}', [ComarcaController::class, 'delete'])->name('comarca_delete');
