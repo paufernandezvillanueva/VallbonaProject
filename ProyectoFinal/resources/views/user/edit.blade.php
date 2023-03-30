@@ -7,7 +7,9 @@
 @endsection
 
 @section('content')
-    <h1>Editar Llibre</h1>
+    <div class="titulo">
+        <h1>Editar usuari</h1>
+    </div>
     <a href="{{ route('user_list') }}">&laquo; Torna</a>
 	<div style="margin-top: 20px">
         <form method="POST" action="{{ route('user_edit', ['id' => $user->id]) }}">

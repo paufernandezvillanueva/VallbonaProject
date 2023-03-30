@@ -7,12 +7,14 @@
 @endsection
 
 @section('content')
-    <h1>Llistat de users</h1>
+    <div class="titulo">
+        <h1>Llista d'usuaris</h1>
+    </div>
     <a href="{{ route('user_new') }}">+ Nou user</a>
 
     @if (session('status'))
         <div>
-            <strong>Success!</strong> {{ session('status') }}  
+            <strong>Success!</strong> {{ session('status') }}
         </div>
     @endif
 
