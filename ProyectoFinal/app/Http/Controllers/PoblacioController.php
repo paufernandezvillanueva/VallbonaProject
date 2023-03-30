@@ -40,7 +40,7 @@ class PoblacioController extends BaseController
     function edit(Request $request, $id) 
     { 
         if ($request->isMethod('post')) {   
-            $poblacio = new Poblacio;
+            $poblacio = Poblacio::find($id);
             $poblacio->name = $request->name;
             $poblacio->comarca_id = $request->comarca_id;
             $poblacio->save();
