@@ -1,4 +1,3 @@
-<!-- Navigation -->
 <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 200px; height: 100vh;">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
@@ -12,6 +11,12 @@
             <a href="{{ asset('/home') }}" class="nav-link text-white" aria-current="page">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                 Inici
+            </a>
+        </li>
+        <li>
+            <a href="{{ asset('/empresa/list') }}" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                Empreses
             </a>
         </li>
         <li>

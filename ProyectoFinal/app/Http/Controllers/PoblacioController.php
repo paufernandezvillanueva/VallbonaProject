@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
-class PoblacioController extends Controller
+use App\Models\Poblacio;
+use App\Models\Comarca;
+
+class PoblacioController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
@@ -25,14 +32,15 @@ class PoblacioController extends Controller
 
             return redirect()->route('poblacio_list');
         }
+        $comarques = Comarca::all();
 
-        return view('poblacio.new');
+        return view('poblacio.new', ['comarques' => $comarques]);
     }
 
     function edit(Request $request, $id) 
     { 
         if ($request->isMethod('post')) {   
-            $poblacio = new Poblacio;
+            $poblacio = Poblacio::find($id);
             $poblacio->name = $request->name;
             $poblacio->comarca_id = $request->comarca_id;
             $poblacio->save();
@@ -40,8 +48,9 @@ class PoblacioController extends Controller
             return redirect()->route('poblacio_list');
         }      
         $poblacio = Poblacio::find($id);
+        $comarques = Comarca::all();
 
-        return view('poblacio.edit', ['poblacio' => $poblacio]);
+        return view('poblacio.edit', ['poblacio' => $poblacio, 'comarques' => $comarques]);
     }
 
     function delete($id) 
