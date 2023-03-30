@@ -14,9 +14,49 @@ class EmpresaController extends BaseController
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-  function list()
+  function list(Request $request)
   {
-    $empresas = Empresa::all();
+    $empresas = Empresa::join('poblacios', 'empresas.poblacio_id', '=', 'poblacios.id')->
+    join('comarcas', 'poblacios.comarca_id', '=', 'comarcas.id')->
+    leftjoin('estadas', 'empresas.id', '=', 'estadas.empresa_id');
+
+    if (isset($request->cif)) {
+      if ($request->cif != "") {
+        $empresas = $empresas->where('empresas.cif', 'like', '%' . $request->cif . '%');
+      }
+    }
+
+    if (isset($request->name)) {
+      if ($request->name != "") {
+        $empresas = $empresas->where('empresas.name', 'like', '%' . $request->name . '%');
+      }
+    }
+
+    if (isset($request->cicle)) {
+      if ($request->cicle != 0) {
+        $empresas = $empresas->where('estadas.cicle_id', '=', $request->cicle);
+      }
+    }
+
+    if (isset($request->sector)) {
+      if ($request->sector != "") {
+        $empresas = $empresas->where('empresas.sector', 'like', '%' . $request->sector . '%');
+      }
+    }
+
+    if (isset($request->comarca)) {
+      if ($request->comarca != 0) {
+        $empresas = $empresas->where('comarcas.id', '=', $request->comarca);
+      }
+    }
+
+    if (isset($request->poblacio)) {
+      if ($request->poblacio != 0) {
+        $empresas = $empresas->where('poblacios.id', '=', $request->poblacio);
+      }
+    }
+
+    $empresas = $empresas->get("empresas.*");
 
     return view('empresa.list', ['empresas' => $empresas]);
   }
