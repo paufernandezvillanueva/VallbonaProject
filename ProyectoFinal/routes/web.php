@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DefaultController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CicleController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PoblacioController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,16 @@ Route::match(['get', 'post'], '/user/new', [UserController::class, 'new'])->name
 Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user_delete');
 
 
+
+//// CICLES
+Route::get('/cicles/list', [CicleController::class, 'list'])->name('cicle_list');
+
+Route::match(['get', 'post'], '/cicle/edit/{id}', [CicleController::class, 'edit'])->name('cicle_edit');
+
+Route::match(['get', 'post'], '/cicle/new', [CicleController::class, 'new'])->name('cicle_new');
+
+Route::get('/cicle/delete/{id}', [CicleController::class, 'delete'])->name('cicle_delete');
+
 //// EMPRESES
 
 Route::get('/empresa/list', [EmpresaController::class, 'list'])->name('empresa_list');
@@ -58,3 +70,4 @@ Route::match(['get', 'post'], '/poblacions/edit/{id}', [PoblacioController::clas
 Route::match(['get', 'post'], '/poblacions/new', [PoblacioController::class, 'new'])->name('poblacio_new');
 
 Route::get('/poblacions/delete/{id}', [PoblacioController::class, 'delete'])->name('poblacio_delete');
+
