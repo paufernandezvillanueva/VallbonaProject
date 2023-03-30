@@ -40,7 +40,7 @@ class ContacteController extends Controller
     function edit(Request $request, $id) 
     { 
         if ($request->isMethod('post')) {   
-            $contacte = new Contacte;
+            $contacte = Contacte::find($id);
             $contacte->name = $request->name;
             $contacte->empresa_id = $request->empresa_id;
             $contacte->email = $request->email;
