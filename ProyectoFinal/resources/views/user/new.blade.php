@@ -7,7 +7,9 @@
 @endsection
 
 @section('content')
-<h1>Nou User</h1>
+    <div class="titulo">
+        <h1>Nou usuari</h1>
+    </div>
 <a href="{{ route('user_list') }}">&laquo; Torna</a>
 <div style="margin-top: 20px">
     <form method="POST" action="{{ route('user_new') }}">
