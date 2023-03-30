@@ -37,7 +37,7 @@ class UserController extends BaseController
         $user->rol_id = $request->rol_id;
         $user->save();
 
-        return redirect()->route('user_list')->with('status', 'User '.$user->firstname. ' ' .$user->lastname.' modificat!');
+        return redirect()->route('user_list');
       }
       // si no venim de fer submit al formulari, hem de mostrar el formulari
 
@@ -60,7 +60,7 @@ class UserController extends BaseController
         $user->rol_id = $request->rol_id;
         $user->save();
 
-        return redirect()->route('user_list')->with('status', 'User '.$user->firstname. ' ' .$user->lastname.' creat!');
+        return redirect()->route('user_list');
       }
       // si no venim de fer submit al formulari, hem de mostrar el formulari
 
@@ -74,6 +74,6 @@ class UserController extends BaseController
       $user = User::find($id);
       $user->delete();
 
-      return redirect()->route('user_list')->with('status', 'User '.$user->firstname. ' ' .$user->lastname.' eliminat!');
+      return redirect()->route('user_list');
     }
 }

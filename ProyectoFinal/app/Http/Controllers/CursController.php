@@ -44,7 +44,7 @@ class CursController extends Controller
             return redirect()->route('curs_list');
         }
         // si no venim de fer submit al formulari, hem de mostrar el formulari
-      
+
         $curs = Curs::find($id);
 
         return view('curs.edit', ['curs' => $curs]);
