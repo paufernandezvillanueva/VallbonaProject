@@ -22,9 +22,8 @@
             <th>CIF</th>
             <th>Nom</th>
             <th>Sector</th>
-            <th>Comarca</th>
+            <!-- <th>Comarca</th> -->
             <th>Població</th>
-            <th>Contacte</th>
         </tr>
     </thead>
     <tbody>
@@ -33,9 +32,8 @@
             <td>{{ $empresa->cif }}</td>
             <td>{{ $empresa->name }}</td>
             <td>{{ $empresa->sector }}</td>
-            <td>{{ $empresa->comarca_id }}</td>
+            <!-- <td>{{ $empresa->comarca_id }}</td> -->
             <td>{{ $empresa->poblacio_id }}</td>
-            <td>{{ $empresa->contacte_id }}</td>
             <td>
                 <a href="{{ route('empresa_delete', ['id' => $empresa->id]) }}">Eliminar</a>
             </td>

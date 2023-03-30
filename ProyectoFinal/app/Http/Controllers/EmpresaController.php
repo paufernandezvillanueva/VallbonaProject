@@ -31,9 +31,7 @@ class EmpresaController extends BaseController
       $empresa->cif = $request->cif;
       $empresa->name = $request->name;
       $empresa->sector = $request->sector;
-      $empresa->comarca_id = $request->comarca_id;
       $empresa->poblacio_id = $request->poblacio_id;
-      $empresa->contacte_id = $request->contacte_id;
       $empresa->save();
 
       return redirect()->route('empresa_list')->with('status', 'Empresa ' . $empresa->name . ' modificada!');
@@ -54,9 +52,7 @@ class EmpresaController extends BaseController
       $empresa->cif = $request->cif;
       $empresa->name = $request->name;
       $empresa->sector = $request->sector;
-      $empresa->comarca_id = $request->comarca_id;
       $empresa->poblacio_id = $request->poblacio_id;
-      $empresa->contacte_id = $request->contacte_id;
       $empresa->save();
 
       return redirect()->route('empresa_list')->with('status', 'Nou empresa ' . $empresa->name . ' creada!');

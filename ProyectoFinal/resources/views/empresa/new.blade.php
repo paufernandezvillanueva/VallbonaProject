@@ -24,17 +24,13 @@
                 <label for="sector">Sector</label>
                 <input type="text" name="sector"/>
             </div>
-            <div>
+            <!-- <div>
                 <label for="comarca_id">Comarca</label>
                 <input type="text" name="comarca_id"/>
-            </div>
+            </div> -->
             <div>
                 <label for="poblacio_id">Població</label>
                 <input type="text" name="poblacio_id"/>
-            </div>
-            <div>
-                <label for="contacte_id">Contacte</label>
-                <input type="text" name="contacte_id"/>
             </div>
             <button type="submit">Crear Empresa</button>
         </form>

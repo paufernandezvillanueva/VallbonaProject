@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!-- Navigation -->
 <nav>
     <a href="{{ route('home') }}">Inici</a>
