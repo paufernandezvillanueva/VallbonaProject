@@ -21,8 +21,14 @@ use App\Http\Controllers\PoblacioController;
 //     return view('welcome');
 // });
 
+Route::get('/home', function (){
+    return view('default.home');
+});
+
 Route::get('/', [DefaultController::class, 'home'])->name('home');
-//// LLIBRES
+
+//// USERS
+
 Route::get('/user/list', [UserController::class, 'list'])->name('user_list');
 
 Route::match(['get', 'post'], '/user/edit/{id}', [UserController::class, 'edit'])->name('user_edit');
