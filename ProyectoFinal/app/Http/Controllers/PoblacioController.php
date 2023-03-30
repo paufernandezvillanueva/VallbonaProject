@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
 use App\Models\Poblacio;
+use App\Models\Comarca;
 
 class PoblacioController extends BaseController
 {
@@ -31,8 +32,9 @@ class PoblacioController extends BaseController
 
             return redirect()->route('poblacio_list');
         }
+        $comarques = Comarca::all();
 
-        return view('poblacio.new');
+        return view('poblacio.new', ['comarques' => $comarques]);
     }
 
     function edit(Request $request, $id) 
@@ -46,8 +48,9 @@ class PoblacioController extends BaseController
             return redirect()->route('poblacio_list');
         }      
         $poblacio = Poblacio::find($id);
+        $comarques = Comarca::all();
 
-        return view('poblacio.edit', ['poblacio' => $poblacio]);
+        return view('poblacio.edit', ['poblacio' => $poblacio, 'comarques' => $comarques]);
     }
 
     function delete($id) 
