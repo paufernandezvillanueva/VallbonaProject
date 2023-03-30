@@ -8,14 +8,8 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="{{ asset('/home') }}" class="nav-link text-white" aria-current="page">
+            <a href="{{ asset('/empresa/list') }}" class="nav-link text-white" aria-current="page">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
-                Inici
-            </a>
-        </li>
-        <li>
-            <a href="{{ asset('/empresa/list') }}" class="nav-link text-white">
-                <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
                 Empreses
             </a>
         </li>
