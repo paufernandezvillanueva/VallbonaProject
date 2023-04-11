@@ -6,6 +6,7 @@ use App\Http\Controllers\DefaultController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CicleController;
 use App\Http\Controllers\ComarcaController;
+use App\Http\Controllers\ContacteController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PoblacioController;
 use App\Http\Controllers\EstadaController;
@@ -94,3 +95,13 @@ Route::match(['get', 'post'], '/comarcas/edit/{id}', [ComarcaController::class, 
 Route::match(['get', 'post'], '/comarcas/new', [ComarcaController::class, 'new'])->name('comarca_new');
 
 Route::get('/comarcas/delete/{id}', [ComarcaController::class, 'delete'])->name('comarca_delete');
+
+//// CONTACTES
+
+Route::get('/contacte/list', [ContacteController::class, 'list'])->name('contacte_list');
+
+Route::match(['get', 'post'], '/contacte/edit/{id}', [ContacteController::class, 'edit'])->name('contacte_edit');
+
+Route::match(['get', 'post'], '/contacte/new', [ContacteController::class, 'new'])->name('contacte_new');
+
+Route::get('/contacte/delete/{id}', [ContacteController::class, 'delete'])->name('contacte_delete');

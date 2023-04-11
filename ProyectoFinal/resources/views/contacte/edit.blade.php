@@ -14,11 +14,11 @@
         @csrf
         <div>
             <label for="name">Nom</label>
-            <input type="text" name="name" value="{{ $contacte->nom }}"/>
+            <input type="text" name="name" value="{{ $contacte->name }}"/>
         </div>
         <div>
             <label for="empresa">Empresa</label>
-            <input type="text" name="email" value="{{ $contacte->empresa_id }}"/>
+            <input type="text" name="empresa" value="{{ $contacte->empresa_id }}"/>
         </div>
         <div>
             <label for="email">Email</label>
