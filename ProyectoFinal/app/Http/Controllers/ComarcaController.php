@@ -15,7 +15,7 @@ class ComarcaController extends Controller
     function list()
     {
         $comarcas = Comarca::all();
-        return view('comarcas.list', ['comarcas'=>$comarcas]);
+        return view('comarca.list', ['comarcas'=>$comarcas]);
     }
 
     function new(Request $request)
@@ -46,11 +46,11 @@ class ComarcaController extends Controller
             return redirect()->route('comarca_list')->with('status', 'Comarca'.$comarca->nom.' modificada!');
         }
         $comarcas = Comarca::all();
-        return view('comarcas.list', ['comarcas' => $comarcas]);
+        return view('comarca.list', ['comarcas' => $comarcas]);
     }
     function delete($id){
-        $cicle = Comarca::find($id);
-        $cicle->delete();
-        return redirect()->route('comarca_list')->with('status', 'Comarca'.$cicle->nom.' eliminada!');
+        $comarca = Comarca::find($id);
+        $comarca->delete();
+        return redirect()->route('comarca_list')->with('status', 'Comarca'.$comarca->nom.' eliminada!');
     }
 }
