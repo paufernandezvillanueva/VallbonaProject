@@ -40,7 +40,15 @@ Route::match(['get', 'post'], '/user/new', [UserController::class, 'new'])->name
 
 Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user_delete');
 
+//// ESTADES
 
+Route::get('/estada/list', [UserController::class, 'list'])->name('estada_list');
+
+Route::match(['get', 'post'], '/estada/edit/{id}', [UserController::class, 'edit'])->name('estada_edit');
+
+Route::match(['get', 'post'], '/estada/new', [UserController::class, 'new'])->name('estada_new');
+
+Route::get('/estada/delete/{id}', [UserController::class, 'delete'])->name('estada_delete');
 
 //// CICLES
 Route::get('/cicles/list', [CicleController::class, 'list'])->name('cicle_list');
