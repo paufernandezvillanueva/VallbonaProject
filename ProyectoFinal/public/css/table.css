@@ -198,3 +198,8 @@ form {
     }
 
 }
+
+.table-responsive{
+    max-height: 300px;
+    overflow-y: scroll;
+}
