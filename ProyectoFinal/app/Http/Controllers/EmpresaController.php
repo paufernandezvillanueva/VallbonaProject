@@ -9,6 +9,8 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
 use App\Models\Empresa;
+use App\Models\Poblacio;
+use App\Models\Contacte;
 
 class EmpresaController extends BaseController
 {
@@ -19,6 +21,15 @@ class EmpresaController extends BaseController
     $empresas = Empresa::all();
 
     return view('empresa.list', ['empresas' => $empresas]);
+  }
+
+  function detail(Request $request, $id)
+  {
+    $empresa = Empresa::find($id);
+    $poblacio = Poblacio::find($empresa->poblacio_id);
+    $contactes = Contacte::all()->where('empresa_id', '=', $empresa->id);
+
+    return view('empresa.detail', ['empresa' => $empresa, "poblacio" => $poblacio, "contactes" => $contactes]);
   }
 
   function edit(Request $request, $id)
