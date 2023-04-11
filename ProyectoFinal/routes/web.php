@@ -71,6 +71,8 @@ Route::match(['get', 'post'], '/empresa/new', [EmpresaController::class, 'new'])
 
 Route::get('/empresa/delete/{id}', [EmpresaController::class, 'delete'])->name('empresa_delete');
 
+Route::match(['get', 'post'], '/empresa/detail/{id}', [EmpresaController::class, 'detail'])->name('empresa_detail');
+
 //// POBLACIONS
 
 Route::get('/poblacions/list', [PoblacioController::class, 'list'])->name('poblacio_list');
