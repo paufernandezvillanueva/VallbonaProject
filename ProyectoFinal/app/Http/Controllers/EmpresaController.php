@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\Empresa;
 use App\Models\Poblacio;
 use App\Models\Contacte;
+use App\Models\Estada;
 
 class EmpresaController extends BaseController
 {
@@ -68,8 +69,9 @@ class EmpresaController extends BaseController
     $empresa = Empresa::find($id);
     $poblacio = Poblacio::find($empresa->poblacio_id);
     $contactes = Contacte::all()->where('empresa_id', '=', $empresa->id);
+    $estades = Estada::all()->where('empresa_id', '=', $empresa->id);
 
-    return view('empresa.detail', ['empresa' => $empresa, "poblacio" => $poblacio, "contactes" => $contactes]);
+    return view('empresa.detail', ['empresa' => $empresa, "poblacio" => $poblacio, "contactes" => $contactes, "estades" => $estades]);
   }
 
   function edit(Request $request, $id)

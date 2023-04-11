@@ -15,12 +15,9 @@
     <div>
         <div class="labels">
             <div class="infoEmpresa">
-                <div id="info">
-                    Info empresa
-                </div>
-                <div class="filtro">
-                    
-                    <button class="filtrar">Editar Informacio</button>
+                <div class="list-header">
+                    <div id="info">Info empresa</div>
+                    <div class="filtro"><button class="filtrar">Editar Informacio</button></div>
                 </div>
                 <table class="table table-striped table-dark">
                     <tr>
@@ -46,9 +43,9 @@
                 </table>
             </div>
             <div class="contactes">
-                <div id="contactes">Contactes</div>
-                <div class="filtro">
-                    <button class="filtrar">Crear Contacte</button>
+                <div class="list-header">
+                    <div id="contactes">Contactes</div>
+                    <div class="filtro"><button class="filtrar">Crear Contacte</button></div>
                 </div>
                 <table id="contactes-table" class="table table-striped table-dark">
                     <thead>
@@ -56,6 +53,7 @@
                             <th scope="col">Nom</th>
                             <th scope="col">Correu Electronic</th>
                             <th scope="col">Telefon</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody id="contactes-info">
@@ -72,50 +70,39 @@
         </div>
     </div>
         <div class="estades">
-            <div id="estades">Estades</div>
-            <div class="filtro">
-                <button class="filtrar">Crear Estada</button>
+            <div class="list-header">
+                <div id="estades">Estades</div>
+                <div class="filtro"><button class="filtrar">Crear Estada</button></div>
             </div>
-            <table class="table table-striped table-dark">
+            <table id="estades-table" class="table table-striped table-dark">
                 <thead>
                     <tr>
-                        <th scope="col">Empresa</th>
                         <th scope="col">Alumne</th>
                         <th scope="col">Cicle</th>
-                        <th scope="col">Valoracio</th>
+                        <th scope="col">Curs</th>
                         <th scope="col">Tipus estada</th>
+                        <th scope="col">Valoracio</th>
                         <th scope="col">Tutor</th>
-                        <th scope="col">Comentaris</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="estades-info">
+                @foreach($estades as $estada)
                     <tr>
-                        <th scope="row">Empresa 1</th>
-                        <td>Pedro Perez</td>
-                        <td>DAW</td>
-                        <td>4*</td>
-                        <td>FCT</td>
-                        <td>Fernando</td>
-                        <td>Solo presencial</td>
-                    </tr>                        
-                    <tr>
-                        <th scope="row">Empresa 1</th>
-                        <td>Juan Perez</td>
-                        <td>DAW</td>
-                        <td>5*</td>
-                        <td>DUAL</td>
-                        <td>Fernando</td>
-                        <td>Solo presencial</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Empresa 1</th>
-                        <td>Roberto Perez</td>
-                        <td>DAM</td>
-                        <td>4,3*</td>
-                        <td>FCT</td>
-                        <td>Fernando</td>
-                        <td>Solo presencial</td>
-                    </tr>
+                        <th>{{ $estada->student_name }}</th>
+                        <td>{{ $estada->cicle->shortname }}</td>
+                        <td>{{ $estada->curs->name }}</td>
+                        <td>
+                            @if ($estada->dual == true)
+                                Dual
+                            @else
+                                FTC
+                            @endif
+                        </td>
+                        <td>{{ $estada->evaluation }}</td>
+                        <td>{{ $estada->registered_by }}</td>
+                    </tr>   
+                @endforeach
                 </tbody>
             </table>
         </div>
