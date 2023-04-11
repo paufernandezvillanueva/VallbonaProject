@@ -10,7 +10,7 @@
     <h1>Editar Contacte</h1>
 <a href="{{ route('contacte_list') }}">&laquo; Torna</a>
 <div style="margin-top: 20px">
-    <form method="POST" action="{{ route('contacte_new') }}">
+<form method="POST" action="{{ route('contacte_edit', ['id' => $contacte->id]) }}">
         @csrf
         <div>
             <label for="name">Nom</label>

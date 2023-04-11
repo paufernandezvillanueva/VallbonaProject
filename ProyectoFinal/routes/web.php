@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CicleController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PoblacioController;
+use App\Http\Controllers\EstadaController;
 
 
 /*
@@ -42,13 +43,13 @@ Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user_d
 
 //// ESTADES
 
-Route::get('/estada/list', [UserController::class, 'list'])->name('estada_list');
+Route::get('/estada/list', [EstadaController::class, 'list'])->name('estada_list');
 
-Route::match(['get', 'post'], '/estada/edit/{id}', [UserController::class, 'edit'])->name('estada_edit');
+Route::match(['get', 'post'], '/estada/edit/{id}', [EstadaController::class, 'edit'])->name('estada_edit');
 
-Route::match(['get', 'post'], '/estada/new', [UserController::class, 'new'])->name('estada_new');
+Route::match(['get', 'post'], '/estada/new', [EstadaController::class, 'new'])->name('estada_new');
 
-Route::get('/estada/delete/{id}', [UserController::class, 'delete'])->name('estada_delete');
+Route::get('/estada/delete/{id}', [EstadaController::class, 'delete'])->name('estada_delete');
 
 //// CICLES
 Route::get('/cicles/list', [CicleController::class, 'list'])->name('cicle_list');

@@ -19,6 +19,7 @@
 <table style="margin-top: 20px;margin-bottom: 10px;">
     <thead>
         <tr>
+            <th>Nom Estudiant</th>
             <th>Cicle ID</th>
             <th>Empresa ID</th>
             <th>Evaluation</th>
@@ -31,6 +32,7 @@
     <tbody>
         @foreach ($estadas as $estada)
         <tr>
+            <td>{{ $estada->student_name }}</td>
             <td>{{ $estada->cicle_id }}</td>
             <td>{{ $estada->empresa_id }}</td>
             <td>{{ $estada->evaluation }}</td>

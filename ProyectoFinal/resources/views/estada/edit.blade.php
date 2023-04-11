@@ -10,8 +10,12 @@
     <h1>Editar Estada</h1>
 <a href="{{ route('estada_list') }}">&laquo; Torna</a>
 <div style="margin-top: 20px">
-    <form method="POST" action="{{ route('estada_new') }}">
+    <form method="POST" action="{{ route('estada_edit', ['id' => $estada->id]) }}">
         @csrf
+        <div>
+            <label for="student_name">Nom de l'estudiant</label>
+            <input type="text" name="student_name" value="{{ $estada->student_name }}"/>
+        </div>
         <div>
             <label for="cicle_id">Cicle ID</label>
             <input type="text" name="cicle_id" value="{{ $estada->cicle_id }}"/>

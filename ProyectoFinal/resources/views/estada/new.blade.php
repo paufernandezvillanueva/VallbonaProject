@@ -13,6 +13,10 @@
     <form method="POST" action="{{ route('estada_new') }}">
         @csrf
         <div>
+            <label for="student_name">Nom Estudiant</label>
+            <input type="text" name="student_name"/>
+        </div>
+        <div>
             <label for="cicle_id">Cicle ID</label>
             <input type="text" name="cicle_id"/>
         </div>
