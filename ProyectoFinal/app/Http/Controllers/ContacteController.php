@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+
+use App\Models\Contacte;
 
 class ContacteController extends Controller
 {
@@ -34,7 +40,7 @@ class ContacteController extends Controller
     function edit(Request $request, $id) 
     { 
         if ($request->isMethod('post')) {   
-            $contacte = new Contacte;
+            $contacte = Contacte::find($id);
             $contacte->name = $request->name;
             $contacte->empresa_id = $request->empresa_id;
             $contacte->email = $request->email;

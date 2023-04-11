@@ -4,8 +4,11 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DefaultController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CicleController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PoblacioController;
+use App\Http\Controllers\EstadaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +25,11 @@ use App\Http\Controllers\PoblacioController;
 //     return view('welcome');
 // });
 
-Route::get('/home', function (){
-    return view('default.home');
-});
+// Route::get('/home', function (){
+//     return view('default.home');
+// });
 
-Route::get('/', [DefaultController::class, 'home'])->name('home');
+// Route::get('/', [DefaultController::class, 'home'])->name('home');
 
 //// USERS
 
@@ -38,10 +41,29 @@ Route::match(['get', 'post'], '/user/new', [UserController::class, 'new'])->name
 
 Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user_delete');
 
+//// ESTADES
+
+Route::get('/estada/list', [EstadaController::class, 'list'])->name('estada_list');
+
+Route::match(['get', 'post'], '/estada/edit/{id}', [EstadaController::class, 'edit'])->name('estada_edit');
+
+Route::match(['get', 'post'], '/estada/new', [EstadaController::class, 'new'])->name('estada_new');
+
+Route::get('/estada/delete/{id}', [EstadaController::class, 'delete'])->name('estada_delete');
+
+//// CICLES
+Route::get('/cicles/list', [CicleController::class, 'list'])->name('cicle_list');
+
+Route::match(['get', 'post'], '/cicle/edit/{id}', [CicleController::class, 'edit'])->name('cicle_edit');
+
+Route::match(['get', 'post'], '/cicle/new', [CicleController::class, 'new'])->name('cicle_new');
+
+Route::get('/cicle/delete/{id}', [CicleController::class, 'delete'])->name('cicle_delete');
 
 //// EMPRESES
 
-Route::get('/empresa/list', [EmpresaController::class, 'list'])->name('empresa_list');
+Route::get('/', [EmpresaController::class, 'list'])->name('empresa_list');
+// Route::get('/empresa/list', [EmpresaController::class, 'list'])->name('empresa_list');
 
 Route::match(['get', 'post'], '/empresa/edit/{id}', [EmpresaController::class, 'edit'])->name('empresa_edit');
 
@@ -60,3 +82,4 @@ Route::match(['get', 'post'], '/poblacions/edit/{id}', [PoblacioController::clas
 Route::match(['get', 'post'], '/poblacions/new', [PoblacioController::class, 'new'])->name('poblacio_new');
 
 Route::get('/poblacions/delete/{id}', [PoblacioController::class, 'delete'])->name('poblacio_delete');
+
