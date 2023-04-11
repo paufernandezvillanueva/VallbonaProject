@@ -10,6 +10,11 @@ class Empresa extends Model
 {
     use HasFactory;
 
+    public function estada()
+    {
+        return $this->hasMany(Estada::class);
+    }
+    
     public function contacte()
     {
         return $this->hasMany(Contacte::class);
