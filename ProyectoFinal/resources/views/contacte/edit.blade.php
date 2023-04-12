@@ -17,8 +17,8 @@
             <input type="text" name="name" value="{{ $contacte->name }}"/>
         </div>
         <div>
-            <label for="empresa">Empresa</label>
-            <input type="text" name="empresa" value="{{ $contacte->empresa_id }}"/>
+            <label for="empresa_id">Empresa</label>
+            <input type="text" name="empresa_id" value="{{ $contacte->empresa_id }}"/>
         </div>
         <div>
             <label for="email">Email</label>

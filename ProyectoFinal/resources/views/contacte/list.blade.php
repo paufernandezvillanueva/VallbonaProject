@@ -7,8 +7,11 @@
 @endsection
 
 @section('content')
-<h1>Llistat de contactes</h1>
+<div class="titulo">
+    <h1>Llista de contactes</h1>
+</div>
 <a href="{{ route('contacte_new') }}">+ Nou contacte</a>
+<div style="margin-bottom:10px"></div>
 
 @if (session('status'))
 <div>
@@ -16,20 +19,21 @@
 </div>
 @endif
 
-<table style="margin-top: 20px;margin-bottom: 10px;">
+<table class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Nom</th>
-            <th>Empresa</th>
-            <th>Email</th>
-            <th>Telefon</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Empresa ID</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefon</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($contactes as $contacte)
         <tr>
-            <td>{{ $contacte->name }}</td>
-            <td>{{ $contacte->empresa->name }}</td>
+            <th scope="row">{{ $contacte->name }}</th>
+            <!-- <td>{{ $contacte->empresa->name }}</td> -->
+            <td>{{ $contacte->empresa_id }}</td>
             <td>{{ $contacte->email }}</td>
             <td>{{ $contacte->phonenumber }}</td>
             <td>
