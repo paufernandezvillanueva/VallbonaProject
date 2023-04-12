@@ -62,27 +62,23 @@ class EmpresaController extends BaseController
     }
 
     if (isset($request->minEstadas)) {
-      if (!isset($request->maxEstadas) || $request->maxEstadas != 0 && $request->maxEstadas > $request->minEstadas) {
+      if (!isset($request->maxEstadas) || $request->maxEstadas >= $request->minEstadas) {
         $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.id)'), '>=', $request->minEstadas);
       }
     }
 
     if (isset($request->maxEstadas)) {
-      if ($request->maxEstadas != 0) {
-            $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.id)'), '<=', $request->maxEstadas);
-      }
+      $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.id)'), '<=', $request->maxEstadas);
     }
 
     if (isset($request->minValoracio)) {
-      if (!isset($request->maxValoracio) || $request->maxValoracio != 0 && $request->maxValoracio > $request->minValoracio) {
+      if (!isset($request->maxValoracio) || $request->maxValoracio >= $request->minValoracio) {
         $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('avg(estadas.evaluation)'), '>=', $request->minValoracio);
       }
     }
 
     if (isset($request->maxValoracio)) {
-      if ($request->maxValoracio != 0) {
-            $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('avg(estadas.evaluation)'), '<=', $request->maxValoracio);
-      }
+      $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('avg(estadas.evaluation)'), '<=', $request->maxValoracio);
     }
 
     $empresas = $empresas->distinct("empresas.*")->get("empresas.*");

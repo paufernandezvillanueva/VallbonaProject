@@ -101,7 +101,7 @@
                             @endif
                         </td>
                         <td>{{ $estada->evaluation }}</td>
-                        <td>{{ $estada->registered_by }}</td>
+                        <td>{{ $estada->tutor() }}</td>
                     </tr>   
                 @endforeach
                 </tbody>
