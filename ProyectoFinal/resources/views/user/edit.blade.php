@@ -33,7 +33,7 @@
             <input type="number" name="rol_id" value="{{ $user->rol_id }}" />
         </div>
 
-            <button type="submit">Editar Llibre</button>
+            <button type="submit">Editar usuari</button>
         </form>
 	</div>
 @endsection
