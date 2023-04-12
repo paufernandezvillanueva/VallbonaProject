@@ -1,8 +1,8 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 200px; height: 100vh;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <a href="{{ asset('/') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
         <span class="fs-4">
-                    <img src=" {{asset ('/img/logo-vallbona.png')}}" alt="Vallbona" height="30px" >
+                    <img src=" {{ asset ('/img/logo-vallbona.png' )}}" alt="Vallbona" height="30px" >
                     CARLES VALLBONA</span>
     </a>
     <hr>
@@ -26,7 +26,7 @@
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+            <a href="{{ asset('/contacte/list') }}" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
                 Contactes
             </a>

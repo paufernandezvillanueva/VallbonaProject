@@ -10,5 +10,4 @@ class Curs extends Model
     use HasFactory;
     
     protected $table = 'cursos';
-
 }

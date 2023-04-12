@@ -15,7 +15,7 @@ class CicleController extends Controller
     function list()
     {
         $cicles = Cicle::all();
-        return view('cicles.list', ['cicles' => $cicles]);
+        return view('cicle.list', ['cicles' => $cicles]);
     }
     function new(Request $request)
     {
@@ -44,10 +44,10 @@ class CicleController extends Controller
             $cicle->name = $request->name;
             $cicle->save();
 
-            return redirect()->route('cicle_list')->with('status', 'Cicle'.$cicle->nom.' '.$cicle->shortname. ' modificat!');
+            return redirect()->route('cicle_list');
         }
         $cicles = Cicle::all();
-        return view('cicles.list', ['cicles' => $cicles]);
+        return view('cicle.edit', ['cicle' => $cicle]);
     }
     function delete($id){
         $cicle = Cicle::find($id);

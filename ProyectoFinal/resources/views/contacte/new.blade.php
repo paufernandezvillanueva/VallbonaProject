@@ -17,8 +17,8 @@
             <input type="text" name="name" />
         </div>
         <div>
-            <label for="empresa">Empresa</label>
-            <input type="text" name="email" />
+            <label for="empresa_id">Empresa</label>
+            <input type="text" name="empresa_id" />
         </div>
         <div>
             <label for="email">Email</label>
