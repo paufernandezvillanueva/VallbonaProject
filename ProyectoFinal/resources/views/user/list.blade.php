@@ -23,19 +23,19 @@
         <tr>
             <th scope="col">Nom</th>
             <th scope="col">Email</th>
-            <th scope="col">Cicle ID</th>
-            <th scope="col">Rol ID</th>
+            <th scope="col">Cicle</th>
+            <th scope="col">Rol</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
         @foreach ($users as $user)
         <tr>
             <th scope="row">{{ $user->nomCognoms() }}</th>
-            <!-- <td>{{ $user->firstname }}</td> -->
-            <!-- <td>{{ $user->lastname }}</td> -->
             <td>{{ $user->email }}</td>
-            <td>{{ $user->cicle_id }}</td>
-            <td>{{ $user->rol_id }}</td>
+            <td>{{ $user->cicle->shortname }}</td>
+            <td>{{ $user->rol->name }}</td>
             <td>
                 <a href="{{ route('user_delete', ['id' => $user->id]) }}">Eliminar</a>
             </td>

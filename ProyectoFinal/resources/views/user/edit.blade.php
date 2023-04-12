@@ -29,11 +29,19 @@
         </div>
         <div>
             <label for="cicle_id">Cicle</label>
-            <input type="number" name="cicle_id" value="{{ $user->cicle_id }}" />
+            <select name="cicle_id">
+                @foreach ($cicles as $cicle)
+                <option value="{{ $cicle->id }}" @selected($cicle->id == $user->cicle_id)>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                @endforeach
+            </select>
         </div>
         <div>
             <label for="rol_id">Rol</label>
-            <input type="number" name="rol_id" value="{{ $user->rol_id }}" />
+            <select name="rol_id">
+                @foreach ($rols as $rol)
+                <option value="{{ $rol->id }}" @selected($rol->id == $user->rol_id)>{{ $rol->name }}</option>
+                @endforeach
+            </select>
         </div>
             <button type="submit">Editar usuari</button>
         </form>
