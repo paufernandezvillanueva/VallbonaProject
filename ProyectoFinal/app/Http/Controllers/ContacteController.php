@@ -28,7 +28,7 @@ class ContacteController extends Controller
             $contacte->name = $request->name;
             $contacte->empresa_id = $request->empresa_id;
             $contacte->email = $request->email;
-            $contacte->telefon = $request->telefon;
+            $contacte->phonenumber = $request->phonenumber;
             $contacte->save();
 
             return redirect()->route('contacte_list');
@@ -44,7 +44,7 @@ class ContacteController extends Controller
             $contacte->name = $request->name;
             $contacte->empresa_id = $request->empresa_id;
             $contacte->email = $request->email;
-            $contacte->telefon = $request->telefon;
+            $contacte->phonenumber = $request->phonenumber;
             $contacte->save();
 
             return redirect()->route('contacte_list');

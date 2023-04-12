@@ -10,6 +10,8 @@ class Contacte extends Model
 {
     use HasFactory;
 
+    protected $table = 'contactos';
+
     public function empresa()
     {
         return $this->belongsTo(Empresa::class);
