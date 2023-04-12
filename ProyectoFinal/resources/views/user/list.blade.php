@@ -18,22 +18,21 @@
 </div>
 @endif
 
-
-<table style="margin-top: 20px;margin-bottom: 10px;">
+<table class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Email</th>
-            <th>Cicle ID</th>
-            <th>Rol ID</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Email</th>
+            <th scope="col">Cicle ID</th>
+            <th scope="col">Rol ID</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($users as $user)
         <tr>
-            <td>{{ $user->firstname }}</td>
-            <td>{{ $user->lastname }}</td>
+            <th scope="row">{{ $user->nomCognoms() }}</th>
+            <!-- <td>{{ $user->firstname }}</td> -->
+            <!-- <td>{{ $user->lastname }}</td> -->
             <td>{{ $user->email }}</td>
             <td>{{ $user->cicle_id }}</td>
             <td>{{ $user->rol_id }}</td>
