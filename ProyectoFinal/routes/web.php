@@ -10,6 +10,8 @@ use App\Http\Controllers\ContacteController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PoblacioController;
 use App\Http\Controllers\EstadaController;
+use App\Http\Controllers\RolController;
+
 
 
 /*
@@ -90,11 +92,21 @@ Route::get('/poblacions/delete/{id}', [PoblacioController::class, 'delete'])->na
 
 Route::get('/comarcas/list', [ComarcaController::class, 'list'])->name('comarca_list');
 
-Route::match(['get', 'post'], '/comarcas/edit/{id}', [ComarcaController::class, 'edit'])->name('comarca_edit');
+Route::match(['get', 'post'], '/comarca/edit/{id}', [ComarcaController::class, 'edit'])->name('comarca_edit');
 
-Route::match(['get', 'post'], '/comarcas/new', [ComarcaController::class, 'new'])->name('comarca_new');
+Route::match(['get', 'post'], '/comarca/new', [ComarcaController::class, 'new'])->name('comarca_new');
 
-Route::get('/comarcas/delete/{id}', [ComarcaController::class, 'delete'])->name('comarca_delete');
+Route::get('/comarca/delete/{id}', [ComarcaController::class, 'delete'])->name('comarca_delete');
+
+////ROL
+
+Route::get('/rols/list', [RolController::class, 'list'])->name('rol_list');
+
+Route::match(['get', 'post'], '/rol/edit/{id}', [RolController::class, 'edit'])->name('rol_edit');
+
+Route::match(['get', 'post'], '/rol/new', [RolController::class, 'new'])->name('rol_new');
+
+Route::get('/rol/delete/{id}', [RolController::class, 'delete'])->name('rol_delete');
 
 //// CONTACTES
 
@@ -105,3 +117,4 @@ Route::match(['get', 'post'], '/contacte/edit/{id}', [ContacteController::class,
 Route::match(['get', 'post'], '/contacte/new', [ContacteController::class, 'new'])->name('contacte_new');
 
 Route::get('/contacte/delete/{id}', [ContacteController::class, 'delete'])->name('contacte_delete');
+
