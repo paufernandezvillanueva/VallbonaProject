@@ -1,0 +1,25 @@
+#empresa-table thead th {
+    text-align: center;
+    padding: 0.5rem 0.5rem;
+}
+
+#empresa-table tbody th,
+#empresa-table tbody td {
+    text-align: center;
+    padding: 0;
+}
+
+#empresa-table tbody a,
+#empresa-table tbody span {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
+}
+
+#empresa-table tbody a:hover {
+    display: block;
+    color: white;
+    text-decoration: underline;
+    padding: 0.5rem 0.5rem;
+}

@@ -3,7 +3,8 @@
 @section('title', 'Llistat d\'empresas')
 
 @section('stylesheets')
-@parent
+    <link rel="stylesheet" href="{{ asset('css/empresaDetail.css') }}" />
+    @parent
 @endsection
 
 @section('content')
@@ -19,7 +20,7 @@
                     <div id="info">Info empresa</div>
                     <div class="filtro"><button class="filtrar">Editar Informacio</button></div>
                 </div>
-                <table class="table table-striped table-dark">
+                <table id="info-table" class="table table-striped table-dark">
                     <tr>
                         <th scope="row">CIF</th>
                         <td>{{ $empresa->cif }}</td>
