@@ -20,8 +20,10 @@ class UserController extends BaseController
   function list()
   {
     $users = User::all();
+    $cicles = Cicle::all();
+    $rols = Rol::all();
 
-    return view('user.list', ['users' => $users]);
+    return view('user.list', ['users' => $users, 'cicles' => $cicles, 'rols' => $rols]);
   }
 
   function edit(Request $request, $id)
