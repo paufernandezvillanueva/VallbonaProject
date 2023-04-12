@@ -20,9 +20,10 @@ class Estada extends Model
         return $this->belongsTo(Cicle::class);
     }
 
-    public function user()
+    public function tutor()
     {
-        return $this->belongsTo(User::class);
+        $user = $this->join('users', 'users.id', '=', 'estadas.registered_by')->distinct("users.id")->first("users.*");
+        return $user->firstname . " " . $user->lastname;
     }
 
     public function curs()

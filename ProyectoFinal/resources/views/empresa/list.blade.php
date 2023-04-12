@@ -43,7 +43,13 @@
                     <a href="#" onclick="this.parentNode.submit()">{{ $empresa->poblacio->name }}</a>
                 </form>
             </td>
-            <td><span>{{ $empresa->countEstades() }}</span></td>
+            <td>
+                <form action="{{ route('empresa_list') }}" method="GET">
+                    <input type="hidden" name="minEstadas" value="{{ $empresa->countEstades() }}" />
+                    <input type="hidden" name="maxEstadas" value="{{ $empresa->countEstades() }}" />
+                    <a href="#" onclick="this.parentNode.submit()">{{ $empresa->countEstades() }}</a>
+                </form>
+            </td>
             <td><span>{{ $empresa->avgValoracio() }}</span></td>
             <td><span>{{ $empresa->contactes() }}</span></td>
             <td>
