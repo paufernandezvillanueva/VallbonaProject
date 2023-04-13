@@ -10,7 +10,7 @@
 <div class="titulo">
     <h1>Llista d'usuaris</h1>
 </div>
-<a href="{{ route('user_new') }}">+ Nou user</a>
+
 
 @if (session('status'))
 <div>
@@ -19,7 +19,8 @@
 @endif
 
 
-<table style="margin-top: 20px;margin-bottom: 10px;">
+<div class="table-responsive" style=" height: 80vh; margin: auto ">
+    <table class="table table-striped table-dark " style="margin-top: 20px;margin-bottom: 10px; -webkit-overflow-scrolling: auto">
     <thead>
         <tr>
             <th>Firstname</th>
@@ -27,6 +28,7 @@
             <th>Email</th>
             <th>Cicle ID</th>
             <th>Rol ID</th>
+            <th><a href="{{ route('user_new') }}">Nou user</a></th>
         </tr>
     </thead>
     <tbody>
@@ -39,13 +41,12 @@
             <td>{{ $user->rol_id }}</td>
             <td>
                 <a href="{{ route('user_delete', ['id' => $user->id]) }}">Eliminar</a>
-            </td>
-            <td>
                 <a href="{{ route('user_edit', ['id' => $user->id]) }}">Editar</a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+</div>
 <br>
 @endsection

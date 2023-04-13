@@ -10,7 +10,6 @@
     <div class="titulo">
         <h1>Llista de cicles</h1>
     </div>
-    <a href="{{ route('cicle_new') }}">Nou cicle</a>
 
     @if (session('status'))
         <div>
@@ -19,12 +18,15 @@
     @endif
 
 
-<table style="margin-top: 20px;margin-bottom: 10px;">
+    <div class="table-responsive" style=" height: 80vh; margin: auto ">
+        <table class="table table-striped table-dark " style="margin-top: 20px;margin-bottom: 10px; -webkit-overflow-scrolling: auto">
     <thead>
         <tr>
             <th>Shortname</th>
             <th>Name</th>
-        </tr>
+            <th>
+                <a href="{{ route('cicle_new') }}">Nou cicle</a>
+            </tr>
     </thead>
     <tbody>
         @foreach ($cicles as $cicle)
@@ -38,6 +40,7 @@
         </tr>
         @endforeach
     </tbody>
-</table>
+        </table>
+    </div>
 <br>
 @endsection

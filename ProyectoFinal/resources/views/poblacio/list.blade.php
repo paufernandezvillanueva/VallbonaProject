@@ -7,19 +7,22 @@
 @endsection
 
 @section('content')
-    <h1>Llistat de poblacions</h1>
-    <a href="{{ route('poblacio_new') }}">+ Nova poblacio</a>
+
+    <div class="titulo">
+        <h1>Llistat de poblacions</h1>
+    </div>
 
     @if (session('status'))
         <div>
-            <strong>Success!</strong> {{ session('status') }}  
+            <strong>Success!</strong> {{ session('status') }}
         </div>
     @endif
-
-    <table style="margin-top: 20px;margin-bottom: 10px;">
+    <div class="table-responsive" style=" height: 80vh; margin: auto ">
+        <table class="table table-striped table-dark " style="margin-top: 20px;margin-bottom: 10px; -webkit-overflow-scrolling: auto">
         <thead>
             <tr>
                 <th>Nom</th>
+                <th>Comarca</th>
             </tr>
         </thead>
         <tbody>
@@ -27,14 +30,10 @@
                 <tr>
                     <td>{{ $poblacio->name }}</td>
                     <td>{{ $poblacio->comarca->name }}</td>
-                    <td>
-                        <a href="{{ route('poblacio_edit', ['id' => $poblacio->id]) }}">Editar</a>
-                        <a href="{{ route('poblacio_delete', ['id' => $poblacio->id]) }}" name="{{ $poblacio->name }}" class="delete">Eliminar</a>
-                    </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
+    </div>
     <br>
 @endsection

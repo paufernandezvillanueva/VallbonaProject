@@ -10,7 +10,7 @@
 <div class="titulo">
     <h1>Llista de contactes</h1>
 </div>
-<a href="{{ route('contacte_new') }}">+ Nou contacte</a>
+
 <div style="margin-bottom:10px"></div>
 
 @if (session('status'))
@@ -18,14 +18,15 @@
     <strong>Success!</strong> {{ session('status') }}
 </div>
 @endif
-
-<table class="table table-striped table-dark">
+<div class="table-responsive" style=" height: 80vh; margin: auto ">
+    <table class="table table-striped table-dark " style="margin-top: 20px;margin-bottom: 10px; -webkit-overflow-scrolling: auto">
     <thead>
         <tr>
             <th scope="col">Nom</th>
             <th scope="col">Empresa ID</th>
             <th scope="col">Email</th>
             <th scope="col">Telefon</th>
+            <th><a href="{{ route('contacte_new') }}">Nou contacte</a></th>
         </tr>
     </thead>
     <tbody>
@@ -38,13 +39,12 @@
             <td>{{ $contacte->phonenumber }}</td>
             <td>
                 <a href="{{ route('contacte_delete', ['id' => $contacte->id]) }}">Eliminar</a>
-            </td>
-            <td>
                 <a href="{{ route('contacte_edit', ['id' => $contacte->id]) }}">Editar</a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+</div>
 <br>
 @endsection
