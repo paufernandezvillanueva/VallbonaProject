@@ -119,6 +119,8 @@ Route::match(['get', 'post'], '/contacte/new', [ContacteController::class, 'new'
 
 Route::get('/contacte/delete/{id}', [ContacteController::class, 'delete'])->name('contacte_delete');
 
+Route::match(['get', 'post'], '/contacte/detail/{id}', [ContacteController::class, 'detail'])->name('contacte_detail');
+
 //// CURSOS
 
 Route::get('/cursos/list', [CursController::class, 'list'])->name('curs_list');
@@ -128,4 +130,3 @@ Route::match(['get', 'post'], '/curs/edit/{id}', [CursController::class, 'edit']
 Route::match(['get', 'post'], '/curs/new', [CursController::class, 'new'])->name('curs_new');
 
 Route::get('/curs/delete/{id}', [CursController::class, 'delete'])->name('curs_delete');
-

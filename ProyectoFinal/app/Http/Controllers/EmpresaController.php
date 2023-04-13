@@ -8,6 +8,8 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Empresa;
 use App\Models\Poblacio;
 use App\Models\Contacte;
@@ -59,7 +61,31 @@ class EmpresaController extends BaseController
       }
     }
 
-    $empresas = $empresas->get("empresas.*");
+    if (isset($request->minEstadas)) {
+      if (!isset($request->maxEstadas) || $request->maxEstadas >= $request->minEstadas) {
+        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.id)'), '>=', $request->minEstadas);
+      }
+    }
+
+    if (isset($request->maxEstadas)) {
+      $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.id)'), '<=', $request->maxEstadas);
+    }
+
+    if (isset($request->minValoracio)) {
+      if (!isset($request->maxValoracio) || $request->maxValoracio >= $request->minValoracio && $request->maxValoracio != "Ninguna") {
+        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('avg(estadas.evaluation)'), '>=', $request->minValoracio);
+      }
+    }
+
+    if (isset($request->maxValoracio)) {
+      if ($request->maxValoracio != "Ninguna") {
+        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('round(avg(estadas.evaluation), 1)'), '<=', $request->maxValoracio);
+      } else {
+        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.evaluation)'), '=', 0);
+      }
+    }
+
+    $empresas = $empresas->distinct("empresas.*")->get("empresas.*");
 
     return view('empresa.list', ['empresas' => $empresas]);
   }
