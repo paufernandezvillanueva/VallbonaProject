@@ -72,13 +72,17 @@ class EmpresaController extends BaseController
     }
 
     if (isset($request->minValoracio)) {
-      if (!isset($request->maxValoracio) || $request->maxValoracio >= $request->minValoracio) {
+      if (!isset($request->maxValoracio) || $request->maxValoracio >= $request->minValoracio && $request->maxValoracio != "Ninguna") {
         $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('avg(estadas.evaluation)'), '>=', $request->minValoracio);
       }
     }
 
     if (isset($request->maxValoracio)) {
-      $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('avg(estadas.evaluation)'), '<=', $request->maxValoracio);
+      if ($request->maxValoracio != "Ninguna") {
+        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('round(avg(estadas.evaluation), 1)'), '<=', $request->maxValoracio);
+      } else {
+        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.evaluation)'), '=', 0);
+      }
     }
 
     $empresas = $empresas->distinct("empresas.*")->get("empresas.*");

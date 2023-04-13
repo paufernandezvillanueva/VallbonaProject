@@ -58,7 +58,10 @@
                     <a href="#" onclick="this.parentNode.submit()">{{ $empresa->avgValoracio() }}</a>
                 </form>
                 @else
-                    <span>{{ $empresa->avgValoracio() }}</span>
+                <form action="{{ route('empresa_list') }}" method="GET">
+                    <input type="hidden" name="maxValoracio" value="{{ $empresa->avgValoracio() }}" />
+                    <a href="#" onclick="this.parentNode.submit()">{{ $empresa->avgValoracio() }}</a>
+                </form>
                 @endif
             </td>
             <td><span>{{ $empresa->contactes() }}</span></td>

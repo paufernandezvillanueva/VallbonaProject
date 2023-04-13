@@ -6,3 +6,7 @@ h1{
     color: white;
 }
 
+.titulo h1 {
+    margin: 0;
+}
+
