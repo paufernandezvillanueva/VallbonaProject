@@ -56,6 +56,8 @@ Route::match(['get', 'post'], '/estada/new', [EstadaController::class, 'new'])->
 
 Route::get('/estada/delete/{id}', [EstadaController::class, 'delete'])->name('estada_delete');
 
+Route::match(['get', 'post'], '/estada/detail/{id}', [EstadaController::class, 'detail'])->name('estada_detail');
+
 //// CICLES
 
 Route::get('/cicles/list', [CicleController::class, 'list'])->name('cicle_list');

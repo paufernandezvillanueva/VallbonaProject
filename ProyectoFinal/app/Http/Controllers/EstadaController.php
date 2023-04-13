@@ -9,6 +9,10 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
 use App\Models\Estada;
+use App\Models\Cicle;
+use App\Models\Empresa;
+use App\Models\Curs;
+use App\Models\User;
 
 class EstadaController extends Controller
 {
@@ -19,6 +23,16 @@ class EstadaController extends Controller
         $estadas = Estada::all();
 
         return view('estada.list', ['estadas' => $estadas]);
+    }
+
+    function detail(Request $request, $id)
+    {
+        $estada = Estada::find($id);
+        $cicle = Cicle::find($estada->cicle_id);
+        $empresa = Empresa::find($estada->empresa_id);
+        $curs = Curs::find($estada->curs_id);
+
+        return view('estada.detail', ['estada' => $estada, 'cicle' => $cicle, 'empresa' => $empresa, 'curs' => $curs]);
     }
     
     function new(Request $request) 
