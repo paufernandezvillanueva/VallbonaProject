@@ -1,10 +1,23 @@
 <style>
-    form > .row {
+    .modal-body>.row {
         margin-top: 5px;
+        margin-left: 10px;
     }
+
     label {
-        float: right;
         color: black;
+    }
+
+    @media screen and (max-width: 575px) {
+        label {
+            float: left;
+        }
+    }
+
+    @media screen and (min-width: 576px) {
+        label {
+            float: right;
+        }
     }
 </style>
 @extends('layout')
@@ -19,20 +32,19 @@
 <div class="titulo">
     <h1>Llista d'usuaris</h1>
 </div>
-<a href="{{ route('user_new') }}">+ Nou user</a>
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nouUsuari">
     Abrir modal
 </button>
 
 <div class="modal fade" id="nouUsuari" tabindex="-1" aria-labelledby="nouUsuariLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="nouUsuariLabel">Título del modal</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form method="POST" action="{{ route('user_new') }}">
+            <form method="POST" action="{{ route('user_new') }}">
+                <div class="modal-body">
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -82,16 +94,12 @@
                             </select>
                         </div>
                     </div>
-                    <div>
-
-
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-primary">Crear User</button>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Crear User</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
