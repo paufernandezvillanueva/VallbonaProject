@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="titulo">
-    <h1>Llista d'empreses</h1>
+    <h1>{{ $empresa->name }}</h1>
 </div>
 <!-- <a href="{{ route('empresa_new') }}">+ Nova empresa</a> -->
 <div class="containerEmpresa">
