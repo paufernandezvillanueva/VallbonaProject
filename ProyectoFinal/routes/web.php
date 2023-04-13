@@ -118,3 +118,5 @@ Route::match(['get', 'post'], '/contacte/new', [ContacteController::class, 'new'
 
 Route::get('/contacte/delete/{id}', [ContacteController::class, 'delete'])->name('contacte_delete');
 
+Route::match(['get', 'post'], '/contacte/detail/{id}', [ContacteController::class, 'detail'])->name('contacte_detail');
+

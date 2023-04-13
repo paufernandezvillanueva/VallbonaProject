@@ -51,18 +51,18 @@
                 <table id="contactes-table" class="table table-striped table-dark">
                     <thead>
                         <tr>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Correu Electronic</th>
-                            <th scope="col">Telefon</th>
+                            <th scope="col"><span>Nom</span></th>
+                            <th scope="col"><span>Correu Electronic</span></th>
+                            <th scope="col"><span>Telefon</span></th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody id="contactes-info">
                     @foreach($contactes as $contacte)
                         <tr>
-                            <th scope="row">{{ $contacte->name }}</th>
-                            <td>{{ $contacte->email }}</td>
-                            <td>{{ $contacte->phonenumber }}</td>
+                            <th scope="row"><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->name }}</a></th>
+                            <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->email }}</a></td>
+                            <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->phonenumber }}</a></td>
                         </tr> 
                     @endforeach
                     </tbody>
