@@ -50,7 +50,17 @@
                     <a href="#" onclick="this.parentNode.submit()">{{ $empresa->countEstades() }}</a>
                 </form>
             </td>
-            <td><span>{{ $empresa->avgValoracio() }}</span></td>
+            <td>
+                @if ($empresa->avgValoracio() != "Ninguna")
+                <form action="{{ route('empresa_list') }}" method="GET">
+                    <input type="hidden" name="minValoracio" value="{{ $empresa->avgValoracio() }}" />
+                    <input type="hidden" name="maxValoracio" value="{{ $empresa->avgValoracio() }}" />
+                    <a href="#" onclick="this.parentNode.submit()">{{ $empresa->avgValoracio() }}</a>
+                </form>
+                @else
+                    <span>{{ $empresa->avgValoracio() }}</span>
+                @endif
+            </td>
             <td><span>{{ $empresa->contactes() }}</span></td>
             <td>
                 <a href="{{ route('empresa_edit', ['id' => $empresa->id]) }}">Editar</a>
@@ -60,22 +70,6 @@
             </td>
         </tr>
         @endforeach
-
-        <!-- @foreach ($empresas as $empresa)
-        <tr>
-            <td>{{ $empresa->cif }}</td>
-            <td>{{ $empresa->name }}</td>
-            <td>{{ $empresa->sector }}</td>
-            <td>{{ $empresa->comarca_id }}</td>
-            <td>{{ $empresa->poblacio_id }}</td>
-            <td>
-                <a href="{{ route('empresa_delete', ['id' => $empresa->id]) }}">Eliminar</a>
-            </td>
-            <td>
-                <a href="{{ route('empresa_edit', ['id' => $empresa->id]) }}">Editar</a>
-            </td>
-        </tr>
-        @endforeach -->
     </tbody>
 </table>
 
