@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
 use App\Models\Contacte;
+use App\Models\Empresa;
 
 class ContacteController extends Controller
 {
@@ -19,6 +20,14 @@ class ContacteController extends Controller
         $contactes = Contacte::all();
 
         return view('contacte.list', ['contactes' => $contactes]);
+    }
+
+    function detail(Request $request, $id)
+    {
+        $contacte = Contacte::find($id);
+        $empresa = Empresa::where("id", "=", $contacte->empresa_id)->first("name");
+
+        return view('contacte.detail', ['contacte' => $contacte, 'empresa' => $empresa]);
     }
     
     function new(Request $request) 
