@@ -11,6 +11,7 @@ use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PoblacioController;
 use App\Http\Controllers\EstadaController;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\CursController;
 
 
 
@@ -120,3 +121,12 @@ Route::get('/contacte/delete/{id}', [ContacteController::class, 'delete'])->name
 
 Route::match(['get', 'post'], '/contacte/detail/{id}', [ContacteController::class, 'detail'])->name('contacte_detail');
 
+//// CURSOS
+
+Route::get('/cursos/list', [CursController::class, 'list'])->name('curs_list');
+
+Route::match(['get', 'post'], '/curs/edit/{id}', [CursController::class, 'edit'])->name('curs_edit');
+
+Route::match(['get', 'post'], '/curs/new', [CursController::class, 'new'])->name('curs_new');
+
+Route::get('/curs/delete/{id}', [CursController::class, 'delete'])->name('curs_delete');

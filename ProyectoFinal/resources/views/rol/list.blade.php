@@ -18,8 +18,8 @@
         </div>
     @endif
 
-    <div class="table-responsive" style=" height: 83vh; width: 60vh; margin: auto ">
-        <table class="table table-striped table-dark " style="margin-top: 20px;margin-bottom: 10px; overflow-y:scroll;">
+    <div class="table-responsive" style=" height: 80vh; width: 60vh; margin: auto ">
+        <table class="table table-striped table-dark " style="margin-top: 20px;margin-bottom: 10px; -webkit-overflow-scrolling: auto">
         <thead>
         <tr>
             <th>Name</th>

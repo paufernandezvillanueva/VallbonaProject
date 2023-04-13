@@ -147,5 +147,6 @@
         @endforeach
     </tbody>
 </table>
+</div>
 <br>
 @endsection

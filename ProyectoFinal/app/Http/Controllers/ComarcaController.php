@@ -35,7 +35,7 @@ class ComarcaController extends Controller
         return view('comarca.new', ['comarcas' => $comarcas]);
     }
 
-    function edit(Request $request, $id)
+    /**  function edit(Request $request, $id)
     {
         $comarca = Comarca::find($id);
         if ($request->isMethod('post')){
@@ -53,4 +53,5 @@ class ComarcaController extends Controller
         $comarca->delete();
         return redirect()->route('comarca_list')->with('status', 'Comarca'.$comarca->nom.' eliminada!');
     }
+     * */
 }

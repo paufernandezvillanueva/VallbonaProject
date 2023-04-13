@@ -67,8 +67,6 @@
             <td><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->contactes() }}</a></td>
             <td>
                 <a href="{{ route('empresa_edit', ['id' => $empresa->id]) }}">Editar</a>
-            </td>
-            <td>
                 <a href="{{ route('empresa_delete', ['id' => $empresa->id]) }}">Eliminar</a>
             </td>
         </tr>

@@ -7,16 +7,18 @@
 @endsection
 
 @section('content')
-<h1>Llistat de estadas</h1>
-<a href="{{ route('estada_new') }}">+ Nova estada</a>
+    <div class="titulo">
+        <h1>Llistat de estadas</h1>
+    </div>
 
-@if (session('status'))
-<div>
-    <strong>Success!</strong> {{ session('status') }}
-</div>
-@endif
+    @if (session('status'))
+        <div>
+            <strong>Success!</strong> {{ session('status') }}
+        </div>
+    @endif
 
-<table style="margin-top: 20px;margin-bottom: 10px;">
+    <div class="table-responsive" style=" height: 80vh; margin: auto ">
+        <table class="table table-striped table-dark " style="margin-top: 20px;margin-bottom: 10px; -webkit-overflow-scrolling: auto">
     <thead>
         <tr>
             <th>Nom Estudiant</th>
@@ -27,6 +29,7 @@
             <th>Dual?</th>
             <th>Registrado por</th>
             <th>Curs ID</th>
+            <th> <a href="{{ route('estada_new') }}">Nova estada</a></th>
         </tr>
     </thead>
     <tbody>
@@ -42,8 +45,6 @@
             <td>{{ $estada->curs_id }}</td>
             <td>
                 <a href="{{ route('estada_delete', ['id' => $estada->id]) }}">Eliminar</a>
-            </td>
-            <td>
                 <a href="{{ route('estada_edit', ['id' => $estada->id]) }}">Editar</a>
             </td>
         </tr>
@@ -51,5 +52,6 @@
     </tbody>
 </table>
 
-<br>
+    </div>
+    <br>
 @endsection
