@@ -113,9 +113,10 @@
     border-color: #373b3e;
 }
 #estades-table th,
-#estades-table tr {
+#estades-table td {
     overflow: hidden;
     text-overflow: ellipsis;
+    padding: 0;
 }
 #estades-table thead,
 #estades-table #estades-info tr {
@@ -132,6 +133,21 @@
 #estades-table thead th:nth-of-type(4),
 #estades-table tbody td:nth-of-type(3) {
     width: 129px;
+}
+#estades-table tbody tr th,
+#estades-table tbody tr td {
+    background-color: #212529;
+}
+#estades-table tbody tr:hover th,
+#estades-table tbody tr:hover td {
+    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.20);
+}
+#estades-table span,
+#estades-table a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
 }
 .infoEmpresa{
     width: 50%;
