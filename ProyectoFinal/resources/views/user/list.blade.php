@@ -19,6 +19,18 @@
             float: right;
         }
     }
+
+    #btnAfegirUsuari {
+        
+    }
+
+    #icon-basura {
+        font-size: larger;
+    }
+
+    #icon-basura:hover {
+        color: red;
+    }
 </style>
 @extends('layout')
 
@@ -32,9 +44,7 @@
 <div class="titulo">
     <h1>Llista d'usuaris</h1>
 </div>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nouUsuari">
-    Abrir modal
-</button>
+
 
 <div class="modal fade" id="nouUsuari" tabindex="-1" aria-labelledby="nouUsuariLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -97,7 +107,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Crear User</button>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>
         </div>
@@ -117,8 +127,9 @@
             <th scope="col">Email</th>
             <th scope="col">Cicle</th>
             <th scope="col">Rol</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col">
+                <a href="#" id="btnAfegirUsuari" data-bs-toggle="modal" data-bs-target="#nouUsuari">Afegir Usuari</a>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -129,9 +140,7 @@
             <td>{{ $user->cicle->shortname }}</td>
             <td>{{ $user->rol->name }}</td>
             <td>
-                <a href="{{ route('user_delete', ['id' => $user->id]) }}">Eliminar</a>
-            </td>
-            <td>
+                <a href="{{ route('user_delete', ['id' => $user->id]) }}" id="icon-basura"><i class="bi bi-trash3-fill"></i></a>
                 <a href="{{ route('user_edit', ['id' => $user->id]) }}">Editar</a>
             </td>
         </tr>
