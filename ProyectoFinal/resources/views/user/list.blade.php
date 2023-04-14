@@ -1,34 +1,3 @@
-<style>
-    .modal-body>.row {
-        margin-top: 5px;
-        margin-left: 10px;
-    }
-
-    label {
-        color: black;
-    }
-
-    @media screen and (max-width: 575px) {
-        label {
-            float: left;
-        }
-    }
-
-    @media screen and (min-width: 576px) {
-        label {
-            float: right;
-        }
-    }
-
-    .iconBasura {
-        text-decoration: none;
-        font-size: larger;
-    }
-
-    .iconBasura:hover {
-        color: red;
-    }
-</style>
 @extends('layout')
 
 @section('title', 'Llistat de users')
@@ -148,7 +117,7 @@
 </table>
 
 <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="confirmDeleteLabel">Título del modal</h5>
@@ -166,7 +135,7 @@
                         });
                     </script>
                     @csrf
-                    <p style="color: red">Estàs segur de voler eliminar aquest usuari?</p>
+                    <p>Estàs segur de voler eliminar aquest usuari?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
