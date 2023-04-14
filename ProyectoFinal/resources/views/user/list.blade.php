@@ -20,15 +20,12 @@
         }
     }
 
-    #btnAfegirUsuari {
-        
-    }
-
-    #icon-basura {
+    .iconBasura {
+        text-decoration: none;
         font-size: larger;
     }
 
-    #icon-basura:hover {
+    .iconBasura:hover {
         color: red;
     }
 </style>
@@ -140,13 +137,43 @@
             <td>{{ $user->cicle->shortname }}</td>
             <td>{{ $user->rol->name }}</td>
             <td>
-                <a href="{{ route('user_delete', ['id' => $user->id]) }}" id="icon-basura"><i class="bi bi-trash3-fill"></i></a>
+                <a data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                    <i class="bi bi-trash3-fill"></i>
+                </a>
                 <a href="{{ route('user_edit', ['id' => $user->id]) }}">Editar</a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+
+<div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteLabel">Título del modal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="GET">
+                <div class="modal-body">
+                    <script>
+                        document.querySelectorAll('.iconBasura').forEach(elem => {
+                            elem.addEventListener('click', () => {
+                                var dataId = elem.dataset.id;
+                                var form = document.querySelector('#confirmDelete form');
+                                form.action = "delete/" + dataId;
+                            });
+                        });
+                    </script>
+                    @csrf
+                    <p style="color: red">Estàs segur de voler eliminar aquest usuari?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-<br>
 @endsection
