@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Curs;
 
@@ -16,45 +17,61 @@ class CursController extends Controller
 
     function list() 
     { 
-        $cursos = Curs::all();
+        if (Auth::user()->rol_id == 5076) {
+            $cursos = Curs::all();
 
-        return view('curs.list', ['cursos' => $cursos]);
+            return view('curs.list', ['cursos' => $cursos]);
+        } else {
+        return redirect('');
+        }
     }
     
     function new(Request $request) 
     {
-        if ($request->isMethod('post')) {   
-            $curs = new Curs;
-            $curs->name = $request->name;
-            $curs->save();
+        if (Auth::user()->rol_id == 5076) {
+            if ($request->isMethod('post')) {   
+                $curs = new Curs;
+                $curs->name = $request->name;
+                $curs->save();
 
-            return redirect()->route('curs_list');
+                return redirect()->route('curs_list');
+            }
+
+            return view('curs.new');
+        } else {
+        return redirect('');
         }
-
-        return view('curs.new');
     }
 
     function edit(Request $request, $id) 
     { 
-        if ($request->isMethod('post')) {   
+        if (Auth::user()->rol_id == 5076) {
+            if ($request->isMethod('post')) {   
+                $curs = Curs::find($id);
+                $curs->name = $request->name;
+                $curs->save();
+
+                return redirect()->route('curs_list');
+            }
+            // si no venim de fer submit al formulari, hem de mostrar el formulari
+
             $curs = Curs::find($id);
-            $curs->name = $request->name;
-            $curs->save();
 
-            return redirect()->route('curs_list');
+            return view('curs.edit', ['curs' => $curs]);
+        } else {
+        return redirect('');
         }
-        // si no venim de fer submit al formulari, hem de mostrar el formulari
-
-        $curs = Curs::find($id);
-
-        return view('curs.edit', ['curs' => $curs]);
     }
 
     function delete($id) 
     {
-        $curs = Curs::find($id);
-        $curs->delete();
+        if (Auth::user()->rol_id == 5076) {
+            $curs = Curs::find($id);
+            $curs->delete();
 
-        return redirect()->route('curs_list');
+            return redirect()->route('curs_list');
+        } else {
+        return redirect('');
+        }
     }
 }
