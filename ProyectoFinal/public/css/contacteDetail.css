@@ -35,6 +35,12 @@
 #info-table tbody tr th {
     width: 130px;
 }
+#info-table tbody th,
+#info-table tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 .filtro {
     text-align: right;
 }

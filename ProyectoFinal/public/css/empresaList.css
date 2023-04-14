@@ -13,6 +13,9 @@
     color: white;
     text-decoration: none;
     padding: 0.5rem 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 #empresa-table tbody td:nth-of-type(1) a,
 #empresa-table tbody td:nth-of-type(2) a,
