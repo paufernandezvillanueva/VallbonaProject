@@ -137,7 +137,7 @@
             <td>{{ $user->cicle->shortname }}</td>
             <td>{{ $user->rol->name }}</td>
             <td>
-                <a href="#" data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                <a data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
                 </a>
                 <a href="{{ route('user_edit', ['id' => $user->id]) }}">Editar</a>
@@ -154,30 +154,26 @@
                 <h5 class="modal-title" id="confirmDeleteLabel">Título del modal</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                @csrf
-                <script type="text/javascript">
-                    document.querySelectorAll('.iconBasura').forEach(elem => {
-                        elem.addEventListener('click', () => {
-                            var dataId = elem.dataset.id;
-                            var form = document.querySelector('#confirmDelete form');
-                            form.action = "{{ route('user_delete', ['id' => " + dataId + "]) }}";
-                            document.getElementById("hidden").innerHTML = dataId;
-                            // FER UNA PETICIO AJAX QUAN SE LI DONI A CONFIRMAR
+            <form method="GET">
+                <div class="modal-body">
+                    <script>
+                        document.querySelectorAll('.iconBasura').forEach(elem => {
+                            elem.addEventListener('click', () => {
+                                var dataId = elem.dataset.id;
+                                var form = document.querySelector('#confirmDelete form');
+                                form.action = "delete/" + dataId;
+                            });
                         });
-                    });
-                </script>
-                <p style="color: red">Estàs segur de voler eliminar aquest usuari?</p>
-                <p style="color: red" id="hidden"></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-success">Confirmar</button>
-            </div>
+                    </script>
+                    @csrf
+                    <p style="color: red">Estàs segur de voler eliminar aquest usuari?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 @endsection
-
-{{--<form method="DELETE" action="{{ route('user_delete', ['id' => $user->id]) }}"> --}}
-{{-- </form> --}}
