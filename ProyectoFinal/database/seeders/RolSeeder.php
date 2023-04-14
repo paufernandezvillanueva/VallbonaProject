@@ -15,7 +15,11 @@ class RolSeeder extends Seeder
     {
         //
         DB::table('rols')->insert([
-            'name' => "admin",
+            'name' => "Standard",
+        ]);
+        DB::table('rols')->insert([
+            'id' => 5076,
+            'name' => "Admin",
         ]);
     }
 }
