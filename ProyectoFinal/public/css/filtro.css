@@ -1,76 +1,72 @@
-.selectCheck{
+.selectCheck {
     display: flex;
 }
 
 .multiselect {
     width: 220px;
     margin-right: 20px;
-  }
-  
-  .selectBox {
+}
+
+.selectBox {
     position: relative;
-  }
-  
-  .selectBox select {
+}
+
+.selectBox select {
     width: 100%;
     font-weight: bold;
-  }
-  
-  .overSelect {
+}
+
+.overSelect {
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-  }
-  
-  #checkboxes {
+}
+
+#checkboxes {
     display: none;
     border: 1px #dadada solid;
     height: 75px;
     overflow: hidden;
     overflow-y: scroll;
-  }
-  
-  #checkboxes label {
-    display: block;
-  }
-  
-  #checkboxes label:hover {
-    background-color: #1e90ff;
-  }
+}
 
-  #checkboxesSector {
+#checkboxes label {
+    display: block;
+}
+
+#checkboxes label:hover {
+    background-color: #1e90ff;
+}
+
+#checkboxesSector {
     display: none;
     border: 1px #dadada solid;
     height: 75px;
     overflow: hidden;
     overflow-y: scroll;
-  }
-  
-  #checkboxesSector label {
+}
+
+#checkboxesSector label {
     display: block;
-  }
-  
-  #checkboxesSector label:hover {
+}
+
+#checkboxesSector label:hover {
     background-color: #1e90ff;
-  }
-  #checkboxesPoblacio {
+}
+#checkboxesPoblacio {
     display: none;
     border: 1px #dadada solid;
     height: 75px;
     overflow: hidden;
     overflow-y: scroll;
-  }
-  
-  #checkboxesPoblacio label {
+}
+
+#checkboxesPoblacio label {
     display: block;
+}
 
-  }
-  
-  #checkboxesPoblacio label:hover {
+#checkboxesPoblacio label:hover {
     background-color: #1e90ff;
-  }
-
-
-  
+}
