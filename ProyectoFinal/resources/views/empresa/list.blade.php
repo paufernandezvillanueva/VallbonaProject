@@ -22,7 +22,7 @@
             <th scope="col">Estades</th>
             <th scope="col">Valoracio</th>
             <th scope="col">Contactes</th>
-            <th scope="col"><a href="">Afegir usuari</a></th>
+            <th scope="col"><a class="iconAdd" href=""><i class="bi bi-file-earmark-plus"></i></a></th>
         </tr>
     </thead>
     <tbody>

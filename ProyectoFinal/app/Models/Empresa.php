@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Empresa extends Model
 {
     use HasFactory;
-
+    
     public function poblacio()
     {
         return $this->belongsTo(Poblacio::class);
@@ -46,15 +46,5 @@ class Empresa extends Model
             $count--;
             return $firstContact->name . ": " . $firstContact->phonenumber . ", ...(" . $count . ")";
         }
-    }
-    
-    public function estada()
-    {
-        return $this->hasMany(Estada::class);
-    }
-    
-    public function contacte()
-    {
-        return $this->hasMany(Contacte::class);
     }
 }

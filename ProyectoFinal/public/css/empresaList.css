@@ -1,12 +1,14 @@
-/* #empresa-table thead th {
+#empresa-table thead th {
     text-align: center;
     padding: 0.5rem 0.5rem;
 }
+
 #empresa-table tbody th,
 #empresa-table tbody td {
     text-align: center;
     padding: 0;
 }
+
 #empresa-table tbody a,
 #empresa-table tbody span {
     display: block;
@@ -17,25 +19,34 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 #empresa-table tbody td:nth-of-type(1) a,
 #empresa-table tbody td:nth-of-type(2) a,
 #empresa-table tbody td:nth-of-type(7) a {
     text-decoration: none;
 }
+
 #empresa-table tbody a:hover {
     display: block;
-    color: white;
-    text-decoration: underline;
+    color: rgb(0, 132, 255);
     padding: 0.5rem 0.5rem;
 }
+
+#empresa-table tbody td:nth-of-type(1) a:hover,
+#empresa-table tbody td:nth-of-type(2) a:hover,
+#empresa-table tbody td:nth-of-type(7) a:hover {
+    color: white;
+}
+
 #empresa-table tbody tr th,
 #empresa-table tbody tr td {
     background-color: #212529;
 }
+
 #empresa-table tbody tr:hover th,
 #empresa-table tbody tr:hover td {
     box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
-} */
+} 
 
 table {
     text-align: center;
@@ -55,10 +66,6 @@ td a:hover {
     margin-left: 10px;
 }
 
-label, p {
-    color: black;
-}
-
 @media screen and (max-width: 575px) {
     label {
         float: left;
@@ -71,12 +78,29 @@ label, p {
     }
 }
 
+#empresa-table tbody .iconBasura {
+    text-decoration: none;
+}
+
+#empresa-table tbody .iconBasura:hover {
+    cursor: pointer;
+    color: red;
+}
+
 .iconBasura {
     text-decoration: none;
-    font-size: larger;
 }
 
 .iconBasura:hover {
     cursor: pointer;
     color: red;
+}
+
+.iconAdd {
+    color: white;
+    text-decoration: none;
+}
+
+.iconAdd:hover {
+    color: rgb(0, 132, 255);
 }
