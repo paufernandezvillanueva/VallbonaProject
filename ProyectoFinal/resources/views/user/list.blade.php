@@ -16,7 +16,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="nouUsuariLabel">Título del modal</h5>
+              <h5 class="modal-title" id="nouUsuariLabel">Afegir Usuari</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="{{ route('user_new') }}">
@@ -120,7 +120,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="confirmDeleteLabel">Título del modal</h5>
+                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar Usuario</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="GET">
