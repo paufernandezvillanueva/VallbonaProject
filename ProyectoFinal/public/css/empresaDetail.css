@@ -205,3 +205,6 @@
     padding: 0 10px;
     background-color: white;
 }
+.col-form-label {
+    white-space: nowrap;
+}
