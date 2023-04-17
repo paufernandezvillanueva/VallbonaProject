@@ -77,6 +77,9 @@
     color: white;
     text-decoration: none;
     padding: 0.5rem 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .list-header {
     padding-bottom: 10px;
@@ -125,6 +128,7 @@
     table-layout: fixed;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 #estades-table thead th:nth-of-type(1),
 #estades-table tbody th {
@@ -148,6 +152,9 @@
     color: white;
     text-decoration: none;
     padding: 0.5rem 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .infoEmpresa{
     width: 50%;
@@ -171,11 +178,15 @@
 #info-table tbody tr th {
     width: 130px;
 }
-
+#info-table tbody th,
+#info-table tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 .filtro {
     text-align: right;
 }
-
 .filtrar {
     border-radius: 20px;
     font-size: 13px;
@@ -185,7 +196,6 @@
     padding: 0 10px;
     background-color: #e0e0e0;
 }
-
 .filtrar:hover {
     border-radius: 20px;
     font-size: 13px;
@@ -194,4 +204,10 @@
     height: 25px;
     padding: 0 10px;
     background-color: white;
+}
+.col-form-label {
+    white-space: nowrap;
+}
+label, p {
+    color: black;
 }

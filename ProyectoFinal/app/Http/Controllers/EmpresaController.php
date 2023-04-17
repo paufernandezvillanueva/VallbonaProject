@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\DB;
 
@@ -14,6 +15,9 @@ use App\Models\Empresa;
 use App\Models\Poblacio;
 use App\Models\Contacte;
 use App\Models\Estada;
+use App\Models\User;
+use App\Models\Curs;
+use App\Models\Cicle;
 
 class EmpresaController extends BaseController
 {
@@ -86,8 +90,9 @@ class EmpresaController extends BaseController
     }
 
     $empresas = $empresas->distinct("empresas.*")->get("empresas.*");
-
+    
     return view('empresa.list', ['empresas' => $empresas]);
+
   }
 
   function detail(Request $request, $id)
@@ -96,8 +101,12 @@ class EmpresaController extends BaseController
     $poblacio = Poblacio::find($empresa->poblacio_id);
     $contactes = Contacte::all()->where('empresa_id', '=', $empresa->id);
     $estades = Estada::all()->where('empresa_id', '=', $empresa->id);
+    $users = User::all();
+    $cursos = Curs::all();
+    $cicles = Cicle::all();
 
-    return view('empresa.detail', ['empresa' => $empresa, "poblacio" => $poblacio, "contactes" => $contactes, "estades" => $estades]);
+    return view('empresa.detail', ['empresa' => $empresa, "poblacio" => $poblacio, "contactes" => $contactes, "estades" => $estades,
+    "users" => $users, "cursos" => $cursos, "cicles" => $cicles]);
   }
 
   function edit(Request $request, $id)

@@ -1,0 +1,43 @@
+table {
+    text-align: center;
+}
+
+td a {
+    text-decoration: none;
+    color: white;
+}
+
+td a:hover {
+    color: rgb(0, 132, 255);
+}
+
+.modal-body>.row {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+label, p {
+    color: black;
+}
+
+@media screen and (max-width: 575px) {
+    label {
+        float: left;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    label {
+        float: right;
+    }
+}
+
+.iconBasura {
+    text-decoration: none;
+    font-size: larger;
+}
+
+.iconBasura:hover {
+    cursor: pointer;
+    color: red;
+}

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 use App\Models\Cicle;
@@ -19,67 +20,83 @@ class UserController extends BaseController
 
   function list()
   {
-    $users = User::all();
-    $cicles = Cicle::all();
-    $rols = Rol::all();
+    if (Auth::user()->rol_id == 5076) {
+      $users = User::all();
+      $cicles = Cicle::all();
+      $rols = Rol::all();
 
-    return view('user.list', ['users' => $users, 'cicles' => $cicles, 'rols' => $rols]);
+      return view('user.list', ['users' => $users, 'cicles' => $cicles, 'rols' => $rols]);
+    } else {
+      return redirect('');
+    }
   }
 
   function edit(Request $request, $id)
   {
-    $user = User::find($id);
-    if ($request->isMethod('post')) {
-      // recollim els camps del formulari en un objecte user
+    if (Auth::user()->rol_id == 5076) {
+      $user = User::find($id);
+      if ($request->isMethod('post')) {
+        // recollim els camps del formulari en un objecte user
 
-      //$user = new User;
-      $user->firstname = $request->firstname;
-      $user->lastname = $request->lastname;
-      $user->email = $request->email;
-      $user->password = Hash::make($request->password);
-      $user->cicle_id = $request->cicle_id;
-      $user->rol_id = $request->rol_id;
-      $user->save();
+        //$user = new User;
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->cicle_id = $request->cicle_id;
+        $user->rol_id = $request->rol_id;
+        $user->save();
 
-      return redirect()->route('user_list');
+        return redirect()->route('user_list');
+      }
+      // si no venim de fer submit al formulari, hem de mostrar el formulari
+
+      $cicles = Cicle::all();
+      $rols = Rol::all();
+
+      return view('user.edit', ['cicles' => $cicles, 'rols' => $rols, 'user' => $user]);
+    } else {
+      return redirect('');
     }
-    // si no venim de fer submit al formulari, hem de mostrar el formulari
-
-    $cicles = Cicle::all();
-    $rols = Rol::all();
-
-    return view('user.edit', ['cicles' => $cicles, 'rols' => $rols, 'user' => $user]);
   }
 
   function new(Request $request)
   {
-    if ($request->isMethod('post')) {
-      // recollim els camps del formulari en un objecte user
+    if (Auth::user()->rol_id == 5076) {
+      if ($request->isMethod('post')) {
+        // recollim els camps del formulari en un objecte user
 
-      $user = new User;
-      $user->firstname = $request->firstname;
-      $user->lastname = $request->lastname;
-      $user->email = $request->email;
-      $user->password = Hash::make($request->password);
-      $user->cicle_id = $request->cicle_id;
-      $user->rol_id = $request->rol_id;
-      $user->save();
+        $user = new User;
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->cicle_id = $request->cicle_id;
+        $user->rol_id = $request->rol_id;
+        $user->save();
 
-      return redirect()->route('user_list');
+        return redirect()->route('user_list');
+      }
+      // si no venim de fer submit al formulari, hem de mostrar el formulari
+
+      $cicles = Cicle::all();
+      $rols = Rol::all();
+
+      return view('user.new', ['cicles' => $cicles, 'rols' => $rols]);
+    } else {
+      return redirect('');
     }
-    // si no venim de fer submit al formulari, hem de mostrar el formulari
-
-    $cicles = Cicle::all();
-    $rols = Rol::all();
-
-    return view('user.new', ['cicles' => $cicles, 'rols' => $rols]);
   }
 
   function delete($id)
   {
-    $user = User::find($id);
-    $user->delete();
+    if (Auth::user()->rol_id == 5076) {
+      $user = User::find($id);
+      $user->delete();
 
-    return redirect()->route('user_list');
+      return redirect()->route('user_list');
+    } else {
+      return redirect('');
+    }
   }
 }

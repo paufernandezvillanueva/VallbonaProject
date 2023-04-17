@@ -1,39 +1,10 @@
-<style>
-    .modal-body>.row {
-        margin-top: 5px;
-        margin-left: 10px;
-    }
-
-    @media screen and (max-width: 575px) {
-        label {
-            float: left;
-        }
-    }
-
-    @media screen and (min-width: 576px) {
-        label {
-            float: right;
-        }
-    }
-
-    #btnAfegirUsuari {
-
-    }
-
-    #icon-basura {
-        font-size: larger;
-    }
-
-    #icon-basura:hover {
-        color: red;
-    }
-</style>
 @extends('layout')
 
 @section('title', 'Llistat de users')
 
 @section('stylesheets')
 @parent
+<link rel="stylesheet" href="{{ asset('css/userList.css') }}" />
 @endsection
 
 @section('content')
@@ -41,12 +12,11 @@
     <h1>Llista d'usuaris</h1>
 </div>
 
-
 <div class="modal fade" id="nouUsuari" tabindex="-1" aria-labelledby="nouUsuariLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header d-flex justify-content-center align-items-center">
-                <h5 class="modal-title" style="width: 100%; text-align: center;" id="nouUsuariLabel">Afegir Usuari</h5>
+            <div class="modal-header">
+                <h5 class="modal-title" id="nouUsuariLabel">Afegir usuari</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="{{ route('user_new') }}">
@@ -116,7 +86,7 @@
 </div>
 @endif
 
-<table class="table table-striped table-dark">
+<table id="user-table" class="table table-striped table-dark">
     <thead>
         <tr>
             <th scope="col">Nom</th>
@@ -124,24 +94,55 @@
             <th scope="col">Cicle</th>
             <th scope="col">Rol</th>
             <th scope="col">
-                <a href="#" id="btnAfegirUsuari" data-bs-toggle="modal" data-bs-target="#nouUsuari">Afegir Usuari</a>
+                <a href="#" id="btnAfegirUsuari" data-bs-toggle="modal" data-bs-target="#nouUsuari">Afegir usuari</a>
             </th>
         </tr>
     </thead>
     <tbody>
         @foreach ($users as $user)
         <tr>
-            <th scope="row">{{ $user->nomCognoms() }}</th>
-            <td>{{ $user->email }}</td>
-            <td>{{ $user->cicle->shortname }}</td>
-            <td>{{ $user->rol->name }}</td>
+            <td><a>{{ $user->nomCognoms() }}</a></td>
+            <td><a>{{ $user->email }}</a></td>
+            <td><a>{{ $user->cicle->shortname }}</a></td>
+            <td><a>{{ $user->rol->name }}<a></td>
             <td>
-                <a href="{{ route('user_delete', ['id' => $user->id]) }}" id="icon-basura"><i class="bi bi-trash3-fill"></i></a>
-                <a href="{{ route('user_edit', ['id' => $user->id]) }}">Editar</a>
+                <a data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                    <i class="bi bi-trash3-fill"></i>
+                </a>
+                <!-- <a href="{{ route('user_edit', ['id' => $user->id]) }}">Editar</a> -->
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-<br>
+
+<div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar usuari</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="GET">
+                <div class="modal-body">
+                    <script>
+                        document.querySelectorAll('.iconBasura').forEach(elem => {
+                            elem.addEventListener('click', () => {
+                                var dataId = elem.dataset.id;
+                                var form = document.querySelector('#confirmDelete form');
+                                form.action = "delete/" + dataId;
+                            });
+                        });
+                    </script>
+                    @csrf
+                    <p>Estàs segur de voler eliminar aquest usuari?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
