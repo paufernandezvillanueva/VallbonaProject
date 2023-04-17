@@ -22,7 +22,7 @@
             <th scope="col">Estades</th>
             <th scope="col">Valoracio</th>
             <th scope="col">Contactes</th>
-            <th scope="col"><a class="iconAdd" data-bs-toggle="modal" data-bs-target="#addEmpresa"><i class="bi bi-file-earmark-plus"></i></a></th>
+            <th scope="col"><a class="iconAdd" data-bs-toggle="modal" data-bs-target="#addEmpresa"><i class="bi bi-plus-square-fill"></i></a></th>
         </tr>
     </thead>
     <tbody>
