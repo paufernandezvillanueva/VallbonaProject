@@ -4,14 +4,14 @@
 
 @section('stylesheets')
 @parent
-    <link rel="stylesheet" href="{{ asset('css/empresaList.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/empresaList.css') }}" />
 @endsection
 
 @section('content')
 <div class="titulo">
     <h1>Llista d'empreses</h1>
 </div>
-<!-- <a href="{{ route('empresa_new') }}">+ Nova empresa</a> -->
+
 <table id="empresa-table" class="table table-striped table-dark">
     <thead>
         <tr>
@@ -22,15 +22,14 @@
             <th scope="col">Estades</th>
             <th scope="col">Valoracio</th>
             <th scope="col">Contactes</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col"><a href="">Afegir usuari</a></th>
         </tr>
     </thead>
     <tbody>
         @foreach($empresas as $empresa)
         <tr>
             <td><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->cif }}</a></td>
-            <td scope="row"><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->name }}</a></td>
+            <td><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->name }}</a></td>
             <td>
                 <form action="{{ route('empresa_list') }}" method="GET">
                     <input type="hidden" name="sector" value="{{ $empresa->sector }}" />
@@ -66,13 +65,43 @@
             </td>
             <td><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->contactes() }}</a></td>
             <td>
-                <a href="{{ route('empresa_edit', ['id' => $empresa->id]) }}">Editar</a>
-                <a href="{{ route('empresa_delete', ['id' => $empresa->id]) }}">Eliminar</a>
+                <a data-id="{{ $empresa->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                    <i class="bi bi-trash3-fill"></i>
+                </a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
 
-<br>
+<div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar empresa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="GET">
+                <div class="modal-body">
+                    <script>
+                        document.querySelectorAll('.iconBasura').forEach(elem => {
+                            elem.addEventListener('click', () => {
+                                var dataId = elem.dataset.id;
+                                var form = document.querySelector('#confirmDelete form');
+                                form.action = "empresa/delete/" + dataId;
+                                console.log(form.action);
+                            });
+                        });
+                    </script>
+                    @csrf
+                    <p>Estàs segur de voler eliminar aquest usuari?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection

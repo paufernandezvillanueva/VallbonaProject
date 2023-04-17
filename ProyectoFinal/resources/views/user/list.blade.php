@@ -4,13 +4,13 @@
 
 @section('stylesheets')
 @parent
+<link rel="stylesheet" href="{{ asset('css/userList.css') }}" />
 @endsection
 
 @section('content')
 <div class="titulo">
     <h1>Llista d'usuaris</h1>
 </div>
-
 
 <div class="modal fade" id="nouUsuari" tabindex="-1" aria-labelledby="nouUsuariLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -86,7 +86,7 @@
 </div>
 @endif
 
-<table class="table table-striped table-dark">
+<table id="user-table" class="table table-striped table-dark">
     <thead>
         <tr>
             <th scope="col">Nom</th>
@@ -94,22 +94,22 @@
             <th scope="col">Cicle</th>
             <th scope="col">Rol</th>
             <th scope="col">
-                <a href="#" id="btnAfegirUsuari" data-bs-toggle="modal" data-bs-target="#nouUsuari">Afegir Usuari</a>
+                <a href="#" id="btnAfegirUsuari" data-bs-toggle="modal" data-bs-target="#nouUsuari">Afegir usuari</a>
             </th>
         </tr>
     </thead>
     <tbody>
         @foreach ($users as $user)
         <tr>
-            <th scope="row">{{ $user->nomCognoms() }}</th>
-            <td>{{ $user->email }}</td>
-            <td>{{ $user->cicle->shortname }}</td>
-            <td>{{ $user->rol->name }}</td>
+            <td><a>{{ $user->nomCognoms() }}</a></td>
+            <td><a>{{ $user->email }}</a></td>
+            <td><a>{{ $user->cicle->shortname }}</a></td>
+            <td><a>{{ $user->rol->name }}<a></td>
             <td>
                 <a data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
                 </a>
-                <a href="{{ route('user_edit', ['id' => $user->id]) }}">Editar</a>
+                <!-- <a href="{{ route('user_edit', ['id' => $user->id]) }}">Editar</a> -->
             </td>
         </tr>
         @endforeach
