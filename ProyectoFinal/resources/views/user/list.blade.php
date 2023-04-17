@@ -4,10 +4,6 @@
         margin-left: 10px;
     }
 
-    label {
-        color: black;
-    }
-
     @media screen and (max-width: 575px) {
         label {
             float: left;
@@ -21,7 +17,7 @@
     }
 
     #btnAfegirUsuari {
-        
+
     }
 
     #icon-basura {
@@ -49,8 +45,8 @@
 <div class="modal fade" id="nouUsuari" tabindex="-1" aria-labelledby="nouUsuariLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="nouUsuariLabel">Título del modal</h5>
+            <div class="modal-header d-flex justify-content-center align-items-center">
+                <h5 class="modal-title" style="width: 100%; text-align: center;" id="nouUsuariLabel">Afegir Usuari</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="{{ route('user_new') }}">
@@ -58,7 +54,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="firstname">Firstname</label>
+                            <label class="col-form-label text-dark" for="firstname">Firstname</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="firstname" />
@@ -66,7 +62,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="lastname">Lastname</label>
+                            <label class="col-form-label text-dark" for="lastname">Lastname</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="lastname" />
@@ -74,7 +70,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="email">Email</label>
+                            <label class="col-form-label text-dark" for="email">Email</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="email" />
@@ -82,7 +78,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="cicle_id">Cicle</label>
+                            <label class="col-form-label text-dark" for="cicle_id">Cicle</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="cicle_id">
@@ -94,7 +90,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="rol_id">Rol</label>
+                            <label class="col-form-label text-dark" for="rol_id">Rol</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="rol_id">
@@ -147,6 +143,5 @@
         @endforeach
     </tbody>
 </table>
-</div>
 <br>
 @endsection

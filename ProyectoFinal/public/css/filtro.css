@@ -6,16 +6,16 @@
     width: 220px;
     margin-right: 20px;
   }
-  
+
   .selectBox {
     position: relative;
   }
-  
+
   .selectBox select {
     width: 100%;
     font-weight: bold;
   }
-  
+
   .overSelect {
     position: absolute;
     left: 0;
@@ -23,7 +23,7 @@
     top: 0;
     bottom: 0;
   }
-  
+
   #checkboxes {
     display: none;
     border: 1px #dadada solid;
@@ -31,11 +31,11 @@
     overflow: hidden;
     overflow-y: scroll;
   }
-  
+
   #checkboxes label {
     display: block;
   }
-  
+
   #checkboxes label:hover {
     background-color: #1e90ff;
   }
@@ -47,11 +47,11 @@
     overflow: hidden;
     overflow-y: scroll;
   }
-  
+
   #checkboxesSector label {
     display: block;
   }
-  
+
   #checkboxesSector label:hover {
     background-color: #1e90ff;
   }
@@ -62,15 +62,15 @@
     overflow: hidden;
     overflow-y: scroll;
   }
-  
+
   #checkboxesPoblacio label {
     display: block;
 
   }
-  
+
   #checkboxesPoblacio label:hover {
     background-color: #1e90ff;
   }
 
 
-  
+
