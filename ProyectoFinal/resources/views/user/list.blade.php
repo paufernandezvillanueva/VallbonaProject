@@ -86,7 +86,7 @@
 </div>
 @endif
 
-<table id="empresa-table" class="table table-striped table-dark">
+<table id="user-table" class="table table-striped table-dark">
     <thead>
         <tr>
             <th scope="col">Nom</th>
