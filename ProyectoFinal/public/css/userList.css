@@ -1,3 +1,16 @@
+table {
+    text-align: center;
+}
+
+td a {
+    text-decoration: none;
+    color: white;
+}
+
+td a:hover {
+    color: rgb(0, 132, 255);
+}
+
 .modal-body>.row {
     margin-top: 5px;
     margin-left: 10px;
