@@ -51,18 +51,18 @@
                 <table id="contactes-table" class="table table-striped table-dark">
                     <thead>
                         <tr>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Correu Electronic</th>
-                            <th scope="col">Telefon</th>
+                            <th scope="col"><span>Nom</span></th>
+                            <th scope="col"><span>Correu Electronic</span></th>
+                            <th scope="col"><span>Telefon</span></th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody id="contactes-info">
                     @foreach($contactes as $contacte)
                         <tr>
-                            <th scope="row">{{ $contacte->name }}</th>
-                            <td>{{ $contacte->email }}</td>
-                            <td>{{ $contacte->phonenumber }}</td>
+                            <th scope="row"><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->name }}</a></th>
+                            <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->email }}</a></td>
+                            <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->phonenumber }}</a></td>
                         </tr> 
                     @endforeach
                     </tbody>
@@ -78,30 +78,32 @@
             <table id="estades-table" class="table table-striped table-dark">
                 <thead>
                     <tr>
-                        <th scope="col">Alumne</th>
-                        <th scope="col">Cicle</th>
-                        <th scope="col">Curs</th>
-                        <th scope="col">Tipus estada</th>
-                        <th scope="col">Valoracio</th>
-                        <th scope="col">Tutor</th>
+                        <th scope="col"><span>Alumne</span></th>
+                        <th scope="col"><span>Curs</span></th>
+                        <th scope="col"><span>Cicle</span></th>
+                        <th scope="col"><span>Tutor</span></th>
+                        <th scope="col"><span>Tipus estada</span></th>
+                        <th scope="col"><span>Valoracio</span></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody id="estades-info">
                 @foreach($estades as $estada)
                     <tr>
-                        <th>{{ $estada->student_name }}</th>
-                        <td>{{ $estada->cicle->shortname }}</td>
-                        <td>{{ $estada->curs->name }}</td>
+                        <th><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->student_name }}</a></th>
+                        <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->curs->name }}</a></td>
+                        <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->cicle->shortname }}</a></td>
+                        <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->tutor() }}</a></td>
                         <td>
-                            @if ($estada->dual == true)
-                                Dual
-                            @else
-                                FTC
-                            @endif
+                            <a href="{{ route('estada_detail', $estada->id) }}">
+                                @if ($estada->dual == true)
+                                    Dual
+                                @else
+                                    FTC
+                                @endif
+                            </a>
                         </td>
-                        <td>{{ $estada->evaluation }}</td>
-                        <td>{{ $estada->tutor() }}</td>
+                        <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->evaluation }}</a></td>
                     </tr>   
                 @endforeach
                 </tbody>

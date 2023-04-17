@@ -28,7 +28,7 @@
             <label for="phonenumber">Telefon</label>
             <input type="text" name="phonenumber" value="{{ $contacte->phonenumber }}"/>
         </div>
-        <button type="submit">Crear Contacte</button>
+        <button type="submit">Editar Contacte</button>
     </form>
 </div>
 @endsection
