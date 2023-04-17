@@ -314,6 +314,6 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{ asset('js/empresa_poblacions_json.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/empresa_detail_poblacions_json.js') }}"></script>
 <br>
 @endsection
