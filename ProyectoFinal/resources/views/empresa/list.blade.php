@@ -22,7 +22,7 @@
             <th scope="col">Estades</th>
             <th scope="col">Valoracio</th>
             <th scope="col">Contactes</th>
-            <th scope="col"><a class="iconAdd" href=""><i class="bi bi-file-earmark-plus"></i></a></th>
+            <th scope="col"><a class="iconAdd" data-bs-toggle="modal" data-bs-target="#addEmpresa"><i class="bi bi-file-earmark-plus"></i></a></th>
         </tr>
     </thead>
     <tbody>
@@ -74,6 +74,70 @@
     </tbody>
 </table>
 
+<div class="modal fade" id="addEmpresa" tabindex="-1" aria-labelledby="addEmpresaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addEmpresaLabel">Crear una empresa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST" action="{{ route('empresa_edit', $empresa->id) }}">
+                <div class="modal-body">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <label class="col-form-label" for="cif">CIF</label>
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <label class="col-form-label" for="name">Nom</label>
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <input class="form-control" type="text" name="name"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <label class="col-form-label" for="sector">Sector</label>
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <input class="form-control" type="text" name="sector"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <label class="col-form-label" for="comarca_id">Comarca</label>
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <select class="form-control" id="comarca_id">
+                                <option>Carregant...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <label class="col-form-label" for="poblacio_id">Població</label>
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <select class="form-control" id="poblacio_id" name="poblacio_id">
+                                <option>Selecciona una comarca...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -104,4 +168,5 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('js/empresa_list_poblacions_json.js') }}"></script>
 @endsection

@@ -104,3 +104,7 @@ td a:hover {
 .iconAdd:hover {
     color: rgb(0, 132, 255);
 }
+label, p {
+    color: black;
+}
+
