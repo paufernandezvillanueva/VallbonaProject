@@ -19,7 +19,7 @@ class CicleController extends Controller
             $cicles = Cicle::all();
             return view('cicle.list', ['cicles' => $cicles]);
         } else {
-        return redirect('');
+            return redirect('');
         }
     }
     function new(Request $request)
@@ -32,7 +32,7 @@ class CicleController extends Controller
                 $cicle->shortname = $request->shortname;
                 $cicle->name = $request->name;
                 $cicle->save();
-                return redirect()->route('cicle_list')->with('status', 'Cicle '.$cicle->shortname. ' ' .$cicle->name.' creat!');
+                return redirect()->route('cicle_list')->with('status', 'Cicle ' . $cicle->shortname . ' ' .$cicle->name.' creat!');
             }
             // si no venim de fer submit al formulari, hem de mostrar el formulari
 
@@ -40,7 +40,7 @@ class CicleController extends Controller
 
             return view('cicle.new', ['cicles' => $cicles]);
         } else {
-        return redirect('');
+            return redirect('');
         }
     }
 
@@ -59,7 +59,7 @@ class CicleController extends Controller
             $cicles = Cicle::all();
             return view('cicle.edit', ['cicle' => $cicle]);
         } else {
-        return redirect('');
+            return redirect('');
         }
     }
     function delete($id){
@@ -68,7 +68,7 @@ class CicleController extends Controller
             $cicle->delete();
             return redirect()->route('cicle_list')->with('status', 'Cicle'.$cicle->nom.' '.$cicle->shortname. ' eliminat!');
         } else {
-        return redirect('');
+            return redirect('');
         }
     }
 }

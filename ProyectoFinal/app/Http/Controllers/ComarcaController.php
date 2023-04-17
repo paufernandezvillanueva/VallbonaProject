@@ -19,7 +19,7 @@ class ComarcaController extends Controller
             $comarcas = Comarca::all();
             return view('comarca.list', ['comarcas'=>$comarcas]);
         } else {
-        return redirect('');
+            return redirect('');
         }
     }
 
