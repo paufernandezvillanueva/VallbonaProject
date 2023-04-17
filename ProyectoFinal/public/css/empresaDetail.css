@@ -208,3 +208,6 @@
 .col-form-label {
     white-space: nowrap;
 }
+label, p {
+    color: black;
+}
