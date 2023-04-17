@@ -7,18 +7,106 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Empresa;
+use App\Models\Poblacio;
+use App\Models\Contacte;
+use App\Models\Estada;
+use App\Models\User;
+use App\Models\Curs;
+use App\Models\Cicle;
 
 class EmpresaController extends BaseController
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-  function list()
+  function list(Request $request)
   {
-    $empresas = Empresa::all();
+    $empresas = Empresa::join('poblacios', 'empresas.poblacio_id', '=', 'poblacios.id')->
+    join('comarcas', 'poblacios.comarca_id', '=', 'comarcas.id')->
+    leftjoin('estadas', 'empresas.id', '=', 'estadas.empresa_id');
 
+    if (isset($request->cif)) {
+      if ($request->cif != "") {
+        $empresas = $empresas->where('empresas.cif', 'like', '%' . $request->cif . '%');
+      }
+    }
+
+    if (isset($request->name)) {
+      if ($request->name != "") {
+        $empresas = $empresas->where('empresas.name', 'like', '%' . $request->name . '%');
+      }
+    }
+
+    if (isset($request->cicle)) {
+      if ($request->cicle != 0) {
+        $empresas = $empresas->where('estadas.cicle_id', '=', $request->cicle);
+      }
+    }
+
+    if (isset($request->sector)) {
+      if ($request->sector != "") {
+        $empresas = $empresas->where('empresas.sector', 'like', '%' . $request->sector . '%');
+      }
+    }
+
+    if (isset($request->comarca)) {
+      if ($request->comarca != 0) {
+        $empresas = $empresas->where('comarcas.id', '=', $request->comarca);
+      }
+    }
+
+    if (isset($request->poblacio)) {
+      if ($request->poblacio != 0) {
+        $empresas = $empresas->where('poblacios.id', '=', $request->poblacio);
+      }
+    }
+
+    if (isset($request->minEstadas)) {
+      if (!isset($request->maxEstadas) || $request->maxEstadas >= $request->minEstadas) {
+        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.id)'), '>=', $request->minEstadas);
+      }
+    }
+
+    if (isset($request->maxEstadas)) {
+      $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.id)'), '<=', $request->maxEstadas);
+    }
+
+    if (isset($request->minValoracio)) {
+      if (!isset($request->maxValoracio) || $request->maxValoracio >= $request->minValoracio && $request->maxValoracio != "Ninguna") {
+        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('avg(estadas.evaluation)'), '>=', $request->minValoracio);
+      }
+    }
+
+    if (isset($request->maxValoracio)) {
+      if ($request->maxValoracio != "Ninguna") {
+        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('round(avg(estadas.evaluation), 1)'), '<=', $request->maxValoracio);
+      } else {
+        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.evaluation)'), '=', 0);
+      }
+    }
+
+    $empresas = $empresas->distinct("empresas.*")->get("empresas.*");
+    
     return view('empresa.list', ['empresas' => $empresas]);
+
+  }
+
+  function detail(Request $request, $id)
+  {
+    $empresa = Empresa::find($id);
+    $poblacio = Poblacio::find($empresa->poblacio_id);
+    $contactes = Contacte::all()->where('empresa_id', '=', $empresa->id);
+    $estades = Estada::all()->where('empresa_id', '=', $empresa->id);
+    $users = User::all();
+    $cursos = Curs::all();
+    $cicles = Cicle::all();
+
+    return view('empresa.detail', ['empresa' => $empresa, "poblacio" => $poblacio, "contactes" => $contactes, "estades" => $estades,
+    "users" => $users, "cursos" => $cursos, "cicles" => $cicles]);
   }
 
   function edit(Request $request, $id)

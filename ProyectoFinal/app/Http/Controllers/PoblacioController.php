@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Poblacio;
 use App\Models\Comarca;
@@ -17,12 +18,16 @@ class PoblacioController extends BaseController
 
     function list() 
     { 
-        $poblacions = Poblacio::all();
+        if (Auth::user()->rol_id == 5076) {
+            $poblacions = Poblacio::all();
 
-        return view('poblacio.list', ['poblacions' => $poblacions]);
+            return view('poblacio.list', ['poblacions' => $poblacions]);
+        } else {
+        return redirect('');
+        }
     }
     
-    function new(Request $request) 
+    /*function new(Request $request) 
     {
         if ($request->isMethod('post')) {   
             $poblacio = new Poblacio;
@@ -40,7 +45,7 @@ class PoblacioController extends BaseController
     function edit(Request $request, $id) 
     { 
         if ($request->isMethod('post')) {   
-            $poblacio = new Poblacio;
+            $poblacio = Poblacio::find($id);
             $poblacio->name = $request->name;
             $poblacio->comarca_id = $request->comarca_id;
             $poblacio->save();
@@ -59,5 +64,5 @@ class PoblacioController extends BaseController
         $poblacio->delete();
 
         return redirect()->route('poblacio_list');
-    }
+    }*/
 }
