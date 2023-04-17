@@ -126,7 +126,7 @@
                             <label class="col-form-label" for="cif">CIF</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="cif" value="{{ $empresa->cif }}"/>
+                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" value="{{ $empresa->cif }}"/>
                         </div>
                     </div>
                     <div class="row">
