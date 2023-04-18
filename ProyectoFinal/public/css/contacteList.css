@@ -1,0 +1,87 @@
+table {
+    text-align: center;
+}
+
+td a, th a {
+    text-decoration: none;
+    color: white;
+}
+
+td a:hover {
+    color: rgb(0, 132, 255);
+}
+
+.modal-body>.row {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+label, p {
+    color: black;
+}
+
+@media screen and (max-width: 575px) {
+    label {
+        float: left;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    label {
+        float: right;
+    }
+}
+
+.iconBasura {
+    text-decoration: none;
+}
+
+.iconBasura:hover {
+    cursor: pointer;
+    color: red;
+}
+
+#contacte-table thead th {
+    text-align: center;
+    padding: 0.5rem 0.5rem;
+}
+
+#contacte-table tbody th,
+#contacte-table tbody td {
+    text-align: center;
+    padding: 0;
+}
+
+#contacte-table tbody a,
+#contacte-table tbody span {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#contacte-table tbody td:nth-of-type(2) a:hover {
+    display: block;
+    color: rgb(0, 132, 255);
+    padding: 0.5rem 0.5rem;
+}
+
+#contacte-table tbody tr td {
+    background-color: #212529;
+}
+
+#contacte-table tbody tr:hover td {
+    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
+} 
+
+#contacte-table tbody .iconBasura {
+    text-decoration: none;
+}
+
+#contacte-table tbody .iconBasura:hover {
+    cursor: pointer;
+    color: red;
+}

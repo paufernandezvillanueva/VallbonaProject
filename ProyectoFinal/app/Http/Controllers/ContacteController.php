@@ -15,24 +15,32 @@ class ContacteController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function list() 
-    { 
+    function list(Request $request)
+    {
         $contactes = Contacte::all();
+        $empresas = Empresa::all();
 
-        return view('contacte.list', ['contactes' => $contactes]);
+        if (isset($request->empresa)) {
+            if ($request->empresa != "") {
+              $contactes = $contactes->where('empresa_id', '=', $request->empresa);
+            }
+          }
+
+        return view('contacte.list', ['contactes' => $contactes, 'empresas'=>$empresas]);
     }
 
     function detail(Request $request, $id)
     {
         $contacte = Contacte::find($id);
-        $empresa = Empresa::where("id", "=", $contacte->empresa_id)->first("name");
+        $nomEmpresa = Empresa::where("id", "=", $contacte->empresa_id)->first("name");
+        $empresas = Empresa::all();
 
-        return view('contacte.detail', ['contacte' => $contacte, 'empresa' => $empresa]);
+        return view('contacte.detail', ['contacte' => $contacte, 'nomEmpresa' => $nomEmpresa, 'empresas' => $empresas]);
     }
-    
-    function new(Request $request) 
+
+    function new(Request $request)
     {
-        if ($request->isMethod('post')) {   
+        if ($request->isMethod('post')) {
             $contacte = new Contacte;
             $contacte->name = $request->name;
             $contacte->empresa_id = $request->empresa_id;
@@ -42,13 +50,13 @@ class ContacteController extends Controller
 
             return redirect()->route('contacte_list');
         }
-
-        return view('contacte.new');
+        $empresas = Empresa::all();
+        return view('contacte.new', ['empresas'=>$empresas]);
     }
 
-    function edit(Request $request, $id) 
-    { 
-        if ($request->isMethod('post')) {   
+    function edit(Request $request, $id)
+    {
+        if ($request->isMethod('post')) {
             $contacte = Contacte::find($id);
             $contacte->name = $request->name;
             $contacte->empresa_id = $request->empresa_id;
@@ -57,14 +65,14 @@ class ContacteController extends Controller
             $contacte->save();
 
             return redirect()->route('contacte_list');
-        }      
+        }
         $contacte = Contacte::find($id);
 
-        return view('contacte.edit', ['contacte' => $contacte]);
+        return view('contacte.edit', ['contacte' => $contacte, 'empresas' => $empresas]);
     }
 
-    function delete($id) 
-    { 
+    function delete($id)
+    {
         $contacte = Contacte::find($id);
         $contacte->delete();
 

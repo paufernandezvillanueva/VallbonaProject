@@ -18,11 +18,14 @@ class EstadaController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function list() 
-    { 
+    function list()
+    {
         $estadas = Estada::all();
-
-        return view('estada.list', ['estadas' => $estadas]);
+        $cicles = Cicle::all();
+        $empresas = Empresa::all();
+        $usuaris = User::all();
+        $cursos = Curs::all();
+        return view('estada.list', ['estadas' => $estadas, 'cicles'=>$cicles, 'empresas'=>$empresas, 'usuaris'=>$usuaris, 'cursos'=>$cursos]);
     }
 
     function detail(Request $request, $id)
@@ -34,10 +37,10 @@ class EstadaController extends Controller
 
         return view('estada.detail', ['estada' => $estada, 'cicle' => $cicle, 'empresa' => $empresa, 'curs' => $curs]);
     }
-    
-    function new(Request $request) 
+
+    function new(Request $request)
     {
-        if ($request->isMethod('post')) {   
+        if ($request->isMethod('post')) {
             $estada = new Estada;
             $estada->student_name = $request->student_name;
             $estada->cicle_id = $request->cicle_id;
@@ -51,13 +54,16 @@ class EstadaController extends Controller
 
             return redirect()->route('estada_list');
         }
-
-        return view('estada.new');
+        $cicles = Cicle::all();
+        $empresas = Empresa::all();
+        $usuaris = User::all();
+        $cursos = Curs::all();
+        return view('estada.new', ['cicles'=>$cicles, 'empresas'=>$empresas, 'usuaris'=>$usuaris, 'cursos'=>$cursos]);
     }
 
-    function edit(Request $request, $id) 
-    { 
-        if ($request->isMethod('post')) {   
+    function edit(Request $request, $id)
+    {
+        if ($request->isMethod('post')) {
             $estada = Estada::find($id);
             $estada->student_name = $request->student_name;
             $estada->cicle_id = $request->cicle_id;
@@ -70,14 +76,14 @@ class EstadaController extends Controller
             $estada->save();
 
             return redirect()->route('estada_list');
-        }      
+        }
         $estada = Estada::find($id);
 
         return view('estada.edit', ['estada' => $estada]);
     }
 
-    function delete($id) 
-    { 
+    function delete($id)
+    {
         $estada = Estada::find($id);
         $estada->delete();
 
