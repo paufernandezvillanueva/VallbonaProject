@@ -81,7 +81,7 @@
                 <h5 class="modal-title" id="addEmpresaLabel">Crear una empresa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('empresa_edit', $empresa->id) }}">
+            <form method="POST" action="{{ route('empresa_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
