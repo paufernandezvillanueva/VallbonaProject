@@ -48,6 +48,10 @@
     box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
 } 
 
+#empresa-table tbody td:last-child a {
+    padding: 7px 8px;
+}
+
 table {
     text-align: center;
 }
