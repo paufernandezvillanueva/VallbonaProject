@@ -4,7 +4,7 @@
 
 @section('stylesheets')
 @parent
-<link rel="stylesheet" href="{{ asset('css/list.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/estadaList.css') }}" />
 @endsection
 
 @section('content')
@@ -126,7 +126,7 @@
 </div>
 @endif
 
-<table class="table table-striped table-dark " style="margin-top: 20px;margin-bottom: 10px; -webkit-overflow-scrolling: auto">
+<table id="estada-table" class="table table-striped table-dark">
     <thead>
         <tr>
             <th>Nom Estudiant</th>
@@ -143,18 +143,18 @@
     <tbody>
         @foreach ($estadas as $estada)
         <tr>
-            <td>{{ $estada->student_name }}</td>
-            <td>{{ $estada->cicle->shortname }}</td>
-            <td>{{ $estada->empresa->name }}</td>
-            <td>{{ $estada->evaluation }}</td>
-            <td>{{ $estada->comment }}</td>
+            <td><a>{{ $estada->student_name }}</a></td>
+            <td><a>{{ $estada->cicle->shortname }}</a></td>
+            <td><a>{{ $estada->empresa->name }}</a></td>
+            <td><a>{{ $estada->evaluation }}</a></td>
+            <td><a>{{ $estada->comment }}</a></td>
             @if ($estada->dual == 1)
-            <td>Dual</td>
+            <td><a>Dual</a></td>
             @else
-            <td>FCT</td>
+            <td><a>FCT</a></td>
             @endif
-            <td>{{ $estada->tutor() }}</td>
-            <td>{{ $estada->curs->name }}</td>
+            <td><a>{{ $estada->tutor() }}</a></td>
+            <td><a>{{ $estada->curs->name }}</a></td>
             <td>
                 <a data-id="{{ $estada->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
                 <!-- <a href="{{ route('estada_edit', ['id' => $estada->id]) }}">Editar</a> -->

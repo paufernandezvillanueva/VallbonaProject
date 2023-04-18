@@ -22,7 +22,7 @@
         <li>
             <a href="{{ route('estada_list') }}" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                Estada
+                Estades
             </a>
         </li>
         @if (Auth::user()->rol_id == 5076)
