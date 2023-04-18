@@ -4,7 +4,7 @@
 
 @section('stylesheets')
 @parent
-<link rel="stylesheet" href="{{ asset('css/userList.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/contacteList.css') }}" />
 @endsection
 
 @section('content')
@@ -75,7 +75,7 @@
 </div>
 @endif
 
-<table id="user-table" class="table table-striped table-dark">
+<table id="contacte-table" class="table table-striped table-dark">
     <thead>
         <tr>
             <th scope="col">Nom</th>
@@ -88,10 +88,14 @@
     <tbody>
         @foreach ($contactes as $contacte)
         <tr>
-            <td>{{ $contacte->name }}</td>
-            <td>{{ $contacte->empresa->name }}</td>
-            <td>{{ $contacte->email }}</td>
-            <td>{{ $contacte->phonenumber }}</td>
+            <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->name }}</a></td>
+            <td>
+                <form action="{{ route('contacte_list') }}" method="GET">
+                    <input type="hidden" name="empresa_id" value="{{ $contacte->empresa_id }}" />
+                    <a href="#" onclick="this.parentNode.submit()">{{ $contacte->empresa->name }}</a>
+                </form></td>
+            <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->email }}</a></td>
+            <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->phonenumber }}</a></td>
             <td>
                 <a data-id="{{ $contacte->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
