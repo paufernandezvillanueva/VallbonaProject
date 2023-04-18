@@ -76,3 +76,12 @@ label, p {
 #contacte-table tbody tr:hover td {
     box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
 } 
+
+#contacte-table tbody .iconBasura {
+    text-decoration: none;
+}
+
+#contacte-table tbody .iconBasura:hover {
+    cursor: pointer;
+    color: red;
+}
