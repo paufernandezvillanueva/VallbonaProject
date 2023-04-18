@@ -28,11 +28,16 @@ p {
     }
 }
 
+.col-form-label {
+    white-space: nowrap;
+}
+
 .iconBasura {
     color: white;
-    /* padding-top: 7px;
+    /* padding-top: 5px;
     padding-bottom: 7px; */
 }
+
 .col-form-label {
     white-space: nowrap;
 }
