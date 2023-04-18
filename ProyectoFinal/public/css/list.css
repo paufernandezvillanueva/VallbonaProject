@@ -32,14 +32,12 @@ p {
     white-space: nowrap;
 }
 
-.iconBasura {
-    color: white;
-    /* padding-top: 5px;
-    padding-bottom: 7px; */
+table tbody td:last-child a {
+    padding: 7px 8px;
 }
 
-.col-form-label {
-    white-space: nowrap;
+.iconBasura {
+    color: white;
 }
 
 .iconBasura:hover {
