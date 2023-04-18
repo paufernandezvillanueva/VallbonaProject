@@ -32,9 +32,10 @@ class ContacteController extends Controller
     function detail(Request $request, $id)
     {
         $contacte = Contacte::find($id);
-        $empresa = Empresa::where("id", "=", $contacte->empresa_id)->first("name");
+        $nomEmpresa = Empresa::where("id", "=", $contacte->empresa_id)->first("name");
+        $empresas = Empresa::all();
 
-        return view('contacte.detail', ['contacte' => $contacte, 'empresa' => $empresa]);
+        return view('contacte.detail', ['contacte' => $contacte, 'nomEmpresa' => $nomEmpresa, 'empresas' => $empresas]);
     }
 
     function new(Request $request)
@@ -67,7 +68,7 @@ class ContacteController extends Controller
         }
         $contacte = Contacte::find($id);
 
-        return view('contacte.edit', ['contacte' => $contacte]);
+        return view('contacte.edit', ['contacte' => $contacte, 'empresas' => $empresas]);
     }
 
     function delete($id)
