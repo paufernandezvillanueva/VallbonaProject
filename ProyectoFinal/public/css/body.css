@@ -6,3 +6,11 @@ h1{
     color: white;
 }
 
+.titulo h1 {
+    margin: 0;
+}
+
+#profilename {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

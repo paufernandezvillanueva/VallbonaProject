@@ -10,15 +10,15 @@
     <h1>Editar Contacte</h1>
 <a href="{{ route('contacte_list') }}">&laquo; Torna</a>
 <div style="margin-top: 20px">
-    <form method="POST" action="{{ route('contacte_new') }}">
+<form method="POST" action="{{ route('contacte_edit', ['id' => $contacte->id]) }}">
         @csrf
         <div>
             <label for="name">Nom</label>
-            <input type="text" name="name" value="{{ $contacte->nom }}"/>
+            <input type="text" name="name" value="{{ $contacte->name }}"/>
         </div>
         <div>
-            <label for="empresa">Empresa</label>
-            <input type="text" name="email" value="{{ $contacte->empresa_id }}"/>
+            <label for="empresa_id">Empresa</label>
+            <input type="text" name="empresa_id" value="{{ $contacte->empresa_id }}"/>
         </div>
         <div>
             <label for="email">Email</label>
@@ -28,7 +28,7 @@
             <label for="phonenumber">Telefon</label>
             <input type="text" name="phonenumber" value="{{ $contacte->phonenumber }}"/>
         </div>
-        <button type="submit">Crear Contacte</button>
+        <button type="submit">Editar Contacte</button>
     </form>
 </div>
 @endsection

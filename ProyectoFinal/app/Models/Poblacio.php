@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Poblacio extends Model
 {
     use HasFactory;
+
+    public function comarca()
+    {
+        return $this->belongsTo(Comarca::class);
+    }
 }

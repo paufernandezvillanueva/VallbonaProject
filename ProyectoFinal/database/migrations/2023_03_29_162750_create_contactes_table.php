@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contactos', function (Blueprint $table) {
+        Schema::create('contactes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('name');
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phonenumber');
 
-            $table->foreign('empresa_id')->references('id')->on('empreses');
+            $table->foreign('empresa_id')->references('id')->on('empresas');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contactos');
+        Schema::dropIfExists('contactes');
     }
 };

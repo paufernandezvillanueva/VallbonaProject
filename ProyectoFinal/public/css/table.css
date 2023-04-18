@@ -1,5 +1,6 @@
 .bodyTable{
     width: 100%;
+    overflow-y: scroll;
 }
 
 .bodyEmpresa{
@@ -28,70 +29,12 @@
     margin: auto;
     height: 83%;
     background-color: #212529;
-
-
 }
-.labels{
-    color: white;
-    display: flex;
-    padding: 20px;
-    width: 100%;
-    height: 400px;
-}
-.contactes{
-    width: auto;
-    height: 400px;
-    justify-content: end;
-    margin-top: 50px;
-}
-#contactes{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-#info{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-#estades{
-    color:white;
-
-}
-.estades{
-    padding: 20px;
-}
-.infoEmpresa{
-    margin-top: 50px;
-    width: 350px;
-    margin-right: 200px;
-}
-
-.filtro {
-    width: 95%;
-    margin: auto;
-    height: 50px;
-    background-color: #212529;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-}
-
-.filtrar {
-    border-radius: 20px;
-    font-size: 13px;
-    min-width: 70px;
-    border: none;
-    height: 25px;
-    margin-right: 20px;
-    padding: 0px 10px;
-}
-
 
 #form_filtro {
     width: 95%;
     margin: auto;
-    height: 0px;
+    height: 0;
     background-color: #212529;
 }
 
@@ -122,7 +65,7 @@ form {
 @keyframes expand {
     0% {
         visibility: visible;
-        height: 0px;
+        height: 0;
     }
 
     100% {
@@ -141,7 +84,7 @@ form {
     }
 
     100% {
-        height: 0px;
+        height: 0;
     }
 
 }
