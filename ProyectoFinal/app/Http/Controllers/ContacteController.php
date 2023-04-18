@@ -15,10 +15,16 @@ class ContacteController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function list()
+    function list(Request $request)
     {
         $contactes = Contacte::all();
         $empresas = Empresa::all();
+
+        if (isset($request->empresa)) {
+            if ($request->empresa != "") {
+              $contactes = $contactes->where('empresa_id', '=', $request->empresa);
+            }
+          }
 
         return view('contacte.list', ['contactes' => $contactes, 'empresas'=>$empresas]);
     }
