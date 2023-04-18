@@ -93,7 +93,8 @@
                 <form action="{{ route('contacte_list') }}" method="GET">
                     <input type="hidden" name="empresa" value="{{ $contacte->empresa_id }}" />
                     <a href="#" onclick="this.parentNode.submit()">{{ $contacte->empresa->name }}</a>
-                </form></td>
+                </form>
+            </td>
             <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->email }}</a></td>
             <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->phonenumber }}</a></td>
             <td>

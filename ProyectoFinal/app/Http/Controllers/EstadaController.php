@@ -23,9 +23,9 @@ class EstadaController extends Controller
         $estadas = Estada::all();
         $cicles = Cicle::all();
         $empresas = Empresa::all();
-        $usuaris = User::all();
+        $users = User::all();
         $cursos = Curs::all();
-        return view('estada.list', ['estadas' => $estadas, 'cicles'=>$cicles, 'empresas'=>$empresas, 'usuaris'=>$usuaris, 'cursos'=>$cursos]);
+        return view('estada.list', ['estadas' => $estadas, 'cicles' => $cicles, 'empresas' => $empresas, 'users' => $users, 'cursos' => $cursos]);
     }
 
     function detail(Request $request, $id)
@@ -58,7 +58,7 @@ class EstadaController extends Controller
         $empresas = Empresa::all();
         $usuaris = User::all();
         $cursos = Curs::all();
-        return view('estada.new', ['cicles'=>$cicles, 'empresas'=>$empresas, 'usuaris'=>$usuaris, 'cursos'=>$cursos]);
+        return view('estada.new', ['cicles' => $cicles, 'empresas' => $empresas, 'usuaris' => $usuaris, 'cursos' => $cursos]);
     }
 
     function edit(Request $request, $id)

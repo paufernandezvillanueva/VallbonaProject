@@ -150,7 +150,7 @@
                             <label class="col-form-label" for="comarca_id">Comarca</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <select class="form-control" id="comarca_id" value="{{ $poblacio->comarca_id }}">
+                            <select class="form-select" id="comarca_id" value="{{ $poblacio->comarca_id }}">
                                 <option>Carregant...</option>
                             </select>
                         </div>
@@ -160,7 +160,7 @@
                             <label class="col-form-label" for="poblacio_id">Població</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <select class="form-control" id="poblacio_id" name="poblacio_id" value="{{ $empresa->poblacio_id }}">
+                            <select class="form-select" id="poblacio_id" name="poblacio_id" value="{{ $empresa->poblacio_id }}">
                                 <option>Selecciona una comarca...</option>
                             </select>
                         </div>
@@ -242,7 +242,7 @@
                             <label class="col-form-label" for="curs_id">Curs</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <select class="form-control" type="text" name="curs_id">
+                            <select class="form-select" type="text" name="curs_id">
                                 <option>Selecciona un curs...</option>
                                 @foreach($cursos as $curs)
                                     <option value="{{ $curs->id }}">{{ $curs->name }}</option>
@@ -255,7 +255,7 @@
                             <label class="col-form-label" for="cicle_id">Cicle</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <select class="form-control" type="text" name="cicle_id">
+                            <select class="form-select" type="text" name="cicle_id">
                                 <option>Selecciona un cicle...</option>
                                 @foreach($cicles as $cicle)
                                     <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
@@ -268,7 +268,7 @@
                             <label class="col-form-label" for="registered_by">Registrado por</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <select class="form-control" type="text" name="registered_by">
+                            <select class="form-select" type="text" name="registered_by">
                                 <option>Selecciona un tutor...</option>
                                 @foreach($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
@@ -282,9 +282,9 @@
                             <label class="col-form-label" for="dual">Tipus estada</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <select class="form-control" type="text" name="dual">
+                            <select class="form-select" type="text" name="dual">
                                 <option>Selecciona un tipus d'estada...</option>
-                                <option value="0">FTP</option>
+                                <option value="0">FCT</option>
                                 <option value="1">Dual</option>
                             </select>
                         </div>

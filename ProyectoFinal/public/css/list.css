@@ -2,21 +2,17 @@ table {
     text-align: center;
 }
 
-td a, th a {
-    text-decoration: none;
+th a {
     color: white;
 }
 
-td a:hover {
-    color: rgb(0, 132, 255);
-}
-
-.modal-body>.row {
+.modal-body > .row {
     margin-top: 5px;
     margin-left: 10px;
 }
 
-label, p {
+label,
+p {
     color: black;
 }
 
@@ -33,8 +29,12 @@ label, p {
 }
 
 .iconBasura {
-    text-decoration: none;
-    font-size: larger;
+    color: white;
+    /* padding-top: 7px;
+    padding-bottom: 7px; */
+}
+.col-form-label {
+    white-space: nowrap;
 }
 
 .iconBasura:hover {

@@ -113,7 +113,7 @@
                             <label class="col-form-label" for="comarca_id">Comarca</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <select class="form-control" id="comarca_id">
+                            <select class="form-select" id="comarca_id">
                                 <option>Carregant...</option>
                             </select>
                         </div>
@@ -123,7 +123,7 @@
                             <label class="col-form-label" for="poblacio_id">Població</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <select class="form-control" id="poblacio_id" name="poblacio_id">
+                            <select class="form-select" id="poblacio_id" name="poblacio_id">
                                 <option>Selecciona una comarca...</option>
                             </select>
                         </div>
