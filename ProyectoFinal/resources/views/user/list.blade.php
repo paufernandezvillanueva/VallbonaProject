@@ -4,7 +4,7 @@
 
 @section('stylesheets')
 @parent
-<link rel="stylesheet" href="{{ asset('css/list.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/usuariList.css') }}" />
 @endsection
 
 @section('content')
@@ -12,11 +12,11 @@
     <h1>Llista d'usuaris</h1>
 </div>
 
-<div class="modal fade" id="nouUsuari" tabindex="-1" aria-labelledby="nouUsuariLabel" aria-hidden="true">
+<div class="modal fade" id="newUsuari" tabindex="-1" aria-labelledby="newUsuariLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="nouUsuariLabel">Afegir usuari</h5>
+                <h5 class="modal-title" id="newUsuariLabel">Afegir usuari</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="{{ route('user_new') }}">
@@ -86,7 +86,7 @@
 </div>
 @endif
 
-<table id="user-table" class="table table-striped table-dark">
+<table id="usuari-table" class="table table-striped table-dark">
     <thead>
         <tr>
             <th scope="col">Nom</th>
@@ -94,7 +94,7 @@
             <th scope="col">Cicle</th>
             <th scope="col">Rol</th>
             <th scope="col">
-                <a href="#" id="btnAfegirUsuari" data-bs-toggle="modal" data-bs-target="#nouUsuari">Afegir usuari</a>
+                <a href="#" id="btnAfegirUsuari" data-bs-toggle="modal" data-bs-target="#newUsuari"><i class="bi bi-plus-square-fill"></i></a>
             </th>
         </tr>
     </thead>
@@ -104,7 +104,7 @@
             <td><a>{{ $user->nomCognoms() }}</a></td>
             <td><a>{{ $user->email }}</a></td>
             <td><a>{{ $user->cicle->shortname }}</a></td>
-            <td><a>{{ $user->rol->name }}<a></td>
+            <td><a>{{ $user->rol->name }}</a></td>
             <td>
                 <a data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>

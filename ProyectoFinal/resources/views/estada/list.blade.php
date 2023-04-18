@@ -11,6 +11,7 @@
 <div class="titulo">
     <h1>Llistat d'estades</h1>
 </div>
+
 <div class="modal fade" id="newEstada" tabindex="-1" aria-labelledby="newEstadaLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -68,7 +69,6 @@
                             </select>
                         </div>
                     </div>
-                    <!-- {{-- <input type="hidden" name="empresa_id" value="{{ $empresa->id }}" /> --}} -->
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="empresa_id">Empresa</label>
