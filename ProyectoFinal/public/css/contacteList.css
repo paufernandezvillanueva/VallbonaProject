@@ -85,3 +85,7 @@ label, p {
     cursor: pointer;
     color: red;
 }
+
+#contacte-table tbody td:last-child a {
+    padding: 7px 8px;
+}
