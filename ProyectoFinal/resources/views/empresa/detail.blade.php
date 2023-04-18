@@ -226,7 +226,7 @@
                 <h5 class="modal-title" id="newEstadaLabel">Crear una estada</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('contacte_new') }}">
+            <form method="POST" action="{{ route('estada_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
