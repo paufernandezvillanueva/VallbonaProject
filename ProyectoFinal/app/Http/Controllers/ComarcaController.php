@@ -22,41 +22,59 @@ class ComarcaController extends Controller
             return redirect('');
         }
     }
-
-    /*function new(Request $request)
+    
+    function detail(Request $request, $id)
     {
-        if ($request->isMethod('post')) {
+        $comarca = Comarca::find($id);
 
-            // recollim els camps del formulari en un objecte comarca
-            $comarca = new Comarca;
-            $comarca->name = $request->name;
-            $comarca->save();
-            return redirect()->route('comarca_list')->with('status', 'Comarca '.$comarca->shortname. ' ' .$comarca->name.' creat!');
+        return view('comarca.detail', ['comarca' => $comarca]);
+    }
+
+    function new(Request $request)
+    {
+        if (Auth::user()->rol_id == 5076) {
+            if ($request->isMethod('post')) {
+
+                // recollim els camps del formulari en un objecte comarca
+                $comarca = new Comarca;
+                $comarca->name = $request->name;
+                $comarca->save();
+                return redirect()->route('comarca_list');
+            }
+            // si no venim de fer submit al formulari, hem de mostrar el formulari
+
+            $comarcas = Comarca::all();
+
+            return view('comarca.new', ['comarcas' => $comarcas]);
+        } else {
+            return redirect('');
         }
-        // si no venim de fer submit al formulari, hem de mostrar el formulari
-
-        $comarcas = Comarca::all();
-
-        return view('comarca.new', ['comarcas' => $comarcas]);
     }
 
     function edit(Request $request, $id)
     {
-        $comarca = Comarca::find($id);
-        if ($request->isMethod('post')){
-            //Recollir camps objecte comarca
-            $comarca->name = $request->name;
-            $comarca->save();
+        if (Auth::user()->rol_id == 5076) {
+            $comarca = Comarca::find($id);
+            if ($request->isMethod('post')){
+                //Recollir camps objecte comarca
+                $comarca->name = $request->name;
+                $comarca->save();
 
-            return redirect()->route('comarca_list')->with('status', 'Comarca'.$comarca->nom.' modificada!');
+                return redirect()->route('comarca_list');
+            }
+            $comarcas = Comarca::all();
+            return view('comarca.list', ['comarcas' => $comarcas]);
+        } else {
+            return redirect('');
         }
-        $comarcas = Comarca::all();
-        return view('comarca.list', ['comarcas' => $comarcas]);
     }
     function delete($id){
-        $comarca = Comarca::find($id);
-        $comarca->delete();
-        return redirect()->route('comarca_list')->with('status', 'Comarca'.$comarca->nom.' eliminada!');
+        if (Auth::user()->rol_id == 5076) {
+            $comarca = Comarca::find($id);
+            $comarca->delete();
+            return redirect()->route('comarca_list');
+        } else {
+            return redirect('');
+        }
     }
-    */
 }
