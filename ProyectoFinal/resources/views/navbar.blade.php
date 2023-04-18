@@ -35,7 +35,7 @@
         <li>
             <a href="{{ route('rol_list') }}" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                Rol
+                Rols
             </a>
         </li>
         <li>
@@ -53,7 +53,7 @@
         <li>
             <a href="{{ route('comarca_list') }}" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                Comarcas
+                Comarques
             </a>
         </li>
         <li>
