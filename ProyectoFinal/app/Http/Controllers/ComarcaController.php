@@ -25,9 +25,13 @@ class ComarcaController extends Controller
     
     function detail(Request $request, $id)
     {
-        $comarca = Comarca::find($id);
+        if (Auth::user()->rol_id == 5076) {
+            $comarca = Comarca::find($id);
 
-        return view('comarca.detail', ['comarca' => $comarca]);
+            return view('comarca.detail', ['comarca' => $comarca]);
+        } else {
+            return redirect('');
+        }
     }
 
     function new(Request $request)

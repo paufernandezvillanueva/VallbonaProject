@@ -16,53 +16,84 @@ class PoblacioController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function list() 
+    function list(Request $request) 
     { 
         if (Auth::user()->rol_id == 5076) {
             $poblacions = Poblacio::all();
 
-            return view('poblacio.list', ['poblacions' => $poblacions]);
+            if (isset($request->comarca)) {
+                if ($request->comarca != "") {
+                  $poblacions = $poblacions->where('comarca_id', '=', $request->comarca);
+                }
+            }
+            $comarques = Comarca::all();
+              
+            return view('poblacio.list', ['poblacions' => $poblacions, 'comarques' => $comarques]);
         } else {
-        return redirect('');
+            return redirect('');
         }
     }
     
-    /*function new(Request $request) 
+    function detail(Request $request, $id)
     {
-        if ($request->isMethod('post')) {   
-            $poblacio = new Poblacio;
-            $poblacio->name = $request->name;
-            $poblacio->comarca_id = $request->comarca_id;
-            $poblacio->save();
+        if (Auth::user()->rol_id == 5076) {
+            $poblacio = Poblacio::find($id);
+            $comarques = Comarca::all();
 
-            return redirect()->route('poblacio_list');
+            return view('poblacio.detail', ['poblacio' => $poblacio, 'comarques' => $comarques]);
+        } else {
+            return redirect('');
         }
-        $comarques = Comarca::all();
+    }
+    
+    function new(Request $request) 
+    {
+        if (Auth::user()->rol_id == 5076) {
+            if ($request->isMethod('post')) {   
+                $poblacio = new Poblacio;
+                $poblacio->name = $request->name;
+                $poblacio->comarca_id = $request->comarca_id;
+                $poblacio->save();
 
-        return view('poblacio.new', ['comarques' => $comarques]);
+                return redirect()->route('poblacio_list');
+            }
+            $comarques = Comarca::all();
+
+            return view('poblacio.new', ['comarques' => $comarques]);
+        } else {
+            return redirect('');
+        }
     }
 
     function edit(Request $request, $id) 
     { 
-        if ($request->isMethod('post')) {   
+        if (Auth::user()->rol_id == 5076) {
+            if ($request->isMethod('post')) {   
+                $poblacio = Poblacio::find($id);
+                $poblacio->name = $request->name;
+                $poblacio->comarca_id = $request->comarca_id;
+                $poblacio->save();
+
+                return redirect()->route('poblacio_list');
+            }      
             $poblacio = Poblacio::find($id);
-            $poblacio->name = $request->name;
-            $poblacio->comarca_id = $request->comarca_id;
-            $poblacio->save();
+            $comarques = Comarca::all();
 
-            return redirect()->route('poblacio_list');
-        }      
-        $poblacio = Poblacio::find($id);
-        $comarques = Comarca::all();
-
-        return view('poblacio.edit', ['poblacio' => $poblacio, 'comarques' => $comarques]);
+            return view('poblacio.edit', ['poblacio' => $poblacio, 'comarques' => $comarques]);
+        } else {
+            return redirect('');
+        }
     }
 
     function delete($id) 
     { 
-        $poblacio = Poblacio::find($id);
-        $poblacio->delete();
+        if (Auth::user()->rol_id == 5076) {
+            $poblacio = Poblacio::find($id);
+            $poblacio->delete();
 
-        return redirect()->route('poblacio_list');
-    }*/
+            return redirect()->route('poblacio_list');
+        } else {
+            return redirect('');
+        }
+    }
 }
