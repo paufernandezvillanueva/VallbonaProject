@@ -77,11 +77,11 @@ label, p {
     white-space: nowrap;
 }
 
-#curs-table tbody td:nth-of-type(1) a:hover {
+/* #curs-table tbody td:nth-of-type(1) a:hover {
     display: block;
     color: rgb(0, 132, 255);
     padding: 0.5rem 0.5rem;
-}
+} */
 
 #curs-table tbody tr td {
     background-color: #212529;
