@@ -39,6 +39,7 @@ label, p {
 
 .iconAdd:hover {
     color: rgb(0, 132, 255);
+    cursor: pointer;
 }
 
 .iconBasura {
