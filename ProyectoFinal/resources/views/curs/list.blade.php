@@ -4,17 +4,18 @@
 
 @section('stylesheets')
 @parent
+<link rel="stylesheet" href="{{ asset('css/cursList.css') }}" />
 @endsection
 
 @section('content')
 <div class="titulo">
     <h1>Llista de cursos</h1>
 </div>
-<div class="modal fade" id="nouCurs" tabindex="-1" aria-labelledby="nouCursLabel" aria-hidden="true">
+<div class="modal fade" id="newCurs" tabindex="-1" aria-labelledby="newCursLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" style="width: 100%; text-align: center;" id="nouCursLabel">Afegir curs</h5>
+                <h5 class="modal-title" style="width: 100%; text-align: center;" id="newCursLabel">Afegir curs</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="{{ route('curs_new') }}">
@@ -43,26 +44,60 @@
     <strong>Success!</strong> {{ session('status') }}
 </div>
 @endif
-<div class="table-responsive" style=" height: 80vh; width: 60vh; margin: auto ">
-    <table class="table table-striped table-dark " style="margin-top: 20px;margin-bottom: 10px; -webkit-overflow-scrolling: auto">
+
+<table id="curs-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th scope="col">Nom</th>
-            <th><a href="#" id="btnAfegirCurs" data-bs-toggle="modal" data-bs-target="#nouCurs">Nou curs</a></th>
+            <th>Nom</th>
+            <th>
+                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newCurs">
+                    <i class="bi bi-plus-square-fill"></i>
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach ($cursos as $curs)
         <tr>
-            <th scope="row">{{ $curs->name }}</th>
+            <td><a>{{ $curs->name }}</a></td>
             <td>
-                <a href="{{ route('curs_delete', ['id' => $curs->id]) }}" id="icon-basura"><i class="bi bi-trash3-fill"></i></a>
-                <a href="{{ route('curs_edit', ['id' => $curs->id]) }}">Editar</a>
+                <a data-id="{{ $curs->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                    <i class="bi bi-trash3-fill"></i>
+                </a>
+                <!-- <a href="{{ route('curs_edit', ['id' => $curs->id]) }}">Editar</a> -->
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
+
+<div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar curs</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="GET">
+                <div class="modal-body">
+                    <script>
+                        document.querySelectorAll('.iconBasura').forEach(elem => {
+                            elem.addEventListener('click', () => {
+                                var dataId = elem.dataset.id;
+                                var form = document.querySelector('#confirmDelete form');
+                                form.action = "delete/" + dataId;
+                            });
+                        });
+                    </script>
+                    @csrf
+                    <p>Estàs segur de voler eliminar aquest curs?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-<br>
 @endsection

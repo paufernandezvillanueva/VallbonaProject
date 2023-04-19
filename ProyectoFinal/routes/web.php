@@ -135,7 +135,7 @@ Route::match(['get', 'post'], '/contacte/detail/{id}', [ContacteController::clas
 
 //// CURSOS
 
-Route::get('/cursos/list', [CursController::class, 'list'])->name('curs_list')->middleware('auth');
+Route::get('/curs/list', [CursController::class, 'list'])->name('curs_list')->middleware('auth');
 
 Route::match(['get', 'post'], '/curs/edit/{id}', [CursController::class, 'edit'])->name('curs_edit')->middleware('auth');
 

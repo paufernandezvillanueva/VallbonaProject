@@ -1,0 +1,105 @@
+table {
+    text-align: center;
+}
+
+td a, th a {
+    text-decoration: none;
+    color: white;
+}
+
+td a:hover {
+    color: rgb(0, 132, 255);
+}
+
+.modal-body>.row {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+label, p {
+    color: black;
+}
+
+@media screen and (max-width: 575px) {
+    label {
+        float: left;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    label {
+        float: right;
+    }
+}
+
+.iconAdd {
+    color: white;
+    text-decoration: none;
+}
+
+.iconAdd:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+}
+
+.iconBasura {
+    text-decoration: none;
+}
+
+.iconBasura:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.col-form-label {
+    white-space: nowrap;
+}
+
+#curs-table thead th {
+    text-align: center;
+    padding: 0.5rem 0.5rem;
+}
+
+#curs-table tbody th,
+#curs-table tbody td {
+    text-align: center;
+    padding: 0;
+}
+
+#curs-table tbody a,
+#curs-table tbody span {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#curs-table tbody td:nth-of-type(1) a:hover {
+    display: block;
+    color: rgb(0, 132, 255);
+    padding: 0.5rem 0.5rem;
+}
+
+#curs-table tbody tr td {
+    background-color: #212529;
+}
+
+#curs-table tbody tr:hover td {
+    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
+} 
+
+#curs-table tbody .iconBasura {
+    text-decoration: none;
+}
+
+#curs-table tbody .iconBasura:hover {
+    cursor: pointer;
+    color: red;
+}
+
+#curs-table tbody td:last-child a {
+    padding: 7px 8px;
+}
