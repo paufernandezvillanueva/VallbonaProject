@@ -11,11 +11,11 @@
 <div class="titulo">
     <h1>Llista de rols</h1>
 </div>
-<div class="modal fade" id="nouRol" tabindex="-1" aria-labelledby="nouRolLabel" aria-hidden="true">
+<div class="modal fade" id="newRol" tabindex="-1" aria-labelledby="newRolLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" style="width: 100%; text-align: center;" id="nouRolLabel">Afegir rol</h5>
+                <h5 class="modal-title" style="width: 100%; text-align: center;" id="newRolLabel">Afegir rol</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="{{ route('rol_new') }}">
@@ -45,7 +45,7 @@
 </div>
 @endif
 
-<table id="rol-table" class="table table-striped table-dark " style="margin-top: 20px;margin-bottom: 10px; -webkit-overflow-scrolling: auto">
+<table id="rol-table" class="table table-striped table-dark" style="margin-top: 20px;margin-bottom: 10px; -webkit-overflow-scrolling: auto">
     <thead>
         <tr>
             <th>Name</th>
@@ -60,8 +60,8 @@
     <tbody>
         @foreach ($rols as $rol)
         <tr>
-            <td>{{ $rol->name }}</td>
-            <td>{{ $rol->id }}</td>
+            <td><a>{{ $rol->name }}</a></td>
+            <td><a>{{ $rol->id }}</a></td>
             <td>
                 <a data-id="{{ $rol->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
@@ -72,4 +72,34 @@
         @endforeach
     </tbody>
 </table>
+
+<div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar Rol</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="GET">
+                <div class="modal-body">
+                    <script>
+                        document.querySelectorAll('.iconBasura').forEach(elem => {
+                            elem.addEventListener('click', () => {
+                                var dataId = elem.dataset.id;
+                                var form = document.querySelector('#confirmDelete form');
+                                form.action = "delete/" + dataId;
+                            });
+                        });
+                    </script>
+                    @csrf
+                    <p>Estàs segur de voler eliminar aquest rol?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection

@@ -32,6 +32,10 @@ label, p {
     }
 }
 
+.iconAdd {
+    cursor: pointer;
+}
+
 .iconBasura {
     text-decoration: none;
 }
