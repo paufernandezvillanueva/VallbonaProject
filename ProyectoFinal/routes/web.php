@@ -97,6 +97,8 @@ Route::match(['get', 'post'], '/poblacio/new', [PoblacioController::class, 'new'
 
 Route::get('/poblacio/delete/{id}', [PoblacioController::class, 'delete'])->name('poblacio_delete')->middleware('auth');
 
+Route::match(['get', 'post'], '/poblacio/detail/{id}', [PoblacioController::class, 'detail'])->name('poblacio_detail')->middleware('auth');
+
 ////COMARCAS
 
 Route::get('/comarca/list', [ComarcaController::class, 'list'])->name('comarca_list')->middleware('auth');
