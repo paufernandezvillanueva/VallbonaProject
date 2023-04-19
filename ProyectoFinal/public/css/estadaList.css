@@ -32,6 +32,15 @@ label, p {
     }
 }
 
+.iconAdd {
+    color: white;
+    text-decoration: none;
+}
+
+.iconAdd:hover {
+    color: rgb(0, 132, 255);
+}
+
 .iconBasura {
     text-decoration: none;
 }
