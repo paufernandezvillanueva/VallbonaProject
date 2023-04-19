@@ -46,7 +46,7 @@
 #empresa-table tbody tr:hover th,
 #empresa-table tbody tr:hover td {
     box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
-} 
+}
 
 #empresa-table tbody td:last-child a {
     padding: 7px 8px;
@@ -65,7 +65,7 @@ td a:hover {
     color: rgb(0, 132, 255);
 }
 
-.modal-body>.row {
+.modal-body > .row {
     margin-top: 5px;
     margin-left: 10px;
 }
@@ -103,13 +103,14 @@ td a:hover {
 .iconAdd {
     color: white;
     text-decoration: none;
-    cursor: pointer;
 }
 
 .iconAdd:hover {
     color: rgb(0, 132, 255);
-}
-label, p {
-    color: black;
+    cursor: pointer;
 }
 
+label,
+p {
+    color: black;
+}
