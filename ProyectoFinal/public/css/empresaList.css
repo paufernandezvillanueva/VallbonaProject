@@ -99,6 +99,7 @@ td a:hover {
 .iconAdd {
     color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .iconAdd:hover {
