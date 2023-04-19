@@ -137,7 +137,11 @@
             <th>Tipus Estància</th>
             <th>Registrat per</th>
             <th>Curs</th>
-            <th><a href="#" id="btnAfegirEstada" data-bs-toggle="modal" data-bs-target="#newEstada"><i class="bi bi-plus-square-fill"></i></a></th>
+            <th>
+                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newEstada">
+                    <i class="bi bi-plus-square-fill"></i>
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>

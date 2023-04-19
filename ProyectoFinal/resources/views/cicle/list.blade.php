@@ -1,34 +1,3 @@
-<style>
-    .modal-body>.row {
-        margin-top: 5px;
-        margin-left: 10px;
-    }
-
-    @media screen and (max-width: 575px) {
-        label {
-            float: left;
-        }
-    }
-
-    @media screen and (min-width: 576px) {
-        label {
-            float: right;
-        }
-    }
-
-    #btnAfegirCicle {
-
-    }
-
-    #icon-basura {
-        font-size: larger;
-    }
-
-    #icon-basura:hover {
-        color: red;
-    }
-</style>
-
 @extends('layout')
 
 @section('title', 'Llistat de cicles')
@@ -93,7 +62,6 @@
             <th>Name</th>
             <th>
                 <a href="#" id="btnAfegirCicle" data-bs-toggle="modal" data-bs-target="#nouCicle">Afegir Cicle</a>
-
             </tr>
     </thead>
     <tbody>

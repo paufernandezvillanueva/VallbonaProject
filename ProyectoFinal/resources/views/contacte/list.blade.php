@@ -12,11 +12,11 @@
     <h1>Llista de contactes</h1>
 </div>
 
-<div class="modal fade" id="nouContacte" tabindex="-1" aria-labelledby="nouContacteLabel" aria-hidden="true">
+<div class="modal fade" id="newContacte" tabindex="-1" aria-labelledby="newContacteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" style="width: 100%; text-align: center;" id="nouContacteLabel">Afegir contacte</h5>
+                <h5 class="modal-title" style="width: 100%; text-align: center;" id="newContacteLabel">Afegir contacte</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="{{ route('contacte_new') }}">
@@ -79,11 +79,15 @@
 <table id="contacte-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th scope="col">Nom</th>
-            <th scope="col">Empresa</th>
-            <th scope="col">Email</th>
-            <th scope="col">Telefon</th>
-            <th><a href="#" id="btnAfegirContacte" data-bs-toggle="modal" data-bs-target="#nouContacte"><i class="bi bi-plus-square-fill"></i></a></th>
+            <th>Nom</th=>
+            <th>Empresa</th=>
+            <th>Email</th>
+            <th>Telefon</th>
+            <th>
+                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newContacte">
+                    <i class="bi bi-plus-square-fill"></i>
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>

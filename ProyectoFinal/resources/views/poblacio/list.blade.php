@@ -23,7 +23,11 @@
         <tr>
             <th>Nom</th>
             <th>Comarca</th>
-            <th><a href="#" id="btnAfegirPoblacio" data-bs-toggle="modal" data-bs-target="#novaPoblacio"><i class="bi bi-plus-square-fill"></i></a></th>
+            <th>
+                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#novaPoblacio">
+                    <i class="bi bi-plus-square-fill"></i>
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>

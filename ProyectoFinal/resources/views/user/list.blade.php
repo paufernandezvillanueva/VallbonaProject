@@ -65,7 +65,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="rol_id">
-                            <option>Selecciona un rol...</option>
+                                <option>Selecciona un rol...</option>
                                 @foreach ($rols as $rol)
                                 <option value="{{ $rol->id }}">{{ $rol->name }}</option>
                                 @endforeach
@@ -91,12 +91,14 @@
 <table id="usuari-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th scope="col">Nom</th>
-            <th scope="col">Email</th>
-            <th scope="col">Cicle</th>
-            <th scope="col">Rol</th>
-            <th scope="col">
-                <a href="#" id="btnAfegirUsuari" data-bs-toggle="modal" data-bs-target="#newUsuari"><i class="bi bi-plus-square-fill"></i></a>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Cicle</th>
+            <th>Rol</th>
+            <th>
+                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newUsuari">
+                    <i class="bi bi-plus-square-fill"></i>
+                </a>
             </th>
         </tr>
     </thead>

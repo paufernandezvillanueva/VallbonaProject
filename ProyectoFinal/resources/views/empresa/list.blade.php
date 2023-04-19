@@ -15,14 +15,18 @@
 <table id="empresa-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th scope="col">CIF</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Sector</th>
-            <th scope="col">Població</th>
-            <th scope="col">Estades</th>
-            <th scope="col">Valoracio</th>
-            <th scope="col">Contactes</th>
-            <th scope="col"><a class="iconAdd" data-bs-toggle="modal" data-bs-target="#addEmpresa"><i class="bi bi-plus-square-fill"></i></a></th>
+            <th>CIF</th>
+            <th>Nom</th>
+            <th>Sector</th>
+            <th>Població</th>
+            <th>Estades</th>
+            <th>Valoracio</th>
+            <th>Contactes</th>
+            <th>
+                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#addEmpresa">
+                    <i class="bi bi-plus-square-fill"></i>
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -89,7 +93,7 @@
                             <label class="col-form-label" for="cif">CIF</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000"/>
+                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" />
                         </div>
                     </div>
                     <div class="row">
@@ -97,7 +101,7 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name"/>
+                            <input class="form-control" type="text" name="name" />
                         </div>
                     </div>
                     <div class="row">
@@ -105,7 +109,7 @@
                             <label class="col-form-label" for="sector">Sector</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="sector"/>
+                            <input class="form-control" type="text" name="sector" />
                         </div>
                     </div>
                     <div class="row">
