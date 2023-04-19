@@ -39,12 +39,6 @@
     </div>
 </div>
 
-@if (session('status'))
-<div>
-    <strong>Success!</strong> {{ session('status') }}
-</div>
-@endif
-
 <table id="curs-table" class="table table-striped table-dark">
     <thead>
         <tr>
