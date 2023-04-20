@@ -24,7 +24,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label text-dark" for="shorname">Shortname</label>
+                            <label class="col-form-label text-dark" for="shorname">Acrònim</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="shortname" />
@@ -51,8 +51,8 @@
 <table id="cicle-list" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Shortname</th>
-            <th>Name</th>
+            <th>Acrònim</th>
+            <th>Nom</th>
             <th>
                 <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newCicle">
                     <i class="bi bi-plus-square-fill"></i>
