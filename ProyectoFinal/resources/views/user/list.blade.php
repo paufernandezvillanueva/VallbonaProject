@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de users')
+@section('title', 'Llistat d\'usuaris')
 
 @section('stylesheets')
 @parent
@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="titulo">
-    <h1>Llista d'usuaris</h1>
+    <h1>Llistat d'usuaris</h1>
 </div>
 
 <div class="modal fade" id="newUsuari" tabindex="-1" aria-labelledby="newUsuariLabel" aria-hidden="true">

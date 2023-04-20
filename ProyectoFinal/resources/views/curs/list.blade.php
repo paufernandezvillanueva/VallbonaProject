@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="titulo">
-    <h1>Llista de cursos</h1>
+    <h1>Llistat de cursos</h1>
 </div>
 <div class="modal fade" id="newCurs" tabindex="-1" aria-labelledby="newCursLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">

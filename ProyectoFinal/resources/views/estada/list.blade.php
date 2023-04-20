@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de estadas')
+@section('title', 'Llistat d\'estades')
 
 @section('stylesheets')
 @parent

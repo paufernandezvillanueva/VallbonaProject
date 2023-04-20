@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de users')
+@section('title', 'Llistat de rols')
 
 @section('stylesheets')
 @parent
@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="titulo">
-    <h1>Llista de rols</h1>
+    <h1>Llistat de rols</h1>
 </div>
 <div class="modal fade" id="newRol" tabindex="-1" aria-labelledby="newRolLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">

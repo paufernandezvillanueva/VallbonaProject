@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="titulo">
-    <h1>Llista d'empreses</h1>
+    <h1>Llistat d'empreses</h1>
 </div>
 
 <table id="empresa-table" class="table table-striped table-dark">
