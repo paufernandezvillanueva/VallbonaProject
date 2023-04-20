@@ -151,7 +151,14 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" id="comarca_id" value="{{ $poblacio->comarca_id }}">
-                                <option>Carregant...</option>
+                            <option value="">Selecciona una comarca...</option>
+                                @foreach($comarques as $comarca)
+                                    @if ( $comarca->id == $poblacio->comarca_id )
+                                        <option value="{{ $comarca->id }}" selected>{{ $comarca->name }}</option>
+                                    @else
+                                        <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
+                                    @endif
+                                @endforeach
                             </select>
                         </div>
                     </div>

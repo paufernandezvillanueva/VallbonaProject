@@ -12,6 +12,124 @@
     <h1>Llistat d'empreses</h1>
 </div>
 
+<div id="filter">
+    <div id="filter-header"><div><button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button></div><div><button id="filter-button"><i class="bi bi-filter"></i></button></div></div>
+    <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('empresa_list') }}">
+        <div id="filter-form-container">
+            <div>
+                <label for="cif">CIF: 
+                @if (isset($request->cif) && $request->cif != "")
+                   <input type="text" id="cif" name="cif" value="{{ $request->cif }}"></input>
+                @else
+                    <input type="text" id="cif" name="cif"></input>
+                @endif
+                </label><br>
+
+                <label for="cicle">Cicle: 
+                        @if (isset($request->cicle) && $request->cicle != "")
+                        <select id="cicle" name="cicle" value="{{ $request->cicle }}">
+                            <option value="">Selecciona un cicle...</option>
+                            @foreach($cicles as $cicle)
+                                @if ($request->cicle == $cicle->id)
+                                    <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                                @else
+                                    <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        @else
+                        <select id="cicle" name="cicle">
+                            <option value="">Selecciona un cicle...</option>
+                            @foreach($cicles as $cicle)
+                                <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                            @endforeach
+                        </select>
+                        @endif
+                </label><br>
+
+                <label for="comarca">Comarca: 
+                    @if (isset($request->comarca) && $request->comarca != "")
+                    <select id="comarca" name="comarca" value="{{ $request->comarca }}">
+                        <option value="">Selecciona una comarca...</option>
+                        @foreach($comarques as $comarca)
+                            @if ($request->comarca == $comarca->id)
+                                <option value="{{ $comarca->id }}" selected>{{ $comarca->name }}</option>
+                            @else
+                                <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    @else
+                    <select id="comarca" name="comarca">
+                        <option value="">Selecciona una comarca...</option>
+                        @foreach($comarques as $comarca)
+                            <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
+                        @endforeach
+                    </select>
+                    @endif
+                </label><br>
+
+                <label id="estadas">Estadas: 
+                    @if (isset($request->minEstadas) && $request->minEstadas != "")
+                        <input type="number" id="minEstadas" name="minEstadas" min=0 value="{{ $request->minEstadas }}"></input>
+                    @else
+                        <input type="number" id="minEstadas" name="minEstadas" min=0></input>
+                    @endif
+                     - 
+                     @if (isset($request->maxEstadas) && $request->maxEstadas != "")
+                        <input type="number" id="maxEstadas" name="maxEstadas" min=0 value="{{ $request->maxEstadas }}"></input>
+                    @else
+                        <input type="number" id="maxEstadas" name="maxEstadas" min=0></input>
+                    @endif
+                </label><br>
+            </div>
+            <div>
+                <label>Nom: 
+                @if (isset($request->name) && $request->name != "")
+                   <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
+                @else
+                    <input type="text" id="name" name="name"></input>
+                @endif
+                </label><br>
+
+                <label>Sector:
+                @if (isset($request->sector) && $request->sector != "")
+                    <input type="text" id="sector" name="sector" value="{{ $request->sector }}"></input>
+                @else
+                    <input type="text" id="sector" name="sector"></input>
+                @endif
+                </label><br>
+
+                <label for="poblacio">Poblacio: 
+                @if (isset($request->poblacio) && $request->poblacio != "")
+                    <select id="poblacio" name="poblacio" value="{{ $request->poblacio }}">
+                        <option value="">Selecciona una comarca...</option>
+                    </select>
+                @else
+                    <select id="poblacio" name="poblacio">
+                        <option value="">Selecciona una comarca...</option>
+                    </select>
+                @endif
+                </label><br>
+
+                <label id="valoracio">Valoracio:
+                @if (isset($request->minEstadas) && $request->minEstadas != "")
+                    <input type="number" id="minValoracio" name="minValoracio" min=0 value="{{ $request->minValoracio }}"></input>
+                @else
+                    <input type="number" id="minValoracio" name="minValoracio" min=0></input>
+                @endif
+                    - 
+                @if (isset($request->maxEstadas) && $request->maxEstadas != "")
+                    <input type="number" id="maxValoracio" name="maxValoracio" min=0 value="{{ $request->maxValoracio }}"></input>
+                @else
+                    <input type="number" id="maxValoracio" name="maxValoracio" min=0></input>
+                @endif 
+                </label><br>
+            </div>
+        </div>
+        <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
+    </form>
+</div>
 <table id="empresa-table" class="table table-striped table-dark">
     <thead>
         <tr>
@@ -118,7 +236,10 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" id="comarca_id">
-                                <option>Carregant...</option>
+                            <option value="">Selecciona una comarca...</option>
+                                @foreach($comarques as $comarca)
+                                    <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -173,4 +294,6 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/empresa_list_poblacions_json.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/filter_minDefiner.js') }}"></script>
 @endsection
