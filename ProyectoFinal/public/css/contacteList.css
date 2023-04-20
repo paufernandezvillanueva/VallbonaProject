@@ -32,6 +32,10 @@ label, p {
     }
 }
 
+.col-form-label {
+    white-space: nowrap;
+}
+
 .iconAdd {
     color: white;
     text-decoration: none;

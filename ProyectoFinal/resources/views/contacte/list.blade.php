@@ -45,7 +45,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label text-dark" for="email">Email</label>
+                            <label class="col-form-label text-dark" for="email">Correu electrònic</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="email" />
@@ -81,7 +81,7 @@
         <tr>
             <th>Nom</th=>
             <th>Empresa</th=>
-            <th>Email</th>
+            <th>Correu electrònic</th>
             <th>Telefon</th>
             <th>
                 <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newContacte">

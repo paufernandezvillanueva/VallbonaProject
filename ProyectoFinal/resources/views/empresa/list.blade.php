@@ -19,8 +19,8 @@
             <th>Nom</th>
             <th>Sector</th>
             <th>Població</th>
-            <th>Estades</th>
-            <th>Valoracio</th>
+            <th>Nº Estades</th>
+            <th>Valoració</th>
             <th>Contactes</th>
             <th>
                 <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#addEmpresa">
