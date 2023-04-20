@@ -55,19 +55,19 @@ label, p {
     white-space: nowrap;
 }
 
-#rol-table thead th {
+#cicle-table thead th {
     text-align: center;
     padding: 0.5rem 0.5rem;
 }
 
-#rol-table tbody th,
-#rol-table tbody td {
+#cicle-table tbody th,
+#cicle-table tbody td {
     text-align: center;
     padding: 0;
 }
 
-#rol-table tbody a,
-#rol-table tbody span {
+#cicle-table tbody a,
+#cicle-table tbody span {
     display: block;
     color: white;
     text-decoration: none;
@@ -77,29 +77,23 @@ label, p {
     white-space: nowrap;
 }
 
-#rol-table tbody td:nth-of-type(2) a:hover {
-    display: block;
-    color: rgb(0, 132, 255);
-    padding: 0.5rem 0.5rem;
-}
-
-#rol-table tbody tr td {
+#cicle-table tbody tr td {
     background-color: #212529;
 }
 
-#rol-table tbody tr:hover td {
+#cicle-table tbody tr:hover td {
     box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
 } 
 
-#rol-table tbody .iconBasura {
+#cicle-table tbody .iconBasura {
     text-decoration: none;
 }
 
-#rol-table tbody .iconBasura:hover {
+#cicle-table tbody .iconBasura:hover {
     cursor: pointer;
     color: red;
 }
 
-#rol-table tbody td:last-child a {
+#cicle-table tbody td:last-child a {
     padding: 7px 8px;
 }

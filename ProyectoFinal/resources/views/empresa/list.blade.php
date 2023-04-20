@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat d\'empresas')
+@section('title', 'Llistat d\'empreses')
 
 @section('stylesheets')
 @parent
@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="titulo">
-    <h1>Llista d'empreses</h1>
+    <h1>Llistat d'empreses</h1>
 </div>
 
 <div id="filter">
@@ -137,8 +137,8 @@
             <th>Nom</th>
             <th>Sector</th>
             <th>Població</th>
-            <th>Estades</th>
-            <th>Valoracio</th>
+            <th>Nº Estades</th>
+            <th>Valoració</th>
             <th>Contactes</th>
             <th>
                 <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#addEmpresa">

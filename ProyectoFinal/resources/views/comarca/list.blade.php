@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de comarcas')
+@section('title', 'Llistat de comarques')
 
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/comarcaList.css') }}" />
@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="titulo">
-    <h1>Llistat de comarcas</h1>
+    <h1>Llistat de comarques</h1>
 </div>
 
 
