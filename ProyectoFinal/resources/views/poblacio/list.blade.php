@@ -3,45 +3,48 @@
 @section('title', 'Llistat de poblacions')
 
 @section('stylesheets')
-    @parent
+@parent
 <link rel="stylesheet" href="{{ asset('css/poblacioList.css') }}" />
 @endsection
 
 @section('content')
 
-    <div class="titulo">
-        <h1>Llistat de poblacions</h1>
-    </div>
+<div class="titulo">
+    <h1>Llistat de poblacions</h1>
+</div>
 
-    @if (session('status'))
-        <div>
-            <strong>Success!</strong> {{ session('status') }}
-        </div>
-    @endif
+@if (session('status'))
+<div>
+    <strong>Success!</strong> {{ session('status') }}
+</div>
+@endif
 <table id="poblacio-table" class="table table-striped table-dark">
     <thead>
         <tr>
             <th>Nom</th>
             <th>Comarca</th>
-            <th><a href="#" id="btnAfegirPoblacio" data-bs-toggle="modal" data-bs-target="#novaPoblacio"><i class="bi bi-plus-square-fill"></i></a></th>
+            <th><a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newRol">
+                    <i class="bi bi-plus-square-fill"></i>
+                </a>
+            </th>
         </tr>
     </thead>
     <tbody>
         @foreach ($poblacions as $poblacio)
-            <tr>
-                <td><a href="{{ route('poblacio_detail', $poblacio->id) }}">{{ $poblacio->name }}</a></td>
-                <td>
-                    <form action="{{ route('poblacio_list') }}" method="GET">
-                        <input type="hidden" name="comarca" value="{{ $poblacio->comarca_id }}" />
-                        <a href="#" onclick="this.parentNode.submit()">{{ $poblacio->comarca->name }}</a>
-                    </form>
-                </td>
-                <td>
-                    <a data-id="{{ $poblacio->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
-                        <i class="bi bi-trash3-fill"></i>
-                    </a>
-                </td>
-            </tr>
+        <tr>
+            <td><a href="{{ route('poblacio_detail', $poblacio->id) }}">{{ $poblacio->name }}</a></td>
+            <td>
+                <form action="{{ route('poblacio_list') }}" method="GET">
+                    <input type="hidden" name="comarca" value="{{ $poblacio->comarca_id }}" />
+                    <a href="#" onclick="this.parentNode.submit()">{{ $poblacio->comarca->name }}</a>
+                </form>
+            </td>
+            <td>
+                <a data-id="{{ $poblacio->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                    <i class="bi bi-trash3-fill"></i>
+                </a>
+            </td>
+        </tr>
         @endforeach
     </tbody>
 </table>
@@ -62,7 +65,7 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name"/>
+                            <input class="form-control" type="text" name="name" />
                         </div>
                     </div>
                     <div class="row">
@@ -73,7 +76,7 @@
                             <select class="form-control" name="comarca_id">
                                 <option>Selecciona una comarca...</option>
                                 @foreach($comarques as $comarca)
-                                    <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
+                                <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
                                 @endforeach
                             </select>
                         </div>
