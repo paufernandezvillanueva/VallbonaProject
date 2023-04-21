@@ -83,8 +83,6 @@
     </tbody>
 </table>
 
-
-
 <div class="modal fade" id="newContacte" tabindex="-1" aria-labelledby="newContacteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -137,7 +135,6 @@
                     <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
-
             </form>
         </div>
     </div>
