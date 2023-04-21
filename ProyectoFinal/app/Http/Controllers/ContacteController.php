@@ -17,16 +17,24 @@ class ContacteController extends Controller
 
     function list(Request $request)
     {
-        $contactes = Contacte::all();
+        $contactes = Contacte::join("empresas", "empresas.id", '=', 'contactes.empresa_id');
         $empresas = Empresa::all();
+
+        if (isset($request->name)) {
+            if ($request->name != "") {
+              $contactes = $contactes->where('contactes.name', 'like', "%" . $request->name . "%");
+            }
+        }
 
         if (isset($request->empresa)) {
             if ($request->empresa != "") {
-              $contactes = $contactes->where('empresa_id', '=', $request->empresa);
+              $contactes = $contactes->where('empresas.name', 'like', "%" . $request->empresa . "%");
             }
-          }
+        }
 
-        return view('contacte.list', ['contactes' => $contactes, 'empresas'=>$empresas]);
+        $contactes = $contactes->distinct("contactes.*")->get("contactes.*");
+
+        return view('contacte.list', ['contactes' => $contactes, 'empresas' => $empresas, 'request' => $request ]);
     }
 
     function detail(Request $request, $id)

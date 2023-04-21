@@ -13,11 +13,20 @@ class CicleController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function list()
+    function list(Request $request)
     {
         if (Auth::user()->rol_id == 5076) {
-            $cicles = Cicle::all();
-            return view('cicle.list', ['cicles' => $cicles]);
+            $cicles = Cicle::join("users", "cicles.id", "=", "users.cicle_id");
+
+            if (isset($request->name)) {
+                if ($request->name != "") {
+                  $cicles = $cicles->where('cicles.name', 'like', "%" . $request->name . "%");
+                }
+            }
+
+            $cicles = $cicles->distinct("cicles.*")->get("cicles.*");
+            
+            return view('cicle.list', ['cicles' => $cicles, 'request' => $request]);
         } else {
             return redirect('');
         }

@@ -99,6 +99,13 @@ td a:hover {
     color: red;
 }
 
+#empresa-table thead th:last-child,
+#empresa-table tbody td:last-child,
+#filter-button,
+#import-button {
+    width: 40px;
+}
+
 .iconBasura {
     text-decoration: none;
 }

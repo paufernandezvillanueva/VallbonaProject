@@ -12,12 +12,32 @@
     <h1>Llistat de comarques</h1>
 </div>
 
-
-@if (session('status'))
-<div>
-    <strong>Success!</strong> {{ session('status') }}
+<div id="filter">
+    <div id="filter-header">
+        <div>
+            <button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button>
+        </div>
+        <div>
+            <button id="filter-button"><i class="bi bi-filter"></i></button>
+        </div>
+    </div>
+    <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('comarca_list') }}">
+        <div id="filter-form-container">
+            <div>
+            <label for="name">Nom: 
+                @if (isset($request->name) && $request->name != "")
+                   <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
+                @else
+                    <input type="text" id="name" name="name"></input>
+                @endif
+            </label><br>
+            </div>
+            <div>
+            </div>
+        </div>
+        <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
+    </form>
 </div>
-@endif
 
 <table id="comarca-table" class="table table-striped table-dark">
     <thead>
@@ -100,5 +120,6 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 <br>
 @endsection

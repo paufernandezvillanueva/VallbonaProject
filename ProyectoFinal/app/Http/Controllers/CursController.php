@@ -15,12 +15,20 @@ class CursController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function list() 
+    function list(Request $request) 
     { 
         if (Auth::user()->rol_id == 5076) {
-            $cursos = Curs::all();
+            $cursos = Curs::join("estadas", "cursos.id", "=", "estadas.curs_id");
 
-            return view('curs.list', ['cursos' => $cursos]);
+            if (isset($request->name)) {
+                if ($request->name != "") {
+                  $cursos = $cursos->where('cursos.name', 'like', "%" . $request->name . "%");
+                }
+            }
+
+            $cursos = $cursos->distinct("cursos.*")->get("cursos.*");
+
+            return view('curs.list', ['cursos' => $cursos, 'request' => $request]);
         } else {
         return redirect('');
         }
