@@ -76,7 +76,7 @@ p {
     padding: 0.5rem 0.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    max-width: 250px;
 }
 
 #contacte-table tbody td:nth-of-type(2) a:hover {
