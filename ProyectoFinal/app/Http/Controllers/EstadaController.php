@@ -18,14 +18,64 @@ class EstadaController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function list()
+    function list(Request $request)
     {
-        $estadas = Estada::all();
+        $estadas = Estada::join("empresas", "empresas.id", '=', 'estadas.empresa_id')->
+        join("users", "users.id", '=', 'estadas.registered_by');
+        
+        if (isset($request->name)) {
+            if ($request->name != "") {
+              $estadas = $estadas->where('estadas.student_name', 'like', "%" . $request->name . "%");
+            }
+        }
+
+        if (isset($request->curs)) {
+            if ($request->curs != "") {
+              $estadas = $estadas->where('estadas.curs_id', '=', $request->curs);
+            }
+        }
+        
+        if (isset($request->cicle)) {
+            if ($request->cicle != "") {
+              $estadas = $estadas->where('estadas.cicle_id', '=', $request->cicle);
+            }
+        }
+        if (isset($request->registeredBy)) {
+            if ($request->registeredBy != "") {
+              $estadas = $estadas->where('users.firstname', 'like', "%" . $request->registeredBy . "%")->
+              orWhere('users.lastname', 'like', "%" . $request->registeredBy . "%");
+            }
+        }
+
+        if (isset($request->empresa)) {
+            if ($request->empresa != "") {
+              $estadas = $estadas->where('empresas.name', 'like', "%" . $request->empresa . "%");
+            }
+        }
+        
+        if (isset($request->tipus)) {
+            if ($request->tipus != "") {
+              $estadas = $estadas->where('estadas.dual', '=', $request->tipus);
+            }
+        }
+
+        if (isset($request->minValoracio)) {
+          if (!isset($request->maxValoracio) || $request->maxValoracio >= $request->minValoracio) {
+            $estadas = $estadas->groupBy("empresas.id")->where('estadas.evaluation', '>=', $request->minValoracio);
+          }
+        }
+    
+        if (isset($request->maxValoracio)) {
+            $estadas = $estadas->groupBy("empresas.id")->where('estadas.evaluation', '<=', $request->maxValoracio);
+        }
+        
+        $estadas = $estadas->distinct("estadas.*")->get("estadas.*");
+
         $cicles = Cicle::all();
         $empresas = Empresa::all();
         $users = User::all();
         $cursos = Curs::all();
-        return view('estada.list', ['estadas' => $estadas, 'cicles' => $cicles, 'empresas' => $empresas, 'users' => $users, 'cursos' => $cursos]);
+        return view('estada.list', ['estadas' => $estadas, 'cicles' => $cicles, 'empresas' => $empresas, 'users' => $users, 'cursos' => $cursos, 'request' => $request]);
     }
 
     function detail(Request $request, $id)

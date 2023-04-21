@@ -12,6 +12,164 @@
     <h1>Llistat d'estades</h1>
 </div>
 
+<div id="filter">
+    <div id="filter-header">
+        <div>
+            <button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button>
+        </div>
+        <div>
+            <button id="filter-button"><i class="bi bi-filter"></i></button>
+        </div>
+    </div>
+    <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('estada_list') }}">
+        <div id="filter-form-container">
+            <div>
+                <label>Nom estudiant: 
+                    @if (isset($request->name) && $request->name != "")
+                    <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
+                    @else
+                    <input type="text" id="name" name="name"></input>
+                    @endif
+                </label><br>
+                <label for="cicle">Cicle: 
+                    @if (isset($request->cicle) && $request->cicle != "")
+                    <select id="cicle" name="cicle" value="{{ $request->cicle }}">
+                        <option value="">Selecciona un cicle...</option>
+                        @foreach($cicles as $cicle)
+                            @if ($request->cicle == $cicle->id)
+                                <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                            @else
+                                <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    @else
+                    <select id="cicle" name="cicle">
+                        <option value="">Selecciona un cicle...</option>
+                        @foreach($cicles as $cicle)
+                            <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                        @endforeach
+                    </select>
+                    @endif
+                </label><br>
+                <label for="empresa">Empresa: 
+                    @if (isset($request->empresa) && $request->empresa != "")
+                        <input type="text" id="empresa" name="empresa" value="{{ $request->empresa }}"></input>
+                    @else
+                        <input type="text" id="empresa" name="empresa"></input>
+                    @endif
+                </input></label><br>
+                <label id="valoracio">Valoracio:
+                @if (isset($request->minEstadas) && $request->minEstadas != "")
+                    <input type="number" id="minValoracio" name="minValoracio" min=0 value="{{ $request->minValoracio }}"></input>
+                @else
+                    <input type="number" id="minValoracio" name="minValoracio" min=0></input>
+                @endif
+                    - 
+                @if (isset($request->maxEstadas) && $request->maxEstadas != "")
+                    <input type="number" id="maxValoracio" name="maxValoracio" min=0 value="{{ $request->maxValoracio }}"></input>
+                @else
+                    <input type="number" id="maxValoracio" name="maxValoracio" min=0></input>
+                @endif 
+                </label><br>
+            </div>
+            <div>
+                <label for="curs">Curs: 
+                    @if (isset($request->curs) && $request->curs != "")
+                    <select id="curs" name="curs" value="{{ $request->curs }}">
+                        <option value="">Selecciona un curs...</option>
+                        @foreach($cursos as $curs)
+                            @if ($request->curs == $curs->id)
+                                <option value="{{ $curs->id }}" selected>{{ $curs->name }}</option>
+                            @else
+                                <option value="{{ $curs->id }}">{{ $curs->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    @else
+                    <select id="curs" name="curs">
+                        <option value="">Selecciona un curs...</option>
+                        @foreach($cursos as $curs)
+                            <option value="{{ $curs->id }}">{{ $curs->name }}</option>
+                        @endforeach
+                    </select>
+                    @endif
+                </label><br>
+                <label for="registeredBy">Registrat per: 
+                    @if (isset($request->registeredBy) && $request->registeredBy != "")
+                        <input type="text" id="registeredBy" name="registeredBy" value="{{ $request->registeredBy }}"></input>
+                    @else
+                        <input type="text" id="registeredBy" name="registeredBy"></input>
+                    @endif
+                </input></label><br>
+                <label for="tipus">Tipus: 
+                    @if (isset($request->tipus) && $request->tipus != "")
+                    <select id="tipus" name="tipus" value="{{ $request->tipus }}">
+                        <option value="">Selecciona el tipus...</option>
+                        @if ($request->tipus == 0)
+                            <option value="0" selected>FCT</option>
+                            <option value="1">Dual</option>
+                        @elseif ($request->tipus == 1)
+                            <option value="0">FCT</option>
+                            <option value="1" selected>Dual</option>
+                        @endif
+                    </select>
+                    @else
+                    <select id="tipus" name="tipus">
+                        <option value="">Selecciona el tipus...</option>
+                        <option value="0">FCT</option>
+                        <option value="1">Dual</option>
+                    </select>
+                    @endif
+                </label><br>
+            </div>
+        </div>
+        <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
+    </form>
+</div>
+
+<table id="estada-table" class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th>Nom estudiant</th>
+            <th>Curs</th>
+            <th>Cicle</th>
+            <th>Registrat per</th>
+            <th>Empresa</th>
+            <th>Tipus</th>
+            <th>Valoració</th>
+            <th>Comentaris</th>
+            <th>
+                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newEstada">
+                    <i class="bi bi-plus-square-fill"></i>
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($estadas as $estada)
+        <tr>
+            <td><a>{{ $estada->student_name }}</a></td>
+            <td><a>{{ $estada->curs->name }}</a></td>
+            <td><a>{{ $estada->cicle->shortname }}</a></td>
+            <td><a>{{ $estada->tutor() }}</a></td>
+            <td><a>{{ $estada->empresa->name }}</a></td>
+            @if ($estada->dual == 1)
+            <td><a>Dual</a></td>
+            @else
+            <td><a>FCT</a></td>
+            @endif
+            <td><a>{{ $estada->evaluation }}</a></td>
+            <td><a>{{ $estada->comment }}</a></td>
+            <td>
+                <a data-id="{{ $estada->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
+                <!-- <a href="{{ route('estada_edit', ['id' => $estada->id]) }}">Editar</a> -->
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+
 <div class="modal fade" id="newEstada" tabindex="-1" aria-labelledby="newEstadaLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -84,11 +242,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="dual">Tipus estada</label>
+                            <label class="col-form-label" for="dual">Tipus</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="dual">
-                                <option>Selecciona un tipus d'estada...</option>
+                                <option>Selecciona el tipus...</option>
                                 <option value="0">FCT</option>
                                 <option value="1">Dual</option>
                             </select>
@@ -96,7 +254,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="evaluation">Evaluation</label>
+                            <label class="col-form-label" for="evaluation">Valoració</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" />
@@ -119,54 +277,6 @@
         </div>
     </div>
 </div>
-
-@if (session('status'))
-<div>
-    <strong>Success!</strong> {{ session('status') }}
-</div>
-@endif
-
-<table id="estada-table" class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>Nom Estudiant</th>
-            <th>Cicle</th>
-            <th>Empresa</th>
-            <th>Valoració</th>
-            <th>Comentaris</th>
-            <th>Tipus Estància</th>
-            <th>Registrat per</th>
-            <th>Curs</th>
-            <th>
-                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newEstada">
-                    <i class="bi bi-plus-square-fill"></i>
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($estadas as $estada)
-        <tr>
-            <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->student_name }}</a></td>
-            <td><a>{{ $estada->cicle->shortname }}</a></td>
-            <td><a>{{ $estada->empresa->name }}</a></td>
-            <td><a>{{ $estada->evaluation }}</a></td>
-            <td id="comentari"><a>{{ $estada->comment }}</a></td>
-            @if ($estada->dual == 1)
-            <td><a>Dual</a></td>
-            @else
-            <td><a>FCT</a></td>
-            @endif
-            <td><a>{{ $estada->tutor() }}</a></td>
-            <td><a>{{ $estada->curs->name }}</a></td>
-            <td>
-                <a data-id="{{ $estada->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
-                <!-- <a href="{{ route('estada_edit', ['id' => $estada->id]) }}">Editar</a> -->
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
 
 <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -197,4 +307,5 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 @endsection

@@ -13,11 +13,19 @@ class ComarcaController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function list()
+    function list(Request $request)
     {
         if (Auth::user()->rol_id == 5076) {
-            $comarcas = Comarca::all();
-            return view('comarca.list', ['comarcas'=>$comarcas]);
+            $comarcas = Comarca::join("poblacios", "comarcas.id", "=", "poblacios.comarca_id");
+
+            if (isset($request->name)) {
+                if ($request->name != "") {
+                  $comarcas = $comarcas->where('comarcas.name', 'like', "%" . $request->name . "%");
+                }
+            }
+
+            $comarcas = $comarcas->distinct("comarcas.*")->get("comarcas.*");
+            return view('comarca.list', ['comarcas' => $comarcas, 'request' => $request]);
         } else {
             return redirect('');
         }

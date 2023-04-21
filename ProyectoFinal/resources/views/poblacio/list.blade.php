@@ -8,16 +8,44 @@
 @endsection
 
 @section('content')
-
 <div class="titulo">
     <h1>Llistat de poblacions</h1>
 </div>
 
-@if (session('status'))
-<div>
-    <strong>Success!</strong> {{ session('status') }}
+<div id="filter">
+    <div id="filter-header">
+        <div>
+            <button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button>
+        </div>
+        <div>
+            <button id="filter-button"><i class="bi bi-filter"></i></button>
+        </div>
+    </div>
+    <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('poblacio_list') }}">
+        <div id="filter-form-container">
+            <div>
+            <label for="name">Nom: 
+                @if (isset($request->name) && $request->name != "")
+                   <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
+                @else
+                    <input type="text" id="name" name="name"></input>
+                @endif
+            </label><br>
+            </div>
+            <div>
+            <label for="name">Comarca: 
+                @if (isset($request->comarca) && $request->comarca != "")
+                   <input type="text" id="comarca" name="comarca" value="{{ $request->comarca }}"></input>
+                @else
+                    <input type="text" id="comarca" name="comarca"></input>
+                @endif
+            </label><br>
+            </div>
+        </div>
+        <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
+    </form>
 </div>
-@endif
+
 <table id="poblacio-table" class="table table-striped table-dark">
     <thead>
         <tr>
@@ -121,6 +149,6 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 <br>
 @endsection

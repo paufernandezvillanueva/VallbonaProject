@@ -19,14 +19,35 @@ class UserController extends BaseController
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-  function list()
+  function list(Request $request)
   {
     if (Auth::user()->rol_id == 5076) {
-      $users = User::all();
+      $users = User::join("cicles", "cicles.id", "=", "users.cicle_id");
+
+      if (isset($request->name)) {
+        if ($request->name != "") {
+          $users = $users->where('users.firstname', 'like', "%" . $request->name . "%")->orWhere('users.lastname', 'like', "%" . $request->name . "%");
+        }
+      }
+      
+      if (isset($request->cicle)) {
+        if ($request->cicle != "") {
+          $users = $users->where('users.cicle_id', '=', $request->cicle);
+        }
+      }
+      
+      if (isset($request->rol)) {
+        if ($request->rol != "") {
+          $users = $users->where('users.rol_id', '=', $request->rol);
+        }
+      }
+
+      $users = $users->distinct("users.*")->get("users.*");
+
       $cicles = Cicle::all();
       $rols = Rol::all();
 
-      return view('user.list', ['users' => $users, 'cicles' => $cicles, 'rols' => $rols]);
+      return view('user.list', ['users' => $users, 'cicles' => $cicles, 'rols' => $rols, 'request' => $request]);
     } else {
       return redirect('');
     }
