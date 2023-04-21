@@ -75,6 +75,7 @@ label, p {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    max-width: 250px;
 }
 
 #estada-table tbody td:nth-of-type(2) a:hover,
@@ -214,6 +215,3 @@ label, p {
     width: 100px;
 }
 
-#comentari {
-    max-width: 250px;
-}
