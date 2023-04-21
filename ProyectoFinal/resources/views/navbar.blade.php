@@ -71,8 +71,7 @@
             <strong id="profilename">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#">Configuracio</a></li>
-            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="{{ route('user_profile') }}">Perfil</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
                 <form method="POST" id="logout" action="{{ route('logout') }}">

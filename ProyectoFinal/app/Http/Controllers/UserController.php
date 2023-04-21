@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 use App\Models\User;
 use App\Models\Cicle;
@@ -31,6 +32,28 @@ class UserController extends BaseController
     }
   }
 
+  function profile(){
+      $user = auth()->user();
+      $cicles = Cicle::all();
+      $rols = Rol::all();
+      return view('user.profile',compact('user'), ['cicles' => $cicles, 'rols' => $rols]);
+
+    }
+    function update(Request $request){
+        $user = auth()->user();
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->email = $request->email;
+        if (!empty($request->password)) {
+            if ($request->password != $request->password_confirmation) {
+                return redirect()->back()->withInput()->withErrors(['password' => __('Las contraseñas no coinciden.')]);
+            }
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+
+        return redirect()->route('user_profile')->with('success', 'Datos actualizados correctamente');
+    }
   function edit(Request $request, $id)
   {
     if (Auth::user()->rol_id == 5076) {
