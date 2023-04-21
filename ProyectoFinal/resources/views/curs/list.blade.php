@@ -36,6 +36,9 @@
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
 <div id="filter">
     <div id="filter-header">
         <div>
@@ -48,7 +51,7 @@
     <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('curs_list') }}">
         <div id="filter-form-container">
             <div>
-            <label for="name">Nom: 
+            <label for="name">Nom:
                 @if (isset($request->name) && $request->name != "")
                    <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
                 @else
