@@ -76,6 +76,7 @@ p {
     padding: 0.5rem 0.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     max-width: 250px;
 }
 
