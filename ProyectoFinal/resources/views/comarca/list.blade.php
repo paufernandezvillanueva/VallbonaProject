@@ -44,7 +44,7 @@
         <tr>
             <th>Nom</th>
             <th>
-                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newRol">
+                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#novaComarca">
                     <i class="bi bi-plus-square-fill"></i>
                 </a>
             </th>

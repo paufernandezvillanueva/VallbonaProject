@@ -208,3 +208,7 @@ label, p {
 #valoracio input {
     width: 100px;
 }
+
+#comentari {
+    max-width: 250px;
+}

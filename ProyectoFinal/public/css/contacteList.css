@@ -2,7 +2,8 @@ table {
     text-align: center;
 }
 
-td a, th a {
+td a,
+th a {
     text-decoration: none;
     color: white;
 }
@@ -11,12 +12,13 @@ td a:hover {
     color: rgb(0, 132, 255);
 }
 
-.modal-body>.row {
+.modal-body > .row {
     margin-top: 5px;
     margin-left: 10px;
 }
 
-label, p {
+label,
+p {
     color: black;
 }
 
@@ -74,7 +76,7 @@ label, p {
     padding: 0.5rem 0.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    max-width: 250px;
 }
 
 #contacte-table tbody td:nth-of-type(2) a:hover {
@@ -89,7 +91,7 @@ label, p {
 
 #contacte-table tbody tr:hover td {
     box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
-} 
+}
 
 #contacte-table tbody .iconBasura {
     text-decoration: none;

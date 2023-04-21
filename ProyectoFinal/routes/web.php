@@ -46,6 +46,10 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/user/list', [UserController::class, 'list'])->name('user_list')->middleware('auth');
 
+Route::get('/user/profile', [UserController::class, 'profile'])->name('user_profile')->middleware('auth');
+
+Route::post('/user/profile', [UserController::class, 'update'])->name('user_update')->middleware('auth');
+
 Route::match(['get', 'post'], '/user/edit/{id}', [UserController::class, 'edit'])->name('user_edit')->middleware('auth');
 
 Route::match(['get', 'post'], '/user/new', [UserController::class, 'new'])->name('user_new')->middleware('auth');
