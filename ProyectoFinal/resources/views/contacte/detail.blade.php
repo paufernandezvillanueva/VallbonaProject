@@ -26,7 +26,7 @@
                     </tr>
                     <tr>
                         <th>Empresa</th>
-                        <td>{{ $nomEmpresa->name }}</td>
+                        <td>{{ $contacte->empresa->name }}</td>
                     </tr>
                     <tr>
                         <th>Email</th>
@@ -64,14 +64,13 @@
                             <label class="col-form-label" for="empresa_id">Empresa</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <select class="form-control" name="empresa_id" value="{{ $contacte->empresa_id }}">
-                                <option>Selecciona una empresa...</option>
+                            <select class="form-select" name="empresa_id" value="{{ $contacte->empresa_id }}">
                                 @foreach($empresas as $empresa)
-                                @if ($empresa->id == $contacte->empresa_id)
-                                <option value="{{ $empresa->id }}" selected>{{ $empresa->name }}</option>
-                                @else
-                                <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
-                                @endif
+                                    @if ($empresa->id == $contacte->empresa_id)
+                                        <option value="{{ $empresa->id }}" selected>{{ $empresa->name }}</option>
+                                    @else
+                                        <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

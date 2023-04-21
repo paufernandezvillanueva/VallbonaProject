@@ -22,20 +22,19 @@ class ContacteController extends Controller
 
         if (isset($request->empresa)) {
             if ($request->empresa != "") {
-              $contactes = $contactes->where('empresa_id', '=', $request->empresa);
+                $contactes = $contactes->where('empresa_id', '=', $request->empresa);
             }
-          }
+        }
 
-        return view('contacte.list', ['contactes' => $contactes, 'empresas'=>$empresas]);
+        return view('contacte.list', ['contactes' => $contactes, 'empresas' => $empresas]);
     }
 
     function detail(Request $request, $id)
     {
         $contacte = Contacte::find($id);
-        $nomEmpresa = Empresa::where("id", "=", $contacte->empresa_id)->first("name");
         $empresas = Empresa::all();
 
-        return view('contacte.detail', ['contacte' => $contacte, 'nomEmpresa' => $nomEmpresa, 'empresas' => $empresas]);
+        return view('contacte.detail', ['contacte' => $contacte, 'empresas' => $empresas]);
     }
 
     function new(Request $request)
@@ -51,7 +50,7 @@ class ContacteController extends Controller
             return redirect()->route('contacte_list');
         }
         $empresas = Empresa::all();
-        return view('contacte.new', ['empresas'=>$empresas]);
+        return view('contacte.new', ['empresas' => $empresas]);
     }
 
     function edit(Request $request, $id)
@@ -68,7 +67,7 @@ class ContacteController extends Controller
         }
         $contacte = Contacte::find($id);
 
-        return view('contacte.edit', ['contacte' => $contacte, 'empresas' => $empresas]);
+        return view('contacte.edit', ['contacte' => $contacte]);
     }
 
     function delete($id)
