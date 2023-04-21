@@ -20,14 +20,17 @@ function demanaPoblacio() {
 
 function mostraPoblacio(dades) {
   $("#poblacio_id").html(function() {
-    $("#poblacio_id").html("<option>Selecciona una poblacio...</option>");
-    for (const element in dades) {
-      if (element == document.getElementById("poblacio_id").getAttribute("value")) {
-        $("#poblacio_id").append("<option value='" + element + "' selected>" + dades[element] + "</option>");
-      } else {
-        $("#poblacio_id").append("<option value='" + element + "'>" + dades[element] + "</option>");
-      }
-    };
+    $("#poblacio_id").html("<option>Carregant...</option>");
+    setTimeout(function () {
+      $("#poblacio_id").html("<option>Selecciona una poblacio...</option>");
+      for (const element in dades) {
+        if (element == document.getElementById("poblacio_id").getAttribute("value")) {
+          $("#poblacio_id").append("<option value='" + element + "' selected>" + dades[element] + "</option>");
+        } else {
+          $("#poblacio_id").append("<option value='" + element + "'>" + dades[element] + "</option>");
+        }
+      };
+    }, 1000)
   });
 }
 
@@ -47,13 +50,16 @@ function filterDemanaPoblacio() {
 
 function filterMostraPoblacio(dades) {
   $("#poblacio").html(function() {
-    $("#poblacio").html("<option value=\"\">Selecciona una poblacio...</option>");
-    for (const element in dades) {
-      if (element == document.getElementById("poblacio").getAttribute("value")) {
-        $("#poblacio").append("<option value='" + element + "' selected>" + dades[element] + "</option>");
-      } else {
-        $("#poblacio").append("<option value='" + element + "'>" + dades[element] + "</option>");
-      }
-    };
+    $("#poblacio").html("<option value=\"\">Carregant...</option>");
+    setTimeout(function () {
+      $("#poblacio").html("<option value=\"\">Selecciona una poblacio...</option>");
+      for (const element in dades) {
+        if (element == document.getElementById("poblacio").getAttribute("value")) {
+          $("#poblacio").append("<option value='" + element + "' selected>" + dades[element] + "</option>");
+        } else {
+          $("#poblacio").append("<option value='" + element + "'>" + dades[element] + "</option>");
+        }
+      };
+    }, 1000)
   });
 }

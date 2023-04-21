@@ -13,11 +13,20 @@ class RolController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function list()
+    function list(Request $request)
     {
         if (Auth::user()->rol_id == 5076) {
-            $rols = Rol::all();
-            return view('rol.list', ['rols'=>$rols]);
+            $rols = Rol::join("users", "rols.id", "=", "users.rol_id");
+
+            if (isset($request->name)) {
+                if ($request->name != "") {
+                  $rols = $rols->where('rols.name', 'like', "%" . $request->name . "%");
+                }
+            }
+
+            $rols = $rols->distinct("rols.*")->get("rols.*");
+
+            return view('rol.list', ['rols' => $rols, 'request' => $request ]);
         } else {
           return redirect('');
         }

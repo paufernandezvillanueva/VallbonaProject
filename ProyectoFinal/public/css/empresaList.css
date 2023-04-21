@@ -26,6 +26,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    max-width: 250px;
 }
 
 #empresa-table tbody td:nth-of-type(1) a,
@@ -97,6 +98,13 @@ td a:hover {
 #empresa-table tbody .iconBasura:hover {
     cursor: pointer;
     color: red;
+}
+
+#empresa-table thead th:last-child,
+#empresa-table tbody td:last-child,
+#filter-button,
+#import-button {
+    width: 40px;
 }
 
 .iconBasura {

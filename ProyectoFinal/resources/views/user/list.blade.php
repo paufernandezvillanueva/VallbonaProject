@@ -12,6 +12,75 @@
     <h1>Llistat d'usuaris</h1>
 </div>
 
+<div id="filter">
+    <div id="filter-header">
+        <div>
+            <button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button>
+        </div>
+        <div>
+            <button id="filter-button"><i class="bi bi-filter"></i></button>
+        </div>
+    </div>
+    <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('user_list') }}">
+        <div id="filter-form-container">
+            <div>
+                <label>Nom estudiant: 
+                    @if (isset($request->name) && $request->name != "")
+                    <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
+                    @else
+                    <input type="text" id="name" name="name"></input>
+                    @endif
+                </label><br>
+                <label for="rol">Rol: 
+                    @if (isset($request->rol) && $request->rol != "")
+                    <select id="rol" name="rol" value="{{ $request->rol }}">
+                        <option value="">Selecciona un rol...</option>
+                        @foreach ($rols as $rol)
+                            @if ($request->rol == $rol->id)
+                                <option value="{{ $rol->id }}" selected>{{ $rol->name }}</option>
+                            @else
+                                <option value="{{ $rol->id }}">{{ $rol->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    @else
+                    <select id="rol" name="rol">
+                        <option value="">Selecciona un rol...</option>
+                        @foreach ($rols as $rol)
+                            <option value="{{ $rol->id }}">{{ $rol->name }}</option>
+                        @endforeach
+                    </select>
+                    @endif
+                </label><br>
+            </div>
+            <div>
+                <label for="cicle">Cicle: 
+                    @if (isset($request->cicle) && $request->cicle != "")
+                    <select id="cicle" name="cicle" value="{{ $request->cicle }}">
+                        <option value="">Selecciona un cicle...</option>
+                        @foreach($cicles as $cicle)
+                            @if ($request->cicle == $cicle->id)
+                                <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                            @else
+                                <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                    @else
+                    <select id="cicle" name="cicle">
+                        <option value="">Selecciona un cicle...</option>
+                        @foreach($cicles as $cicle)
+                            <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                        @endforeach
+                    </select>
+                    @endif
+                </label><br>
+            </div>
+        </div>
+        <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
+    </form>
+</div>
+
 <div class="modal fade" id="newUsuari" tabindex="-1" aria-labelledby="newUsuariLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -149,4 +218,6 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 @endsection
+

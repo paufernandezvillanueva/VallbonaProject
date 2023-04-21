@@ -19,16 +19,25 @@ class PoblacioController extends BaseController
     function list(Request $request) 
     { 
         if (Auth::user()->rol_id == 5076) {
-            $poblacions = Poblacio::all();
+            $poblacions = Poblacio::join("comarcas", "comarcas.id", "=", "poblacios.comarca_id");
+
+            if (isset($request->name)) {
+                if ($request->name != "") {
+                  $poblacions = $poblacions->where('poblacios.name', 'like', "%" . $request->name . "%");
+                }
+            }
 
             if (isset($request->comarca)) {
                 if ($request->comarca != "") {
-                  $poblacions = $poblacions->where('comarca_id', '=', $request->comarca);
+                  $poblacions = $poblacions->where('comarcas.name', 'like', "%" . $request->comarca . "%");
                 }
             }
+
+            $poblacions = $poblacions->distinct("poblacios.*")->get("poblacios.*");
+
             $comarques = Comarca::all();
               
-            return view('poblacio.list', ['poblacions' => $poblacions, 'comarques' => $comarques]);
+            return view('poblacio.list', ['poblacions' => $poblacions, 'comarques' => $comarques, 'request' => $request]);
         } else {
             return redirect('');
         }
