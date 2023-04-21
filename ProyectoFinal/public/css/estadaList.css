@@ -103,3 +103,7 @@ label, p {
 #estada-table tbody td:last-child a {
     padding: 7px 8px;
 }
+
+#comentari {
+    max-width: 250px;
+}

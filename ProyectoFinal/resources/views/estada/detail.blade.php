@@ -175,47 +175,9 @@
                             <label class="col-form-label" for="comment">Comentari</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <textarea class="form-control" name="comment" value="{{ $estada->comment }}"></textarea>
+                            <textarea class="form-control" name="comment">{{ $estada->comment }}</textarea>
                         </div>
                     </div>
-                    {{--
-                    <!-- <option class="form-select" type="text" name="curs_id" value="{{ $estada->curs->name }}"></option> -->
-
-                    <!-- <div class="row">
-                        <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="empresa_id">Empresa</label>
-                        </div>
-                        <div class="col-md-10 col-sm-10">
-                            <select class="form-control" name="empresa_id" value="{{ $contacte->empresa_id }}">
-                    <option>Selecciona una empresa...</option>
-                    @foreach($empresas as $empresa)
-                    @if ($empresa->id == $contacte->empresa_id)
-                    <option value="{{ $empresa->id }}" selected>{{ $empresa->name }}</option>
-                    @else
-                    <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
-                    @endif
-                    @endforeach
-                    </select>
-                </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-sm-2">
-                <label class="col-form-label" for="email">Email</label>
-            </div>
-            <div class="col-md-10 col-sm-10">
-                <input class="form-control" type="text" name="email" value="{{ $contacte->email }}" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2 col-sm-2">
-                <label class="col-form-label" for="phonenumber">Telefon</label>
-            </div>
-            <div class="col-md-10 col-sm-10">
-                <input class="form-control" type="text" name="phonenumber" value="{{ $contacte->phonenumber }}" />
-            </div>
-        </div>
-    </div> -->
-                    --}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>

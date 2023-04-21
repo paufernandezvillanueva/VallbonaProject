@@ -151,7 +151,7 @@
             <td><a>{{ $estada->cicle->shortname }}</a></td>
             <td><a>{{ $estada->empresa->name }}</a></td>
             <td><a>{{ $estada->evaluation }}</a></td>
-            <td><a>{{ $estada->comment }}</a></td>
+            <td id="comentari"><a>{{ $estada->comment }}</a></td>
             @if ($estada->dual == 1)
             <td><a>Dual</a></td>
             @else

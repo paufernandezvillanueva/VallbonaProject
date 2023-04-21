@@ -82,7 +82,7 @@ class EstadaController extends Controller
             $estada->curs_id = $request->curs_id;
             $estada->save();
 
-            return redirect()->route('estada_list');
+            return redirect()->route('estada_detail', ['id' => $estada->id]);
         }
         $estada = Estada::find($id);
 

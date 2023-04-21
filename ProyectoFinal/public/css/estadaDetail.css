@@ -39,7 +39,6 @@
 #info-table tbody td {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
 }
 .filtro {
     text-align: right;
