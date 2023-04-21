@@ -61,6 +61,7 @@ td a:hover {
 #estada-table tbody td {
     text-align: center;
     padding: 0;
+    max-width: 250px;
 }
 
 #estada-table tbody a,
@@ -72,7 +73,6 @@ td a:hover {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: 250px;
 }
 
 #estada-table tbody td:nth-of-type(2) a:hover,
