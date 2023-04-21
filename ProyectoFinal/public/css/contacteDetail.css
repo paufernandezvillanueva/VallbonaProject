@@ -68,3 +68,9 @@
 label, p {
     color: black;
 }
+.containerContacte {
+    width: 95%;
+    margin: auto;
+    height: 83%;
+    background-color: #212529;
+}

@@ -31,11 +31,18 @@ class EstadaController extends Controller
     function detail(Request $request, $id)
     {
         $estada = Estada::find($id);
-        $cicle = Cicle::find($estada->cicle_id);
-        $empresa = Empresa::find($estada->empresa_id);
-        $curs = Curs::find($estada->curs_id);
+        // $cicle = Cicle::find($estada->cicle_id);
+        // , 'cicle' => $cicle
+        // $empresa = Empresa::find($estada->empresa_id);
+        // , 'empresa' => $empresa
+        // $curs = Curs::find($estada->curs_id);
+        // , 'curs' => $curs
+        $cursos = Curs::all();
+        $cicles = Cicle::all();
+        $users = User::all();
+        $empresas = Empresa::all();
 
-        return view('estada.detail', ['estada' => $estada, 'cicle' => $cicle, 'empresa' => $empresa, 'curs' => $curs]);
+        return view('estada.detail', ['estada' => $estada, 'cursos' => $cursos, 'cicles' => $cicles, 'users' => $users, 'empresas' => $empresas]);
     }
 
     function new(Request $request)

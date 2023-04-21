@@ -1,4 +1,4 @@
-.labels{
+.labels {
     color: white;
     display: flex;
     padding: 20px;
@@ -8,13 +8,13 @@
 .list-header {
     padding-bottom: 10px;
 }
-#info{
+#info {
     color: white;
     text-align: center;
     width: fit-content;
     float: left;
 }
-.infoContacte{
+.infoEstada {
     width: 100%;
     padding-right: 20px;
 }
@@ -28,7 +28,7 @@
     table-layout: fixed;
     border-color: #373b3e;
 }
-#info-table tbody{
+#info-table tbody {
     display: block;
     border: 1px #626262 solid;
 }
@@ -61,4 +61,14 @@
     height: 25px;
     padding: 0 10px;
     background-color: white;
+}
+#editInfo label {
+    color: black;
+    white-space: nowrap;
+}
+.containerEstada {
+    width: 95%;
+    margin: auto;
+    height: 83%;
+    background-color: #212529;
 }

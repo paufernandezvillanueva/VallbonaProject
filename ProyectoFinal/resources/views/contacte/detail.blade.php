@@ -1,17 +1,17 @@
 @extends('layout')
 
-@section('title', 'Llistat d\'empresas')
+@section('title', 'Llistat de contactes')
 
 @section('stylesheets')
-    <link rel="stylesheet" href="{{ asset('css/contacteDetail.css') }}" />
-    @parent
+<link rel="stylesheet" href="{{ asset('css/contacteDetail.css') }}" />
+@parent
 @endsection
 
 @section('content')
 <div class="titulo">
     <h1>{{ $contacte->name }}</h1>
 </div>
-<div class="containerEmpresa">
+<div class="containerContacte">
     <div>
         <div class="labels">
             <div class="infoContacte">
@@ -56,7 +56,7 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" value="{{ $contacte->name }}"/>
+                            <input class="form-control" type="text" name="name" value="{{ $contacte->name }}" />
                         </div>
                     </div>
                     <div class="row">
@@ -67,11 +67,11 @@
                             <select class="form-control" name="empresa_id" value="{{ $contacte->empresa_id }}">
                                 <option>Selecciona una empresa...</option>
                                 @foreach($empresas as $empresa)
-                                    @if ($empresa->id == $contacte->empresa_id)
-                                        <option value="{{ $empresa->id }}" selected>{{ $empresa->name }}</option>
-                                    @else
-                                        <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
-                                    @endif
+                                @if ($empresa->id == $contacte->empresa_id)
+                                <option value="{{ $empresa->id }}" selected>{{ $empresa->name }}</option>
+                                @else
+                                <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
@@ -81,7 +81,7 @@
                             <label class="col-form-label" for="email">Email</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="email" value="{{ $contacte->email }}"/>
+                            <input class="form-control" type="text" name="email" value="{{ $contacte->email }}" />
                         </div>
                     </div>
                     <div class="row">
@@ -89,7 +89,7 @@
                             <label class="col-form-label" for="phonenumber">Telefon</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="phonenumber" value="{{ $contacte->phonenumber }}"/>
+                            <input class="form-control" type="text" name="phonenumber" value="{{ $contacte->phonenumber }}" />
                         </div>
                     </div>
                 </div>

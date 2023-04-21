@@ -147,7 +147,7 @@
     <tbody>
         @foreach ($estadas as $estada)
         <tr>
-            <td><a>{{ $estada->student_name }}</a></td>
+            <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->student_name }}</a></td>
             <td><a>{{ $estada->cicle->shortname }}</a></td>
             <td><a>{{ $estada->empresa->name }}</a></td>
             <td><a>{{ $estada->evaluation }}</a></td>
