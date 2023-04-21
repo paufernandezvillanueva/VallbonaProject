@@ -128,48 +128,6 @@
     </form>
 </div>
 
-<table id="estada-table" class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>Nom estudiant</th>
-            <th>Curs</th>
-            <th>Cicle</th>
-            <th>Registrat per</th>
-            <th>Empresa</th>
-            <th>Tipus</th>
-            <th>Valoració</th>
-            <th>Comentaris</th>
-            <th>
-                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newEstada">
-                    <i class="bi bi-plus-square-fill"></i>
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($estadas as $estada)
-        <tr>
-            <td><a>{{ $estada->student_name }}</a></td>
-            <td><a>{{ $estada->curs->name }}</a></td>
-            <td><a>{{ $estada->cicle->shortname }}</a></td>
-            <td><a>{{ $estada->tutor() }}</a></td>
-            <td><a>{{ $estada->empresa->name }}</a></td>
-            @if ($estada->dual == 1)
-            <td><a>Dual</a></td>
-            @else
-            <td><a>FCT</a></td>
-            @endif
-            <td><a>{{ $estada->evaluation }}</a></td>
-            <td><a>{{ $estada->comment }}</a></td>
-            <td>
-                <a data-id="{{ $estada->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
-                <!-- <a href="{{ route('estada_edit', ['id' => $estada->id]) }}">Editar</a> -->
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
-
 <div class="modal fade" id="newEstada" tabindex="-1" aria-labelledby="newEstadaLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
