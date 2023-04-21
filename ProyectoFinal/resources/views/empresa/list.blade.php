@@ -5,6 +5,7 @@
 @section('stylesheets')
 @parent
 <link rel="stylesheet" href="{{ asset('css/empresaList.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/modalCrea.css') }}">
 @endsection
 
 @section('content')
@@ -17,7 +18,7 @@
     <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('empresa_list') }}">
         <div id="filter-form-container">
             <div>
-                <label for="cif">CIF: 
+                <label for="cif">CIF:
                 @if (isset($request->cif) && $request->cif != "")
                    <input type="text" id="cif" name="cif" value="{{ $request->cif }}"></input>
                 @else
@@ -25,7 +26,7 @@
                 @endif
                 </label><br>
 
-                <label for="cicle">Cicle: 
+                <label for="cicle">Cicle:
                         @if (isset($request->cicle) && $request->cicle != "")
                         <select id="cicle" name="cicle" value="{{ $request->cicle }}">
                             <option value="">Selecciona un cicle...</option>
@@ -47,7 +48,7 @@
                         @endif
                 </label><br>
 
-                <label for="comarca">Comarca: 
+                <label for="comarca">Comarca:
                     @if (isset($request->comarca) && $request->comarca != "")
                     <select id="comarca" name="comarca" value="{{ $request->comarca }}">
                         <option value="">Selecciona una comarca...</option>
@@ -69,13 +70,13 @@
                     @endif
                 </label><br>
 
-                <label id="estadas">Estadas: 
+                <label id="estadas">Estadas:
                     @if (isset($request->minEstadas) && $request->minEstadas != "")
                         <input type="number" id="minEstadas" name="minEstadas" min=0 value="{{ $request->minEstadas }}"></input>
                     @else
                         <input type="number" id="minEstadas" name="minEstadas" min=0></input>
                     @endif
-                     - 
+                     -
                      @if (isset($request->maxEstadas) && $request->maxEstadas != "")
                         <input type="number" id="maxEstadas" name="maxEstadas" min=0 value="{{ $request->maxEstadas }}"></input>
                     @else
@@ -84,7 +85,7 @@
                 </label><br>
             </div>
             <div>
-                <label>Nom: 
+                <label>Nom:
                 @if (isset($request->name) && $request->name != "")
                    <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
                 @else
@@ -100,7 +101,7 @@
                 @endif
                 </label><br>
 
-                <label for="poblacio">Poblacio: 
+                <label for="poblacio">Poblacio:
                 @if (isset($request->poblacio) && $request->poblacio != "")
                     <select id="poblacio" name="poblacio" value="{{ $request->poblacio }}">
                         <option value="">Selecciona una comarca...</option>
@@ -118,12 +119,12 @@
                 @else
                     <input type="number" id="minValoracio" name="minValoracio" min=0></input>
                 @endif
-                    - 
+                    -
                 @if (isset($request->maxEstadas) && $request->maxEstadas != "")
                     <input type="number" id="maxValoracio" name="maxValoracio" min=0 value="{{ $request->maxValoracio }}"></input>
                 @else
                     <input type="number" id="maxValoracio" name="maxValoracio" min=0></input>
-                @endif 
+                @endif
                 </label><br>
             </div>
         </div>
@@ -200,8 +201,8 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addEmpresaLabel">Crear una empresa</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title text-light" id="addEmpresaLabel">Crear una empresa</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="{{ route('empresa_new') }}">
                 <div class="modal-body">
@@ -255,7 +256,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>

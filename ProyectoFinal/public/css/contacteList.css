@@ -17,11 +17,6 @@ td a:hover {
     margin-left: 10px;
 }
 
-label,
-p {
-    color: black;
-}
-
 @media screen and (max-width: 575px) {
     label {
         float: left;
@@ -76,6 +71,7 @@ p {
     padding: 0.5rem 0.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     max-width: 250px;
 }
 
@@ -189,9 +185,19 @@ p {
 }
 
 @keyframes filter-opening {
-    0% { max-height: 0vh; overflow-y: hidden; border-bottom: 0px white solid;}
-    99.99% { overflow-y: hidden; }
-    100% { overflow-y: visible; max-height: 100vh; border-bottom: 1px white solid;}
+    0% {
+        max-height: 0vh;
+        overflow-y: hidden;
+        border-bottom: 0px white solid;
+    }
+    99.99% {
+        overflow-y: hidden;
+    }
+    100% {
+        overflow-y: visible;
+        max-height: 100vh;
+        border-bottom: 1px white solid;
+    }
 }
 
 #contacte-table thead th:last-child,
@@ -200,3 +206,4 @@ p {
 #import-button {
     width: 40px;
 }
+
