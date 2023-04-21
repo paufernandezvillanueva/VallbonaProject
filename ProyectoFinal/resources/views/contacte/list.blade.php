@@ -64,17 +64,10 @@
                     <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
-
             </form>
         </div>
     </div>
 </div>
-
-@if (session('status'))
-<div>
-    <strong>Success!</strong> {{ session('status') }}
-</div>
-@endif
 
 <table id="contacte-table" class="table table-striped table-dark">
     <thead>
