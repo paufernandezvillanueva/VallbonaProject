@@ -190,9 +190,19 @@ p {
 }
 
 @keyframes filter-opening {
-    0% { max-height: 0vh; overflow-y: hidden; border-bottom: 0px white solid;}
-    99.99% { overflow-y: hidden; }
-    100% { overflow-y: visible; max-height: 100vh; border-bottom: 1px white solid;}
+    0% {
+        max-height: 0vh;
+        overflow-y: hidden;
+        border-bottom: 0px white solid;
+    }
+    99.99% {
+        overflow-y: hidden;
+    }
+    100% {
+        overflow-y: visible;
+        max-height: 100vh;
+        border-bottom: 1px white solid;
+    }
 }
 
 #contacte-table thead th:last-child,
