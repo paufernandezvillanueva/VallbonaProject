@@ -17,11 +17,6 @@ td a:hover {
     margin-left: 10px;
 }
 
-label,
-p {
-    color: black;
-}
-
 @media screen and (max-width: 575px) {
     label {
         float: left;
@@ -226,3 +221,4 @@ p {
 #valoracio input {
     width: 100px;
 }
+

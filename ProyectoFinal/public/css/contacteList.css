@@ -17,11 +17,6 @@ td a:hover {
     margin-left: 10px;
 }
 
-label,
-p {
-    color: black;
-}
-
 @media screen and (max-width: 575px) {
     label {
         float: left;
@@ -211,3 +206,4 @@ p {
 #import-button {
     width: 40px;
 }
+
