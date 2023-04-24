@@ -64,7 +64,7 @@
             <td><a href="{{ route('poblacio_detail', $poblacio->id) }}">{{ $poblacio->name }}</a></td>
             <td>
                 <form action="{{ route('poblacio_list') }}" method="GET">
-                    <input type="hidden" name="comarca" value="{{ $poblacio->comarca_id }}" />
+                    <input type="hidden" name="comarca" value="{{ $poblacio->comarca->name }}" />
                     <a href="#" onclick="this.parentNode.submit()">{{ $poblacio->comarca->name }}</a>
                 </form>
             </td>
