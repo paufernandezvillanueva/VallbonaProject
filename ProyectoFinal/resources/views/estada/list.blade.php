@@ -23,7 +23,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="student_name">Nom Estudiant</label>
+                            <label class="col-form-label" for="student_name">Nom Alumne</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="student_name" />
@@ -129,7 +129,7 @@
 <table id="estada-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Nom Estudiant</th>
+            <th>Alumne</th>
             <th>Cicle</th>
             <th>Empresa</th>
             <th>Valoració</th>
