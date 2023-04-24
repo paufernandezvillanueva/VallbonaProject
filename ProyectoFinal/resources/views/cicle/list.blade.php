@@ -24,13 +24,13 @@
     <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('cicle_list') }}">
         <div id="filter-form-container">
             <div>
-            <label for="name">Nom: 
-                @if (isset($request->name) && $request->name != "")
-                   <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
-                @else
+                <label for="name">Nom:
+                    @if (isset($request->name) && $request->name != "")
+                    <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
+                    @else
                     <input type="text" id="name" name="name"></input>
-                @endif
-            </label><br>
+                    @endif
+                </label><br>
             </div>
             <div>
             </div>
@@ -54,8 +54,8 @@
     <tbody>
         @foreach ($cicles as $cicle)
         <tr>
-            <td><a>{{ $cicle->shortname }}</a></td>
-            <td><a>{{ $cicle->name }}</a></td>
+            <td><a href="{{ route('cicle_detail', $cicle->id) }}">{{ $cicle->shortname }}</a></td>
+            <td><a href="{{ route('cicle_detail', $cicle->id) }}">{{ $cicle->name }}</a></td>
             <td>
                 <a data-id="{{ $cicle->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
@@ -134,4 +134,3 @@
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 @endsection
-

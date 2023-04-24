@@ -80,6 +80,8 @@ Route::match(['get', 'post'], '/cicle/new', [CicleController::class, 'new'])->na
 
 Route::get('/cicle/delete/{id}', [CicleController::class, 'delete'])->name('cicle_delete')->middleware('auth');
 
+Route::match(['get', 'post'], '/cicle/detail/{id}', [CicleController::class, 'detail'])->name('cicle_detail')->middleware('auth');
+
 //// EMPRESES
 
 Route::get('/', [EmpresaController::class, 'list'])->name('empresa_list')->middleware('auth');
