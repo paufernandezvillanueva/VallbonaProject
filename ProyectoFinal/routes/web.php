@@ -151,4 +151,6 @@ Route::match(['get', 'post'], '/curs/new', [CursController::class, 'new'])->name
 
 Route::get('/curs/delete/{id}', [CursController::class, 'delete'])->name('curs_delete')->middleware('auth');
 
+Route::match(['get', 'post'], '/curs/detail/{id}', [CursController::class, 'detail'])->name('curs_detail')->middleware('auth');
+
 require __DIR__.'/auth.php';

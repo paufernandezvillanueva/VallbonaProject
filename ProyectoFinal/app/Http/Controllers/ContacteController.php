@@ -71,7 +71,7 @@ class ContacteController extends Controller
             $contacte->phonenumber = $request->phonenumber;
             $contacte->save();
 
-            return redirect()->route('contacte_list');
+            return redirect()->route('contacte_detail', ['id' => $id]);
         }
         $contacte = Contacte::find($id);
 

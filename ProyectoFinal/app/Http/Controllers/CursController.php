@@ -15,14 +15,14 @@ class CursController extends Controller
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function list(Request $request) 
-    { 
+    function list(Request $request)
+    {
         if (Auth::user()->rol_id == 5076) {
             $cursos = Curs::join("estadas", "cursos.id", "=", "estadas.curs_id");
 
             if (isset($request->name)) {
                 if ($request->name != "") {
-                  $cursos = $cursos->where('cursos.name', 'like', "%" . $request->name . "%");
+                    $cursos = $cursos->where('cursos.name', 'like', "%" . $request->name . "%");
                 }
             }
 
@@ -30,14 +30,21 @@ class CursController extends Controller
 
             return view('curs.list', ['cursos' => $cursos, 'request' => $request]);
         } else {
-        return redirect('');
+            return redirect('');
         }
     }
-    
-    function new(Request $request) 
+
+    function detail(Request $request, $id)
+    {
+        $curs = Curs::find($id);
+
+        return view('curs.detail', ['curs' => $curs]);
+    }
+
+    function new(Request $request)
     {
         if (Auth::user()->rol_id == 5076) {
-            if ($request->isMethod('post')) {   
+            if ($request->isMethod('post')) {
                 $curs = new Curs;
                 $curs->name = $request->name;
                 $curs->save();
@@ -47,19 +54,19 @@ class CursController extends Controller
 
             return view('curs.new');
         } else {
-        return redirect('');
+            return redirect('');
         }
     }
 
-    function edit(Request $request, $id) 
-    { 
+    function edit(Request $request, $id)
+    {
         if (Auth::user()->rol_id == 5076) {
-            if ($request->isMethod('post')) {   
+            if ($request->isMethod('post')) {
                 $curs = Curs::find($id);
                 $curs->name = $request->name;
                 $curs->save();
 
-                return redirect()->route('curs_list');
+                return redirect()->route('curs_detail', ['id' => $id]);
             }
             // si no venim de fer submit al formulari, hem de mostrar el formulari
 
@@ -67,11 +74,11 @@ class CursController extends Controller
 
             return view('curs.edit', ['curs' => $curs]);
         } else {
-        return redirect('');
+            return redirect('');
         }
     }
 
-    function delete($id) 
+    function delete($id)
     {
         if (Auth::user()->rol_id == 5076) {
             $curs = Curs::find($id);
@@ -79,7 +86,7 @@ class CursController extends Controller
 
             return redirect()->route('curs_list');
         } else {
-        return redirect('');
+            return redirect('');
         }
     }
 }

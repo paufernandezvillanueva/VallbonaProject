@@ -81,7 +81,7 @@
     <tbody>
         @foreach ($cursos as $curs)
         <tr>
-            <td><a>{{ $curs->name }}</a></td>
+            <td><a href="{{ route('curs_detail', $curs->id) }}">{{ $curs->name }}</a></td>
             <td>
                 <a data-id="{{ $curs->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
