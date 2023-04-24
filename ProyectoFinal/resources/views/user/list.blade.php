@@ -160,7 +160,7 @@
 <table id="usuari-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Nom</th>
+            <th>Nom i Cognoms</th>
             <th>Correu electrònic</th>
             <th>Cicle</th>
             <th>Rol</th>
@@ -174,7 +174,7 @@
     <tbody>
         @foreach ($users as $user)
         <tr>
-            <td><a>{{ $user->nomCognoms() }}</a></td>
+            <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->nomCognoms() }}</a></td>
             <td><a>{{ $user->email }}</a></td>
             <td><a>{{ $user->cicle->shortname }}</a></td>
             <td><a>{{ $user->rol->name }}</a></td>

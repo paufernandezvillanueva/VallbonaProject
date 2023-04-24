@@ -56,6 +56,8 @@ Route::match(['get', 'post'], '/user/new', [UserController::class, 'new'])->name
 
 Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user_delete')->middleware('auth');
 
+Route::match(['get', 'post'], '/user/detail/{id}', [UserController::class, 'detail'])->name('user_detail')->middleware('auth');
+
 //// ESTADES
 
 Route::get('/estada/list', [EstadaController::class, 'list'])->name('estada_list')->middleware('auth');
