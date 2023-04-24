@@ -160,7 +160,7 @@
 <table id="usuari-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Nom i Cognoms</th>
+            <th>Nom i cognoms</th>
             <th>Correu electrònic</th>
             <th>Cicle</th>
             <th>Rol</th>
