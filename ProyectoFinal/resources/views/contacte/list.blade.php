@@ -49,10 +49,10 @@
 <table id="contacte-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Nom</th>
+            <th>Nom i cognoms</th>
             <th>Empresa</th>
             <th>Correu electrònic</th>
-            <th>Telefon</th>
+            <th>Telèfon</th>
             <th>
                 <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newContacte">
                     <i class="bi bi-plus-square-fill"></i>
@@ -95,7 +95,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="name">Name</label>
+                            <label class="col-form-label" for="name">Nom i cognoms</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="name" />
@@ -124,7 +124,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="phonenumber">Telefon</label>
+                            <label class="col-form-label" for="phonenumber">Telèfon</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="phonenumber" />
@@ -145,6 +145,7 @@
     <strong>Success!</strong> {{ session('status') }}
 </div>
 @endif
+
 <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
