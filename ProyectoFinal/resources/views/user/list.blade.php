@@ -176,8 +176,18 @@
         <tr>
             <td><a>{{ $user->nomCognoms() }}</a></td>
             <td><a>{{ $user->email }}</a></td>
-            <td><a>{{ $user->cicle->shortname }}</a></td>
-            <td><a>{{ $user->rol->name }}</a></td>
+            <td>
+                <form action="{{ route('user_list') }}" method="GET">
+                    <input type="hidden" name="cicle" value="{{ $user->cicle->id }}" />
+                    <a href="#" onclick="this.parentNode.submit()">{{ $user->cicle->shortname }}</a>
+                </form>
+            </td>
+            <td>
+                <form action="{{ route('user_list') }}" method="GET">
+                    <input type="hidden" name="rol" value="{{ $user->rol->id }}" />
+                    <a href="#" onclick="this.parentNode.submit()">{{ $user->rol->name }}</a>
+                </form>
+            </td>
             <td>
                 <a data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
