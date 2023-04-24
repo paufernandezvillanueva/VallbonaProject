@@ -24,7 +24,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="name">Name</label>
+                            <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="name" />
@@ -36,6 +36,10 @@
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>
+        </div>
+    </div>
+</div>
+
 <div id="filter">
     <div id="filter-header">
         <div>
@@ -94,7 +98,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" style="width: 100%; text-align: center;" id="newCursLabel">Afegir curs</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="{{ route('curs_new') }}">
                 <div class="modal-body">

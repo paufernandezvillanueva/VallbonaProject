@@ -244,7 +244,7 @@
             <th>Empresa</th>
             <th>Valoració</th>
             <th>Comentaris</th>
-            <th>Tipus Estància</th>
+            <th>Tipus</th>
             <th>Registrat per</th>
             <th>Curs</th>
             <th>

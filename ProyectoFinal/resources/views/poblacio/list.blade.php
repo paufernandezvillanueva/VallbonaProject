@@ -84,7 +84,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="addPoblacioLabel">Crear una Poblacio</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" action="{{ route('poblacio_new') }}">
                 <div class="modal-body">
@@ -124,7 +124,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="confirmDeleteLabel">Eliminar poblacio</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="GET">
                 <div class="modal-body">
