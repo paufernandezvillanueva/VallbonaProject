@@ -240,13 +240,13 @@
     <thead>
         <tr>
             <th>Nom Estudiant</th>
+            <th>Curs</th>
             <th>Cicle</th>
+            <th>Registrat per</th>
             <th>Empresa</th>
+            <th>Tipus</th>
             <th>Valoració</th>
             <th>Comentaris</th>
-            <th>Tipus</th>
-            <th>Registrat per</th>
-            <th>Curs</th>
             <th>
                 <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newEstada">
                     <i class="bi bi-plus-square-fill"></i>
@@ -258,17 +258,48 @@
         @foreach ($estadas as $estada)
         <tr>
             <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->student_name }}</a></td>
-            <td><a>{{ $estada->cicle->shortname }}</a></td>
-            <td><a>{{ $estada->empresa->name }}</a></td>
-            <td><a>{{ $estada->evaluation }}</a></td>
-            <td><a>{{ $estada->comment }}</a></td>
-            @if ($estada->dual == 1)
-            <td><a>Dual</a></td>
-            @else
-            <td><a>FCT</a></td>
-            @endif
-            <td><a>{{ $estada->tutor() }}</a></td>
-            <td><a>{{ $estada->curs->name }}</a></td>
+            <td>
+                <form action="{{ route('estada_list') }}" method="GET">
+                    <input type="hidden" name="curs" value="{{ $estada->curs->id }}" />
+                    <a href="#" onclick="this.parentNode.submit()">{{ $estada->curs->name }}</a>
+                </form>
+            </td>
+            <td>
+                <form action="{{ route('estada_list') }}" method="GET">
+                    <input type="hidden" name="cicle" value="{{ $estada->cicle->id }}" />
+                    <a href="#" onclick="this.parentNode.submit()">{{ $estada->cicle->shortname }}</a>
+                </form>
+            </td>
+            <td>
+                <form action="{{ route('estada_list') }}" method="GET">
+                    <input type="hidden" name="registeredBy" value="{{ $estada->tutor() }}" />
+                    <a href="#" onclick="this.parentNode.submit()">{{ $estada->tutor() }}</a>
+                </form>
+            </td>
+            <td>
+                <form action="{{ route('estada_list') }}" method="GET">
+                    <input type="hidden" name="empresa" value="{{ $estada->empresa->name }}" />
+                    <a href="#" onclick="this.parentNode.submit()">{{ $estada->empresa->name }}</a>
+                </form>
+            </td>
+            <td>
+                <form action="{{ route('estada_list') }}" method="GET">
+                    <input type="hidden" name="tipus" value="{{ $estada->dual }}" />
+                    @if ($estada->dual == 1)
+                        <a href="#" onclick="this.parentNode.submit()">Dual</a>
+                    @else
+                        <a href="#" onclick="this.parentNode.submit()">FCT</a>
+                    @endif
+                </form>
+            </td>
+            <td>
+                <form action="{{ route('estada_list') }}" method="GET">
+                    <input type="hidden" name="minValoracio" value="{{ $estada->evaluation }}" />
+                    <input type="hidden" name="maxValoracio" value="{{ $estada->evaluation }}" />
+                    <a href="#" onclick="this.parentNode.submit()">{{ $estada->evaluation }}</a>
+                </form>
+            </td>
+            <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->comment }}</a></td>
             <td>
                 <a data-id="{{ $estada->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
                 <!-- <a href="{{ route('estada_edit', ['id' => $estada->id]) }}">Editar</a> -->
