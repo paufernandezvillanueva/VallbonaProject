@@ -79,8 +79,8 @@
 <table id="contacte-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Nom</th=>
-            <th>Empresa</th=>
+            <th>Nom i cognoms</th>
+            <th>Empresa</th>
             <th>Email</th>
             <th>Telefon</th>
             <th>
