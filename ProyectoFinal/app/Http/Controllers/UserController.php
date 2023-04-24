@@ -29,13 +29,13 @@ class UserController extends BaseController
           $users = $users->where('users.firstname', 'like', "%" . $request->name . "%")->orWhere('users.lastname', 'like', "%" . $request->name . "%");
         }
       }
-      
+
       if (isset($request->cicle)) {
         if ($request->cicle != "") {
           $users = $users->where('users.cicle_id', '=', $request->cicle);
         }
       }
-      
+
       if (isset($request->rol)) {
         if ($request->rol != "") {
           $users = $users->where('users.rol_id', '=', $request->rol);
@@ -53,28 +53,31 @@ class UserController extends BaseController
     }
   }
 
-  function profile(){
-      $user = auth()->user();
-      $cicles = Cicle::all();
-      $rols = Rol::all();
-      return view('user.profile',compact('user'), ['cicles' => $cicles, 'rols' => $rols]);
+  function profile()
+  {
+    $user = auth()->user();
+    $cicles = Cicle::all();
+    $rols = Rol::all();
+    return view('user.profile', compact('user'), ['cicles' => $cicles, 'rols' => $rols]);
+  }
 
+  function update(Request $request)
+  {
+    $user = auth()->user();
+    $user->firstname = $request->firstname;
+    $user->lastname = $request->lastname;
+    $user->email = $request->email;
+    if (!empty($request->password)) {
+      if ($request->password != $request->password_confirmation) {
+        return redirect()->back()->withInput()->withErrors(['password' => __('Las contraseñas no coinciden.')]);
+      }
+      $user->password = Hash::make($request->password);
     }
-    function update(Request $request){
-        $user = auth()->user();
-        $user->firstname = $request->firstname;
-        $user->lastname = $request->lastname;
-        $user->email = $request->email;
-        if (!empty($request->password)) {
-            if ($request->password != $request->password_confirmation) {
-                return redirect()->back()->withInput()->withErrors(['password' => __('Las contraseñas no coinciden.')]);
-            }
-            $user->password = Hash::make($request->password);
-        }
-        $user->save();
+    $user->save();
 
-        return redirect()->route('user_profile')->with('success', 'Datos actualizados correctamente');
-    }
+    return redirect()->route('user_profile')->with('success', 'Datos actualizados correctamente');
+  }
+
   function edit(Request $request, $id)
   {
     if (Auth::user()->rol_id == 5076) {
@@ -102,6 +105,15 @@ class UserController extends BaseController
     } else {
       return redirect('');
     }
+  }
+
+  function detail(Request $request, $id)
+  {
+    $user = User::find($id);
+    $cicles = Cicle::all();
+    $rols = Rol::all();
+
+    return view('user.detail', ['user' => $user, 'cicles' => $cicles, 'rols' => $rols]);
   }
 
   function new(Request $request)
