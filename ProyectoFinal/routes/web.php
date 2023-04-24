@@ -127,6 +127,8 @@ Route::match(['get', 'post'], '/rol/new', [RolController::class, 'new'])->name('
 
 Route::get('/rol/delete/{id}', [RolController::class, 'delete'])->name('rol_delete')->middleware('auth');
 
+Route::match(['get', 'post'], '/rol/detail/{id}', [RolController::class, 'detail'])->name('rol_detail')->middleware('auth');
+
 //// CONTACTES
 
 Route::get('/contacte/list', [ContacteController::class, 'list'])->name('contacte_list')->middleware('auth');

@@ -81,7 +81,7 @@
     <tbody>
         @foreach ($rols as $rol)
         <tr>
-            <td><a>{{ $rol->name }}</a></td>
+            <td><a href="{{ route('rol_detail', $rol->id) }}">{{ $rol->name }}</a></td>
             <td>
                 <a data-id="{{ $rol->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
