@@ -14,3 +14,11 @@ h1{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+div .modal-content {
+    background-color: transparent;
+}
+
+div .row {
+    align-items: center;
+}

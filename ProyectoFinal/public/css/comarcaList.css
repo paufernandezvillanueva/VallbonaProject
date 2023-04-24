@@ -95,7 +95,9 @@ label, p {
 }
 
 #comarca-table thead th:last-child,
-#comarca-table tbody td:last-child {
+#comarca-table tbody td:last-child,
+#filter-button,
+#import-button {
     width: 40px;
 }
 
