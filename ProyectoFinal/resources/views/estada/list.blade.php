@@ -24,7 +24,7 @@
     <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('estada_list') }}">
         <div id="filter-form-container">
             <div>
-                <label>Nom estudiant: 
+                <label>Nom alumne: 
                     @if (isset($request->name) && $request->name != "")
                     <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
                     @else
@@ -140,7 +140,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="student_name">Nom Estudiant</label>
+                            <label class="col-form-label" for="student_name">Nom Alumne</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="student_name" />
@@ -239,7 +239,7 @@
 <table id="estada-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Nom Estudiant</th>
+            <th>Alumne</th>
             <th>Curs</th>
             <th>Cicle</th>
             <th>Registrat per</th>
