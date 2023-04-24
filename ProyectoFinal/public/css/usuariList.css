@@ -60,6 +60,7 @@ td a:hover {
 #usuari-table tbody td {
     text-align: center;
     padding: 0;
+    max-width: 100px;
 }
 
 #usuari-table tbody a,

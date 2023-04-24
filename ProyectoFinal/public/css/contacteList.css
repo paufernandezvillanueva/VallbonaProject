@@ -61,6 +61,7 @@ td a:hover {
 #contacte-table tbody td {
     text-align: center;
     padding: 0;
+    max-width: 250px;
 }
 
 #contacte-table tbody a,
@@ -72,7 +73,6 @@ td a:hover {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: 250px;
 }
 
 #contacte-table tbody tr td {
