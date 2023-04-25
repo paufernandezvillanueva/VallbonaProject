@@ -139,7 +139,7 @@
 #estades-table #estades-info tr {
     display: table;
     width: 100%;
-    table-layout: auto;
+    table-layout: fixed;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

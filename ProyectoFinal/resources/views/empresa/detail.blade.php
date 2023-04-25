@@ -55,9 +55,8 @@
                     <thead>
                         <tr>
                             <th scope="col"><span>Nom</span></th>
-                            <th scope="col"><span>Correu Electronic</span></th>
-                            <th scope="col"><span>Telefon</span></th>
-                            <th scope="col"></th>
+                            <th scope="col"><span>Correu Electrònic</span></th>
+                            <th scope="col"><span>Telèfon</span></th>
                         </tr>
                     </thead>
                     <tbody id="contactes-info">
@@ -86,8 +85,7 @@
                     <th scope="col"><span>Cicle</span></th>
                     <th scope="col"><span>Tutor</span></th>
                     <th scope="col"><span>Tipus estada</span></th>
-                    <th scope="col"><span>Valoracio</span></th>
-                    <th scope="col"></th>
+                    <th scope="col"><span>Valoració</span></th>
                 </tr>
             </thead>
             <tbody id="estades-info">
@@ -221,7 +219,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="phonenumber">Telefon</label>
+                            <label class="col-form-label" for="phonenumber">Telèfon</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="phonenumber" />
