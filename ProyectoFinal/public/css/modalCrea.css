@@ -2,14 +2,12 @@
 .modal-header{
     background-color: #212529;
 }
-
 .modal-body{
     background-color: #2c3034;
 }
 .modal-footer{
     background-color: #212529;
 }
-
 .form-control::placeholder{
     color: #b7b7b7 !important;
 }

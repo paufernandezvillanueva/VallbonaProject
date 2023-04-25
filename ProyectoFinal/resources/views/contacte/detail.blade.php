@@ -13,6 +13,9 @@
 </div>
 <div class="containerContacte">
     <div>
+        <div class="btnTorna">
+            <a href="{{ route('contacte_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+        </div>
         <div class="labels">
             <div class="infoContacte">
                 <div class="list-header">
@@ -68,11 +71,11 @@
                             <select class="form-select" name="empresa_id" value="{{ $contacte->empresa_id }}">
                                 <option>Selecciona una empresa...</option>
                                 @foreach($empresas as $empresa)
-                                    @if ($empresa->id == $contacte->empresa_id)
-                                        <option value="{{ $empresa->id }}" selected>{{ $empresa->name }}</option>
-                                    @else
-                                        <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
-                                    @endif
+                                @if ($empresa->id == $contacte->empresa_id)
+                                <option value="{{ $empresa->id }}" selected>{{ $empresa->name }}</option>
+                                @else
+                                <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
@@ -98,7 +101,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>

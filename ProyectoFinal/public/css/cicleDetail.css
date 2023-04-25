@@ -28,7 +28,7 @@
     width: fit-content;
     float: left;
 }
-.infoContacte{
+.infoCicle{
     width: 100%;
     padding-right: 20px;
 }
@@ -81,4 +81,10 @@
 }
 label, p {
     color: black;
+}
+.containerCicle {
+    width: 95%;
+    margin: auto;
+    height: 83%;
+    background-color: #212529;
 }

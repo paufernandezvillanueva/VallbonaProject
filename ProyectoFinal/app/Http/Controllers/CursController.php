@@ -18,7 +18,7 @@ class CursController extends Controller
     function list(Request $request)
     {
         if (Auth::user()->rol_id == 5076) {
-            $cursos = Curs::join("estadas", "cursos.id", "=", "estadas.curs_id");
+            $cursos = Curs::leftjoin("estadas", "cursos.id", "=", "estadas.curs_id");
 
             if (isset($request->name)) {
                 if ($request->name != "") {
