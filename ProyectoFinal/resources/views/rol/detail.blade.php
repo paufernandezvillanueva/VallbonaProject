@@ -13,6 +13,9 @@
 </div>
 <div class="containerRol">
     <div>
+        <div class="btnTorna">
+            <a href="{{ route('rol_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+        </div>
         <div class="labels">
             <div class="infoRol">
                 <div class="list-header">
@@ -51,7 +54,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>

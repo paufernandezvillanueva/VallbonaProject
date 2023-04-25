@@ -17,7 +17,7 @@ class RolController extends Controller
     function list(Request $request)
     {
         if (Auth::user()->rol_id == 5076) {
-            $rols = Rol::join("users", "rols.id", "=", "users.rol_id");
+            $rols = Rol::leftjoin("users", "rols.id", "=", "users.rol_id");
 
             if (isset($request->name)) {
                 if ($request->name != "") {

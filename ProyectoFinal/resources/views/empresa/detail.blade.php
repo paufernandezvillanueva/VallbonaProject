@@ -3,22 +3,25 @@
 @section('title', 'Llistat d\'empresas')
 
 @section('stylesheets')
-    <link rel="stylesheet" href="{{ asset('css/empresaDetail.css') }}" />
-    @parent
+<link rel="stylesheet" href="{{ asset('css/empresaDetail.css') }}" />
+@parent
 @endsection
 
 @section('content')
 <div class="titulo">
     <h1>{{ $empresa->name }}</h1>
 </div>
-<!-- <a href="{{ route('empresa_new') }}">+ Nova empresa</a> -->
+
 <div class="containerEmpresa">
     <div>
+        <div class="btnTorna">
+            <a href="{{ route('empresa_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+        </div>
         <div class="labels">
             <div class="infoEmpresa">
                 <div class="list-header">
                     <div id="info">Info empresa</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informacio</button></div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informació</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
@@ -58,58 +61,58 @@
                         </tr>
                     </thead>
                     <tbody id="contactes-info">
-                    @foreach($contactes as $contacte)
+                        @foreach($contactes as $contacte)
                         <tr>
                             <th scope="row"><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->name }}</a></th>
                             <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->email }}</a></td>
                             <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->phonenumber }}</a></td>
-                        </tr> 
-                    @endforeach
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-        <div class="estades">
-            <div class="list-header">
-                <div id="estades">Estades</div>
-                <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newEstada">Crear Estada</button></div>
-            </div>
-            <table id="estades-table" class="table table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col"><span>Alumne</span></th>
-                        <th scope="col"><span>Curs</span></th>
-                        <th scope="col"><span>Cicle</span></th>
-                        <th scope="col"><span>Tutor</span></th>
-                        <th scope="col"><span>Tipus estada</span></th>
-                        <th scope="col"><span>Valoracio</span></th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody id="estades-info">
-                @foreach($estades as $estada)
-                    <tr>
-                        <th><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->student_name }}</a></th>
-                        <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->curs->name }}</a></td>
-                        <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->cicle->shortname }}</a></td>
-                        <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->tutor() }}</a></td>
-                        <td>
-                            <a href="{{ route('estada_detail', $estada->id) }}">
-                                @if ($estada->dual == true)
-                                    Dual
-                                @else
-                                    FTC
-                                @endif
-                            </a>
-                        </td>
-                        <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->evaluation }}</a></td>
-                    </tr>   
-                @endforeach
-                </tbody>
-            </table>
+    <div class="estades">
+        <div class="list-header">
+            <div id="estades">Estades</div>
+            <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newEstada">Crear Estada</button></div>
         </div>
+        <table id="estades-table" class="table table-striped table-dark">
+            <thead>
+                <tr>
+                    <th scope="col"><span>Alumne</span></th>
+                    <th scope="col"><span>Curs</span></th>
+                    <th scope="col"><span>Cicle</span></th>
+                    <th scope="col"><span>Tutor</span></th>
+                    <th scope="col"><span>Tipus estada</span></th>
+                    <th scope="col"><span>Valoracio</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id="estades-info">
+                @foreach($estades as $estada)
+                <tr>
+                    <th><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->student_name }}</a></th>
+                    <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->curs->name }}</a></td>
+                    <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->cicle->shortname }}</a></td>
+                    <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->tutor() }}</a></td>
+                    <td>
+                        <a href="{{ route('estada_detail', $estada->id) }}">
+                            @if ($estada->dual == true)
+                            Dual
+                            @else
+                            FTC
+                            @endif
+                        </a>
+                    </td>
+                    <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->evaluation }}</a></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
+</div>
 </div>
 <div class="modal fade" id="editInfo" tabindex="-1" aria-labelledby="editInfoLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -156,11 +159,11 @@
                             <select class="form-select" name="comarca_id" id="comarca_id" value="{{ $poblacio->comarca_id }}">
                             <option value="">Selecciona una comarca...</option>
                                 @foreach($comarques as $comarca)
-                                    @if ( $comarca->id == $poblacio->comarca_id )
-                                        <option value="{{ $comarca->id }}" selected>{{ $comarca->name }}</option>
-                                    @else
-                                        <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
-                                    @endif
+                                @if ( $comarca->id == $poblacio->comarca_id )
+                                <option value="{{ $comarca->id }}" selected>{{ $comarca->name }}</option>
+                                @else
+                                <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>
@@ -179,7 +182,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>
@@ -227,7 +230,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>
@@ -262,7 +265,7 @@
                             <select class="form-select" type="text" name="curs_id">
                                 <option>Selecciona un curs...</option>
                                 @foreach($cursos as $curs)
-                                    <option value="{{ $curs->id }}">{{ $curs->name }}</option>
+                                <option value="{{ $curs->id }}">{{ $curs->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -276,7 +279,7 @@
                             <select class="form-select" type="text" name="cicle_id">
                                 <option>Selecciona un cicle...</option>
                                 @foreach($cicles as $cicle)
-                                    <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                                <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -290,13 +293,13 @@
                             <select class="form-select" type="text" name="registered_by">
                                 <option>Selecciona un tutor...</option>
                                 @foreach($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
+                                <option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="error" id="registered_by-add-estada-error"></div>
                     </div>
-                    <input type="hidden" name="empresa_id" value="{{ $empresa->id }}"/>
+                    <input type="hidden" name="empresa_id" value="{{ $empresa->id }}" />
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="dual">Tipus estada</label>
@@ -324,12 +327,12 @@
                             <label class="col-form-label" for="comment">Comentaris</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="comment"/>
+                            <input class="form-control" type="text" name="comment" />
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>

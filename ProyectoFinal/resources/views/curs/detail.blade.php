@@ -13,6 +13,9 @@
 </div>
 <div class="containerCurs">
     <div>
+        <div class="btnTorna">
+            <a href="{{ route('curs_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+        </div>
         <div class="labels">
             <div class="infoCurs">
                 <div class="list-header">
@@ -34,7 +37,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editInfoLabel">Editar empresa</h5>
+                <h5 class="modal-title" id="editInfoLabel">Editar curs</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" name="editCursForm" action="{{ route('curs_edit', $curs->id) }}">
@@ -51,7 +54,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>

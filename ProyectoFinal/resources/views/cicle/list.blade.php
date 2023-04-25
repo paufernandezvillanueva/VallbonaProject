@@ -54,8 +54,8 @@
     <tbody>
         @foreach ($cicles as $cicle)
         <tr>
-            <td><a>{{ $cicle->shortname }}</a></td>
-            <td><a>{{ $cicle->name }}</a></td>
+            <td><a href="{{ route('cicle_detail', $cicle->id) }}">{{ $cicle->shortname }}</a></td>
+            <td><a href="{{ route('cicle_detail', $cicle->id) }}">{{ $cicle->name }}</a></td>
             <td>
                 <a data-id="{{ $cicle->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
@@ -138,4 +138,3 @@
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/cicle_add_validator.js') }}"></script>
 @endsection
-
