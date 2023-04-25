@@ -14,3 +14,18 @@ h1{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+div .modal-content {
+    background-color: transparent;
+}
+
+div .row {
+    align-items: center;
+}
+
+.error {
+    color: red;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

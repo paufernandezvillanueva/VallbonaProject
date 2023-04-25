@@ -22,7 +22,7 @@
         <li>
             <a href="{{ route('estada_list') }}" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                Estada
+                Estades
             </a>
         </li>
         @if (Auth::user()->rol_id == 5076)
@@ -35,7 +35,7 @@
         <li>
             <a href="{{ route('rol_list') }}" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                Rol
+                Rols
             </a>
         </li>
         <li>
@@ -53,7 +53,7 @@
         <li>
             <a href="{{ route('comarca_list') }}" class="nav-link text-white">
                 <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
-                Comarcas
+                Comarques
             </a>
         </li>
         <li>
@@ -71,8 +71,7 @@
             <strong id="profilename">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#">Configuracio</a></li>
-            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="{{ route('user_profile') }}">Perfil</a></li>
             <li><hr class="dropdown-divider"></li>
             <li>
                 <form method="POST" id="logout" action="{{ route('logout') }}">

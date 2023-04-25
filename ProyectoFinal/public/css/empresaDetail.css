@@ -1,11 +1,25 @@
-.labels{
+.btnTorna {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.btnTorna a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+.btnTorna a:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+    text-decoration: underline;
+}
+.labels {
     color: white;
     display: flex;
     padding: 20px;
     width: 100%;
     height: fit-content;
 }
-.contactes{
+.contactes {
     width: 50%;
     justify-content: end;
     padding-left: 20px;
@@ -69,7 +83,7 @@
 }
 #contactes-table tbody tr:hover th,
 #contactes-table tbody tr:hover td {
-    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.20);
+    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
 }
 #contactes-table span,
 #contactes-table a {
@@ -86,13 +100,13 @@
 }
 #info,
 #contactes,
-#estades{
+#estades {
     color: white;
     text-align: center;
     width: fit-content;
     float: left;
 }
-.estades{
+.estades {
     padding: 20px;
 }
 #estades-table #estades-info {
@@ -125,7 +139,7 @@
 #estades-table #estades-info tr {
     display: table;
     width: 100%;
-    table-layout: fixed;
+    table-layout: auto;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -144,7 +158,7 @@
 }
 #estades-table tbody tr:hover th,
 #estades-table tbody tr:hover td {
-    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.20);
+    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
 }
 #estades-table span,
 #estades-table a {
@@ -156,7 +170,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.infoEmpresa{
+.infoEmpresa {
     width: 50%;
     padding-right: 20px;
 }
@@ -170,7 +184,7 @@
     table-layout: fixed;
     border-color: #373b3e;
 }
-#info-table tbody{
+#info-table tbody {
     display: block;
     height: 207px;
     border: 1px #626262 solid;
@@ -208,6 +222,7 @@
 .col-form-label {
     white-space: nowrap;
 }
-label, p {
+label,
+p {
     color: black;
 }

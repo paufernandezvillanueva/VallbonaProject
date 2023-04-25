@@ -18,6 +18,7 @@ use App\Models\Estada;
 use App\Models\User;
 use App\Models\Curs;
 use App\Models\Cicle;
+use App\Models\Comarca;
 
 class EmpresaController extends BaseController
 {
@@ -90,8 +91,11 @@ class EmpresaController extends BaseController
     }
 
     $empresas = $empresas->distinct("empresas.*")->get("empresas.*");
+
+    $cicles = Cicle::all();
+    $comarques = Comarca::all();
     
-    return view('empresa.list', ['empresas' => $empresas]);
+    return view('empresa.list', ['empresas' => $empresas, 'cicles' => $cicles, 'comarques' => $comarques, "request" => $request]);
 
   }
 
@@ -104,9 +108,10 @@ class EmpresaController extends BaseController
     $users = User::all();
     $cursos = Curs::all();
     $cicles = Cicle::all();
+    $comarques = Comarca::all();
 
     return view('empresa.detail', ['empresa' => $empresa, "poblacio" => $poblacio, "contactes" => $contactes, "estades" => $estades,
-    "users" => $users, "cursos" => $cursos, "cicles" => $cicles]);
+    "users" => $users, "cursos" => $cursos, "cicles" => $cicles, "comarques" => $comarques]);
   }
 
   function edit(Request $request, $id)

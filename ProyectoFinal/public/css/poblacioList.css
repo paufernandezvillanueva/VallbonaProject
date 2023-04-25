@@ -1,0 +1,196 @@
+table {
+    text-align: center;
+}
+
+td a, th a {
+    text-decoration: none;
+    color: white;
+}
+
+td a:hover {
+    color: rgb(0, 132, 255);
+}
+
+.modal-body>.row {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 575px) {
+    label {
+        float: left;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    label {
+        float: right;
+    }
+}
+
+.iconAdd {
+color: white;
+text-decoration: none;
+}
+
+.iconAdd:hover {
+color: rgb(0, 132, 255);
+cursor: pointer;
+}
+
+.iconBasura {
+    text-decoration: none;
+}
+
+.iconBasura:hover {
+    cursor: pointer;
+    color: red;
+}
+
+#poblacio-table thead th {
+    text-align: center;
+    padding: 0.5rem 0.5rem;
+}
+
+#poblacio-table tbody th,
+#poblacio-table tbody td {
+    text-align: center;
+    padding: 0;
+}
+
+#poblacio-table tbody a,
+#poblacio-table tbody span {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#poblacio-table tbody tr td {
+    background-color: #212529;
+}
+
+#poblacio-table tbody tr:hover td {
+    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
+} 
+
+#poblacio-table tbody .iconBasura {
+    text-decoration: none;
+}
+
+#poblacio-table tbody .iconBasura:hover {
+    cursor: pointer;
+    color: red;
+}
+
+#poblacio-table tbody td:last-child a {
+    padding: 7px 8px;
+}
+
+#poblacio-table thead th:last-child,
+#poblacio-table tbody td:last-child,
+#filter-button,
+#import-button {
+    width: 40px;
+}
+
+#poblacio-table tbody tr td:nth-of-type(2) a:hover {
+    color: rgb(0, 132, 255);
+}
+
+#filter {
+    background-color: #212529;
+    width: 95%;
+    margin: auto;
+}
+
+#filter-header {
+    border-bottom: 1px white solid;
+    display: flex;
+}
+
+#filter-header div {
+    width: 50%;
+}
+
+#filter-header div:nth-of-type(1) {
+    text-align: left;
+}
+
+#filter-header div:nth-of-type(2) {
+    text-align: right;
+}
+
+#filter-button,
+#import-button {
+    background-color: transparent;
+    color: white;
+    border: 0px;
+    padding: 0.5rem 0.5rem;
+}
+
+#filter-button:hover,
+#import-button:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+}
+
+.filter-form {
+    box-shadow: inset 0 0 0 9999px #2c3034;
+}
+
+.filter-form #filter-form-container {
+    display: flex;
+    height: fit-content;
+}
+
+.filter-form #filter-form-container div {
+    width: 50%;
+}
+
+.filter-form #filter-form-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.filter-form div label {
+    float: none;
+    margin: 10px;
+    color: white;
+}
+
+.filter-form div select {
+    height: 30px;
+}
+
+.filter-form-opened {
+    animation: filter-opening 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    border-bottom: 1px white solid;
+    max-height: 100vh;
+}
+
+.filter-form-closed-base {
+    overflow-y: hidden;
+    max-height: 0vh;
+}
+
+.filter-form-closed {
+    animation: filter-opening 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-direction: reverse;
+    max-height: 0vh;
+}
+
+@keyframes filter-opening {
+    0% { max-height: 0vh; overflow-y: hidden; border-bottom: 0px white solid;}
+    99.99% { overflow-y: hidden; }
+    100% { overflow-y: visible; max-height: 100vh; border-bottom: 1px white solid;}
+}

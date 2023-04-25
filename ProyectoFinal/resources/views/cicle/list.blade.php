@@ -1,114 +1,140 @@
-<style>
-    .modal-body>.row {
-        margin-top: 5px;
-        margin-left: 10px;
-    }
-
-    @media screen and (max-width: 575px) {
-        label {
-            float: left;
-        }
-    }
-
-    @media screen and (min-width: 576px) {
-        label {
-            float: right;
-        }
-    }
-
-    #btnAfegirCicle {
-
-    }
-
-    #icon-basura {
-        font-size: larger;
-    }
-
-    #icon-basura:hover {
-        color: red;
-    }
-</style>
-
 @extends('layout')
 
 @section('title', 'Llistat de cicles')
 
 @section('stylesheets')
 @parent
+<link rel="stylesheet" href="{{ asset('css/cicleList.css') }}" />
 @endsection
 
 @section('content')
-    <div class="titulo">
-        <h1>Llista de cicles</h1>
-    </div>
+<div class="titulo">
+    <h1>Llistat de cicles</h1>
+</div>
 
-    <div class="modal fade" id="nouCicle" tabindex="-1" aria-labelledby="nouCicleLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" style="width: 100%; text-align: center;" id="nouCicleLabel" >Afegir cicle</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form method="POST" action="{{ route('cicle_new') }}">
-                    <div class="modal-body">
-                        @csrf
-                        <div class="row">
-                            <div class="col-md-2 col-sm-2">
-                                <label class="col-form-label text-dark" for="shorname">Shortname</label>
-                            </div>
-                            <div class="col-md-10 col-sm-10">
-                                <input class="form-control" type="text" name="shortname" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-2 col-sm-2">
-                                <label class="col-form-label text-dark" for="name">Name</label>
-                            </div>
-                            <div class="col-md-10 col-sm-10">
-                                <input class="form-control" type="text" name="name" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-primary">Confirmar</button>
-                    </div>
-                </form>
+<div id="filter">
+    <div id="filter-header">
+        <div>
+            <button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button>
+        </div>
+        <div>
+            <button id="filter-button"><i class="bi bi-filter"></i></button>
+        </div>
+    </div>
+    <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('cicle_list') }}">
+        <div id="filter-form-container">
+            <div>
+            <label for="name">Nom: 
+                @if (isset($request->name) && $request->name != "")
+                    <input type="text" id="name" name="name" value="{{ $request->name }}"/>
+                @else
+                    <input type="text" id="name" name="name"/>
+                @endif
+            </label><br>
+            </div>
+            <div>
             </div>
         </div>
-    </div>
+        <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
+    </form>
+</div>
 
-    @if (session('status'))
-        <div>
-            <strong>Success!</strong> {{ session('status') }}
-        </div>
-    @endif
-
-
-    <div class="table-responsive" style=" height: 80vh; margin: auto ">
-        <table class="table table-striped table-dark " style="margin-top: 20px;margin-bottom: 10px; -webkit-overflow-scrolling: auto">
+<table id="cicle-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Shortname</th>
-            <th>Name</th>
+            <th>Acrònim</th>
+            <th>Nom</th>
             <th>
-                <a href="#" id="btnAfegirCicle" data-bs-toggle="modal" data-bs-target="#nouCicle">Afegir Cicle</a>
-
-            </tr>
+                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newCicle">
+                    <i class="bi bi-plus-square-fill"></i>
+                </a>
+            </th>
+        </tr>
     </thead>
     <tbody>
         @foreach ($cicles as $cicle)
         <tr>
-            <td>{{ $cicle->shortname }}</td>
-            <td>{{ $cicle->name }}</td>
+            <td><a href="{{ route('cicle_detail', $cicle->id) }}">{{ $cicle->shortname }}</a></td>
+            <td><a href="{{ route('cicle_detail', $cicle->id) }}">{{ $cicle->name }}</a></td>
             <td>
-                <a href="{{ route('cicle_delete', ['id' => $cicle->id]) }}" id="icon-basura"><i class="bi bi-trash3-fill"></i></a>
-                <a href="{{ route('cicle_edit', ['id' => $cicle->id]) }}">Editar</a>
+                <a data-id="{{ $cicle->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                    <i class="bi bi-trash3-fill"></i>
+                </a>
+                <!-- <a href="{{ route('cicle_edit', ['id' => $cicle->id]) }}">Editar</a> -->
             </td>
         </tr>
         @endforeach
     </tbody>
-        </table>
+</table>
+
+<div class="modal fade" id="newCicle" tabindex="-1" aria-labelledby="newCicleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newCicleLabel">Afegir cicle</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST" name="addCicleForm" action="{{ route('cicle_new') }}">
+                <div class="modal-body">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <label class="col-form-label" for="shortname">Acrònim</label>
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <input class="form-control" type="text" name="shortname" required/>
+                        </div>
+                        <div class="error" id="shortname-add-cicle-error"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <label class="col-form-label" for="name">Nom</label>
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <input class="form-control" type="text" name="name" required/>
+                        </div>
+                        <div class="error" id="name-add-cicle-error"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                </div>
+            </form>
+        </div>
     </div>
-<br>
+</div>
+
+<div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar cicle</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="GET">
+                <div class="modal-body">
+                    <script>
+                        document.querySelectorAll('.iconBasura').forEach(elem => {
+                            elem.addEventListener('click', () => {
+                                var dataId = elem.dataset.id;
+                                var form = document.querySelector('#confirmDelete form');
+                                form.action = "delete/" + dataId;
+                            });
+                        });
+                    </script>
+                    @csrf
+                    <p>Estàs segur de voler eliminar aquest cicle?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/cicle_add_validator.js') }}"></script>
 @endsection
