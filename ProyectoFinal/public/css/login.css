@@ -1,0 +1,52 @@
+.bg-gray-100 {
+  background-color: rgb(104, 104, 104);
+}
+
+#container-form {
+  background-color: #373b3e;
+}
+
+#container-form label {
+  color: white;
+  font-family: var(--bs-font-sans-serif);
+}
+
+#container-form span {
+  color: white;
+  font-family: var(--bs-font-sans-serif);
+}
+
+#container-form a {
+  color: white;
+  text-decoration: none;
+  font-family: var(--bs-font-sans-serif);
+}
+
+#container-form a:hover {
+  text-decoration: underline;
+}
+
+#school-logo {
+  display: flex;
+  padding-bottom: 20px;
+  color: white;
+}
+
+#school-logo div {
+  width: 100%;
+  align-self: center;
+  padding-left: 10px;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: var(--bs-font-sans-serif);
+}
+
+button[type=submit] {
+  background-color: rgb(104, 104, 104);
+  font-family: var(--bs-font-sans-serif);
+  transition: 0.5s;
+}
+
+button[type=submit]:hover {
+  background-color: rgb(124, 124, 124);
+}

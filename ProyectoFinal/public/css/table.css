@@ -1,0 +1,90 @@
+.bodyTable{
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.bodyEmpresa{
+    width: 100%;
+}
+.titulo {
+    width: 95%;
+    height: 100px;
+    margin: auto;
+    background-color: #212529;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bodyTable .table{
+    width: 95%;
+    margin: auto;
+}
+
+.containerEmpresa {
+    width: 95%;
+    margin: auto;
+    height: 83%;
+    background-color: #212529;
+}
+
+#form_filtro {
+    width: 95%;
+    margin: auto;
+    height: 0;
+    background-color: #212529;
+}
+
+.animate {
+    animation: expand;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.animate-reverse {
+    animation: reduct;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+#form_filtro .container {
+    margin-top: 20px;
+}
+
+form {
+    color: white;
+}
+
+@keyframes expand {
+    0% {
+        visibility: visible;
+        height: 0;
+    }
+
+    100% {
+
+        visibility: visible;
+        border-top: 1px solid white;
+        height: 300px;
+        margin-bottom: 7px;
+    }
+
+}
+
+@keyframes reduct {
+    0% {
+        height: 300px;
+    }
+
+    100% {
+        height: 0;
+    }
+
+}

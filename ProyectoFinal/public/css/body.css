@@ -1,0 +1,31 @@
+main{
+    background-color: rgb(104, 104, 104);
+}
+
+h1{
+    color: white;
+}
+
+.titulo h1 {
+    margin: 0;
+}
+
+#profilename {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div .modal-content {
+    background-color: transparent;
+}
+
+div .row {
+    align-items: center;
+}
+
+.error {
+    color: red;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
