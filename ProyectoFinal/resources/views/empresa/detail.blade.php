@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat d\'empresas')
+@section('title', $empresa->name)
 
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/empresaDetail.css') }}" />

@@ -73,9 +73,6 @@ class ContacteController extends Controller
 
             return redirect()->route('contacte_detail', ['id' => $id]);
         }
-        $contacte = Contacte::find($id);
-
-        return view('contacte.edit', ['contacte' => $contacte]);
     }
 
     function delete($id)

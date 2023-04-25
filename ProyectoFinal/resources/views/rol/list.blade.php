@@ -86,7 +86,6 @@
                 <a data-id="{{ $rol->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
                 </a>
-                <!-- <a href="{{ route('rol_edit', ['id' => $rol->id]) }}">Editar</a> -->
             </td>
         </tr>
         @endforeach

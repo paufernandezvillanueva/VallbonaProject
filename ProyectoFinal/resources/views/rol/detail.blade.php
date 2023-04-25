@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de rols')
+@section('title', $rol->name)
 
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/rolDetail.css') }}" />
@@ -20,7 +20,7 @@
             <div class="infoRol">
                 <div class="list-header">
                     <div id="info">Info rol</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informacio</button></div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informació</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
