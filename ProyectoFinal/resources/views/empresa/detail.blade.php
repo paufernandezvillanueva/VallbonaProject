@@ -21,7 +21,7 @@
             <div class="infoEmpresa">
                 <div class="list-header">
                     <div id="info">Info empresa</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informacio</button></div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informació</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>

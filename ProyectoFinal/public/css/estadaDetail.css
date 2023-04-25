@@ -76,7 +76,7 @@
     background-color: white;
 }
 #editInfo label {
-    color: black;
+    color: rgb(255, 255, 255);
     white-space: nowrap;
 }
 .containerEstada {
