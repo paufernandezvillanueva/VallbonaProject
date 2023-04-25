@@ -1,3 +1,20 @@
+.btnTorna {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.btnTorna a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btnTorna a:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .labels{
     color: white;
     display: flex;
@@ -125,7 +142,7 @@
 #estades-table #estades-info tr {
     display: table;
     width: 100%;
-    table-layout: fixed;
+    table-layout: auto;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
