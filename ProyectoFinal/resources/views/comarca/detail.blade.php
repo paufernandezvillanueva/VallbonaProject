@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat d\'empresas')
+@section('title', $comarca->name)
 
 @section('stylesheets')
     <link rel="stylesheet" href="{{ asset('css/comarcaDetail.css') }}" />
@@ -12,13 +12,13 @@
     <h1>{{ $comarca->name }}</h1>
 </div>
 <!-- <a href="{{ route('empresa_new') }}">+ Nova comarca</a> -->
-<div class="containerEmpresa">
+<div class="containerComarca">
     <div>
         <div class="btnTorna">
             <a href="{{ route('comarca_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
         </div>
         <div class="labels">
-            <div class="infoEmpresa">
+            <div class="infoComarca">
                 <div class="list-header">
                     <div id="info">Info comarca</div>
                     <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informació</button></div>

@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de contactes')
+@section('title', $contacte->name)
 
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/contacteDetail.css') }}" />
@@ -20,7 +20,7 @@
             <div class="infoContacte">
                 <div class="list-header">
                     <div id="info">Info contacte</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informacio</button></div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informació</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
@@ -92,7 +92,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="phonenumber">Telefon</label>
+                            <label class="col-form-label" for="phonenumber">Telèfon</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="phonenumber" value="{{ $contacte->phonenumber }}" required/>

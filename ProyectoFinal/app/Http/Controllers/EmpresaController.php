@@ -118,16 +118,13 @@ class EmpresaController extends BaseController
   {
     $empresa = Empresa::find($id);
     if ($request->isMethod('post')) {
-      // recollim els camps del formulari en un objecte empresa
-
-      //$empresa = new Empresa;
       $empresa->cif = $request->cif;
       $empresa->name = $request->name;
       $empresa->sector = $request->sector;
       $empresa->poblacio_id = $request->poblacio_id;
       $empresa->save();
 
-      return redirect()->route('empresa_list')->with('status', 'Empresa ' . $empresa->name . ' modificada!');
+      return redirect()->route('empresa_detail', ['id' => $id])->with('status', 'Empresa ' . $empresa->name . ' modificada!');
     }
     // si no venim de fer submit al formulari, hem de mostrar el formulari
 

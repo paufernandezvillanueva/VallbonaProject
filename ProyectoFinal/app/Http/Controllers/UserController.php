@@ -94,14 +94,8 @@ class UserController extends BaseController
         $user->rol_id = $request->rol_id;
         $user->save();
 
-        return redirect()->route('user_list');
+        return redirect()->route('user_detail', ['id' => $id]);
       }
-      // si no venim de fer submit al formulari, hem de mostrar el formulari
-
-      $cicles = Cicle::all();
-      $rols = Rol::all();
-
-      return view('user.edit', ['cicles' => $cicles, 'rols' => $rols, 'user' => $user]);
     } else {
       return redirect('');
     }
