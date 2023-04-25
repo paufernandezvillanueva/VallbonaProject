@@ -26,9 +26,9 @@
             <div>
             <label for="name">Nom: 
                 @if (isset($request->name) && $request->name != "")
-                   <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
+                    <input type="text" id="name" name="name" value="{{ $request->name }}"/>
                 @else
-                    <input type="text" id="name" name="name"></input>
+                    <input type="text" id="name" name="name"/>
                 @endif
             </label><br>
             </div>
@@ -74,24 +74,26 @@
                 <h5 class="modal-title" id="newCicleLabel">Afegir cicle</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('cicle_new') }}">
+            <form method="POST" name="addCicleForm" action="{{ route('cicle_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="shorname">Acrònim</label>
+                            <label class="col-form-label" for="shortname">Acrònim</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="shortname" />
+                            <input class="form-control" type="text" name="shortname" required/>
                         </div>
+                        <div class="error" id="shortname-add-cicle-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="name">Name</label>
+                            <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" />
+                            <input class="form-control" type="text" name="name" required/>
                         </div>
+                        <div class="error" id="name-add-cicle-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -133,5 +135,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/cicle_add_validator.js') }}"></script>
 @endsection
 

@@ -88,7 +88,7 @@
                 <h5 class="modal-title" id="newUsuariLabel">Afegir usuari</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('user_new') }}">
+            <form method="POST" name="addUserForm" action="{{ route('user_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -98,6 +98,7 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="firstname" />
                         </div>
+                        <div class="error" id="firstname-add-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -106,6 +107,7 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="lastname" />
                         </div>
+                        <div class="error" id="lastname-add-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -114,6 +116,7 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="email" />
                         </div>
+                        <div class="error" id="email-add-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -127,6 +130,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="cicle_id-add-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -140,6 +144,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="rol_id-add-user-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -229,5 +234,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/user_add_validator.js') }}"></script>
 @endsection
 

@@ -34,10 +34,10 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editInfoLabel">Editar empresa</h5>
+                <h5 class="modal-title" id="editInfoLabel">Editar rol</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('rol_edit', $rol->id) }}">
+            <form method="POST" name="editRolForm" action="{{ route('rol_edit', $rol->id) }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -45,8 +45,9 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" value="{{ $rol->name }}" />
+                            <input class="form-control" type="text" name="name" value="{{ $rol->name }}" required/>
                         </div>
+                        <div class="error" id="name-edit-rol-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -57,4 +58,6 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/rol_edit_validator.js') }}"></script>
 @endsection

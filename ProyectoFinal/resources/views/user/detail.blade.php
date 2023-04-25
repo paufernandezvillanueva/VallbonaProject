@@ -46,9 +46,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editInfoLabel">Editar empresa</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('user_edit', $user->id) }}">
+            <form method="POST" name="editUserForm" action="{{ route('user_edit', $user->id) }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -58,6 +58,7 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="firstname" value="{{ $user->firstname }}" />
                         </div>
+                        <div class="error" id="firstname-edit-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -66,6 +67,7 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="lastname" value="{{ $user->lastname }}" />
                         </div>
+                        <div class="error" id="lastname-edit-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -74,6 +76,7 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="email" value="{{ $user->email }}" />
                         </div>
+                        <div class="error" id="email-edit-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -90,6 +93,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="cicle_id-edit-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -106,6 +110,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="rol_id-edit-user-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -116,5 +121,7 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/user_edit_validator.js') }}"></script>
 <br>
 @endsection

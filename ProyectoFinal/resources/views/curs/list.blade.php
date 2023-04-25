@@ -19,7 +19,7 @@
                 <h5 class="modal-title" style="width: 100%; text-align: center;" id="newCursLabel">Afegir curs</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('curs_new') }}">
+            <form method="POST" name="addCursForm" action="{{ route('curs_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -27,8 +27,9 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" />
+                            <input class="form-control" type="text" name="name" placeholder="Ex: 1995-1996" required/>
                         </div>
+                        <div class="error" id="name-add-curs-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -54,7 +55,7 @@
             <div>
             <label for="name">Nom:
                 @if (isset($request->name) && $request->name != "")
-                   <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
+                    <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
                 @else
                     <input type="text" id="name" name="name"></input>
                 @endif
@@ -93,34 +94,6 @@
     </tbody>
 </table>
 
-<div class="modal fade" id="newCurs" tabindex="-1" aria-labelledby="newCursLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" style="width: 100%; text-align: center;" id="newCursLabel">Afegir curs</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form method="POST" action="{{ route('curs_new') }}">
-                <div class="modal-body">
-                    @csrf
-                    <div class="row">
-                        <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label text-dark" for="name">Name</label>
-                        </div>
-                        <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" />
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -151,5 +124,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/curs_add_validator.js') }}"></script>
 @endsection
 

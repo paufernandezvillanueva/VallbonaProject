@@ -37,7 +37,7 @@
                 <h5 class="modal-title" id="editInfoLabel">Editar empresa</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('curs_edit', $curs->id) }}">
+            <form method="POST" name="editCursForm" action="{{ route('curs_edit', $curs->id) }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -45,8 +45,9 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" value="{{ $curs->name }}" />
+                            <input class="form-control" type="text" name="name" value="{{ $curs->name }}" placeholder="Ex: 1995-1996" required/>
                         </div>
+                        <div class="error" id="name-edit-curs-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -57,4 +58,6 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/curs_edit_validator.js') }}"></script>
 @endsection

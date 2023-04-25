@@ -135,7 +135,7 @@
                 <h5 class="modal-title" id="newEstadaLabel">Crear una estada</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('estada_new') }}">
+            <form method="POST" name="addEstadaForm" action="{{ route('estada_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -143,8 +143,9 @@
                             <label class="col-form-label" for="student_name">Nom Alumne</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="student_name" />
+                            <input class="form-control" type="text" name="student_name" required/>
                         </div>
+                        <div class="error" id="student_name-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -158,6 +159,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="curs_id-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -171,6 +173,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="cicle_id-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -184,6 +187,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="registered_by-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -197,6 +201,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="empresa_id-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -209,21 +214,23 @@
                                 <option value="1">Dual</option>
                             </select>
                         </div>
+                        <div class="error" id="dual-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="evaluation">Valoració</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" />
+                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" required/>
                         </div>
+                        <div class="error" id="evaluation-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="comment">Comentaris</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="comment" />
+                            <input class="form-control" type="text" name="comment"/>
                         </div>
                     </div>
                 </div>
@@ -339,4 +346,6 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/estada_add_validator.js') }}"></script>
 @endsection

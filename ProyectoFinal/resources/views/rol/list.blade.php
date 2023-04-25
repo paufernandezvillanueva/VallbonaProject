@@ -46,7 +46,7 @@
                 <h5 class="modal-title" id="newRolLabel">Afegir rol</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('rol_new') }}">
+            <form method="POST" name="addRolForm" action="{{ route('rol_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -54,8 +54,9 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" />
+                            <input class="form-control" type="text" name="name" required/>
                         </div>
+                        <div class="error" id="name-add-rol-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -123,5 +124,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/rol_add_validator.js') }}"></script>
 @endsection
 
