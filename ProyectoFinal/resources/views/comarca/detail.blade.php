@@ -14,6 +14,9 @@
 <!-- <a href="{{ route('empresa_new') }}">+ Nova comarca</a> -->
 <div class="containerEmpresa">
     <div>
+        <div class="btnTorna">
+            <a href="{{ route('comarca_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+        </div>
         <div class="labels">
             <div class="infoEmpresa">
                 <div class="list-header">

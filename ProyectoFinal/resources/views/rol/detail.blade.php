@@ -13,6 +13,9 @@
 </div>
 <div class="containerRol">
     <div>
+        <div class="btnTorna">
+            <a href="{{ route('rol_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+        </div>
         <div class="labels">
             <div class="infoRol">
                 <div class="list-header">

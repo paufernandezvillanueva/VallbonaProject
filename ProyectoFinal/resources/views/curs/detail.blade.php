@@ -13,6 +13,9 @@
 </div>
 <div class="containerCurs">
     <div>
+        <div class="btnTorna">
+            <a href="{{ route('curs_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+        </div>
         <div class="labels">
             <div class="infoCurs">
                 <div class="list-header">

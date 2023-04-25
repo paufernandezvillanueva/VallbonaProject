@@ -13,6 +13,9 @@
 </div>
 <div class="containerCicle">
     <div>
+        <div class="btnTorna">
+            <a href="{{ route('cicle_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+        </div>
         <div class="labels">
             <div class="infoCicle">
                 <div class="list-header">

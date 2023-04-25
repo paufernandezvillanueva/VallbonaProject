@@ -13,6 +13,9 @@
 </div>
 <div class="containerUsuari">
     <div>
+        <div class="btnTorna">
+            <a href="{{ route('user_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+        </div>
         <div class="labels">
             <div class="infoUsuari">
                 <div class="list-header">
