@@ -51,7 +51,7 @@
                 <h5 class="modal-title" id="editInfoLabel">Editar empresa</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('contacte_edit', $contacte->id) }}">
+            <form method="POST" name="editContacteForm" action="{{ route('contacte_edit', $contacte->id) }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -59,8 +59,9 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" value="{{ $contacte->name }}" />
+                            <input class="form-control" type="text" name="name" value="{{ $contacte->name }}" required/>
                         </div>
+                        <div class="error" id="name-edit-contacte-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -68,6 +69,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="empresa_id" value="{{ $contacte->empresa_id }}">
+                                <option>Selecciona una empresa...</option>
                                 @foreach($empresas as $empresa)
                                 @if ($empresa->id == $contacte->empresa_id)
                                 <option value="{{ $empresa->id }}" selected>{{ $empresa->name }}</option>
@@ -77,22 +79,25 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="empresa_id-edit-contacte-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="email">Email</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="email" value="{{ $contacte->email }}" />
+                            <input class="form-control" type="text" name="email" value="{{ $contacte->email }}" required/>
                         </div>
+                        <div class="error" id="email-edit-contacte-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="phonenumber">Telefon</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="phonenumber" value="{{ $contacte->phonenumber }}" />
+                            <input class="form-control" type="text" name="phonenumber" value="{{ $contacte->phonenumber }}" required/>
                         </div>
+                        <div class="error" id="phonenumber-edit-contacte-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -103,5 +108,7 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/contacte_edit_validator.js') }}"></script>
 <br>
 @endsection

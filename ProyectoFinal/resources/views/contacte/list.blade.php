@@ -90,7 +90,7 @@
                 <h5 class="modal-title" id="newContacteLabel">Afegir contacte</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('contacte_new') }}">
+            <form method="POST" name="addContacteForm" action="{{ route('contacte_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -98,8 +98,9 @@
                             <label class="col-form-label" for="name">Nom i cognoms</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" />
+                            <input class="form-control" type="text" name="name" required/>
                         </div>
+                        <div class="error" id="name-add-contacte-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -113,22 +114,25 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="empresa_id-add-contacte-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="email">Correu electrònic</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="email" />
+                            <input class="form-control" type="text" name="email" required/>
                         </div>
+                        <div id="email-add-contacte-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="phonenumber">Telèfon</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="phonenumber" />
+                            <input class="form-control" type="text" name="phonenumber" required/>
                         </div>
+                        <div class="error" id="phonenumber-add-contacte-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -176,5 +180,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/contacte_add_validator.js') }}"></script>
 @endsection
 

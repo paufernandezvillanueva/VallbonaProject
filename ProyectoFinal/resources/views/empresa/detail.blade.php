@@ -121,7 +121,7 @@
                 <h5 class="modal-title" id="editInfoLabel">Editar empresa</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('empresa_edit', $empresa->id) }}">
+            <form method="POST" name="editEmpresaForm" action="{{ route('empresa_edit', $empresa->id) }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -129,32 +129,35 @@
                             <label class="col-form-label" for="cif">CIF</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" value="{{ $empresa->cif }}" />
+                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" value="{{ $empresa->cif }}" required/>
                         </div>
+                        <div id="cif-edit-empresa-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" value="{{ $empresa->name }}" />
+                            <input class="form-control" type="text" name="name" value="{{ $empresa->name }}" required/>
                         </div>
+                        <div class="error" id="name-edit-empresa-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="sector">Sector</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="sector" value="{{ $empresa->sector }}" />
+                            <input class="form-control" type="text" name="sector" value="{{ $empresa->sector }}" required/>
                         </div>
+                        <div class="error" id="sector-edit-empresa-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="comarca_id">Comarca</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <select class="form-select" id="comarca_id" value="{{ $poblacio->comarca_id }}">
-                                <option value="">Selecciona una comarca...</option>
+                            <select class="form-select" name="comarca_id" id="comarca_id" value="{{ $poblacio->comarca_id }}">
+                            <option value="">Selecciona una comarca...</option>
                                 @foreach($comarques as $comarca)
                                 @if ( $comarca->id == $poblacio->comarca_id )
                                 <option value="{{ $comarca->id }}" selected>{{ $comarca->name }}</option>
@@ -164,6 +167,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="comarca_id-edit-empresa-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -174,6 +178,7 @@
                                 <option>Selecciona una comarca...</option>
                             </select>
                         </div>
+                        <div class="error" id="poblacio_id-edit-empresa-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -191,7 +196,7 @@
                 <h5 class="modal-title" id="newContactLabel">Crear un contacte</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('contacte_new') }}">
+            <form method="POST" name="addContacteForm" action="{{ route('contacte_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -201,8 +206,10 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="name" />
                         </div>
+                        <div class="error" id="name-add-contacte-error"></div>
                     </div>
-                    <input type="hidden" name="empresa_id" value="{{ $empresa->id }}" />
+                    <input type="hidden" name="empresa_id" value="{{ $empresa->id }}"/>
+                    <div id="empresa_id-add-contacte-error"></div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="email">Email</label>
@@ -210,6 +217,7 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="email" />
                         </div>
+                        <div class="error" id="email-add-contacte-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -218,6 +226,7 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="phonenumber" />
                         </div>
+                        <div class="error" id="phonenumber-add-contacte-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -236,7 +245,7 @@
                 <h5 class="modal-title" id="newEstadaLabel">Crear una estada</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('estada_new') }}">
+            <form method="POST" name="addEstadaForm" action="{{ route('estada_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -244,8 +253,9 @@
                             <label class="col-form-label" for="student_name">Nom Estudiant</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="student_name" />
+                            <input class="form-control" type="text" name="student_name" required/>
                         </div>
+                        <div class="error" id="student_name-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -259,6 +269,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="curs_id-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -272,6 +283,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="cicle_id-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -285,6 +297,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="registered_by-add-estada-error"></div>
                     </div>
                     <input type="hidden" name="empresa_id" value="{{ $empresa->id }}" />
                     <div class="row">
@@ -298,14 +311,16 @@
                                 <option value="1">Dual</option>
                             </select>
                         </div>
+                        <div class="error" id="dual-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="evaluation">Evaluation</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" />
+                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" required/>
                         </div>
+                        <div class="error" id="evaluation-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -325,5 +340,9 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/empresa_detail_poblacions_json.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/empresa_edit_validator.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/contacte_add_validator.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/estada_add_validator.js') }}"></script>
 <br>
 @endsection

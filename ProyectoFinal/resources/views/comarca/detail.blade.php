@@ -40,7 +40,7 @@
                 <h5 class="modal-title" id="editInfoLabel">Editar comarca</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('comarca_edit', $comarca->id) }}">
+            <form method="POST" name="editComarcaForm" action="{{ route('comarca_edit', $comarca->id) }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -48,8 +48,9 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" value="{{ $comarca->name }}"/>
+                            <input class="form-control" type="text" name="name" value="{{ $comarca->name }}" required/>
                         </div>
+                        <div class="error" id="name-edit-comarca-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -60,6 +61,7 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/comarca_edit_validator.js') }}"></script>
 <br>
 @endsection

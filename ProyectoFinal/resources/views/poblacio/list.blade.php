@@ -86,7 +86,7 @@
                 <h5 class="modal-title" id="addPoblacioLabel">Crear una Poblacio</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('poblacio_new') }}">
+            <form method="POST" name="addPoblacioForm" action="{{ route('poblacio_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -94,8 +94,9 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" />
+                            <input class="form-control" type="text" name="name" required/>
                         </div>
+                        <div class="error" id="name-add-poblacio-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -109,6 +110,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="comarca_id-add-poblacio-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -150,5 +152,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/poblacio_add_validator.js') }}"></script>
 <br>
 @endsection
