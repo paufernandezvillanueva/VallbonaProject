@@ -29,3 +29,25 @@ div .row {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.btnTorna {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.btnTorna a {
+    display: flex;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btnTorna a i {
+    margin-right: 5px;
+}
+
+.btnTorna a:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+    text-decoration: underline;
+}
