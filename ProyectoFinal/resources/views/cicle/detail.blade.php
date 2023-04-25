@@ -44,7 +44,7 @@
                 <h5 class="modal-title" id="editInfoLabel">Editar cicle</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('cicle_edit', $cicle->id) }}">
+            <form method="POST" name="editCicleForm" action="{{ route('cicle_edit', $cicle->id) }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -54,6 +54,7 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="shortname" value="{{ $cicle->shortname }}" />
                         </div>
+                        <div class="error" id="shortname-edit-cicle-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -62,6 +63,7 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="name" value="{{ $cicle->name }}" />
                         </div>
+                        <div class="error" id="name-edit-cicle-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -72,4 +74,6 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/cicle_edit_validator.js') }}"></script>
 @endsection
