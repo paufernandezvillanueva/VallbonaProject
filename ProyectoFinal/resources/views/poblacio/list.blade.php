@@ -123,7 +123,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar poblacio</h5>
+                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar població</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="GET">
