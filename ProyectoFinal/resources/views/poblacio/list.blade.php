@@ -141,7 +141,7 @@
                         });
                     </script>
                     @csrf
-                    <p>Estàs segur de voler eliminar aquest usuari?</p>
+                    <p>Estàs segur de voler eliminar aquesta població?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
