@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat d\'usuaris')
+@section('title', $user->nomCognoms())
 
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/usuariDetail.css') }}" />
@@ -20,7 +20,7 @@
             <div class="infoUsuari">
                 <div class="list-header">
                     <div id="info">Info usuari</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informacio</button></div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informació</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
@@ -49,7 +49,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editInfoLabel">Editar usuario</h5>
+                <h5 class="modal-title" id="editInfoLabel">Editar usuari</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" name="editUserForm" action="{{ route('user_edit', $user->id) }}">

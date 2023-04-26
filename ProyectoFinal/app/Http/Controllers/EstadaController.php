@@ -81,12 +81,6 @@ class EstadaController extends Controller
     function detail(Request $request, $id)
     {
         $estada = Estada::find($id);
-        // $cicle = Cicle::find($estada->cicle_id);
-        // , 'cicle' => $cicle
-        // $empresa = Empresa::find($estada->empresa_id);
-        // , 'empresa' => $empresa
-        // $curs = Curs::find($estada->curs_id);
-        // , 'curs' => $curs
         $cursos = Curs::all();
         $cicles = Cicle::all();
         $users = User::all();

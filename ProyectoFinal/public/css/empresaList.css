@@ -27,7 +27,6 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: 250px;
 }
 
 #empresa-table tbody td:nth-of-type(1) a,

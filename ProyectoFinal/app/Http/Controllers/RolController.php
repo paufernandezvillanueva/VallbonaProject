@@ -59,14 +59,13 @@ class RolController extends Controller
     function edit(Request $request, $id)
     {
         if (Auth::user()->rol_id == 5076) {
-            $rol = Rol::find($id);
+            
             if ($request->isMethod('post')) {
+                $rol = Rol::find($id);
                 $rol->name = $request->name;
                 $rol->save();
                 return redirect()->route('rol_detail', ['id' => $id]);
             }
-            $rols = Rol::all();
-            return view('rol.edit', ['rols' => $rols, 'rol' => $rol]);
         } else {
             return redirect('');
         }
