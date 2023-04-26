@@ -157,7 +157,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="comarca_id" id="comarca_id" value="{{ $poblacio->comarca_id }}">
-                            <option value="">Selecciona una comarca...</option>
                                 @foreach($comarques as $comarca)
                                 @if ( $comarca->id == $poblacio->comarca_id )
                                 <option value="{{ $comarca->id }}" selected>{{ $comarca->name }}</option>
@@ -175,7 +174,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" id="poblacio_id" name="poblacio_id" value="{{ $empresa->poblacio_id }}">
-                                <option>Selecciona una comarca...</option>
+                                <option value="default">Selecciona una comarca...</option>
                             </select>
                         </div>
                         <div class="error" id="poblacio_id-edit-empresa-error"></div>
@@ -263,7 +262,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="curs_id">
-                                <option>Selecciona un curs...</option>
+                                <option value="default">Selecciona un curs...</option>
                                 @foreach($cursos as $curs)
                                 <option value="{{ $curs->id }}">{{ $curs->name }}</option>
                                 @endforeach
@@ -277,7 +276,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="cicle_id">
-                                <option>Selecciona un cicle...</option>
+                                <option value="default">Selecciona un cicle...</option>
                                 @foreach($cicles as $cicle)
                                 <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                                 @endforeach
@@ -291,7 +290,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="registered_by">
-                                <option>Selecciona un tutor...</option>
+                                <option value="default">Selecciona un tutor...</option>
                                 @foreach($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
                                 @endforeach
@@ -306,7 +305,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="dual">
-                                <option>Selecciona un tipus d'estada...</option>
+                                <option value="default">Selecciona un tipus d'estada...</option>
                                 <option value="0">FCT</option>
                                 <option value="1">Dual</option>
                             </select>

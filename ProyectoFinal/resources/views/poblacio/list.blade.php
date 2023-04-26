@@ -104,7 +104,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-control" name="comarca_id">
-                                <option>Selecciona una comarca...</option>
+                                <option value="default">Selecciona una comarca...</option>
                                 @foreach($comarques as $comarca)
                                 <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
                                 @endforeach

@@ -49,7 +49,7 @@ function lengthRestriction(elem, min, max) {
 
 function madeSelection(elem, helperMsg) {
     var result = true;
-    if (elem.selectedIndex == 0) {
+    if (elem.value == "default") {
         result = false;
     }
     tractarError(elem, result, helperMsg);

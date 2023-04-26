@@ -260,7 +260,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" id="poblacio_id" name="poblacio_id">
-                                <option>Selecciona una comarca...</option>
+                                <option value="default">Selecciona una comarca...</option>
                             </select>
                         </div>
                         <div class="error" id="poblacio_id-add-empresa-error"></div>

@@ -92,7 +92,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="curs_id">
-                                <option>Selecciona un curs...</option>
                                 @foreach($cursos as $curs)
                                     @if ($curs->id == $estada->curs_id)
                                         <option value="{{ $curs->id }}" selected>{{ $curs->name }}</option>
@@ -110,7 +109,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="cicle_id">
-                                <option>Selecciona un cicle...</option>
                                 @foreach($cicles as $cicle)
                                     @if ($cicle->id == $estada->cicle_id)
                                         <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }}</option>
@@ -128,7 +126,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="registered_by">
-                                <option>Selecciona un tutor...</option>
                                 @foreach($users as $user)
                                     @if ($user->id == $estada->registered_by)
                                         <option value="{{ $user->id }}" selected>{{ $user->nomCognoms() }}</option>
@@ -146,7 +143,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="dual">
-                                <option>Selecciona el tipus...</option>
                                 @if ($estada->dual == 1)
                                     <option value="0">FCT</option>
                                     <option value="1" selected>Dual</option>
@@ -164,7 +160,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="empresa_id">
-                                <option>Selecciona una empresa...</option>
                                 @foreach($empresas as $empresa)
                                     @if ($empresa->id == $estada->empresa_id)
                                         <option value="{{ $empresa->id }}" selected>{{ $empresa->name }}</option>

@@ -69,7 +69,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="empresa_id" value="{{ $contacte->empresa_id }}">
-                                <option>Selecciona una empresa...</option>
                                 @foreach($empresas as $empresa)
                                 @if ($empresa->id == $contacte->empresa_id)
                                 <option value="{{ $empresa->id }}" selected>{{ $empresa->name }}</option>

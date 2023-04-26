@@ -49,7 +49,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editInfoLabel">Editar empresa</h5>
+                <h5 class="modal-title" id="editInfoLabel">Editar usuario</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" name="editUserForm" action="{{ route('user_edit', $user->id) }}">
