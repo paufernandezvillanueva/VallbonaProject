@@ -21,7 +21,7 @@
             <button id="filter-button"><i class="bi bi-filter"></i></button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('cicle_list') }}">
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('cicle_list') }}">@csrf
         <div id="filter-form-container">
             <div>
             <label for="name">Nom: 
