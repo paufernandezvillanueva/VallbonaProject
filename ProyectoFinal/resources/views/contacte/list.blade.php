@@ -24,22 +24,22 @@
     <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('contacte_list') }}">
         <div id="filter-form-container">
             <div>
-            <label for="name">Nom:
-                @if (isset($request->name) && $request->name != "")
-                   <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
-                @else
+                <label for="name">Nom:
+                    @if (isset($request->name) && $request->name != "")
+                    <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
+                    @else
                     <input type="text" id="name" name="name"></input>
-                @endif
-            </label><br>
+                    @endif
+                </label><br>
             </div>
             <div>
-            <label for="empresa">Empresa:
-                @if (isset($request->empresa) && $request->empresa != "")
-                   <input type="text" id="empresa" name="empresa" value="{{ $request->empresa }}"></input>
-                @else
+                <label for="empresa">Empresa:
+                    @if (isset($request->empresa) && $request->empresa != "")
+                    <input type="text" id="empresa" name="empresa" value="{{ $request->empresa }}"></input>
+                    @else
                     <input type="text" id="empresa" name="empresa"></input>
-                @endif
-            </label><br>
+                    @endif
+                </label><br>
             </div>
         </div>
         <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
@@ -49,10 +49,10 @@
 <table id="contacte-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Nom</th>
+            <th>Nom i cognoms</th>
             <th>Empresa</th>
             <th>Correu electrònic</th>
-            <th>Telefon</th>
+            <th>Telèfon</th>
             <th>
                 <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newContacte">
                     <i class="bi bi-plus-square-fill"></i>
@@ -90,16 +90,18 @@
                 <h5 class="modal-title" id="newContacteLabel">Afegir contacte</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('contacte_new') }}">
+            <form method="POST" name="addContacteForm" action="{{ route('contacte_new') }}">
+                <input type="hidden" name="redirect_to" value="contacte_list">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="name">Name</label>
+                            <label class="col-form-label" for="name">Nom i cognoms</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" />
+                            <input class="form-control" type="text" name="name" required />
                         </div>
+                        <div class="error" id="name-add-contacte-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -107,33 +109,36 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="empresa_id">
-                                <option>Selecciona una empresa...</option>
+                                <option value="default">Selecciona una empresa...</option>
                                 @foreach ($empresas as $empresa)
                                 <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="empresa_id-add-contacte-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="email">Correu electrònic</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="email" />
+                            <input class="form-control" type="text" name="email" required />
                         </div>
+                        <div id="email-add-contacte-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="phonenumber">Telefon</label>
+                            <label class="col-form-label" for="phonenumber">Telèfon</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="phonenumber" />
+                            <input class="form-control" type="text" name="phonenumber" required />
                         </div>
+                        <div class="error" id="phonenumber-add-contacte-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </div>
             </form>
         </div>
@@ -145,6 +150,7 @@
     <strong>Success!</strong> {{ session('status') }}
 </div>
 @endif
+
 <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -175,5 +181,6 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/contacte_add_validator.js') }}"></script>
 @endsection
-

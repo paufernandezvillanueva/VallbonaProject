@@ -88,24 +88,26 @@
                 <h5 class="modal-title" id="newUsuariLabel">Afegir usuari</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('user_new') }}">
+            <form method="POST" name="addUserForm" action="{{ route('user_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="firstname">Firstname</label>
+                            <label class="col-form-label" for="firstname">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="firstname" />
                         </div>
+                        <div class="error" id="firstname-add-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="lastname">Lastname</label>
+                            <label class="col-form-label" for="lastname">Cognoms</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="lastname" />
                         </div>
+                        <div class="error" id="lastname-add-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -114,6 +116,7 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="email" />
                         </div>
+                        <div class="error" id="email-add-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -121,12 +124,13 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="cicle_id">
-                                <option>Selecciona un cicle...</option>
+                                <option value="default">Selecciona un cicle...</option>
                                 @foreach ($cicles as $cicle)
                                 <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="cicle_id-add-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -134,17 +138,18 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="rol_id">
-                                <option>Selecciona un rol...</option>
+                                <option value="default">Selecciona un rol...</option>
                                 @foreach ($rols as $rol)
                                 <option value="{{ $rol->id }}">{{ $rol->name }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="rol_id-add-user-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </div>
             </form>
         </div>
@@ -160,7 +165,7 @@
 <table id="usuari-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Nom</th>
+            <th>Nom i cognoms</th>
             <th>Correu electrònic</th>
             <th>Cicle</th>
             <th>Rol</th>
@@ -174,8 +179,8 @@
     <tbody>
         @foreach ($users as $user)
         <tr>
-            <td><a>{{ $user->nomCognoms() }}</a></td>
-            <td><a>{{ $user->email }}</a></td>
+            <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->nomCognoms() }}</a></td>
+            <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->email }}</a></td>
             <td>
                 <form action="{{ route('user_list') }}" method="GET">
                     <input type="hidden" name="cicle" value="{{ $user->cicle->id }}" />
@@ -229,5 +234,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/user_add_validator.js') }}"></script>
 @endsection
 

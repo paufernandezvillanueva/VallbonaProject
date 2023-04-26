@@ -1,0 +1,76 @@
+.labels{
+    color: white;
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    height: fit-content;
+}
+.list-header {
+    padding-bottom: 10px;
+}
+#info{
+    color: white;
+    text-align: center;
+    width: fit-content;
+    float: left;
+}
+.infoCicle{
+    width: 100%;
+    padding-right: 20px;
+}
+#info-table {
+    width: 100%;
+    margin: 0;
+}
+#info-table tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-color: #373b3e;
+}
+#info-table tbody{
+    display: block;
+    border: 1px #626262 solid;
+}
+#info-table tbody tr th {
+    width: 130px;
+}
+#info-table tbody th,
+#info-table tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.filtro {
+    text-align: right;
+}
+.filtrar {
+    border-radius: 20px;
+    font-size: 13px;
+    min-width: 70px;
+    border: none;
+    height: 25px;
+    padding: 0 10px;
+    background-color: #e0e0e0;
+}
+.filtrar:hover {
+    border-radius: 20px;
+    font-size: 13px;
+    min-width: 70px;
+    border: none;
+    height: 25px;
+    padding: 0 10px;
+    background-color: white;
+}
+.col-form-label {
+    white-space: nowrap;
+}
+label, p {
+    color: black;
+}
+.containerCicle {
+    width: 95%;
+    margin: auto;
+    height: 83%;
+    background-color: #212529;
+}

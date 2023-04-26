@@ -1,3 +1,17 @@
+.btnTorna {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.btnTorna a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+.btnTorna a:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+    text-decoration: underline;
+}
 .labels{
     color: white;
     display: flex;
@@ -14,7 +28,7 @@
     width: fit-content;
     float: left;
 }
-.infoContacte{
+.infoPoblacio{
     width: 100%;
     padding-right: 20px;
 }
@@ -67,4 +81,10 @@
 }
 label, p {
     color: black;
+}
+.containerPoblacio {
+    width: 95%;
+    margin: auto;
+    height: 83%;
+    background-color: #212529;
 }

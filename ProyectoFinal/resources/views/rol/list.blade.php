@@ -46,7 +46,7 @@
                 <h5 class="modal-title" id="newRolLabel">Afegir rol</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('rol_new') }}">
+            <form method="POST" name="addRolForm" action="{{ route('rol_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -54,13 +54,14 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" />
+                            <input class="form-control" type="text" name="name" required/>
                         </div>
+                        <div class="error" id="name-add-rol-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </div>
             </form>
         </div>
@@ -81,12 +82,11 @@
     <tbody>
         @foreach ($rols as $rol)
         <tr>
-            <td><a>{{ $rol->name }}</a></td>
+            <td><a href="{{ route('rol_detail', $rol->id) }}">{{ $rol->name }}</a></td>
             <td>
                 <a data-id="{{ $rol->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
                 </a>
-                <!-- <a href="{{ route('rol_edit', ['id' => $rol->id]) }}">Editar</a> -->
             </td>
         </tr>
         @endforeach
@@ -123,5 +123,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/rol_add_validator.js') }}"></script>
 @endsection
 

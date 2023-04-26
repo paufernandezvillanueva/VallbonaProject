@@ -24,7 +24,7 @@
     <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('estada_list') }}">
         <div id="filter-form-container">
             <div>
-                <label>Nom estudiant: 
+                <label>Nom alumne: 
                     @if (isset($request->name) && $request->name != "")
                     <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
                     @else
@@ -135,16 +135,18 @@
                 <h5 class="modal-title" id="newEstadaLabel">Crear una estada</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('estada_new') }}">
+            <form method="POST" name="addEstadaForm" action="{{ route('estada_new') }}">
+                <input type="hidden" name="redirect_to" value="estada_list">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="student_name">Nom Estudiant</label>
+                            <label class="col-form-label" for="student_name">Nom Alumne</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="student_name" />
+                            <input class="form-control" type="text" name="student_name" required/>
                         </div>
+                        <div class="error" id="student_name-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -152,12 +154,13 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="curs_id">
-                                <option>Selecciona un curs...</option>
+                                <option value="default">Selecciona un curs...</option>
                                 @foreach($cursos as $curs)
                                 <option value="{{ $curs->id }}">{{ $curs->name }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="curs_id-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -165,12 +168,13 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="cicle_id">
-                                <option>Selecciona un cicle...</option>
+                                <option value="default">Selecciona un cicle...</option>
                                 @foreach($cicles as $cicle)
                                 <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="cicle_id-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -178,12 +182,13 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="registered_by">
-                                <option>Selecciona un tutor...</option>
+                                <option value="default">Selecciona un tutor...</option>
                                 @foreach($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="registered_by-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -191,12 +196,13 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="empresa_id">
-                                <option>Selecciona una empresa...</option>
+                                <option value="default">Selecciona una empresa...</option>
                                 @foreach ($empresas as $empresa)
                                 <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="empresa_id-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -204,32 +210,34 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="dual">
-                                <option>Selecciona el tipus...</option>
+                                <option value="default">Selecciona el tipus...</option>
                                 <option value="0">FCT</option>
                                 <option value="1">Dual</option>
                             </select>
                         </div>
+                        <div class="error" id="dual-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="evaluation">Valoració</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" />
+                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" required/>
                         </div>
+                        <div class="error" id="evaluation-add-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="comment">Comentaris</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="comment" />
+                            <input class="form-control" type="text" name="comment"/>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </div>
             </form>
         </div>
@@ -239,14 +247,13 @@
 <table id="estada-table" class="table table-striped table-dark">
     <thead>
         <tr>
-            <th>Nom Estudiant</th>
+            <th>Alumne</th>
             <th>Curs</th>
             <th>Cicle</th>
             <th>Registrat per</th>
             <th>Empresa</th>
             <th>Tipus</th>
             <th>Valoració</th>
-            <th>Comentaris</th>
             <th>
                 <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newEstada">
                     <i class="bi bi-plus-square-fill"></i>
@@ -299,7 +306,6 @@
                     <a href="#" onclick="this.parentNode.submit()">{{ $estada->evaluation }}</a>
                 </form>
             </td>
-            <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->comment }}</a></td>
             <td>
                 <a data-id="{{ $estada->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
                 <!-- <a href="{{ route('estada_edit', ['id' => $estada->id]) }}">Editar</a> -->
@@ -339,4 +345,6 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/estada_add_validator.js') }}"></script>
 @endsection

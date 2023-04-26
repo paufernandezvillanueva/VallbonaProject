@@ -65,7 +65,7 @@
         @endif
     </ul>
     <hr>
-    <div class="dropdown">
+    <div id="userContainer" class="dropdown">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="{{asset ('/img/logo-vallbona.png')}}" alt="" width="32" height="32" class="rounded-circle me-2">
             <strong id="profilename">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</strong>

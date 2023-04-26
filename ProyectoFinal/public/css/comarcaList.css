@@ -16,6 +16,10 @@ td a:hover {
     margin-left: 10px;
 }
 
+.modal-body p {
+    color: white;
+}
+
 label, p {
     color: black;
 }

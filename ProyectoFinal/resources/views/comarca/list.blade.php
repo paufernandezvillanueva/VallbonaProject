@@ -63,6 +63,7 @@
         @endforeach
     </tbody>
 </table>
+
 <div class="modal fade" id="novaComarca" tabindex="-1" aria-labelledby="novaComarcaLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -70,7 +71,7 @@
                 <h5 class="modal-title" id="novaComarcaLabel">Crear una comarca</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('comarca_new') }}">
+            <form method="POST" name="addComarcaForm" action="{{ route('comarca_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -78,13 +79,14 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" />
+                            <input class="form-control" type="text" name="name" required/>
                         </div>
+                        <div class="error" id="name-add-comarca-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </div>
             </form>
         </div>
@@ -121,5 +123,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/comarca_add_validator.js') }}"></script>
 <br>
 @endsection

@@ -16,10 +16,6 @@ td a:hover {
     margin-left: 10px;
 }
 
-label, p {
-    color: black;
-}
-
 @media screen and (max-width: 575px) {
     label {
         float: left;
@@ -41,8 +37,6 @@ text-decoration: none;
 color: rgb(0, 132, 255);
 cursor: pointer;
 }
-
-
 
 .iconBasura {
     text-decoration: none;

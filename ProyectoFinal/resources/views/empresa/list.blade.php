@@ -14,7 +14,13 @@
 </div>
 
 <div id="filter">
-    <div id="filter-header"><div><button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button></div><div><button id="filter-button"><i class="bi bi-filter"></i></button></div></div>
+    <div id="filter-header"><div><button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button></div>
+        <div>
+            <button id="filter-button">
+                <i class="bi bi-filter"></i>
+            </button>
+        </div>
+    </div>
     <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('empresa_list') }}">
         <div id="filter-form-container">
             <div>
@@ -204,7 +210,7 @@
                 <h5 class="modal-title text-light" id="addEmpresaLabel">Crear una empresa</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('empresa_new') }}">
+            <form id="addForm" name="addEmpresaForm" method="POST" action="{{ route('empresa_new') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -212,37 +218,41 @@
                             <label class="col-form-label" for="cif">CIF</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" />
+                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" required/>
                         </div>
+                        <div class="error" id="cif-add-empresa-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" />
+                            <input class="form-control" type="text" name="name" required/>
                         </div>
+                        <div class="error" id="name-add-empresa-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="sector">Sector</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="sector" />
+                            <input class="form-control" type="text" name="sector" required/>
                         </div>
+                        <div class="error" id="sector-add-empresa-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="comarca_id">Comarca</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <select class="form-select" id="comarca_id">
+                            <select class="form-select" name="comarca_id" id="comarca_id">
                             <option value="">Selecciona una comarca...</option>
                                 @foreach($comarques as $comarca)
                                     <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="comarca_id-add-empresa-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -250,14 +260,15 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" id="poblacio_id" name="poblacio_id">
-                                <option>Selecciona una comarca...</option>
+                                <option value="default">Selecciona una comarca...</option>
                             </select>
                         </div>
+                        <div class="error" id="poblacio_id-add-empresa-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </div>
             </form>
         </div>
@@ -284,7 +295,7 @@
                         });
                     </script>
                     @csrf
-                    <p>Estàs segur de voler eliminar aquest usuari?</p>
+                    <p>Estàs segur de voler eliminar aquesta empresa?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
@@ -297,4 +308,6 @@
 <script type="text/javascript" src="{{ asset('js/empresa_list_poblacions_json.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/filter_minDefiner.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/empresa_add_validator.js') }}"></script>
 @endsection

@@ -90,7 +90,7 @@ class EmpresaController extends BaseController
       }
     }
 
-    $empresas = $empresas->distinct("empresas.*")->get("empresas.*");
+    $empresas = $empresas->distinct("empresas.*")->orderBy('empresas.cif', 'asc')->orderBy('empresas.name', 'asc')->get("empresas.*");
 
     $cicles = Cicle::all();
     $comarques = Comarca::all();
@@ -103,8 +103,8 @@ class EmpresaController extends BaseController
   {
     $empresa = Empresa::find($id);
     $poblacio = Poblacio::find($empresa->poblacio_id);
-    $contactes = Contacte::all()->where('empresa_id', '=', $empresa->id);
-    $estades = Estada::all()->where('empresa_id', '=', $empresa->id);
+    $contactes = Contacte::orderBy('name', 'asc')->where('empresa_id', '=', $empresa->id)->get();
+    $estades = Estada::orderBy('student_name', 'asc')->where('empresa_id', '=', $empresa->id)->get();
     $users = User::all();
     $cursos = Curs::all();
     $cicles = Cicle::all();
@@ -118,16 +118,13 @@ class EmpresaController extends BaseController
   {
     $empresa = Empresa::find($id);
     if ($request->isMethod('post')) {
-      // recollim els camps del formulari en un objecte empresa
-
-      //$empresa = new Empresa;
       $empresa->cif = $request->cif;
       $empresa->name = $request->name;
       $empresa->sector = $request->sector;
       $empresa->poblacio_id = $request->poblacio_id;
       $empresa->save();
 
-      return redirect()->route('empresa_list')->with('status', 'Empresa ' . $empresa->name . ' modificada!');
+      return redirect()->route('empresa_detail', ['id' => $id])->with('status', 'Empresa ' . $empresa->name . ' modificada!');
     }
     // si no venim de fer submit al formulari, hem de mostrar el formulari
 

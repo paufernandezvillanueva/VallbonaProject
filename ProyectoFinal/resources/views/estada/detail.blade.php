@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat d\'estades')
+@section('title', $estada->student_name)
 
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/estadaDetail.css') }}" />
@@ -13,11 +13,14 @@
 </div>
 <div class="containerEstada">
     <div>
+        <div class="btnTorna">
+            <a href="{{ route('estada_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+        </div>
         <div class="labels">
             <div class="infoEstada">
                 <div class="list-header">
                     <div id="info">Info estada</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informacio</button></div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
@@ -71,7 +74,7 @@
                 <h5 class="modal-title" id="editInfoLabel">Editar estada</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="{{ route('estada_edit', $estada->id) }}">
+            <form method="POST" name="editEstadaForm" action="{{ route('estada_edit', $estada->id) }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -79,8 +82,9 @@
                             <label class="col-form-label" id="student_name" for="student_name">Nom Estudiant</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="student_name" value="{{ $estada->student_name }}" />
+                            <input class="form-control" type="text" name="student_name" value="{{ $estada->student_name }}" required/>
                         </div>
+                        <div class="error" id="student_name-edit-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -97,6 +101,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="curs_id-edit-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -113,6 +118,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="cicle_id-edit-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -129,6 +135,7 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="registered_by-edit-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -145,6 +152,7 @@
                                 @endif
                             </select>
                         </div>
+                        <div class="error" id="dual-edit-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -161,14 +169,16 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="error" id="empresa_id-edit-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="evaluation">Valoració</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="number" name="evaluation" value="{{ $estada->evaluation }}" min="0" max="10"/>
+                            <input class="form-control" type="number" name="evaluation" value="{{ $estada->evaluation }}" min="0" max="10" required/>
                         </div>
+                        <div class="error" id="evaluation-edit-estada-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -180,11 +190,13 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/estada_edit_validator.js') }}"></script>
 @endsection
