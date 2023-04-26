@@ -44,7 +44,7 @@ class ContacteController extends Controller
 
         return view('contacte.detail', ['contacte' => $contacte, 'empresas' => $empresas]);
     }
-
+    
     function new(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -54,22 +54,12 @@ class ContacteController extends Controller
             $contacte->email = $request->email;
             $contacte->phonenumber = $request->phonenumber;
             $contacte->save();
-
-            return redirect()->route('contacte_list');
-        }
-    }
-
-    function newFromEmpresa(Request $request)
-    {
-        if ($request->isMethod('post')) {
-            $contacte = new Contacte;
-            $contacte->name = $request->name;
-            $contacte->empresa_id = $request->empresa_id;
-            $contacte->email = $request->email;
-            $contacte->phonenumber = $request->phonenumber;
-            $contacte->save();
-
-            return redirect()->route('empresa_detail', ['id' => $contacte->empresa_id]);
+    
+            if ($request->input('redirect_to') == 'empresa_detail') {
+                return redirect()->route('empresa_detail', ['id' => $contacte->empresa_id]);
+            } else if ($request->input('redirect_to') == 'contacte_list') {
+                return redirect()->route('contacte_list');
+            }
         }
     }
 

@@ -136,6 +136,7 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form method="POST" name="addEstadaForm" action="{{ route('estada_new') }}">
+                <input type="hidden" name="redirect_to" value="estada_list">
                 <div class="modal-body">
                     @csrf
                     <div class="row">

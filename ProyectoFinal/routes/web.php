@@ -67,8 +67,6 @@ Route::get('/contacte/delete/{id}', [ContacteController::class, 'delete'])->name
 
 Route::match(['get', 'post'], '/contacte/detail/{id}', [ContacteController::class, 'detail'])->name('contacte_detail')->middleware('auth');
 
-Route::match(['get', 'post'], '/contacte/newFromEmpresa', [ContacteController::class, 'newFromEmpresa'])->name('contacte_newFromEmpresa')->middleware('auth');
-
 //// ESTADES
 
 Route::get('/estada/list', [EstadaController::class, 'list'])->name('estada_list')->middleware('auth');
@@ -80,8 +78,6 @@ Route::match(['get', 'post'], '/estada/new', [EstadaController::class, 'new'])->
 Route::get('/estada/delete/{id}', [EstadaController::class, 'delete'])->name('estada_delete')->middleware('auth');
 
 Route::match(['get', 'post'], '/estada/detail/{id}', [EstadaController::class, 'detail'])->name('estada_detail')->middleware('auth');
-
-Route::match(['get', 'post'], '/estada/newFromEmpresa', [EstadaController::class, 'newFromEmpresa'])->name('estada_newFromEmpresa')->middleware('auth');
 
 //// USERS
 

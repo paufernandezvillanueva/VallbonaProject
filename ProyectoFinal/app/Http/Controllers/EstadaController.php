@@ -101,25 +101,11 @@ class EstadaController extends Controller
       $estada->curs_id = $request->curs_id;
       $estada->save();
 
-      return redirect()->route('estada_list');
-    }
-  }
-
-  function newFromEmpresa(Request $request)
-  {
-    if ($request->isMethod('post')) {
-      $estada = new Estada;
-      $estada->student_name = $request->student_name;
-      $estada->cicle_id = $request->cicle_id;
-      $estada->empresa_id = $request->empresa_id;
-      $estada->evaluation = $request->evaluation;
-      $estada->comment = $request->comment;
-      $estada->dual = $request->dual;
-      $estada->registered_by = $request->registered_by;
-      $estada->curs_id = $request->curs_id;
-      $estada->save();
-
-      return redirect()->route('empresa_detail', ['id' => $estada->empresa_id]);
+      if ($request->input('redirect_to') == 'empresa_detail') {
+        return redirect()->route('empresa_detail', ['id' => $estada->empresa_id]);
+      } else if ($request->input('redirect_to') == 'estada_list') {
+        return redirect()->route('estada_list');
+      }
     }
   }
 

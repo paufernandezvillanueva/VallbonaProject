@@ -127,7 +127,7 @@
                             <label class="col-form-label" for="cif">CIF</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" value="{{ $empresa->cif }}" required/>
+                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" value="{{ $empresa->cif }}" required />
                         </div>
                         <div id="cif-edit-empresa-error"></div>
                     </div>
@@ -136,7 +136,7 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" value="{{ $empresa->name }}" required/>
+                            <input class="form-control" type="text" name="name" value="{{ $empresa->name }}" required />
                         </div>
                         <div class="error" id="name-edit-empresa-error"></div>
                     </div>
@@ -145,7 +145,7 @@
                             <label class="col-form-label" for="sector">Sector</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="sector" value="{{ $empresa->sector }}" required/>
+                            <input class="form-control" type="text" name="sector" value="{{ $empresa->sector }}" required />
                         </div>
                         <div class="error" id="sector-edit-empresa-error"></div>
                     </div>
@@ -155,7 +155,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="comarca_id" id="comarca_id" value="{{ $poblacio->comarca_id }}">
-                            <option value="">Selecciona una comarca...</option>
+                                <option value="">Selecciona una comarca...</option>
                                 @foreach($comarques as $comarca)
                                 @if ( $comarca->id == $poblacio->comarca_id )
                                 <option value="{{ $comarca->id }}" selected>{{ $comarca->name }}</option>
@@ -194,7 +194,8 @@
                 <h5 class="modal-title" id="newContactLabel">Crear un contacte</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" name="addContacteForm" action="{{ route('contacte_newFromEmpresa') }}">
+            <form method="POST" name="addContacteForm" action="{{ route('contacte_new') }}">
+                <input type="hidden" name="redirect_to" value="empresa_detail">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -206,7 +207,7 @@
                         </div>
                         <div class="error" id="name-add-contacte-error"></div>
                     </div>
-                    <input type="hidden" name="empresa_id" value="{{ $empresa->id }}"/>
+                    <input type="hidden" name="empresa_id" value="{{ $empresa->id }}" />
                     <div id="empresa_id-add-contacte-error"></div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -243,7 +244,8 @@
                 <h5 class="modal-title" id="newEstadaLabel">Crear una estada</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" name="addEstadaForm" action="{{ route('estada_newFromEmpresa') }}">
+            <form method="POST" name="addEstadaForm" action="{{ route('estada_new') }}">
+                <input type="hidden" name="redirect_to" value="empresa_detail">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -251,7 +253,7 @@
                             <label class="col-form-label" for="student_name">Nom Estudiant</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="student_name" required/>
+                            <input class="form-control" type="text" name="student_name" required />
                         </div>
                         <div class="error" id="student_name-add-estada-error"></div>
                     </div>
@@ -316,7 +318,7 @@
                             <label class="col-form-label" for="evaluation">Evaluation</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" required/>
+                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" required />
                         </div>
                         <div class="error" id="evaluation-add-estada-error"></div>
                     </div>
