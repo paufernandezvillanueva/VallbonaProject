@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
 
 //// EMPRESES
 
-Route::get('/', [EmpresaController::class, 'list'])->name('empresa_list')->middleware('auth');
+Route::match(['get', 'post'], '/', [EmpresaController::class, 'list'])->name('empresa_list')->middleware('auth');
 // Route::get('/empresa/list', [EmpresaController::class, 'list'])->name('empresa_list');
 
 Route::match(['get', 'post'], '/empresa/edit/{id}', [EmpresaController::class, 'edit'])->name('empresa_edit')->middleware('auth');
@@ -57,7 +57,7 @@ Route::match(['get', 'post'], '/empresa/detail/{id}', [EmpresaController::class,
 
 //// CONTACTES
 
-Route::get('/contacte/list', [ContacteController::class, 'list'])->name('contacte_list')->middleware('auth');
+Route::match(['get', 'post'],'/contacte/list', [ContacteController::class, 'list'])->name('contacte_list')->middleware('auth');
 
 Route::match(['get', 'post'], '/contacte/edit/{id}', [ContacteController::class, 'edit'])->name('contacte_edit')->middleware('auth');
 
@@ -69,7 +69,7 @@ Route::match(['get', 'post'], '/contacte/detail/{id}', [ContacteController::clas
 
 //// ESTADES
 
-Route::get('/estada/list', [EstadaController::class, 'list'])->name('estada_list')->middleware('auth');
+Route::match(['get', 'post'],'/estada/list', [EstadaController::class, 'list'])->name('estada_list')->middleware('auth');
 
 Route::match(['get', 'post'], '/estada/edit/{id}', [EstadaController::class, 'edit'])->name('estada_edit')->middleware('auth');
 
@@ -81,7 +81,7 @@ Route::match(['get', 'post'], '/estada/detail/{id}', [EstadaController::class, '
 
 //// USERS
 
-Route::get('/user/list', [UserController::class, 'list'])->name('user_list')->middleware('auth');
+Route::match(['get', 'post'],'/user/list', [UserController::class, 'list'])->name('user_list')->middleware('auth');
 
 Route::get('/user/profile', [UserController::class, 'profile'])->name('user_profile')->middleware('auth');
 
@@ -97,7 +97,7 @@ Route::match(['get', 'post'], '/user/detail/{id}', [UserController::class, 'deta
 
 ////ROLS
 
-Route::get('/rol/list', [RolController::class, 'list'])->name('rol_list')->middleware('auth');
+Route::match(['get', 'post'],'/rol/list', [RolController::class, 'list'])->name('rol_list')->middleware('auth');
 
 Route::match(['get', 'post'], '/rol/edit/{id}', [RolController::class, 'edit'])->name('rol_edit')->middleware('auth');
 
@@ -109,7 +109,7 @@ Route::match(['get', 'post'], '/rol/detail/{id}', [RolController::class, 'detail
 
 //// CURSOS
 
-Route::get('/curs/list', [CursController::class, 'list'])->name('curs_list')->middleware('auth');
+Route::match(['get', 'post'],'/curs/list', [CursController::class, 'list'])->name('curs_list')->middleware('auth');
 
 Route::match(['get', 'post'], '/curs/edit/{id}', [CursController::class, 'edit'])->name('curs_edit')->middleware('auth');
 
@@ -121,7 +121,7 @@ Route::match(['get', 'post'], '/curs/detail/{id}', [CursController::class, 'deta
 
 //// CICLES
 
-Route::get('/cicle/list', [CicleController::class, 'list'])->name('cicle_list')->middleware('auth');
+Route::match(['get', 'post'],'/cicle/list', [CicleController::class, 'list'])->name('cicle_list')->middleware('auth');
 
 Route::match(['get', 'post'], '/cicle/edit/{id}', [CicleController::class, 'edit'])->name('cicle_edit')->middleware('auth');
 
@@ -133,7 +133,7 @@ Route::match(['get', 'post'], '/cicle/detail/{id}', [CicleController::class, 'de
 
 ////COMARCAS
 
-Route::get('/comarca/list', [ComarcaController::class, 'list'])->name('comarca_list')->middleware('auth');
+Route::match(['get', 'post'],'/comarca/list', [ComarcaController::class, 'list'])->name('comarca_list')->middleware('auth');
 
 Route::match(['get', 'post'], '/comarca/edit/{id}', [ComarcaController::class, 'edit'])->name('comarca_edit')->middleware('auth');
 
@@ -145,7 +145,7 @@ Route::match(['get', 'post'], '/comarca/detail/{id}', [ComarcaController::class,
 
 //// POBLACIONS
 
-Route::get('/poblacio/list', [PoblacioController::class, 'list'])->name('poblacio_list')->middleware('auth');
+Route::match(['get', 'post'],'/poblacio/list', [PoblacioController::class, 'list'])->name('poblacio_list')->middleware('auth');
 
 Route::match(['get', 'post'], '/poblacio/edit/{id}', [PoblacioController::class, 'edit'])->name('poblacio_edit')->middleware('auth');
 
