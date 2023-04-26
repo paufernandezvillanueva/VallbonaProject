@@ -194,7 +194,7 @@
                 <h5 class="modal-title" id="newContactLabel">Crear un contacte</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" name="addContacteForm" action="{{ route('contacte_new') }}">
+            <form method="POST" name="addContacteForm" action="{{ route('contacte_newFromEmpresa') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -243,7 +243,7 @@
                 <h5 class="modal-title" id="newEstadaLabel">Crear una estada</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" name="addEstadaForm" action="{{ route('estada_new') }}">
+            <form method="POST" name="addEstadaForm" action="{{ route('estada_newFromEmpresa') }}">
                 <div class="modal-body">
                     @csrf
                     <div class="row">

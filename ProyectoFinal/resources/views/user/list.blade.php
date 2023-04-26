@@ -180,7 +180,7 @@
         @foreach ($users as $user)
         <tr>
             <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->nomCognoms() }}</a></td>
-            <td><a>{{ $user->email }}</a></td>
+            <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->email }}</a></td>
             <td>
                 <form action="{{ route('user_list') }}" method="GET">
                     <input type="hidden" name="cicle" value="{{ $user->cicle->id }}" />

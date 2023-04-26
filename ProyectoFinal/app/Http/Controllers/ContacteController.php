@@ -57,8 +57,20 @@ class ContacteController extends Controller
 
             return redirect()->route('contacte_list');
         }
-        $empresas = Empresa::all();
-        return view('contacte.new', ['empresas' => $empresas]);
+    }
+
+    function newFromEmpresa(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            $contacte = new Contacte;
+            $contacte->name = $request->name;
+            $contacte->empresa_id = $request->empresa_id;
+            $contacte->email = $request->email;
+            $contacte->phonenumber = $request->phonenumber;
+            $contacte->save();
+
+            return redirect()->route('empresa_detail', ['id' => $contacte->empresa_id]);
+        }
     }
 
     function edit(Request $request, $id)
