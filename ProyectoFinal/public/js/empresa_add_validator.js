@@ -19,7 +19,7 @@ function formValidator(e) {
     var result = true;
     var first_error = null;
 
-    for (let x in control) {
+    for (let x in empresa_add_control) {
         elem = document.forms['addEmpresaForm'][x];
 
         if (!empresa_add_control[x][0](elem, empresa_add_control[x][1], empresa_add_control[x][2])) {
@@ -31,10 +31,12 @@ function formValidator(e) {
     }
     
     if (!result) {
-        first_error.focus();
+        if (first_error != null) {
+            first_error.focus();
+        }
         e.preventDefault();
     }
-
+    
     return result;
 }
 

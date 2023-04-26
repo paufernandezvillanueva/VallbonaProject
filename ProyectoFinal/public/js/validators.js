@@ -9,12 +9,9 @@ function notEmpty(elem, helperMsg) {
 
 function isNumeric(elem, helperMsg) {
     var numericExpression = /^[0-9]+$/;
-    var result = true;
+    var result = false;
     if (elem.value.match(numericExpression)) {
         result = true;
-    } else {
-        result = false;
-        elem.focus();
     }
     tractarError(elem, result, helperMsg);
     return result;
