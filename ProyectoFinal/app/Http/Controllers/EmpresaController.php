@@ -90,7 +90,7 @@ class EmpresaController extends BaseController
       }
     }
 
-    $empresas = $empresas->distinct("empresas.*")->orderBy('empresas.cif', 'asc')->get("empresas.*");
+    $empresas = $empresas->distinct("empresas.*")->orderBy('empresas.cif', 'asc')->orderBy('empresas.name', 'asc')->get("empresas.*");
 
     $cicles = Cicle::all();
     $comarques = Comarca::all();
