@@ -67,7 +67,7 @@ class EstadaController extends Controller
       $estadas = $estadas->groupBy("empresas.id")->where('estadas.evaluation', '<=', $request->maxValoracio);
     }
 
-    $estadas = $estadas->distinct("estadas.*")->get("estadas.*");
+    $estadas = $estadas->distinct("estadas.*")->orderBy('estadas.student_name', 'asc')->get("estadas.*");
 
     $cicles = Cicle::all();
     $empresas = Empresa::all();

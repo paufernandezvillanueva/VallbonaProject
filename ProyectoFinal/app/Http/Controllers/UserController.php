@@ -42,7 +42,7 @@ class UserController extends BaseController
         }
       }
 
-      $users = $users->distinct("users.*")->get("users.*");
+      $users = $users->distinct("users.*")->orderBy('users.firstname', 'asc')->orderBy('users.lastname', 'asc')->get("users.*");
 
       $cicles = Cicle::all();
       $rols = Rol::all();

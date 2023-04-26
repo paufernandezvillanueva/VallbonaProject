@@ -24,7 +24,7 @@ class CicleController extends Controller
                 }
             }
 
-            $cicles = $cicles->distinct("cicles.*")->get("cicles.*");
+            $cicles = $cicles->distinct("cicles.*")->orderBy('cicles.shortname', 'asc')->orderBy('cicles.name', 'asc')->get("cicles.*");
 
             return view('cicle.list', ['cicles' => $cicles, 'request' => $request]);
         } else {

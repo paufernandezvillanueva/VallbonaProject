@@ -32,7 +32,7 @@ class ContacteController extends Controller
             }
         }
 
-        $contactes = $contactes->distinct("contactes.*")->get("contactes.*");
+        $contactes = $contactes->distinct("contactes.*")->orderBy('contactes.name', 'asc')->get("contactes.*");
 
         return view('contacte.list', ['contactes' => $contactes, 'empresas' => $empresas, 'request' => $request ]);
     }
