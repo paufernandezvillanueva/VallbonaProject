@@ -254,7 +254,6 @@
             <th>Empresa</th>
             <th>Tipus</th>
             <th>Valoració</th>
-            <th>Comentaris</th>
             <th>
                 <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newEstada">
                     <i class="bi bi-plus-square-fill"></i>
@@ -307,7 +306,6 @@
                     <a href="#" onclick="this.parentNode.submit()">{{ $estada->evaluation }}</a>
                 </form>
             </td>
-            <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->comment }}</a></td>
             <td>
                 <a data-id="{{ $estada->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
                 <!-- <a href="{{ route('estada_edit', ['id' => $estada->id]) }}">Editar</a> -->
