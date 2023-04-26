@@ -19,7 +19,7 @@ function formValidator(e) {
     var result = true;
     var first_error = null;
 
-    for (let x in control) {
+    for (let x in user_add_control) {
         elem = document.forms['addUserForm'][x];
 
         if (!user_add_control[x][0](elem, user_add_control[x][1], user_add_control[x][2])) {
@@ -31,7 +31,9 @@ function formValidator(e) {
     }
     
     if (!result) {
-        first_error.focus();
+        if (first_error != null) {
+            first_error.focus();
+        }
         e.preventDefault();
     }
 

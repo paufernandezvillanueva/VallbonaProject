@@ -21,7 +21,7 @@ function formValidator(e) {
     var result = true;
     var first_error = null;
 
-    for (let x in control) {
+    for (let x in estada_add_control) {
         elem = document.forms['addEstadaForm'][x];
 
         if (!estada_add_control[x][0](elem, estada_add_control[x][1], estada_add_control[x][2])) {
@@ -33,7 +33,9 @@ function formValidator(e) {
     }
     
     if (!result) {
-        first_error.focus();
+        if (first_error != null) {
+            first_error.focus();
+        }
         e.preventDefault();
     }
 

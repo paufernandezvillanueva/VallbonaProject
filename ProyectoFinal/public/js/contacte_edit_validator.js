@@ -30,7 +30,9 @@ function formValidator(e) {
     }
     
     if (!result) {
-        first_error.focus();
+        if (first_error != null) {
+            first_error.focus();
+        }
         e.preventDefault();
     }
 
