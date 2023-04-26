@@ -26,7 +26,7 @@ class CursController extends Controller
                 }
             }
 
-            $cursos = $cursos->distinct("cursos.*")->get("cursos.*");
+            $cursos = $cursos->distinct("cursos.*")->orderBy('cursos.name', 'asc')->get("cursos.*");
 
             return view('curs.list', ['cursos' => $cursos, 'request' => $request]);
         } else {

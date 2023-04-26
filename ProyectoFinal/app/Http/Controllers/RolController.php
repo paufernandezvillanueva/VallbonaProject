@@ -25,7 +25,7 @@ class RolController extends Controller
                 }
             }
 
-            $rols = $rols->distinct("rols.*")->get("rols.*");
+            $rols = $rols->distinct("rols.*")->orderBy('rols.name', 'asc')->get("rols.*");
 
             return view('rol.list', ['rols' => $rols, 'request' => $request]);
         } else {

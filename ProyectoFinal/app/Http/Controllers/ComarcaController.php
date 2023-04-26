@@ -24,7 +24,7 @@ class ComarcaController extends Controller
                 }
             }
 
-            $comarcas = $comarcas->distinct("comarcas.*")->get("comarcas.*");
+            $comarcas = $comarcas->distinct("comarcas.*")->orderBy('comarcas.name', 'asc')->get("comarcas.*");
             return view('comarca.list', ['comarcas' => $comarcas, 'request' => $request]);
         } else {
             return redirect('');

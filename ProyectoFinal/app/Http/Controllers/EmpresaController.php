@@ -90,7 +90,7 @@ class EmpresaController extends BaseController
       }
     }
 
-    $empresas = $empresas->distinct("empresas.*")->get("empresas.*");
+    $empresas = $empresas->distinct("empresas.*")->orderBy('empresas.cif', 'asc')->get("empresas.*");
 
     $cicles = Cicle::all();
     $comarques = Comarca::all();
@@ -103,8 +103,8 @@ class EmpresaController extends BaseController
   {
     $empresa = Empresa::find($id);
     $poblacio = Poblacio::find($empresa->poblacio_id);
-    $contactes = Contacte::all()->where('empresa_id', '=', $empresa->id);
-    $estades = Estada::all()->where('empresa_id', '=', $empresa->id);
+    $contactes = Contacte::orderBy('name', 'asc')->where('empresa_id', '=', $empresa->id)->get();
+    $estades = Estada::orderBy('student_name', 'asc')->where('empresa_id', '=', $empresa->id)->get();
     $users = User::all();
     $cursos = Curs::all();
     $cicles = Cicle::all();
