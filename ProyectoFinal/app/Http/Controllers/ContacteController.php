@@ -18,7 +18,7 @@ class ContacteController extends Controller
     function list(Request $request)
     {
         $contactes = Contacte::join("empresas", "empresas.id", '=', 'contactes.empresa_id');
-        $empresas = Empresa::all();
+        $empresas = Empresa::orderBy('name', 'asc')->get();
 
         if (isset($request->name)) {
             if ($request->name != "") {
@@ -40,7 +40,7 @@ class ContacteController extends Controller
     function detail(Request $request, $id)
     {
         $contacte = Contacte::find($id);
-        $empresas = Empresa::all();
+        $empresas = Empresa::orderBy('name', 'asc')->get();
 
         return view('contacte.detail', ['contacte' => $contacte, 'empresas' => $empresas]);
     }

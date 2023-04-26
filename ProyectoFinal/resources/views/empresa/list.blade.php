@@ -78,15 +78,15 @@
 
                 <label id="estadas">Estadas:
                     @if (isset($request->minEstadas) && $request->minEstadas != "")
-                        <input type="number" id="minEstadas" name="minEstadas" min=0 value="{{ $request->minEstadas }}"></input>
+                        <input type="number" id="minEstadas" name="minEstadas" min=0 placeholder="Minim" value="{{ $request->minEstadas }}"></input>
                     @else
-                        <input type="number" id="minEstadas" name="minEstadas" min=0></input>
+                        <input type="number" id="minEstadas" name="minEstadas" min=0 placeholder="Minim"></input>
                     @endif
                      -
                      @if (isset($request->maxEstadas) && $request->maxEstadas != "")
-                        <input type="number" id="maxEstadas" name="maxEstadas" min=0 value="{{ $request->maxEstadas }}"></input>
+                        <input type="number" id="maxEstadas" name="maxEstadas" min=0 placeholder="Maxim" value="{{ $request->maxEstadas }}"></input>
                     @else
-                        <input type="number" id="maxEstadas" name="maxEstadas" min=0></input>
+                        <input type="number" id="maxEstadas" name="maxEstadas" min=0 placeholder="Maxim"></input>
                     @endif
                 </label><br>
             </div>
@@ -101,10 +101,15 @@
 
                 <label>Sector:
                 @if (isset($request->sector) && $request->sector != "")
-                    <input type="text" id="sector" name="sector" value="{{ $request->sector }}"></input>
+                    <input type="text" id="sector" name="sector" list="sectors" value="{{ $request->sector }}"></input>
                 @else
-                    <input type="text" id="sector" name="sector"></input>
+                    <input type="text" id="sector" name="sector" list="sectors"></input>
                 @endif
+                <datalist id="sectors">
+                    @foreach($sectors as $sector)
+                        <option value="{{ $sector->sector }}">
+                    @endforeach
+                </datalist>
                 </label><br>
 
                 <label for="poblacio">Poblacio:
@@ -121,15 +126,15 @@
 
                 <label id="valoracio">Valoracio:
                 @if (isset($request->minEstadas) && $request->minEstadas != "")
-                    <input type="number" id="minValoracio" name="minValoracio" min=0 value="{{ $request->minValoracio }}"></input>
+                    <input type="number" id="minValoracio" name="minValoracio" min=0 placeholder="Minim" value="{{ $request->minValoracio }}"></input>
                 @else
-                    <input type="number" id="minValoracio" name="minValoracio" min=0></input>
+                    <input type="number" id="minValoracio" name="minValoracio" min=0 placeholder="Minim"></input>
                 @endif
                     -
                 @if (isset($request->maxEstadas) && $request->maxEstadas != "")
-                    <input type="number" id="maxValoracio" name="maxValoracio" min=0 value="{{ $request->maxValoracio }}"></input>
+                    <input type="number" id="maxValoracio" name="maxValoracio" min=0 placeholder="Maxim" value="{{ $request->maxValoracio }}"></input>
                 @else
-                    <input type="number" id="maxValoracio" name="maxValoracio" min=0></input>
+                    <input type="number" id="maxValoracio" name="maxValoracio" min=0 placeholder="Maxim"></input>
                 @endif
                 </label><br>
             </div>
@@ -236,7 +241,7 @@
                             <label class="col-form-label" for="sector">Sector</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="sector" required/>
+                            <input class="form-control" type="text" name="sector" list="sectors" required/>
                         </div>
                         <div class="error" id="sector-add-empresa-error"></div>
                     </div>

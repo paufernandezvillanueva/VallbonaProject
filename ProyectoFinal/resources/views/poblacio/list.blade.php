@@ -35,10 +35,15 @@
             <div>
             <label for="name">Comarca: 
                 @if (isset($request->comarca) && $request->comarca != "")
-                   <input type="text" id="comarca" name="comarca" value="{{ $request->comarca }}"></input>
+                   <input type="text" id="comarca" name="comarca" list="comarques" value="{{ $request->comarca }}"></input>
                 @else
-                    <input type="text" id="comarca" name="comarca"></input>
+                    <input type="text" id="comarca" name="comarca" list="comarques"></input>
                 @endif
+                <datalist id="comarques">
+                @foreach ($comarques as $comarca)
+                    <option value="{{ $comarca->name }}">
+                @endforeach
+                </datalist>
             </label><br>
             </div>
         </div>

@@ -54,22 +54,27 @@
                 </label><br>
                 <label for="empresa">Empresa: 
                     @if (isset($request->empresa) && $request->empresa != "")
-                        <input type="text" id="empresa" name="empresa" value="{{ $request->empresa }}"></input>
+                        <input type="text" id="empresa" name="empresa" list="empresas" value="{{ $request->empresa }}"></input>
                     @else
-                        <input type="text" id="empresa" name="empresa"></input>
+                        <input type="text" id="empresa" name="empresa" list="empresas"></input>
                     @endif
+                    <datalist id="empresas">
+                    @foreach ($empresas as $empresa)
+                        <option value="{{ $empresa->name }}">
+                    @endforeach
+                    </datalist>
                 </input></label><br>
                 <label id="valoracio">Valoracio:
                 @if (isset($request->minEstadas) && $request->minEstadas != "")
-                    <input type="number" id="minValoracio" name="minValoracio" min=0 value="{{ $request->minValoracio }}"></input>
+                    <input type="number" id="minValoracio" name="minValoracio" min=0 placeholder="Minim" value="{{ $request->minValoracio }}"></input>
                 @else
-                    <input type="number" id="minValoracio" name="minValoracio" min=0></input>
+                    <input type="number" id="minValoracio" name="minValoracio" min=0 placeholder="Minim"></input>
                 @endif
                     - 
                 @if (isset($request->maxEstadas) && $request->maxEstadas != "")
-                    <input type="number" id="maxValoracio" name="maxValoracio" min=0 value="{{ $request->maxValoracio }}"></input>
+                    <input type="number" id="maxValoracio" name="maxValoracio" min=0 placeholder="Maxim" value="{{ $request->maxValoracio }}"></input>
                 @else
-                    <input type="number" id="maxValoracio" name="maxValoracio" min=0></input>
+                    <input type="number" id="maxValoracio" name="maxValoracio" min=0 placeholder="Maxim"></input>
                 @endif 
                 </label><br>
             </div>
@@ -97,11 +102,16 @@
                 </label><br>
                 <label for="registeredBy">Registrat per: 
                     @if (isset($request->registeredBy) && $request->registeredBy != "")
-                        <input type="text" id="registeredBy" name="registeredBy" value="{{ $request->registeredBy }}"></input>
+                        <input type="text" id="registeredBy" name="registeredBy" list="tutors" value="{{ $request->registeredBy }}"></input>
                     @else
-                        <input type="text" id="registeredBy" name="registeredBy"></input>
+                        <input type="text" id="registeredBy" name="registeredBy" list="tutors"></input>
                     @endif
-                </input></label><br>
+                    <datalist id="tutors">
+                    @foreach ($tutors as $tutor)
+                        <option value="{{ $tutor->firstname }} {{ $tutor->lastname }}">
+                    @endforeach
+                    </datalist>
+                </label><br>
                 <label for="tipus">Tipus: 
                     @if (isset($request->tipus) && $request->tipus != "")
                     <select id="tipus" name="tipus" value="{{ $request->tipus }}">

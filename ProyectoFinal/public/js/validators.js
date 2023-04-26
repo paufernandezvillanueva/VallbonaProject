@@ -18,7 +18,7 @@ function isNumeric(elem, helperMsg) {
 }
 
 function isAlphabet(elem, helperMsg) {
-    var alphaExp = /^[a-zA-Z ]+$/;
+    var alphaExp = /^[A-Za-zà-üÀ-Ü ]+$/;
     var result = false;
     if (elem.value.match(alphaExp)) {
         result = true;

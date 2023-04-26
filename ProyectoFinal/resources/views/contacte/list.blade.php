@@ -35,10 +35,15 @@
             <div>
                 <label for="empresa">Empresa:
                     @if (isset($request->empresa) && $request->empresa != "")
-                    <input type="text" id="empresa" name="empresa" value="{{ $request->empresa }}"></input>
+                    <input type="text" id="empresa" name="empresa" list="empresas" value="{{ $request->empresa }}"></input>
                     @else
-                    <input type="text" id="empresa" name="empresa"></input>
+                    <input type="text" id="empresa" name="empresa" list="empresas"></input>
                     @endif
+                    <datalist id="empresas">
+                    @foreach ($empresas as $empresa)
+                        <option value="{{ $empresa->name }}">
+                    @endforeach
+                    </datalist>
                 </label><br>
             </div>
         </div>

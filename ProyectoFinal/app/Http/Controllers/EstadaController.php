@@ -70,10 +70,13 @@ class EstadaController extends Controller
     $estadas = $estadas->distinct("estadas.*")->orderBy('estadas.student_name', 'asc')->get("estadas.*");
 
     $cicles = Cicle::all();
-    $empresas = Empresa::all();
+    $empresas = Empresa::orderBy('name', 'asc')->get();
     $users = User::all();
     $cursos = Curs::all();
-    return view('estada.list', ['estadas' => $estadas, 'cicles' => $cicles, 'empresas' => $empresas, 'users' => $users, 'cursos' => $cursos, 'request' => $request]);
+    $tutors = User::orderBy('firstname', 'asc')->orderBy('lastname', 'asc')->get();
+
+    return view('estada.list', ['estadas' => $estadas, 'cicles' => $cicles, 'empresas' => $empresas, 'users' => $users, 'cursos' => $cursos,
+    'request' => $request, 'tutors' => $tutors]);
   }
 
   function detail(Request $request, $id)
