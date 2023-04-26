@@ -96,6 +96,11 @@ td a:hover {
     padding: 7px 8px;
 }
 
+#contacte-table tbody td:nth-of-type(2) a:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+}
+
 #filter {
     background-color: #212529;
     width: 95%;
