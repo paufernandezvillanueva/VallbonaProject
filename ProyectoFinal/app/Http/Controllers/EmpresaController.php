@@ -90,12 +90,13 @@ class EmpresaController extends BaseController
       }
     }
 
+    $sectors = Empresa::orderBy('sector', 'asc')->distinct("sector")->get("sector");
     $empresas = $empresas->distinct("empresas.*")->orderBy('empresas.cif', 'asc')->orderBy('empresas.name', 'asc')->get("empresas.*");
 
     $cicles = Cicle::all();
     $comarques = Comarca::all();
     
-    return view('empresa.list', ['empresas' => $empresas, 'cicles' => $cicles, 'comarques' => $comarques, "request" => $request]);
+    return view('empresa.list', ['empresas' => $empresas, 'cicles' => $cicles, 'comarques' => $comarques, "request" => $request, "sectors" => $sectors]);
 
   }
 
@@ -109,9 +110,10 @@ class EmpresaController extends BaseController
     $cursos = Curs::all();
     $cicles = Cicle::all();
     $comarques = Comarca::all();
+    $sectors = Empresa::orderBy('sector', 'asc')->distinct("sector")->get("sector");
 
     return view('empresa.detail', ['empresa' => $empresa, "poblacio" => $poblacio, "contactes" => $contactes, "estades" => $estades,
-    "users" => $users, "cursos" => $cursos, "cicles" => $cicles, "comarques" => $comarques]);
+    "users" => $users, "cursos" => $cursos, "cicles" => $cicles, "comarques" => $comarques, "sectors" => $sectors]);
   }
 
   function edit(Request $request, $id)

@@ -35,7 +35,7 @@ class PoblacioController extends BaseController
 
             $poblacions = $poblacions->distinct("poblacios.*")->orderBy('poblacios.name', 'asc')->get("poblacios.*");
 
-            $comarques = Comarca::all();
+            $comarques = Comarca::orderBy('comarcas.name', 'asc')->get();
               
             return view('poblacio.list', ['poblacions' => $poblacions, 'comarques' => $comarques, 'request' => $request]);
         } else {
