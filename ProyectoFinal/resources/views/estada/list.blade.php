@@ -153,7 +153,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="curs_id">
-                                <option>Selecciona un curs...</option>
+                                <option value="default">Selecciona un curs...</option>
                                 @foreach($cursos as $curs)
                                 <option value="{{ $curs->id }}">{{ $curs->name }}</option>
                                 @endforeach
@@ -167,7 +167,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="cicle_id">
-                                <option>Selecciona un cicle...</option>
+                                <option value="default">Selecciona un cicle...</option>
                                 @foreach($cicles as $cicle)
                                 <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                                 @endforeach
@@ -181,7 +181,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="registered_by">
-                                <option>Selecciona un tutor...</option>
+                                <option value="default">Selecciona un tutor...</option>
                                 @foreach($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
                                 @endforeach
@@ -195,7 +195,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="empresa_id">
-                                <option>Selecciona una empresa...</option>
+                                <option value="default">Selecciona una empresa...</option>
                                 @foreach ($empresas as $empresa)
                                 <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
                                 @endforeach
@@ -209,7 +209,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="dual">
-                                <option>Selecciona el tipus...</option>
+                                <option value="default">Selecciona el tipus...</option>
                                 <option value="0">FCT</option>
                                 <option value="1">Dual</option>
                             </select>

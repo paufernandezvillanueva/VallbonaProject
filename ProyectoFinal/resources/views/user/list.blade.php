@@ -124,7 +124,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="cicle_id">
-                                <option>Selecciona un cicle...</option>
+                                <option value="default">Selecciona un cicle...</option>
                                 @foreach ($cicles as $cicle)
                                 <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                                 @endforeach
@@ -138,7 +138,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="rol_id">
-                                <option>Selecciona un rol...</option>
+                                <option value="default">Selecciona un rol...</option>
                                 @foreach ($rols as $rol)
                                 <option value="{{ $rol->id }}">{{ $rol->name }}</option>
                                 @endforeach

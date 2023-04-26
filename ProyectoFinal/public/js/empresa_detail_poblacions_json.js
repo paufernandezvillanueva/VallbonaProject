@@ -23,7 +23,7 @@ function demanaPoblacio() {
 
 function mostraPoblacio(dades) {
   $("#poblacio_id").html(function() {
-    $("#poblacio_id").html("<option>Selecciona una poblacio...</option>");
+    $("#poblacio_id").html("<option value="default">Selecciona una poblacio...</option>");
     for (const element in dades) {
       if (element == document.getElementById("poblacio_id").getAttribute("value")) {
         $("#poblacio_id").append("<option value='" + element + "' selected>" + dades[element] + "</option>");
