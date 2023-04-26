@@ -20,8 +20,8 @@
         <div class="labels">
             <div class="infoEmpresa">
                 <div class="list-header">
-                    <div id="info">Info empresa</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informació</button></div>
+                    <div id="info">Informació</div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
@@ -29,7 +29,7 @@
                         <td>{{ $empresa->cif }}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Nom empresa</th>
+                        <th scope="row">Nom</th>
                         <td>{{ $empresa->name }}</td>
                     </tr>
                     <tr>
@@ -49,7 +49,7 @@
             <div class="contactes">
                 <div class="list-header">
                     <div id="contactes">Contactes</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newContact">Crear Contacte</button></div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newContact">Crear</button></div>
                 </div>
                 <table id="contactes-table" class="table table-striped table-dark">
                     <thead>
@@ -75,7 +75,7 @@
     <div class="estades">
         <div class="list-header">
             <div id="estades">Estades</div>
-            <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newEstada">Crear Estada</button></div>
+            <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newEstada">Crear</button></div>
         </div>
         <table id="estades-table" class="table table-striped table-dark">
             <thead>
@@ -84,7 +84,7 @@
                     <th scope="col"><span>Curs</span></th>
                     <th scope="col"><span>Cicle</span></th>
                     <th scope="col"><span>Tutor</span></th>
-                    <th scope="col"><span>Tipus estada</span></th>
+                    <th scope="col"><span>Tipus</span></th>
                     <th scope="col"><span>Valoració</span></th>
                 </tr>
             </thead>
@@ -179,7 +179,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>
@@ -227,7 +227,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>
@@ -329,7 +329,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-primary">Confirmar</button>
                 </div>
             </form>
