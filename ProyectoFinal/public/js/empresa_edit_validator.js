@@ -36,7 +36,7 @@ function formValidatorEmpresa(e) {
         if (!empresa_edit_control[x][0](elem, empresa_edit_control[x][1], empresa_edit_control[x][2])) {
             result = false;
             if (first_error == null) {
-                first_error = document.forms['editForm'][x];
+                first_error = document.forms['editEmpresaForm'][x];
             }
         }
     }
