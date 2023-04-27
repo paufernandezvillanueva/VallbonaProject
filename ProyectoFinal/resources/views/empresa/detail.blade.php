@@ -344,9 +344,6 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/empresa_detail_poblacions_json.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/empresa_edit_validator.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/contacte_add_validator.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/estada_add_validator.js') }}"></script>
 <br>
 @endsection
