@@ -107,7 +107,7 @@
                 @endif
             </div>
             <div class="col-md-1 offset-md-1">
-                <label for="sector">Població:</label>
+                <label for="poblacio">Població:</label>
             </div>
             <div class="col-md-4">
                 @if (isset($request->poblacio) && $request->poblacio != "")
