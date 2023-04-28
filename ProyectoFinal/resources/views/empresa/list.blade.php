@@ -107,7 +107,7 @@
                 @endif
             </div>
             <div class="col-md-1 offset-md-1">
-                <label for="sector">Sector:</label>
+                <label for="sector">Població:</label>
             </div>
             <div class="col-md-4">
                 @if (isset($request->poblacio) && $request->poblacio != "")
@@ -151,33 +151,24 @@
                 <div class="row">
                     <div class="col-md-5">
                         @if (isset($request->minValoracio) && $request->minValoracio != "")
-                        <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" value="{{ $request->minValoracio }}"/>
+                        <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" value="{{ $request->minValoracio }}" />
                         @else
-                        <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10"/>
+                        <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" />
                         @endif
                     </div>
                     <div class="col-md-2 text-center" style="padding-left:22px">-</div>
                     <div class="col-md-5">
                         @if (isset($request->maxValoracio) && $request->maxValoracio != "")
-                        <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10" value="{{ $request->maxValoracio }}"/>
+                        <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10" value="{{ $request->maxValoracio }}" />
                         @else
-                        <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10"/>
+                        <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10" />
                         @endif
                     </div>
                 </div>
             </div>
         </div>
         <div id="filter-form-button">
-            <input class="btn btn-secondary" type="button" onclick="reiniciar()" value="Reiniciar Filtres" />
-            <script>
-                function reiniciar() {
-                    document.getElementById("cif").value = "";
-                    document.getElementById("name").value = "";
-                    document.getElementById("cicle").selectedIndex = "0";
-                    document.getElementById("sector").value = "";
-                    document.getElementById("filter-form").submit();
-                }
-            </script>
+            <input class="btn btn-secondary" type="button" onclick="reiniciarFiltres()" value="Reiniciar Filtres" />
             <input class="btn btn-light" type="submit" id="btnFiltrar" value="Filtrar" />
         </div>
     </form>
@@ -355,6 +346,7 @@
 <script type="text/javascript" src="{{ asset('js/empresa_list_poblacions_json.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/filter_minDefiner.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/empresa_add_validator.js') }}"></script>
 @endsection
