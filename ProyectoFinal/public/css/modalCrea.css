@@ -1,16 +1,33 @@
 @import url('card.css');
 .modal-header{
-    background-color: #212529;
+    background-color: var(--background-color-1);
+}
+.modal-title {
+    color: var(--text-color) !important;
+}
+.btn-close {
+    color: var(--text-color) !important;
 }
 .modal-body{
-    background-color: #2c3034;
+    background-color: var(--background-color-2);
 }
 .modal-footer{
-    background-color: #212529;
+    background-color: var(--background-color-1);
 }
 .form-control::placeholder{
     color: #b7b7b7 !important;
 }
-.modal-title{
-    color: white;
+.form-control, .form-select {
+    background-color: var(--background-color-1) !important;
+    border-color: var(--background-color-3) !important;
+    background-image: none !important;
+    color: var(--text-color) !important;
+}
+.modal-body label {
+    color: var(--text-color) !important;
+}
+.modal-header button {
+    background-color: transparent;
+    border: none;
+    color: var(--text-color) !important;
 }

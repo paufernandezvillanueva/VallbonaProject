@@ -168,8 +168,7 @@
             </div>
         </div>
         <div id="filter-form-button">
-            <input class="btn btn-secondary" type="button" onclick="reiniciarFiltres()" value="Reiniciar Filtres" />
-            <input class="btn btn-light" type="submit" id="btnFiltrar" value="Filtrar" />
+            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="Filtrar" />
         </div>
     </form>
 </div>
@@ -244,8 +243,8 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-light" id="addEmpresaLabel">Crear una empresa</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="addEmpresaLabel">Crear una empresa</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form id="addForm" name="addEmpresaForm" method="POST" action="{{ route('empresa_new') }}">
                 <div class="modal-body">
@@ -317,7 +316,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="confirmDeleteLabel">Eliminar empresa</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="GET">
                 <div class="modal-body">

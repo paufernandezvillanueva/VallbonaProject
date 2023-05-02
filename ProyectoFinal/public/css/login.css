@@ -1,23 +1,23 @@
 .bg-gray-100 {
-  background-color: rgb(104, 104, 104);
+  background-color: var(--background-color-2);
 }
 
 #container-form {
-  background-color: #373b3e;
+  background-color: var(--background-color-1);
 }
 
 #container-form label {
-  color: white;
+  color: var(--text-color);
   font-family: var(--bs-font-sans-serif);
 }
 
 #container-form span {
-  color: white;
+  color: var(--text-color);
   font-family: var(--bs-font-sans-serif);
 }
 
 #container-form a {
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
   font-family: var(--bs-font-sans-serif);
 }
@@ -29,7 +29,7 @@
 #school-logo {
   display: flex;
   padding-bottom: 20px;
-  color: white;
+  color: var(--text-color);
 }
 
 #school-logo div {
@@ -42,11 +42,12 @@
 }
 
 button[type=submit] {
-  background-color: rgb(104, 104, 104);
+  color: var(--text-color) !important;
+  background-color: var(--background-color-2);
   font-family: var(--bs-font-sans-serif);
   transition: 0.5s;
 }
 
 button[type=submit]:hover {
-  background-color: rgb(124, 124, 124);
+  background-color: var(--background-color-4);
 }
