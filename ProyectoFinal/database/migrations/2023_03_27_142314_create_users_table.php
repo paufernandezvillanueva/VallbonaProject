@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->boolean('darkmode');
             $table->timestamps();
             $table->unsignedBigInteger('cicle_id')->nullable();
             $table->unsignedBigInteger('rol_id');

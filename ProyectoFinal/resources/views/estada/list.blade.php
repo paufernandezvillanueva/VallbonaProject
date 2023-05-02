@@ -157,10 +157,7 @@
             <div class="col-md-4">
             </div>
         </div>
-        <div id="filter-form-button">
-            <input class="btn btn-secondary" type="button" onclick="reiniciarFiltres()" value="Reiniciar Filtres" />
-            <input class="btn btn-light" type="submit" id="btnFiltrar" value="Filtrar" />
-        </div>
+        <div id="filter-form-button"><input type="submit" class="btn btn-secondary" value="Filtrar"></div>
     </form>
 </div>
 
@@ -169,7 +166,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="newEstadaLabel">Crear una estada</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addEstadaForm" action="{{ route('estada_new') }}">
                 <input type="hidden" name="redirect_to" value="estada_list">
@@ -356,7 +353,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="confirmDeleteLabel">Eliminar estada</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="GET">
                 <div class="modal-body">
