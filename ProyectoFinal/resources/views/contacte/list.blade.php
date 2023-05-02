@@ -14,35 +14,40 @@
 
 <div id="filter">
     <div id="filter-header">
+        <div><button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button></div>
         <div>
-            <button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button>
-        </div>
-        <div>
-            <button id="filter-button"><i class="bi bi-filter"></i></button>
+            <button id="filter-button">
+                <i class="bi bi-filter"></i>
+            </button>
         </div>
     </div>
     <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('contacte_list') }}">
-        <div id="filter-form-container">
-            <div>
-                <label for="name">Nom:
-                    @if (isset($request->name) && $request->name != "")
-                    <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
-                    @else
-                    <input type="text" id="name" name="name"></input>
-                    @endif
-                </label><br>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="name">Nom:</label>
             </div>
-            <div>
-                <label for="empresa">Empresa:
-                    @if (isset($request->empresa) && $request->empresa != "")
-                    <input type="text" id="empresa" name="empresa" value="{{ $request->empresa }}"></input>
-                    @else
-                    <input type="text" id="empresa" name="empresa"></input>
-                    @endif
-                </label><br>
+            <div class="col-md-4">
+                @if (isset($request->name) && $request->name != "")
+                <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}"></input>
+                @else
+                <input class="form-control" type="text" id="name" name="name"></input>
+                @endif
+            </div>
+            <div class="col-md-1 offset-md-1">
+                <label for="empresa">Empresa:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->empresa) && $request->empresa != "")
+                <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}"></input>
+                @else
+                <input class="form-control" type="text" id="empresa" name="empresa"></input>
+                @endif
             </div>
         </div>
-        <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
+        <div id="filter-form-button">
+            <input class="btn btn-secondary" type="button" onclick="reiniciarFiltres()" value="Reiniciar Filtres" />
+            <input class="btn btn-light" type="submit" id="btnFiltrar" value="Filtrar" />
+        </div>
     </form>
 </div>
 
@@ -76,7 +81,6 @@
                 <a data-id="{{ $contacte->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
                 </a>
-                <!-- <a href="{{ route('contacte_edit', ['id' => $contacte->id]) }}">Editar</a> -->
             </td>
         </tr>
         @endforeach
@@ -181,6 +185,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/contacte_add_validator.js') }}"></script>
 @endsection
