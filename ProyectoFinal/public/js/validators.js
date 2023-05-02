@@ -37,7 +37,7 @@ function isAlphanumeric(elem, helperMsg) {
     return result;
 }
 
-function lengthRestriction(elem, min, max) {
+function lengthRestriction(elem) {
     var uInput = elem.value;
     var result = false;
     if (uInput >= 0 && uInput <= 10) {

@@ -1,5 +1,5 @@
 let estada_add_control = {
-    "student_name": [isAlphabet, "El nom no pot tenir numeros o simbols"],
+    "student_name": [isAlphabet, "El nom no pot tenir números o símbols"],
     "curs_id": [madeSelection, "Cal escollir un curs"],
     "cicle_id": [madeSelection, "Cal escollir un cicle"],
     "registered_by": [madeSelection, "Cal escollir un tutor"],

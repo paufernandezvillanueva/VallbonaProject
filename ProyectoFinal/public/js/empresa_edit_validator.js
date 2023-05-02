@@ -1,9 +1,9 @@
 let empresa_edit_control = {
-    "cif": [isCIFEmpresa, "El CIF introduit no es valid"],
-    "name": [isAlphabetEmpresa, "El nom no pot tenir numeros o simbols"],
-    "sector": [isAlphabetEmpresa, "El sector no pot tenir numeros o simbols"],
+    "cif": [isCIFEmpresa, "El CIF introduit no és vàlid"],
+    "name": [isAlphabetEmpresa, "El nom no pot tenir números o símbols"],
+    "sector": [isAlphabetEmpresa, "El sector no pot tenir números o símbols"],
     "comarca_id": [madeSelectionEmpresa, "Cal escollir una comarca"],
-    "poblacio_id": [madeSelectionEmpresa, "Cal escollir una poblacio"]
+    "poblacio_id": [madeSelectionEmpresa, "Cal escollir una població"]
 };
 
 window.onload = function() {
@@ -255,12 +255,12 @@ function madeSelectionEstada(elem, helperMsg) {
     return result;
 }
 
-function lengthRestrictionEstada(elem, min, max) {
+function lengthRestrictionEstada(elem) {
     var uInput = elem.value;
     var result = false;
-    if (uInput.length >= min && uInput.length <= max) {
+    if (uInput >= 10 && uInput <= 10) {
         result = true;
     }
-    tractarErrorEstada(elem, result, "La valoracio ha de ser entre " + min + " i " + max);
+    tractarErrorEstada(elem, result, "La valoracio ha de ser entre " + 0 + " i " + 10);
     return result;
 }
