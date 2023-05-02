@@ -25,7 +25,7 @@
         <div id="filter-form-container">
             <div class="row d-flex justify-content-center">
                 <div class="col-md-1">
-                    <label for="name">Nom estudiant:</label>
+                    <label for="name">Nom:</label>
                 </div>
                 <div class="col-md-4">
                     @if (isset($request->name) && $request->name != "")
