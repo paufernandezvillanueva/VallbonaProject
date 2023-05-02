@@ -14,124 +14,147 @@
 
 <div id="filter">
     <div id="filter-header">
+        <div><button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button></div>
         <div>
-            <button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button>
-        </div>
-        <div>
-            <button id="filter-button"><i class="bi bi-filter"></i></button>
+            <button id="filter-button">
+                <i class="bi bi-filter"></i>
+            </button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('estada_list') }}">@csrf
-        <div id="filter-form-container">
-            <div>
-                <label>Nom alumne: 
-                    @if (isset($request->name) && $request->name != "")
-                    <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
-                    @else
-                    <input type="text" id="name" name="name"></input>
-                    @endif
-                </label><br>
-                <label for="cicle">Cicle: 
-                    @if (isset($request->cicle) && $request->cicle != "")
-                    <select id="cicle" name="cicle" value="{{ $request->cicle }}">
-                        <option value="">Selecciona un cicle...</option>
-                        @foreach($cicles as $cicle)
-                            @if ($request->cicle == $cicle->id)
-                                <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
-                            @else
-                                <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
-                            @endif
-                        @endforeach
-                    </select>
-                    @else
-                    <select id="cicle" name="cicle">
-                        <option value="">Selecciona un cicle...</option>
-                        @foreach($cicles as $cicle)
-                            <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
-                        @endforeach
-                    </select>
-                    @endif
-                </label><br>
-                <label for="empresa">Empresa: 
-                    @if (isset($request->empresa) && $request->empresa != "")
-                        <input type="text" id="empresa" name="empresa" list="empresas" value="{{ $request->empresa }}"></input>
-                    @else
-                        <input type="text" id="empresa" name="empresa" list="empresas"></input>
-                    @endif
-                    <datalist id="empresas">
-                    @foreach ($empresas as $empresa)
-                        <option value="{{ $empresa->name }}">
-                    @endforeach
-                    </datalist>
-                </input></label><br>
-                <label id="valoracio">Valoracio:
-                @if (isset($request->minEstadas) && $request->minEstadas != "")
-                    <input type="number" id="minValoracio" name="minValoracio" min=0 placeholder="Minim" value="{{ $request->minValoracio }}"></input>
-                @else
-                    <input type="number" id="minValoracio" name="minValoracio" min=0 placeholder="Minim"></input>
-                @endif
-                    - 
-                @if (isset($request->maxEstadas) && $request->maxEstadas != "")
-                    <input type="number" id="maxValoracio" name="maxValoracio" min=0 placeholder="Maxim" value="{{ $request->maxValoracio }}"></input>
-                @else
-                    <input type="number" id="maxValoracio" name="maxValoracio" min=0 placeholder="Maxim"></input>
-                @endif 
-                </label><br>
+    <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('estada_list') }}">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="name">Nom:</label>
             </div>
-            <div>
-                <label for="curs">Curs: 
-                    @if (isset($request->curs) && $request->curs != "")
-                    <select id="curs" name="curs" value="{{ $request->curs }}">
-                        <option value="">Selecciona un curs...</option>
-                        @foreach($cursos as $curs)
-                            @if ($request->curs == $curs->id)
-                                <option value="{{ $curs->id }}" selected>{{ $curs->name }}</option>
-                            @else
-                                <option value="{{ $curs->id }}">{{ $curs->name }}</option>
-                            @endif
-                        @endforeach
-                    </select>
+            <div class="col-md-4">
+                @if (isset($request->name) && $request->name != "")
+                <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+                @else
+                <input class="form-control" type="text" id="name" name="name" />
+                @endif
+            </div>
+            <div class="col-md-1 offset-md-1">
+                <label for="curs">Curs:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->curs) && $request->curs != "")
+                <select class="form-select" id="curs" name="curs" value="{{ $request->curs }}">
+                    <option value="">Selecciona un curs...</option>
+                    @foreach($cursos as $curs)
+                    @if ($request->curs == $curs->id)
+                    <option value="{{ $curs->id }}" selected>{{ $curs->name }}</option>
                     @else
-                    <select id="curs" name="curs">
-                        <option value="">Selecciona un curs...</option>
-                        @foreach($cursos as $curs)
-                            <option value="{{ $curs->id }}">{{ $curs->name }}</option>
-                        @endforeach
-                    </select>
+                    <option value="{{ $curs->id }}">{{ $curs->name }}</option>
                     @endif
-                </label><br>
-                <label for="registeredBy">Registrat per: 
-                    @if (isset($request->registeredBy) && $request->registeredBy != "")
-                        <input type="text" id="registeredBy" name="registeredBy" list="tutors" value="{{ $request->registeredBy }}"></input>
-                    @else
-                        <input type="text" id="registeredBy" name="registeredBy" list="tutors"></input>
-                    @endif
-                    <datalist id="tutors">
-                    @foreach ($tutors as $tutor)
-                        <option value="{{ $tutor->firstname }} {{ $tutor->lastname }}">
                     @endforeach
-                    </datalist>
-                </label><br>
-                <label for="tipus">Tipus: 
-                    @if (isset($request->tipus) && $request->tipus != "")
-                    <select id="tipus" name="tipus" value="{{ $request->tipus }}">
-                        <option value="">Selecciona el tipus...</option>
-                        @if ($request->tipus == 0)
-                            <option value="0" selected>FCT</option>
-                            <option value="1">Dual</option>
-                        @elseif ($request->tipus == 1)
-                            <option value="0">FCT</option>
-                            <option value="1" selected>Dual</option>
-                        @endif
-                    </select>
+                </select>
+                @else
+                <select class="form-select" id="curs" name="curs">
+                    <option value="">Selecciona un curs...</option>
+                    @foreach($cursos as $curs)
+                    <option value="{{ $curs->id }}">{{ $curs->name }}</option>
+                    @endforeach
+                </select>
+                @endif
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="cicle">Cicle:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->cicle) && $request->cicle != "")
+                <select class="form-select" id="cicle" name="cicle" value="{{ $request->cicle }}">
+                    <option value="">Selecciona un cicle...</option>
+                    @foreach($cicles as $cicle)
+                    @if ($request->cicle == $cicle->id)
+                    <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                     @else
-                    <select id="tipus" name="tipus">
-                        <option value="">Selecciona el tipus...</option>
-                        <option value="0">FCT</option>
-                        <option value="1">Dual</option>
-                    </select>
+                    <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                     @endif
-                </label><br>
+                    @endforeach
+                </select>
+                @else
+                <select class="form-select" id="cicle" name="cicle">
+                    <option value="">Selecciona un cicle...</option>
+                    @foreach($cicles as $cicle)
+                    <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                    @endforeach
+                </select>
+                @endif
+            </div>
+            <div class="col-md-1 offset-md-1">
+                <label for="registeredBy">Registrat per:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->registeredBy) && $request->registeredBy != "")
+                <input class="form-control" type="text" id="registeredBy" name="registeredBy" value="{{ $request->registeredBy }}" />
+                @else
+                <input class="form-control" type="text" id="registeredBy" name="registeredBy" />
+                @endif
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="empresa">Empresa:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->empresa) && $request->empresa != "")
+                <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}" />
+                @else
+                <input class="form-control" type="text" id="empresa" name="empresa" />
+                @endif
+            </div>
+            <div class="col-md-1 offset-md-1">
+                <label for="tipus">Tipus:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->tipus) && $request->tipus != "")
+                <select class="form-select" id="tipus" name="tipus" value="{{ $request->tipus }}">
+                    <option value="">Selecciona el tipus...</option>
+                    @if ($request->tipus == 0)
+                    <option value="0" selected>FCT</option>
+                    <option value="1">Dual</option>
+                    @elseif ($request->tipus == 1)
+                    <option value="0">FCT</option>
+                    <option value="1" selected>Dual</option>
+                    @endif
+                </select>
+                @else
+                <select class="form-select" id="tipus" name="tipus">
+                    <option value="">Selecciona el tipus...</option>
+                    <option value="0">FCT</option>
+                    <option value="1">Dual</option>
+                </select>
+                @endif
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-1">
+                <label for="valoracio">Valoració:</label>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-5">
+                        @if (isset($request->minValoracio) && $request->minValoracio != "")
+                        <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" value="{{ $request->minValoracio }}" />
+                        @else
+                        <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" />
+                        @endif
+                    </div>
+                    <div class="col-md-2 text-center" style="padding-left:22px">-</div>
+                    <div class="col-md-5">
+                        @if (isset($request->maxValoracio) && $request->maxValoracio != "")
+                        <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10" value="{{ $request->maxValoracio }}" />
+                        @else
+                        <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10" />
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1 offset-md-1">
+            </div>
+            <div class="col-md-4">
             </div>
         </div>
         <div id="filter-form-button"><input type="submit" class="btn btn-secondary" value="Filtrar"></div>
@@ -154,7 +177,7 @@
                             <label class="col-form-label" for="student_name">Nom Alumne</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="student_name" required/>
+                            <input class="form-control" type="text" name="student_name" required />
                         </div>
                         <div class="error" id="student_name-add-estada-error"></div>
                     </div>
@@ -232,7 +255,7 @@
                             <label class="col-form-label" for="evaluation">Valoració</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" required/>
+                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" required />
                         </div>
                         <div class="error" id="evaluation-add-estada-error"></div>
                     </div>
@@ -241,7 +264,7 @@
                             <label class="col-form-label" for="comment">Comentaris</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="comment"/>
+                            <input class="form-control" type="text" name="comment" />
                         </div>
                     </div>
                 </div>
@@ -303,9 +326,9 @@
                 <form action="{{ route('estada_list') }}" method="GET">
                     <input type="hidden" name="tipus" value="{{ $estada->dual }}" />
                     @if ($estada->dual == 1)
-                        <a href="#" onclick="this.parentNode.submit()">Dual</a>
+                    <a href="#" onclick="this.parentNode.submit()">Dual</a>
                     @else
-                        <a href="#" onclick="this.parentNode.submit()">FCT</a>
+                    <a href="#" onclick="this.parentNode.submit()">FCT</a>
                     @endif
                 </form>
             </td>
@@ -355,6 +378,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/estada_add_validator.js') }}"></script>
 @endsection

@@ -59,12 +59,12 @@ class EstadaController extends Controller
 
     if (isset($request->minValoracio)) {
       if (!isset($request->maxValoracio) || $request->maxValoracio >= $request->minValoracio) {
-        $estadas = $estadas->groupBy("empresas.id")->where('estadas.evaluation', '>=', $request->minValoracio);
+        $estadas = $estadas->where('estadas.evaluation', '>=', $request->minValoracio);
       }
     }
 
     if (isset($request->maxValoracio)) {
-      $estadas = $estadas->groupBy("empresas.id")->where('estadas.evaluation', '<=', $request->maxValoracio);
+      $estadas = $estadas->where('estadas.evaluation', '<=', $request->maxValoracio);
     }
 
     $estadas = $estadas->distinct("estadas.*")->orderBy('estadas.student_name', 'asc')->get("estadas.*");

@@ -150,7 +150,7 @@ td a:hover {
 .filter-form #filter-form-button {
     display: block;
     width: 100%;
-    text-align: center;
+    text-align: right;
     padding: 10px;
 }
 

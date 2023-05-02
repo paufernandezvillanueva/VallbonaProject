@@ -73,12 +73,6 @@ td a:hover {
     white-space: nowrap;
 }
 
-/* #curs-table tbody td:nth-of-type(1) a:hover {
-    display: block;
-    color: rgb(0, 132, 255);
-    padding: 0.5rem 0.5rem;
-} */
-
 #curs-table tbody tr td {
     background-color: var(--background-color-1);
 }
@@ -149,14 +143,14 @@ td a:hover {
     height: fit-content;
 }
 
-.filter-form #filter-form-container div {
-    width: 50%;
+.filter-form label {
+    float: left;
 }
 
 .filter-form #filter-form-button {
     display: block;
     width: 100%;
-    text-align: center;
+    text-align: right;
     padding: 10px;
 }
 
@@ -165,8 +159,6 @@ td a:hover {
     margin: 10px;
     color: var(--text-color);
 }
-
-
 
 .filter-form-opened {
     animation: filter-opening 2s;

@@ -11,7 +11,7 @@
 }
 
 #empresa-table tr td:nth-of-type(2) a,
-#empresa-table tr td:nth-of-type(3) a  {
+#empresa-table tr td:nth-of-type(3) a {
     max-width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -165,14 +165,14 @@ td a:hover {
     height: fit-content;
 }
 
-.filter-form #filter-form-container div {
-    width: 50%;
+.filter-form label {
+    float: left;
 }
 
 .filter-form #filter-form-button {
     display: block;
     width: 100%;
-    text-align: center;
+    text-align: right;
     padding: 10px;
 }
 

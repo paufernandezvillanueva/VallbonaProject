@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('cicle_id');
             $table->unsignedBigInteger('empresa_id');
             $table->integer('evaluation');
-            $table->string('comment');
+            $table->string('comment')->nullable();
             $table->boolean('dual');
             $table->unsignedBigInteger('registered_by');
             $table->unsignedBigInteger('curs_id');

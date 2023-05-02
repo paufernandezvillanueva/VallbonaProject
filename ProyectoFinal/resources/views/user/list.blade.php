@@ -23,58 +23,71 @@
     </div>
     <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('user_list') }}">@csrf
         <div id="filter-form-container">
-            <div>
-                <label>Nom estudiant: 
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-1">
+                    <label for="name">Nom:</label>
+                </div>
+                <div class="col-md-4">
                     @if (isset($request->name) && $request->name != "")
-                    <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
+                    <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
                     @else
-                    <input type="text" id="name" name="name"></input>
+                    <input class="form-control" type="text" id="name" name="name" />
                     @endif
-                </label><br>
-                <label for="rol">Rol: 
-                    @if (isset($request->rol) && $request->rol != "")
-                    <select id="rol" name="rol" value="{{ $request->rol }}">
-                        <option value="">Selecciona un rol...</option>
-                        @foreach ($rols as $rol)
-                            @if ($request->rol == $rol->id)
-                                <option value="{{ $rol->id }}" selected>{{ $rol->name }}</option>
-                            @else
-                                <option value="{{ $rol->id }}">{{ $rol->name }}</option>
-                            @endif
-                        @endforeach
-                    </select>
-                    @else
-                    <select id="rol" name="rol">
-                        <option value="">Selecciona un rol...</option>
-                        @foreach ($rols as $rol)
-                            <option value="{{ $rol->id }}">{{ $rol->name }}</option>
-                        @endforeach
-                    </select>
-                    @endif
-                </label><br>
-            </div>
-            <div>
-                <label for="cicle">Cicle: 
+                </div>
+                <div class="col-md-1 offset-md-1">
+                    <label for="cicle">Cicle:</label>
+                </div>
+                <div class="col-md-4">
                     @if (isset($request->cicle) && $request->cicle != "")
-                    <select id="cicle" name="cicle" value="{{ $request->cicle }}">
+                    <select class="form-select" id="cicle" name="cicle" value="{{ $request->cicle }}">
                         <option value="">Selecciona un cicle...</option>
                         @foreach($cicles as $cicle)
-                            @if ($request->cicle == $cicle->id)
-                                <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
-                            @else
-                                <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
-                            @endif
+                        @if ($request->cicle == $cicle->id)
+                        <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                        @else
+                        <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                        @endif
                         @endforeach
                     </select>
                     @else
-                    <select id="cicle" name="cicle">
+                    <select class="form-select" id="cicle" name="cicle">
                         <option value="">Selecciona un cicle...</option>
                         @foreach($cicles as $cicle)
-                            <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                        <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                         @endforeach
                     </select>
                     @endif
-                </label><br>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-1">
+                    <label for="rol">Rol:</label>
+                </div>
+                <div class="col-md-4">
+                    @if (isset($request->rol) && $request->rol != "")
+                    <select class="form-select" id="rol" name="rol" value="{{ $request->rol }}">
+                        <option value="">Selecciona un rol...</option>
+                        @foreach($rols as $rol)
+                        @if ($request->rol == $rol->id)
+                        <option value="{{ $rol->id }}" selected>{{ $rol->name }}</option>
+                        @else
+                        <option value="{{ $rol->id }}">{{ $rol->name }}</option>
+                        @endif
+                        @endforeach
+                    </select>
+                    @else
+                    <select class="form-select" id="rol" name="rol">
+                        <option value="">Selecciona un rol...</option>
+                        @foreach($rols as $rol)
+                        <option value="{{ $rol->id }}">{{ $rol->name }}</option>
+                        @endforeach
+                    </select>
+                    @endif
+                </div>
+                <div class="col-md-1 offset-md-1">
+                </div>
+                <div class="col-md-4">
+                </div>
             </div>
         </div>
         <div id="filter-form-button"><input type="submit" class="btn btn-secondary" value="Filtrar"></div>
@@ -197,7 +210,6 @@
                 <a data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
                 </a>
-                <!-- <a href="{{ route('user_edit', ['id' => $user->id]) }}">Editar</a> -->
             </td>
         </tr>
         @endforeach
@@ -234,7 +246,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/user_add_validator.js') }}"></script>
 @endsection
-

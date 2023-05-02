@@ -143,14 +143,14 @@ cursor: pointer;
     height: fit-content;
 }
 
-.filter-form #filter-form-container div {
-    width: 50%;
+.filter-form label {
+    float: left;
 }
 
 .filter-form #filter-form-button {
     display: block;
     width: 100%;
-    text-align: center;
+    text-align: right;
     padding: 10px;
 }
 
@@ -159,8 +159,6 @@ cursor: pointer;
     margin: 10px;
     color: var(--text-color);
 }
-
-
 
 .filter-form-opened {
     animation: filter-opening 2s;

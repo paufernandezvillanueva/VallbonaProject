@@ -23,16 +23,21 @@
     </div>
     <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('rol_list') }}">@csrf
         <div id="filter-form-container">
-            <div>
-            <label for="name">Nom: 
-                @if (isset($request->name) && $request->name != "")
-                   <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
-                @else
-                    <input type="text" id="name" name="name"></input>
-                @endif
-            </label><br>
-            </div>
-            <div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-1">
+                    <label for="name">Nom:</label>
+                </div>
+                <div class="col-md-4">
+                    @if (isset($request->name) && $request->name != "")
+                    <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+                    @else
+                    <input class="form-control" type="text" id="name" name="name" />
+                    @endif
+                </div>
+                <div class="col-md-1 offset-md-1">
+                </div>
+                <div class="col-md-4">
+                </div>
             </div>
         </div>
         <div id="filter-form-button"><input type="submit" class="btn btn-secondary" value="Filtrar"></div>
@@ -54,7 +59,7 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" required/>
+                            <input class="form-control" type="text" name="name" required />
                         </div>
                         <div class="error" id="name-add-rol-error"></div>
                     </div>
@@ -123,7 +128,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/rol_add_validator.js') }}"></script>
 @endsection
-
