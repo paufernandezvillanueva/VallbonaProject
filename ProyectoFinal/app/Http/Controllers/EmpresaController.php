@@ -95,8 +95,7 @@ class EmpresaController extends BaseController
 
     $cicles = Cicle::all();
     $comarques = Comarca::all();
-    
-    return view('empresa.list', ['empresas' => $empresas, 'cicles' => $cicles, 'comarques' => $comarques, "request" => $request, "sectors" => $sectors]);
+    return view('empresa.list', ['empresas' => $empresas, 'cicles' => $cicles, 'comarques' => $comarques, "request" => $request]);
 
   }
 
