@@ -140,7 +140,7 @@
                 </label><br>
             </div>
         </div>
-        <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
+        <div id="filter-form-button"><input type="submit" class="btn btn-secondary" value="Filtrar"></div>
     </form>
 </div>
 <table id="empresa-table" class="table table-striped table-dark">
@@ -213,8 +213,8 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title text-light" id="addEmpresaLabel">Crear una empresa</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="addEmpresaLabel">Crear una empresa</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form id="addForm" name="addEmpresaForm" method="POST" action="{{ route('empresa_new') }}">
                 <div class="modal-body">
@@ -286,7 +286,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="confirmDeleteLabel">Eliminar empresa</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="GET">
                 <div class="modal-body">

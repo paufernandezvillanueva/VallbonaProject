@@ -42,7 +42,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editInfoLabel">Editar cicle</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="editCicleForm" action="{{ route('cicle_edit', $cicle->id) }}">
                 <div class="modal-body">

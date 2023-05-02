@@ -35,7 +35,7 @@
             <div>
             </div>
         </div>
-        <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
+        <div id="filter-form-button"><input type="submit" class="btn btn-secondary" value="Filtrar"></div>
     </form>
 </div>
 
@@ -69,7 +69,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="novaComarcaLabel">Crear una comarca</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addComarcaForm" action="{{ route('comarca_new') }}">
                 <div class="modal-body">
@@ -98,7 +98,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="confirmDeleteLabel">Eliminar comarca</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="GET">
                 <div class="modal-body">

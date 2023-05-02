@@ -6,6 +6,11 @@
     <title>Projecte - @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @section('stylesheets')
+        @if (Auth::user()->darkmode == 0)
+            <link rel="stylesheet" href="{{ asset('css/lightmode.css') }}" />
+        @else
+            <link rel="stylesheet" href="{{ asset('css/darkmode.css') }}" />
+        @endif
         <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     @show
 

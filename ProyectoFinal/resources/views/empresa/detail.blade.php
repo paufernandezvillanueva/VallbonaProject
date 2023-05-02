@@ -117,7 +117,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editInfoLabel">Editar empresa</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="editEmpresaForm" action="{{ route('empresa_edit', $empresa->id) }}">
                 <div class="modal-body">
@@ -196,7 +196,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="newContactLabel">Crear un contacte</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addContacteForm" action="{{ route('contacte_new') }}">
                 <input type="hidden" name="redirect_to" value="empresa_detail">
@@ -246,7 +246,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="newEstadaLabel">Crear una estada</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addEstadaForm" action="{{ route('estada_new') }}">
                 <input type="hidden" name="redirect_to" value="empresa_detail">

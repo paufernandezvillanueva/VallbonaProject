@@ -37,7 +37,7 @@ label, p {
 }
 
 .iconAdd {
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
 }
 
@@ -69,7 +69,7 @@ label, p {
 #comarca-table tbody a,
 #comarca-table tbody span {
     display: block;
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
     padding: 0.5rem 0.5rem;
     overflow: hidden;
@@ -78,7 +78,7 @@ label, p {
 }
 
 #comarca-table tbody tr td {
-    background-color: #212529;
+    background-color: var(--background-color-1);
 }
 
 #comarca-table tbody tr:hover td {
@@ -106,13 +106,13 @@ label, p {
 }
 
 #filter {
-    background-color: #212529;
+    background-color: var(--background-color-1);
     width: 95%;
     margin: auto;
 }
 
 #filter-header {
-    border-bottom: 1px white solid;
+    border-bottom: 1px var(--text-color) solid;
     display: flex;
 }
 
@@ -131,7 +131,7 @@ label, p {
 #filter-button,
 #import-button {
     background-color: transparent;
-    color: white;
+    color: var(--text-color);
     border: 0px;
     padding: 0.5rem 0.5rem;
 }
@@ -140,10 +140,6 @@ label, p {
 #import-button:hover {
     color: rgb(0, 132, 255);
     cursor: pointer;
-}
-
-.filter-form {
-    box-shadow: inset 0 0 0 9999px #2c3034;
 }
 
 .filter-form #filter-form-container {
@@ -165,18 +161,16 @@ label, p {
 .filter-form div label {
     float: none;
     margin: 10px;
-    color: white;
+    color: var(--text-color);
 }
 
-.filter-form div select {
-    height: 30px;
-}
+
 
 .filter-form-opened {
     animation: filter-opening 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    border-bottom: 1px white solid;
+    border-bottom: 1px var(--text-color) solid;
     max-height: 100vh;
 }
 
