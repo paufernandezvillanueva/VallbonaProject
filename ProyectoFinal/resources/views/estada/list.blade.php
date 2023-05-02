@@ -49,10 +49,10 @@
                     @endforeach
                 </select>
                 @else
-                <select class="form-select" id="cicle" name="cicle">
-                    <option value="">Selecciona un cicle...</option>
-                    @foreach($cicles as $cicle)
-                    <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                <select class="form-select" id="curs" name="curs">
+                    <option value="">Selecciona un curs...</option>
+                    @foreach($cursos as $curs)
+                    <option value="{{ $curs->id }}">{{ $curs->name }}</option>
                     @endforeach
                 </select>
                 @endif
@@ -131,7 +131,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-1">
-                <label for="cicle">Cicle:</label>
+                <label for="valoracio">Valoració:</label>
             </div>
             <div class="col-md-4">
                 <div class="row">
@@ -381,6 +381,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/estada_add_validator.js') }}"></script>
 @endsection
