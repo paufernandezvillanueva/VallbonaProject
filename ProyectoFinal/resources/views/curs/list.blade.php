@@ -27,7 +27,7 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" placeholder="Ex: 1995-1996" required/>
+                            <input class="form-control" type="text" name="name" placeholder="Ex: 1995-1996" required />
                         </div>
                         <div class="error" id="name-add-curs-error"></div>
                     </div>
@@ -52,19 +52,27 @@
     </div>
     <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('curs_list') }}">
         <div id="filter-form-container">
-            <div>
-            <label for="name">Nom:
-                @if (isset($request->name) && $request->name != "")
-                    <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
-                @else
-                    <input type="text" id="name" name="name"></input>
-                @endif
-            </label><br>
-            </div>
-            <div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-1">
+                    <label for="name">Nom:</label>
+                </div>
+                <div class="col-md-4">
+                    @if (isset($request->name) && $request->name != "")
+                    <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+                    @else
+                    <input class="form-control" type="text" id="name" name="name" />
+                    @endif
+                </div>
+                <div class="col-md-1 offset-md-1">
+                </div>
+                <div class="col-md-4">
+                </div>
             </div>
         </div>
-        <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
+        <div id="filter-form-button">
+            <input class="btn btn-secondary" type="button" onclick="reiniciarFiltres()" value="Reiniciar Filtres" />
+            <input class="btn btn-light" type="submit" id="btnFiltrar" value="Filtrar" />
+        </div>
     </form>
 </div>
 
@@ -123,7 +131,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/curs_add_validator.js') }}"></script>
 @endsection
-
