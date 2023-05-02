@@ -33,19 +33,19 @@
                 <input class="form-control" type="text" id="name" name="name" />
                 @endif
             </div>
-            <div class="col-md-1 offset-md-1">
+            <div class="col-md-2 offset-md-1">
                 <label for="curs">Curs:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 @if (isset($request->curs) && $request->curs != "")
                 <select class="form-select" id="curs" name="curs" value="{{ $request->curs }}">
                     <option value="">Selecciona un curs...</option>
                     @foreach($cursos as $curs)
-                    @if ($request->curs == $curs->id)
-                    <option value="{{ $curs->id }}" selected>{{ $curs->name }}</option>
-                    @else
-                    <option value="{{ $curs->id }}">{{ $curs->name }}</option>
-                    @endif
+                        @if ($request->curs == $curs->id)
+                            <option value="{{ $curs->id }}" selected>{{ $curs->name }}</option>
+                        @else
+                            <option value="{{ $curs->id }}">{{ $curs->name }}</option>
+                        @endif
                     @endforeach
                 </select>
                 @else
@@ -83,10 +83,10 @@
                 </select>
                 @endif
             </div>
-            <div class="col-md-1 offset-md-1">
+            <div class="col-md-2 offset-md-1">
                 <label for="registeredBy">Registrat per:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 @if (isset($request->registeredBy) && $request->registeredBy != "")
                 <input class="form-control" type="text" id="registeredBy" name="registeredBy" value="{{ $request->registeredBy }}" />
                 @else
@@ -105,10 +105,10 @@
                 <input class="form-control" type="text" id="empresa" name="empresa" />
                 @endif
             </div>
-            <div class="col-md-1 offset-md-1">
+            <div class="col-md-2 offset-md-1">
                 <label for="tipus">Tipus:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 @if (isset($request->tipus) && $request->tipus != "")
                 <select class="form-select" id="tipus" name="tipus" value="{{ $request->tipus }}">
                     <option value="">Selecciona el tipus...</option>
@@ -142,7 +142,7 @@
                         <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" />
                         @endif
                     </div>
-                    <div class="col-md-2 text-center" style="padding-left:22px">-</div>
+                    <div class="col-md-2 text-center">-</div>
                     <div class="col-md-5">
                         @if (isset($request->maxValoracio) && $request->maxValoracio != "")
                         <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10" value="{{ $request->maxValoracio }}" />
@@ -157,7 +157,10 @@
             <div class="col-md-4">
             </div>
         </div>
-        <div id="filter-form-button"><input type="submit" class="btn btn-secondary" value="Filtrar"></div>
+        <div id="filter-form-button">
+            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />
+            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="Filtrar" />
+        </div>
     </form>
 </div>
 

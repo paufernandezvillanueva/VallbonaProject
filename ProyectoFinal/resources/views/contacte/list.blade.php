@@ -45,10 +45,9 @@
             </div>
         </div>
         <div id="filter-form-button">
-            <input class="btn btn-secondary" type="button" onclick="reiniciarFiltres()" value="Reiniciar Filtres" />
-            <input class="btn btn-light" type="submit" id="btnFiltrar" value="Filtrar" />
+            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />
+            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="Filtrar" />
         </div>
-        <div id="filter-form-button"><input type="submit" class="btn btn-secondary" value="Filtrar"></div>
     </form>
 </div>
 

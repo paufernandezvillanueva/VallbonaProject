@@ -46,7 +46,10 @@
                 </div>
             </div>
         </div>
-        <div id="filter-form-button"><input type="submit" class="btn btn-secondary" value="Filtrar"></div>
+        <div id="filter-form-button">
+            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />
+            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="Filtrar" />
+        </div>
     </form>
 </div>
 

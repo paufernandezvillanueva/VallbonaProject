@@ -134,7 +134,7 @@
                         <input class="form-control" type="number" id="minEstadas" placeholder="Mínim" name="minEstadas" min="0" />
                         @endif
                     </div>
-                    <div class="col-md-2 text-center" style="padding-left:22px">-</div>
+                    <div class="col-md-2 text-center">-</div>
                     <div class="col-md-5">
                         @if (isset($request->maxEstadas) && $request->maxEstadas != "")
                         <input class="form-control" type="number" id="maxEstadas" placeholder="Màxim" name="maxEstadas" min="0" value="{{ $request->maxEstadas }}" />
@@ -156,7 +156,7 @@
                         <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" />
                         @endif
                     </div>
-                    <div class="col-md-2 text-center" style="padding-left:22px">-</div>
+                    <div class="col-md-2 text-center">-</div>
                     <div class="col-md-5">
                         @if (isset($request->maxValoracio) && $request->maxValoracio != "")
                         <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10" value="{{ $request->maxValoracio }}" />
@@ -168,6 +168,7 @@
             </div>
         </div>
         <div id="filter-form-button">
+            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />
             <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="Filtrar" />
         </div>
     </form>
