@@ -23,26 +23,33 @@
     </div>
     <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('poblacio_list') }}">
         <div id="filter-form-container">
-            <div>
-            <label for="name">Nom: 
-                @if (isset($request->name) && $request->name != "")
-                   <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
-                @else
-                    <input type="text" id="name" name="name"></input>
-                @endif
-            </label><br>
-            </div>
-            <div>
-            <label for="name">Comarca: 
-                @if (isset($request->comarca) && $request->comarca != "")
-                   <input type="text" id="comarca" name="comarca" value="{{ $request->comarca }}"></input>
-                @else
-                    <input type="text" id="comarca" name="comarca"></input>
-                @endif
-            </label><br>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-1">
+                    <label for="name">Població:</label>
+                </div>
+                <div class="col-md-4">
+                    @if (isset($request->name) && $request->name != "")
+                    <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+                    @else
+                    <input class="form-control" type="text" id="name" name="name" />
+                    @endif
+                </div>
+                <div class="col-md-1 offset-md-1">
+                    <label for="comarca">Comarca:</label>
+                </div>
+                <div class="col-md-4">
+                    @if (isset($request->comarca) && $request->comarca != "")
+                    <input class="form-control" type="text" id="comarca" name="comarca" value="{{ $request->comarca }}" />
+                    @else
+                    <input class="form-control" type="text" id="comarca" name="comarca" />
+                    @endif
+                </div>
             </div>
         </div>
-        <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
+        <div id="filter-form-button">
+            <input class="btn btn-secondary" type="button" onclick="reiniciarFiltres()" value="Reiniciar Filtres" />
+            <input class="btn btn-light" type="submit" id="btnFiltrar" value="Filtrar" />
+        </div>
     </form>
 </div>
 
@@ -78,7 +85,6 @@
     </tbody>
 </table>
 
-
 <div class="modal fade" id="novaPoblacio" tabindex="-1" aria-labelledby="novaPoblacioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
@@ -94,7 +100,7 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" required/>
+                            <input class="form-control" type="text" name="name" required />
                         </div>
                         <div class="error" id="name-add-poblacio-error"></div>
                     </div>
@@ -152,6 +158,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/poblacio_add_validator.js') }}"></script>
 <br>
