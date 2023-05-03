@@ -75,6 +75,7 @@
     </div>
 </div>
 
+<div class="table-responsive">
 <table id="rol-table" class="table table-striped table-dark">
     <thead>
         <tr>
@@ -99,6 +100,7 @@
         @endforeach
     </tbody>
 </table>
+</div>
 
 <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

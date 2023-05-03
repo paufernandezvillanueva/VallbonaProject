@@ -41,11 +41,11 @@
                 <select class="form-select" id="curs" name="curs" value="{{ $request->curs }}">
                     <option value="">Selecciona un curs...</option>
                     @foreach($cursos as $curs)
-                        @if ($request->curs == $curs->id)
-                            <option value="{{ $curs->id }}" selected>{{ $curs->name }}</option>
-                        @else
-                            <option value="{{ $curs->id }}">{{ $curs->name }}</option>
-                        @endif
+                    @if ($request->curs == $curs->id)
+                    <option value="{{ $curs->id }}" selected>{{ $curs->name }}</option>
+                    @else
+                    <option value="{{ $curs->id }}">{{ $curs->name }}</option>
+                    @endif
                     @endforeach
                 </select>
                 @else
@@ -280,76 +280,78 @@
     </div>
 </div>
 
-<table id="estada-table" class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>Alumne</th>
-            <th>Curs</th>
-            <th>Cicle</th>
-            <th>Registrat per</th>
-            <th>Empresa</th>
-            <th>Tipus</th>
-            <th>Valoració</th>
-            <th>
-                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newEstada">
-                    <i class="bi bi-plus-square-fill"></i>
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($estadas as $estada)
-        <tr>
-            <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->student_name }}</a></td>
-            <td>
-                <form action="{{ route('estada_list') }}" method="GET">
-                    <input type="hidden" name="curs" value="{{ $estada->curs->id }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $estada->curs->name }}</a>
-                </form>
-            </td>
-            <td>
-                <form action="{{ route('estada_list') }}" method="GET">
-                    <input type="hidden" name="cicle" value="{{ $estada->cicle->id }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $estada->cicle->shortname }}</a>
-                </form>
-            </td>
-            <td>
-                <form action="{{ route('estada_list') }}" method="GET">
-                    <input type="hidden" name="registeredBy" value="{{ $estada->tutor() }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $estada->tutor() }}</a>
-                </form>
-            </td>
-            <td>
-                <form action="{{ route('estada_list') }}" method="GET">
-                    <input type="hidden" name="empresa" value="{{ $estada->empresa->name }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $estada->empresa->name }}</a>
-                </form>
-            </td>
-            <td>
-                <form action="{{ route('estada_list') }}" method="GET">
-                    <input type="hidden" name="tipus" value="{{ $estada->dual }}" />
-                    @if ($estada->dual == 1)
-                    <a href="#" onclick="this.parentNode.submit()">Dual</a>
-                    @else
-                    <a href="#" onclick="this.parentNode.submit()">FCT</a>
-                    @endif
-                </form>
-            </td>
-            <td>
-                <form action="{{ route('estada_list') }}" method="GET">
-                    <input type="hidden" name="minValoracio" value="{{ $estada->evaluation }}" />
-                    <input type="hidden" name="maxValoracio" value="{{ $estada->evaluation }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $estada->evaluation }}</a>
-                </form>
-            </td>
-            <td>
-                <a data-id="{{ $estada->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
-                <!-- <a href="{{ route('estada_edit', ['id' => $estada->id]) }}">Editar</a> -->
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table id="estada-table" class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Alumne</th>
+                <th>Curs</th>
+                <th>Cicle</th>
+                <th>Registrat per</th>
+                <th>Empresa</th>
+                <th>Tipus</th>
+                <th>Valoració</th>
+                <th>
+                    <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newEstada">
+                        <i class="bi bi-plus-square-fill"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($estadas as $estada)
+            <tr>
+                <td><a href="{{ route('estada_detail', $estada->id) }}">{{ $estada->student_name }}</a></td>
+                <td>
+                    <form action="{{ route('estada_list') }}" method="GET">
+                        <input type="hidden" name="curs" value="{{ $estada->curs->id }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $estada->curs->name }}</a>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ route('estada_list') }}" method="GET">
+                        <input type="hidden" name="cicle" value="{{ $estada->cicle->id }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $estada->cicle->shortname }}</a>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ route('estada_list') }}" method="GET">
+                        <input type="hidden" name="registeredBy" value="{{ $estada->tutor() }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $estada->tutor() }}</a>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ route('estada_list') }}" method="GET">
+                        <input type="hidden" name="empresa" value="{{ $estada->empresa->name }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $estada->empresa->name }}</a>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ route('estada_list') }}" method="GET">
+                        <input type="hidden" name="tipus" value="{{ $estada->dual }}" />
+                        @if ($estada->dual == 1)
+                        <a href="#" onclick="this.parentNode.submit()">Dual</a>
+                        @else
+                        <a href="#" onclick="this.parentNode.submit()">FCT</a>
+                        @endif
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ route('estada_list') }}" method="GET">
+                        <input type="hidden" name="minValoracio" value="{{ $estada->evaluation }}" />
+                        <input type="hidden" name="maxValoracio" value="{{ $estada->evaluation }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $estada->evaluation }}</a>
+                    </form>
+                </td>
+                <td>
+                    <a data-id="{{ $estada->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
+                    <!-- <a href="{{ route('estada_edit', ['id' => $estada->id]) }}">Editar</a> -->
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
