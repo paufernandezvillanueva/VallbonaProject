@@ -1,5 +1,17 @@
+@media screen and (max-width: 1040px) {
+    .table-responsive {
+        width: 95%;
+        margin: auto;
+    }
+}
+
 #empresa-table {
     margin-bottom: 10px;
+}
+
+#empresa-table thead th {
+    text-align: center;
+    padding: 0.5rem 0.5rem;
 }
 
 #empresa-table tbody th,
