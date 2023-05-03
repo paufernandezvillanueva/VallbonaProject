@@ -18,7 +18,7 @@
 #empresa-table tbody td {
     text-align: center;
     padding: 0;
-    max-width: 250px;
+    max-width: 200px;
 }
 
 #empresa-table tr td:nth-of-type(2) a,
