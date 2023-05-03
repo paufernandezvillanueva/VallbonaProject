@@ -181,7 +181,7 @@
             <th>Nom</th>
             <th>Sector</th>
             <th>Població</th>
-            <th>Nº Estades</th>
+            <th>Estades</th>
             <th>Valoració</th>
             <th>Contactes</th>
             <th>
