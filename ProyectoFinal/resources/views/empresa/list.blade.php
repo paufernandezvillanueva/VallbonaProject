@@ -174,71 +174,73 @@
     </form>
 </div>
 
-<table id="empresa-table" class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>CIF</th>
-            <th>Nom</th>
-            <th>Sector</th>
-            <th>Població</th>
-            <th>Estades</th>
-            <th>Valoració</th>
-            <th>Contactes</th>
-            <th>
-                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#addEmpresa">
-                    <i class="bi bi-plus-square-fill"></i>
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($empresas as $empresa)
-        <tr>
-            <td><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->cif }}</a></td>
-            <td><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->name }}</a></td>
-            <td>
-                <form action="{{ route('empresa_list') }}" method="GET">
-                    <input type="hidden" name="sector" value="{{ $empresa->sector }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $empresa->sector }}</a>
-                </form>
-            </td>
-            <td>
-                <form action="{{ route('empresa_list') }}" method="GET">
-                    <input type="hidden" name="poblacio" value="{{ $empresa->poblacio_id }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $empresa->poblacio->name }}</a>
-                </form>
-            </td>
-            <td>
-                <form action="{{ route('empresa_list') }}" method="GET">
-                    <input type="hidden" name="minEstadas" value="{{ $empresa->countEstades() }}" />
-                    <input type="hidden" name="maxEstadas" value="{{ $empresa->countEstades() }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $empresa->countEstades() }}</a>
-                </form>
-            </td>
-            <td>
-                @if ($empresa->avgValoracio() != "Ninguna")
-                <form action="{{ route('empresa_list') }}" method="GET">
-                    <input type="hidden" name="minValoracio" value="{{ $empresa->avgValoracio() }}" />
-                    <input type="hidden" name="maxValoracio" value="{{ $empresa->avgValoracio() }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $empresa->avgValoracio() }}</a>
-                </form>
-                @else
-                <form action="{{ route('empresa_list') }}" method="GET">
-                    <input type="hidden" name="maxValoracio" value="{{ $empresa->avgValoracio() }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $empresa->avgValoracio() }}</a>
-                </form>
-                @endif
-            </td>
-            <td><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->contactes() }}</a></td>
-            <td>
-                <a data-id="{{ $empresa->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
-                    <i class="bi bi-trash3-fill"></i>
-                </a>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table id="empresa-table" class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>CIF</th>
+                <th>Nom</th>
+                <th>Sector</th>
+                <th>Població</th>
+                <th>Estades</th>
+                <th>Valoració</th>
+                <th>Contactes</th>
+                <th>
+                    <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#addEmpresa">
+                        <i class="bi bi-plus-square-fill"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($empresas as $empresa)
+            <tr>
+                <td><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->cif }}</a></td>
+                <td><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->name }}</a></td>
+                <td>
+                    <form action="{{ route('empresa_list') }}" method="GET">
+                        <input type="hidden" name="sector" value="{{ $empresa->sector }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $empresa->sector }}</a>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ route('empresa_list') }}" method="GET">
+                        <input type="hidden" name="poblacio" value="{{ $empresa->poblacio_id }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $empresa->poblacio->name }}</a>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ route('empresa_list') }}" method="GET">
+                        <input type="hidden" name="minEstadas" value="{{ $empresa->countEstades() }}" />
+                        <input type="hidden" name="maxEstadas" value="{{ $empresa->countEstades() }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $empresa->countEstades() }}</a>
+                    </form>
+                </td>
+                <td>
+                    @if ($empresa->avgValoracio() != "Ninguna")
+                    <form action="{{ route('empresa_list') }}" method="GET">
+                        <input type="hidden" name="minValoracio" value="{{ $empresa->avgValoracio() }}" />
+                        <input type="hidden" name="maxValoracio" value="{{ $empresa->avgValoracio() }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $empresa->avgValoracio() }}</a>
+                    </form>
+                    @else
+                    <form action="{{ route('empresa_list') }}" method="GET">
+                        <input type="hidden" name="maxValoracio" value="{{ $empresa->avgValoracio() }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $empresa->avgValoracio() }}</a>
+                    </form>
+                    @endif
+                </td>
+                <td><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->contactes() }}</a></td>
+                <td>
+                    <a data-id="{{ $empresa->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 <div class="modal fade" id="addEmpresa" tabindex="-1" aria-labelledby="addEmpresaLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
