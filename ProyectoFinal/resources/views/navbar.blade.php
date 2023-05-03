@@ -61,9 +61,17 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow login-dropdown" aria-labelledby="dropdownUser1">
             <li><a class="dropdown-item" href="{{ route('user_profile') }}">Perfil</a></li>
+            <input type="hidden" id="userid" value="{{ Auth::id() }}">
             <li>
-                <hr class="dropdown-divider">
+                <div class="dropdown-item">
+                    @if (Auth::user()->darkmode == 0)
+                    <button id="darkmode" class="lightmode" value="0"><i class='bi bi-sun-fill'></i> Mode dia</button>
+                    @else
+                    <button id="darkmode" class="darkmode" value="1">Mode nit <i class="bi bi-moon-fill"></i></button>
+                    @endif
+                </div>
             </li>
+            <li><hr class="dropdown-divider"></li>
             <li>
                 <form method="POST" id="logout" action="{{ route('logout') }}">
                     @csrf

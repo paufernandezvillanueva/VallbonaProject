@@ -103,3 +103,33 @@ body {
   #userContainer a {
     margin: auto;
   }
+  .dropdown-menu li {
+    display: flow-root;
+  }
+
+  #darkmode {
+    margin: auto;
+    border: 0px;
+    padding: 5px 10px;
+    border-radius: 25px;
+  }
+
+  .darkmode {
+    background-color: #0d0827;
+    color: white;
+  }
+
+  .darkmode .bi {
+    color: rgb(255, 247, 179);
+    margin-left: 5px;
+  }
+
+  .lightmode {
+    background-color: #00b7ff;
+    color: black;
+  }
+
+  .lightmode .bi {
+    color: rgb(255, 238, 0);
+    margin-right: 5px;
+  }

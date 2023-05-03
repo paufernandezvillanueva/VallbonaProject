@@ -21,74 +21,71 @@
             <button id="filter-button"><i class="bi bi-filter"></i></button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('user_list') }}">@csrf
-        <div id="filter-form-container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-1">
-                    <label for="name">Nom:</label>
-                </div>
-                <div class="col-md-4">
-                    @if (isset($request->name) && $request->name != "")
-                    <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('user_list') }}">
+        @csrf
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="name">Nom:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->name) && $request->name != "")
+                <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+                @else
+                <input class="form-control" type="text" id="name" name="name" />
+                @endif
+            </div>
+            <div class="col-md-1 offset-md-1">
+                <label for="rol">Rol:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->rol) && $request->rol != "")
+                <select class="form-select" id="rol" name="rol" value="{{ $request->rol }}">
+                    <option value="">Selecciona un rol...</option>
+                    @foreach($rols as $rol)
+                    @if ($request->rol == $rol->id)
+                    <option value="{{ $rol->id }}" selected>{{ $rol->name }}</option>
                     @else
-                    <input class="form-control" type="text" id="name" name="name" />
+                    <option value="{{ $rol->id }}">{{ $rol->name }}</option>
                     @endif
-                </div>
-                <div class="col-md-1 offset-md-1">
-                    <label for="cicle">Cicle:</label>
-                </div>
-                <div class="col-md-4">
-                    @if (isset($request->cicle) && $request->cicle != "")
-                    <select class="form-select" id="cicle" name="cicle" value="{{ $request->cicle }}">
-                        <option value="">Selecciona un cicle...</option>
-                        @foreach($cicles as $cicle)
+                    @endforeach
+                </select>
+                @else
+                <select class="form-select" id="rol" name="rol">
+                    <option value="">Selecciona un rol...</option>
+                    @foreach($rols as $rol)
+                    <option value="{{ $rol->id }}">{{ $rol->name }}</option>
+                    @endforeach
+                </select>
+                @endif
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="cicle">Cicle:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->cicle) && $request->cicle != "")
+                <select class="form-select" id="cicle" name="cicle" value="{{ $request->cicle }}">
+                    <option value="">Selecciona un cicle...</option>
+                    @foreach($cicles as $cicle)
                         @if ($request->cicle == $cicle->id)
-                        <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                            <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                         @else
-                        <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                            <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                         @endif
-                        @endforeach
-                    </select>
-                    @else
-                    <select class="form-select" id="cicle" name="cicle">
-                        <option value="">Selecciona un cicle...</option>
-                        @foreach($cicles as $cicle)
-                        <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
-                        @endforeach
-                    </select>
-                    @endif
-                </div>
+                    @endforeach
+                </select>
+                @else
+                <select class="form-select" id="cicle" name="cicle">
+                    <option value="">Selecciona un cicle...</option>
+                    @foreach($cicles as $cicle)
+                    <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                    @endforeach
+                </select>
+                @endif
             </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-1">
-                    <label for="rol">Rol:</label>
-                </div>
-                <div class="col-md-4">
-                    @if (isset($request->rol) && $request->rol != "")
-                    <select class="form-select" id="rol" name="rol" value="{{ $request->rol }}">
-                        <option value="">Selecciona un rol...</option>
-                        @foreach($rols as $rol)
-                        @if ($request->rol == $rol->id)
-                        <option value="{{ $rol->id }}" selected>{{ $rol->name }}</option>
-                        @else
-                        <option value="{{ $rol->id }}">{{ $rol->name }}</option>
-                        @endif
-                        @endforeach
-                    </select>
-                    @else
-                    <select class="form-select" id="rol" name="rol">
-                        <option value="">Selecciona un rol...</option>
-                        @foreach($rols as $rol)
-                        <option value="{{ $rol->id }}">{{ $rol->name }}</option>
-                        @endforeach
-                    </select>
-                    @endif
-                </div>
-                <div class="col-md-1 offset-md-1">
-                </div>
-                <div class="col-md-4">
-                </div>
-            </div>
+            <div class="col-md-1 offset-md-1"></div>
+            <div class="col-md-4"></div>
         </div>
         <div id="filter-form-button">
             <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />

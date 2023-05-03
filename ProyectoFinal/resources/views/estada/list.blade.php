@@ -21,7 +21,7 @@
             </button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('estada_list') }}">
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="post" action="{{ route('estada_list') }}">
         <div class="row d-flex justify-content-center">
             <div class="col-md-1">
                 <label for="name">Nom:</label>

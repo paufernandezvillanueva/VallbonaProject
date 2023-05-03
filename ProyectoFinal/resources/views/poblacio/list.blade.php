@@ -21,29 +21,28 @@
             <button id="filter-button"><i class="bi bi-filter"></i></button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('poblacio_list') }}">@csrf
-        <div id="filter-form-container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-1">
-                    <label for="name">Població:</label>
-                </div>
-                <div class="col-md-4">
-                    @if (isset($request->name) && $request->name != "")
-                    <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
-                    @else
-                    <input class="form-control" type="text" id="name" name="name" />
-                    @endif
-                </div>
-                <div class="col-md-1 offset-md-1">
-                    <label for="comarca">Comarca:</label>
-                </div>
-                <div class="col-md-4">
-                    @if (isset($request->comarca) && $request->comarca != "")
-                    <input class="form-control" type="text" id="comarca" name="comarca" value="{{ $request->comarca }}" />
-                    @else
-                    <input class="form-control" type="text" id="comarca" name="comarca" />
-                    @endif
-                </div>
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('poblacio_list') }}">
+        @csrf
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="name">Població:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->name) && $request->name != "")
+                <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+                @else
+                <input class="form-control" type="text" id="name" name="name" />
+                @endif
+            </div>
+            <div class="col-md-1 offset-md-1">
+                <label for="comarca">Comarca:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->comarca) && $request->comarca != "")
+                <input class="form-control" type="text" id="comarca" name="comarca" value="{{ $request->comarca }}" />
+                @else
+                <input class="form-control" type="text" id="comarca" name="comarca" />
+                @endif
             </div>
         </div>
         <div id="filter-form-button">

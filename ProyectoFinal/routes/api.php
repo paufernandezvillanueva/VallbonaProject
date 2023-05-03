@@ -23,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/comarques', [ApiController::class, 'getComarques']);
 
 Route::get('/poblacio/{id}', [ApiController::class, 'getPoblacio']);
+
+Route::get('/darkmode/{id}/{darkmode}', [ApiController::class, 'setDarkMode']);
