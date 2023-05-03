@@ -37,13 +37,13 @@ function isAlphanumeric(elem, helperMsg) {
     return result;
 }
 
-function lengthRestriction(elem, min, max) {
+function lengthRestriction(elem) {
     var uInput = elem.value;
     var result = false;
-    if (uInput.length >= min && uInput.length <= max) {
+    if (uInput >= 0 && uInput <= 10) {
         result = true;
     }
-    tractarError(elem, result, "La valoracio ha de ser entre " + min + " i " + max);
+    tractarError(elem, result, "La valoració ha de ser entre " + 0 + " i " + 10);
     return result;
 }
 

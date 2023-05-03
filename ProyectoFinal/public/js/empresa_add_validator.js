@@ -1,9 +1,9 @@
 let empresa_add_control = {
-    "cif": [isCIF, "El CIF introduit no es valid"],
-    "name": [isAlphabet, "El nom no pot tenir numeros o simbols"],
-    "sector": [isAlphabet, "El sector no pot tenir numeros o simbols"],
+    "cif": [isCIF, "El CIF introduit no és valid"],
+    "name": [isAlphabet, "El nom no pot tenir números o símbols"],
+    "sector": [isAlphabet, "El sector no pot tenir números o símbols"],
     "comarca_id": [madeSelection, "Cal escollir una comarca"],
-    "poblacio_id": [madeSelection, "Cal escollir una poblacio"]
+    "poblacio_id": [madeSelection, "Cal escollir una població"]
 };
 
 
