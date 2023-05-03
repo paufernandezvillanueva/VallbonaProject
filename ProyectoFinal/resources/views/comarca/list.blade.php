@@ -47,30 +47,32 @@
     </form>
 </div>
 
-<table id="comarca-table" class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>
-                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#novaComarca">
-                    <i class="bi bi-plus-square-fill"></i>
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($comarcas as $comarca)
-        <tr>
-            <td><a href="{{ route('comarca_detail', $comarca->id) }}">{{ $comarca->name }}</a></td>
-            <td>
-                <a data-id="{{ $comarca->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
-                    <i class="bi bi-trash3-fill"></i>
-                </a>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table id="comarca-table" class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>
+                    <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#novaComarca">
+                        <i class="bi bi-plus-square-fill"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($comarcas as $comarca)
+            <tr>
+                <td><a href="{{ route('comarca_detail', $comarca->id) }}">{{ $comarca->name }}</a></td>
+                <td>
+                    <a data-id="{{ $comarca->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 <div class="modal fade" id="novaComarca" tabindex="-1" aria-labelledby="novaComarcaLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -130,6 +132,7 @@
         </div>
     </div>
 </div>
+
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>

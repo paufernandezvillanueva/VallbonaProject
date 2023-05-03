@@ -178,46 +178,48 @@
 </div>
 @endif
 
-<table id="usuari-table" class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>Nom i cognoms</th>
-            <th>Correu electrònic</th>
-            <th>Cicle</th>
-            <th>Rol</th>
-            <th>
-                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newUsuari">
-                    <i class="bi bi-plus-square-fill"></i>
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($users as $user)
-        <tr>
-            <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->nomCognoms() }}</a></td>
-            <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->email }}</a></td>
-            <td>
-                <form action="{{ route('user_list') }}" method="GET">
-                    <input type="hidden" name="cicle" value="{{ $user->cicle->id }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $user->cicle->shortname }}</a>
-                </form>
-            </td>
-            <td>
-                <form action="{{ route('user_list') }}" method="GET">
-                    <input type="hidden" name="rol" value="{{ $user->rol->id }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $user->rol->name }}</a>
-                </form>
-            </td>
-            <td>
-                <a data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
-                    <i class="bi bi-trash3-fill"></i>
-                </a>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table id="usuari-table" class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Nom i cognoms</th>
+                <th>Correu electrònic</th>
+                <th>Cicle</th>
+                <th>Rol</th>
+                <th>
+                    <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newUsuari">
+                        <i class="bi bi-plus-square-fill"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($users as $user)
+            <tr>
+                <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->nomCognoms() }}</a></td>
+                <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->email }}</a></td>
+                <td>
+                    <form action="{{ route('user_list') }}" method="GET">
+                        <input type="hidden" name="cicle" value="{{ $user->cicle->id }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $user->cicle->shortname }}</a>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ route('user_list') }}" method="GET">
+                        <input type="hidden" name="rol" value="{{ $user->rol->id }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $user->rol->name }}</a>
+                    </form>
+                </td>
+                <td>
+                    <a data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
