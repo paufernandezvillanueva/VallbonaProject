@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat d\'empresas')
+@section('title', $empresa->name)
 
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/empresaDetail.css') }}" />
@@ -20,8 +20,8 @@
         <div class="labels">
             <div class="infoEmpresa">
                 <div class="list-header">
-                    <div id="info">Info empresa</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informació</button></div>
+                    <div id="info">Informació</div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
@@ -29,7 +29,7 @@
                         <td>{{ $empresa->cif }}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Nom empresa</th>
+                        <th scope="row">Nom</th>
                         <td>{{ $empresa->name }}</td>
                     </tr>
                     <tr>
@@ -49,15 +49,14 @@
             <div class="contactes">
                 <div class="list-header">
                     <div id="contactes">Contactes</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newContact">Crear Contacte</button></div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newContact">Crear</button></div>
                 </div>
                 <table id="contactes-table" class="table table-striped table-dark">
                     <thead>
                         <tr>
                             <th scope="col"><span>Nom</span></th>
-                            <th scope="col"><span>Correu Electronic</span></th>
-                            <th scope="col"><span>Telefon</span></th>
-                            <th scope="col"></th>
+                            <th scope="col"><span>Correu Electrònic</span></th>
+                            <th scope="col"><span>Telèfon</span></th>
                         </tr>
                     </thead>
                     <tbody id="contactes-info">
@@ -76,7 +75,7 @@
     <div class="estades">
         <div class="list-header">
             <div id="estades">Estades</div>
-            <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newEstada">Crear Estada</button></div>
+            <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newEstada">Crear</button></div>
         </div>
         <table id="estades-table" class="table table-striped table-dark">
             <thead>
@@ -85,9 +84,8 @@
                     <th scope="col"><span>Curs</span></th>
                     <th scope="col"><span>Cicle</span></th>
                     <th scope="col"><span>Tutor</span></th>
-                    <th scope="col"><span>Tipus estada</span></th>
-                    <th scope="col"><span>Valoracio</span></th>
-                    <th scope="col"></th>
+                    <th scope="col"><span>Tipus</span></th>
+                    <th scope="col"><span>Valoració</span></th>
                 </tr>
             </thead>
             <tbody id="estades-info">
@@ -119,7 +117,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editInfoLabel">Editar empresa</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="editEmpresaForm" action="{{ route('empresa_edit', $empresa->id) }}">
                 <div class="modal-body">
@@ -129,7 +127,7 @@
                             <label class="col-form-label" for="cif">CIF</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" value="{{ $empresa->cif }}" required/>
+                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" value="{{ $empresa->cif }}" required />
                         </div>
                         <div id="cif-edit-empresa-error"></div>
                     </div>
@@ -138,7 +136,7 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" value="{{ $empresa->name }}" required/>
+                            <input class="form-control" type="text" name="name" value="{{ $empresa->name }}" required />
                         </div>
                         <div class="error" id="name-edit-empresa-error"></div>
                     </div>
@@ -147,7 +145,12 @@
                             <label class="col-form-label" for="sector">Sector</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="sector" value="{{ $empresa->sector }}" required/>
+                            <input class="form-control" type="text" name="sector" value="{{ $empresa->sector }}" list="sectors" required />
+                            <datalist id="sectors">
+                                @foreach($sectors as $sector)
+                                    <option value="{{ $sector->sector }}">
+                                @endforeach
+                            </datalist>
                         </div>
                         <div class="error" id="sector-edit-empresa-error"></div>
                     </div>
@@ -157,7 +160,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="comarca_id" id="comarca_id" value="{{ $poblacio->comarca_id }}">
-                            <option value="">Selecciona una comarca...</option>
                                 @foreach($comarques as $comarca)
                                 @if ( $comarca->id == $poblacio->comarca_id )
                                 <option value="{{ $comarca->id }}" selected>{{ $comarca->name }}</option>
@@ -175,15 +177,15 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" id="poblacio_id" name="poblacio_id" value="{{ $empresa->poblacio_id }}">
-                                <option>Selecciona una comarca...</option>
+                                <option value="default">Selecciona una comarca...</option>
                             </select>
                         </div>
                         <div class="error" id="poblacio_id-edit-empresa-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </div>
             </form>
         </div>
@@ -194,9 +196,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="newContactLabel">Crear un contacte</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addContacteForm" action="{{ route('contacte_new') }}">
+                <input type="hidden" name="redirect_to" value="empresa_detail">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -208,7 +211,7 @@
                         </div>
                         <div class="error" id="name-add-contacte-error"></div>
                     </div>
-                    <input type="hidden" name="empresa_id" value="{{ $empresa->id }}"/>
+                    <input type="hidden" name="empresa_id" value="{{ $empresa->id }}" />
                     <div id="empresa_id-add-contacte-error"></div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -221,7 +224,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="phonenumber">Telefon</label>
+                            <label class="col-form-label" for="phonenumber">Telèfon</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="phonenumber" />
@@ -230,8 +233,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </div>
             </form>
         </div>
@@ -243,9 +246,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="newEstadaLabel">Crear una estada</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addEstadaForm" action="{{ route('estada_new') }}">
+                <input type="hidden" name="redirect_to" value="empresa_detail">
                 <div class="modal-body">
                     @csrf
                     <div class="row">
@@ -253,7 +257,7 @@
                             <label class="col-form-label" for="student_name">Nom Estudiant</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="student_name" required/>
+                            <input class="form-control" type="text" name="student_name" required />
                         </div>
                         <div class="error" id="student_name-add-estada-error"></div>
                     </div>
@@ -263,7 +267,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="curs_id">
-                                <option>Selecciona un curs...</option>
+                                <option value="default">Selecciona un curs...</option>
                                 @foreach($cursos as $curs)
                                 <option value="{{ $curs->id }}">{{ $curs->name }}</option>
                                 @endforeach
@@ -277,7 +281,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="cicle_id">
-                                <option>Selecciona un cicle...</option>
+                                <option value="default">Selecciona un cicle...</option>
                                 @foreach($cicles as $cicle)
                                 <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                                 @endforeach
@@ -291,7 +295,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="registered_by">
-                                <option>Selecciona un tutor...</option>
+                                <option value="default">Selecciona un tutor...</option>
                                 @foreach($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
                                 @endforeach
@@ -306,7 +310,7 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="dual">
-                                <option>Selecciona un tipus d'estada...</option>
+                                <option value="default">Selecciona un tipus d'estada...</option>
                                 <option value="0">FCT</option>
                                 <option value="1">Dual</option>
                             </select>
@@ -315,10 +319,10 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="evaluation">Evaluation</label>
+                            <label class="col-form-label" for="evaluation">Valoració</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" required/>
+                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" required />
                         </div>
                         <div class="error" id="evaluation-add-estada-error"></div>
                     </div>
@@ -332,17 +336,14 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/empresa_detail_poblacions_json.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/empresa_edit_validator.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/contacte_add_validator.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/estada_add_validator.js') }}"></script>
 <br>
 @endsection

@@ -18,7 +18,7 @@ class ContacteController extends Controller
     function list(Request $request)
     {
         $contactes = Contacte::join("empresas", "empresas.id", '=', 'contactes.empresa_id');
-        $empresas = Empresa::all();
+        $empresas = Empresa::orderBy('name', 'asc')->get();
 
         if (isset($request->name)) {
             if ($request->name != "") {
@@ -32,7 +32,7 @@ class ContacteController extends Controller
             }
         }
 
-        $contactes = $contactes->distinct("contactes.*")->get("contactes.*");
+        $contactes = $contactes->distinct("contactes.*")->orderBy('contactes.name', 'asc')->get("contactes.*");
 
         return view('contacte.list', ['contactes' => $contactes, 'empresas' => $empresas, 'request' => $request ]);
     }
@@ -40,11 +40,11 @@ class ContacteController extends Controller
     function detail(Request $request, $id)
     {
         $contacte = Contacte::find($id);
-        $empresas = Empresa::all();
+        $empresas = Empresa::orderBy('name', 'asc')->get();
 
         return view('contacte.detail', ['contacte' => $contacte, 'empresas' => $empresas]);
     }
-
+    
     function new(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -54,11 +54,13 @@ class ContacteController extends Controller
             $contacte->email = $request->email;
             $contacte->phonenumber = $request->phonenumber;
             $contacte->save();
-
-            return redirect()->route('contacte_list');
+    
+            if ($request->input('redirect_to') == 'empresa_detail') {
+                return redirect()->route('empresa_detail', ['id' => $contacte->empresa_id]);
+            } else if ($request->input('redirect_to') == 'contacte_list') {
+                return redirect()->route('contacte_list');
+            }
         }
-        $empresas = Empresa::all();
-        return view('contacte.new', ['empresas' => $empresas]);
     }
 
     function edit(Request $request, $id)
@@ -73,9 +75,6 @@ class ContacteController extends Controller
 
             return redirect()->route('contacte_detail', ['id' => $id]);
         }
-        $contacte = Contacte::find($id);
-
-        return view('contacte.edit', ['contacte' => $contacte]);
     }
 
     function delete($id)

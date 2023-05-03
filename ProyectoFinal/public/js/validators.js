@@ -9,19 +9,16 @@ function notEmpty(elem, helperMsg) {
 
 function isNumeric(elem, helperMsg) {
     var numericExpression = /^[0-9]+$/;
-    var result = true;
+    var result = false;
     if (elem.value.match(numericExpression)) {
         result = true;
-    } else {
-        result = false;
-        elem.focus();
     }
     tractarError(elem, result, helperMsg);
     return result;
 }
 
 function isAlphabet(elem, helperMsg) {
-    var alphaExp = /^[a-zA-Z ]+$/;
+    var alphaExp = /^[A-Za-zà-üÀ-Ü ]+$/;
     var result = false;
     if (elem.value.match(alphaExp)) {
         result = true;
@@ -40,19 +37,19 @@ function isAlphanumeric(elem, helperMsg) {
     return result;
 }
 
-function lengthRestriction(elem, min, max) {
+function lengthRestriction(elem) {
     var uInput = elem.value;
     var result = false;
-    if (uInput.length >= min && uInput.length <= max) {
+    if (uInput >= 0 && uInput <= 10) {
         result = true;
     }
-    tractarError(elem, result, "La valoracio ha de ser entre " + min + " i " + max);
+    tractarError(elem, result, "La valoració ha de ser entre " + 0 + " i " + 10);
     return result;
 }
 
 function madeSelection(elem, helperMsg) {
     var result = true;
-    if (elem.selectedIndex == 0) {
+    if (elem.value == "default") {
         result = false;
     }
     tractarError(elem, result, helperMsg);

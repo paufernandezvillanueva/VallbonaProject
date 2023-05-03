@@ -1,5 +1,5 @@
 let estada_add_control = {
-    "student_name": [isAlphabet, "El nom no pot tenir numeros o simbols"],
+    "student_name": [isAlphabet, "El nom no pot tenir números o símbols"],
     "curs_id": [madeSelection, "Cal escollir un curs"],
     "cicle_id": [madeSelection, "Cal escollir un cicle"],
     "registered_by": [madeSelection, "Cal escollir un tutor"],
@@ -21,7 +21,7 @@ function formValidator(e) {
     var result = true;
     var first_error = null;
 
-    for (let x in control) {
+    for (let x in estada_add_control) {
         elem = document.forms['addEstadaForm'][x];
 
         if (!estada_add_control[x][0](elem, estada_add_control[x][1], estada_add_control[x][2])) {
@@ -33,7 +33,9 @@ function formValidator(e) {
     }
     
     if (!result) {
-        first_error.focus();
+        if (first_error != null) {
+            first_error.focus();
+        }
         e.preventDefault();
     }
 

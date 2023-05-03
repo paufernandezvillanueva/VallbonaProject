@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('cif')->unique();
             $table->string('name');
-            $table->string('sector');
+            $table->string('sector')->nullable();
             $table->unsignedBigInteger('poblacio_id');
 
             $table->foreign('poblacio_id')->references('id')->on('poblacios');

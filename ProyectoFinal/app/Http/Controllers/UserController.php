@@ -22,7 +22,7 @@ class UserController extends BaseController
   function list(Request $request)
   {
     if (Auth::user()->rol_id == 5076) {
-      $users = User::join("cicles", "cicles.id", "=", "users.cicle_id");
+      $users = User::leftjoin("cicles", "cicles.id", "=", "users.cicle_id");
 
       if (isset($request->name)) {
         if ($request->name != "") {
@@ -42,7 +42,7 @@ class UserController extends BaseController
         }
       }
 
-      $users = $users->distinct("users.*")->get("users.*");
+      $users = $users->distinct("users.*")->orderBy('users.firstname', 'asc')->orderBy('users.lastname', 'asc')->get("users.*");
 
       $cicles = Cicle::all();
       $rols = Rol::all();
@@ -94,14 +94,8 @@ class UserController extends BaseController
         $user->rol_id = $request->rol_id;
         $user->save();
 
-        return redirect()->route('user_list');
+        return redirect()->route('user_detail', ['id' => $id]);
       }
-      // si no venim de fer submit al formulari, hem de mostrar el formulari
-
-      $cicles = Cicle::all();
-      $rols = Rol::all();
-
-      return view('user.edit', ['cicles' => $cicles, 'rols' => $rols, 'user' => $user]);
     } else {
       return redirect('');
     }

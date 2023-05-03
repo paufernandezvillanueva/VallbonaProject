@@ -1,6 +1,6 @@
 let contacte_add_control = {
     "name": [isAlphabet, "El nom no pot tenir numeros o simbols"],
-    "empresa_id": [madeSelection, "Cal escollir una comarca"],
+    "empresa_id": [madeSelection, "Cal escollir una empresa"],
     "email": [emailValidator, "Aquest correu electrònic no es valid"],
     "phonenumber": [isPhonenumber, "Aquest telefon no es valid"]
 };
@@ -30,7 +30,9 @@ function formValidator(e) {
     }
     
     if (!result) {
-        first_error.focus();
+        if (first_error != null) {
+            first_error.focus();
+        }
         e.preventDefault();
     }
 

@@ -17,7 +17,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" style="width: 100%; text-align: center;" id="newCursLabel">Afegir curs</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addCursForm" action="{{ route('curs_new') }}">
                 <div class="modal-body">
@@ -27,14 +27,14 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" placeholder="Ex: 1995-1996" required/>
+                            <input class="form-control" type="text" name="name" placeholder="Ex: 1995-1996" required />
                         </div>
                         <div class="error" id="name-add-curs-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </div>
             </form>
         </div>
@@ -50,56 +50,64 @@
             <button id="filter-button"><i class="bi bi-filter"></i></button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('curs_list') }}">
-        <div id="filter-form-container">
-            <div>
-            <label for="name">Nom:
-                @if (isset($request->name) && $request->name != "")
-                    <input type="text" id="name" name="name" value="{{ $request->name }}"></input>
-                @else
-                    <input type="text" id="name" name="name"></input>
-                @endif
-            </label><br>
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('curs_list') }}">
+        @csrf
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="name">Nom:</label>
             </div>
-            <div>
+            <div class="col-md-4">
+                @if (isset($request->name) && $request->name != "")
+                <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+                @else
+                <input class="form-control" type="text" id="name" name="name" />
+                @endif
+            </div>
+            <div class="col-md-1 offset-md-1">
+            </div>
+            <div class="col-md-4">
             </div>
         </div>
-        <div id="filter-form-button"><input type="submit" value="Filtrar"></div>
+        <div id="filter-form-button">
+            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />
+            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="Filtrar" />
+        </div>
     </form>
 </div>
 
-<table id="curs-table" class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>
-                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newCurs">
-                    <i class="bi bi-plus-square-fill"></i>
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($cursos as $curs)
-        <tr>
-            <td><a href="{{ route('curs_detail', $curs->id) }}">{{ $curs->name }}</a></td>
-            <td>
-                <a data-id="{{ $curs->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
-                    <i class="bi bi-trash3-fill"></i>
-                </a>
-                <!-- <a href="{{ route('curs_edit', ['id' => $curs->id]) }}">Editar</a> -->
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table id="curs-table" class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>
+                    <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newCurs">
+                        <i class="bi bi-plus-square-fill"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($cursos as $curs)
+            <tr>
+                <td><a href="{{ route('curs_detail', $curs->id) }}">{{ $curs->name }}</a></td>
+                <td>
+                    <a data-id="{{ $curs->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="confirmDeleteLabel">Eliminar curs</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="GET">
                 <div class="modal-body">
@@ -124,7 +132,7 @@
     </div>
 </div>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/curs_add_validator.js') }}"></script>
 @endsection
-

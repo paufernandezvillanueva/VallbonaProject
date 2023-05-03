@@ -1,5 +1,5 @@
 let estada_edit_control = {
-    "student_name": [isAlphabet, "El nom no pot tenir numeros o simbols"],
+    "student_name": [isAlphabet, "El nom no pot tenir números o símbols"],
     "curs_id": [madeSelection, "Cal escollir un curs"],
     "cicle_id": [madeSelection, "Cal escollir un cicle"],
     "registered_by": [madeSelection, "Cal escollir un tutor"],
@@ -33,7 +33,9 @@ function formValidator(e) {
     }
     
     if (!result) {
-        first_error.focus();
+        if (first_error != null) {
+            first_error.focus();
+        }
         e.preventDefault();
     }
 

@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat d\'estades')
+@section('title', $estada->student_name)
 
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/estadaDetail.css') }}" />
@@ -20,7 +20,7 @@
             <div class="infoEstada">
                 <div class="list-header">
                     <div id="info">Info estada</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar Informacio</button></div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
@@ -72,7 +72,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editInfoLabel">Editar estada</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="editEstadaForm" action="{{ route('estada_edit', $estada->id) }}">
                 <div class="modal-body">
@@ -92,7 +92,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="curs_id">
-                                <option>Selecciona un curs...</option>
                                 @foreach($cursos as $curs)
                                     @if ($curs->id == $estada->curs_id)
                                         <option value="{{ $curs->id }}" selected>{{ $curs->name }}</option>
@@ -110,7 +109,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="cicle_id">
-                                <option>Selecciona un cicle...</option>
                                 @foreach($cicles as $cicle)
                                     @if ($cicle->id == $estada->cicle_id)
                                         <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }}</option>
@@ -128,7 +126,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="registered_by">
-                                <option>Selecciona un tutor...</option>
                                 @foreach($users as $user)
                                     @if ($user->id == $estada->registered_by)
                                         <option value="{{ $user->id }}" selected>{{ $user->nomCognoms() }}</option>
@@ -146,7 +143,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="dual">
-                                <option>Selecciona el tipus...</option>
                                 @if ($estada->dual == 1)
                                     <option value="0">FCT</option>
                                     <option value="1" selected>Dual</option>
@@ -164,7 +160,6 @@
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="empresa_id">
-                                <option>Selecciona una empresa...</option>
                                 @foreach($empresas as $empresa)
                                     @if ($empresa->id == $estada->empresa_id)
                                         <option value="{{ $empresa->id }}" selected>{{ $empresa->name }}</option>
@@ -195,8 +190,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Confirmar</button>
                 </div>
             </form>
         </div>

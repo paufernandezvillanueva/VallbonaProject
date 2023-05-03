@@ -7,6 +7,10 @@ body {
 
   }
 
+  .text-custom {
+    color: var(--text-color) !important;
+  }
+
   main {
     display: flex;
     flex-wrap: nowrap;
@@ -15,6 +19,11 @@ body {
     max-height: 100vh;
     overflow-x: auto;
     overflow-y: hidden;
+  }
+  
+  .nav-pills .nav-link,
+  .logo {
+    text-align: center;
   }
 
   .b-example-divider {
@@ -86,3 +95,84 @@ body {
 
   .fw-semibold { font-weight: 600; }
   .lh-tight { line-height: 1.25; }
+
+  #userContainer {
+    display: flex;
+  }
+  
+  #userContainer a {
+    margin: auto;
+  }
+  .dropdown-menu li {
+    display: flow-root;
+  }
+
+  #darkmode {
+    margin: auto;
+    border: 0px;
+    padding: 5px 10px;
+    border-radius: 25px;
+  }
+
+  .darkmode {
+    background-color: #0d0827;
+    color: white;
+  }
+
+  .darkmode .bi {
+    color: rgb(255, 247, 179);
+    margin-left: 5px;
+  }
+
+  .lightmode {
+    background-color: #00b7ff;
+    color: black;
+  }
+
+  .lightmode .bi {
+    color: rgb(255, 238, 0);
+    margin-right: 5px;
+  }
+
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+
+  #userContainer .bi {
+    display: inline-flex;
+    margin-left: 0.318em;
+    margin-top: 4.5px;
+    vertical-align: baseline;
+    font-size: 0.9em;
+  }
+
+  #userContainer .bi::before {
+    line-height: normal;
+  }
+
+  .bi {
+    vertical-align: -0.125em;
+    margin-bottom: calc(-0.125em / 2);
+  }
+
+  .nav-pills .nav-link {
+    margin-bottom: 5px;
+  }
+
+  .nav-pills .nav-link:hover {
+    box-shadow: inset 0 0 0 9999px var(--table-hover);
+  }
+
+  .actual-page {
+    box-shadow: inset 0 0 0 9999px var(--active-page-color);
+  }
+
+  .actual-page:hover {
+    box-shadow: inset 0 0 0 9999px var(--active-page-color-hover) !important;
+  }
+  
+  #profilename {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 147.02px;
+  }

@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make("admin"),
             'cicle_id' => 1,
             'rol_id' => 5076,
+            'darkmode' => false,
         ]);
     }
 }
