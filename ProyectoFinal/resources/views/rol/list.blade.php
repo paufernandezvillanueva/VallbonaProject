@@ -21,23 +21,22 @@
             <button id="filter-button"><i class="bi bi-filter"></i></button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('rol_list') }}">@csrf
-        <div id="filter-form-container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-1">
-                    <label for="name">Nom:</label>
-                </div>
-                <div class="col-md-4">
-                    @if (isset($request->name) && $request->name != "")
-                    <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
-                    @else
-                    <input class="form-control" type="text" id="name" name="name" />
-                    @endif
-                </div>
-                <div class="col-md-1 offset-md-1">
-                </div>
-                <div class="col-md-4">
-                </div>
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('rol_list') }}">
+        @csrf
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="name">Nom:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->name) && $request->name != "")
+                <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+                @else
+                <input class="form-control" type="text" id="name" name="name" />
+                @endif
+            </div>
+            <div class="col-md-1 offset-md-1">
+            </div>
+            <div class="col-md-4">
             </div>
         </div>
         <div id="filter-form-button">

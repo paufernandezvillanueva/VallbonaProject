@@ -192,10 +192,10 @@
     display: flex;
 }
 
-.form-control, .form-select {
+#filter-form .form-control, #filter-form .form-select {
     display: inline-block !important;
-    background-color: var(--background-color-1) !important;
-    border-color: var(--background-color-3) !important;
+    background-color: var(--background-color-2) !important;
+    border-color: var(--background-color-4) !important;
     background-image: none !important;
     color: var(--text-color) !important;
 }

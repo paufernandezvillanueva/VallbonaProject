@@ -22,7 +22,7 @@ class UserController extends BaseController
   function list(Request $request)
   {
     if (Auth::user()->rol_id == 5076) {
-      $users = User::join("cicles", "cicles.id", "=", "users.cicle_id");
+      $users = User::leftjoin("cicles", "cicles.id", "=", "users.cicle_id");
 
       if (isset($request->name)) {
         if ($request->name != "") {
