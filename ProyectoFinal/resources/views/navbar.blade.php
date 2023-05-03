@@ -58,6 +58,7 @@
     <div id="userContainer" class="dropdown">
         <a href="#" class="d-flex align-items-center text-custom text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <strong id="profilename">{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</strong>
+            <i class="bi bi-caret-down-fill"></i>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow login-dropdown" aria-labelledby="dropdownUser1">
             <li><a class="dropdown-item" href="{{ route('user_profile') }}">Perfil</a></li>
