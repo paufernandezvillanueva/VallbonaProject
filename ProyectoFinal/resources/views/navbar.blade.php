@@ -7,50 +7,104 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="{{ route('empresa_list') }}" class="nav-link text-custom" aria-current="page">
+            @if (route('empresa_list') == url()->full())
+                <a href="{{ route('empresa_list') }}" class="nav-link text-custom actual-page" aria-current="page">
                 Empreses
-            </a>
+                </a>
+            @else
+                <a href="{{ route('empresa_list') }}" class="nav-link text-custom" aria-current="page">
+                Empreses
+                </a>
+            @endif
         </li>
         <li>
+            @if (route('contacte_list') == url()->full())
+            <a href="{{ route('contacte_list') }}" class="nav-link text-custom actual-page">
+                Contactes
+            </a>
+            @else
             <a href="{{ route('contacte_list') }}" class="nav-link text-custom">
                 Contactes
             </a>
+            @endif
         </li>
         <li>
+            @if (route('estada_list') == url()->full())
+            <a href="{{ route('estada_list') }}" class="nav-link text-custom actual-page">
+                Estades
+            </a>
+            @else
             <a href="{{ route('estada_list') }}" class="nav-link text-custom">
                 Estades
             </a>
+            @endif
         </li>
         @if (Auth::user()->rol_id == 5076)
         <li>
+            @if (route('user_list') == url()->full())
+            <a href="{{ route('user_list') }}" class="nav-link text-custom actual-page">
+                Usuaris
+            </a>
+            @else
             <a href="{{ route('user_list') }}" class="nav-link text-custom">
                 Usuaris
             </a>
+            @endif
         </li>
         <li>
+            @if (route('rol_list') == url()->full())
+            <a href="{{ route('rol_list') }}" class="nav-link text-custom actual-page">
+                Rols
+            </a>
+            @else
             <a href="{{ route('rol_list') }}" class="nav-link text-custom">
                 Rols
             </a>
+            @endif
         </li>
         <li>
+            @if (route('curs_list') == url()->full())
+            <a href="{{ route('curs_list') }}" class="nav-link text-custom actual-page">
+                Cursos
+            </a>
+            @else
             <a href="{{ route('curs_list') }}" class="nav-link text-custom">
                 Cursos
             </a>
+            @endif
         </li>
         <li>
+            @if (route('cicle_list') == url()->full())
+            <a href="{{ route('cicle_list') }}" class="nav-link text-custom actual-page">
+                Cicles
+            </a>
+            @else
             <a href="{{ route('cicle_list') }}" class="nav-link text-custom">
                 Cicles
             </a>
+            @endif
         </li>
         <li>
+            @if (route('comarca_list') == url()->full())
+            <a href="{{ route('comarca_list') }}" class="nav-link text-custom actual-page">
+                Comarques
+            </a>
+            @else
             <a href="{{ route('comarca_list') }}" class="nav-link text-custom">
                 Comarques
             </a>
+            @endif
         </li>
         <li>
+            @if (route('poblacio_list') == url()->full())
+            <a href="{{ route('poblacio_list') }}" class="nav-link text-custom actual-page">
+                Poblacions
+            </a>
+            @else
             <a href="{{ route('poblacio_list') }}" class="nav-link text-custom">
                 Poblacions
             </a>
+            @endif
         </li>
         @endif
     </ul>

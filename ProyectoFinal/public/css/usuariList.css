@@ -84,7 +84,7 @@
 }
 
 #usuari-table tbody tr:hover td {
-    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 0 9999px var(--table-hover);
 }
 
 #usuari-table tbody .iconBasura {

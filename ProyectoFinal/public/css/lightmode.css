@@ -7,4 +7,7 @@
     --button-background-color: #303030;
     --button-background-color-hover: #505050;
     --button-text-color: white;
+    --active-page-color: rgba(255, 0, 0, 0.8);
+    --active-page-color-hover: rgba(133, 0, 0, 0.5);
+    --table-hover: rgba(0, 0, 0, 0.35);
 }
