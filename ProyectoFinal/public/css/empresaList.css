@@ -19,8 +19,11 @@
     text-align: center;
     padding: 0;
 }
+
 #empresa-table tbody th:nth-of-type(2),
-#empresa-table tbody td:nth-of-type(3) {
+#empresa-table tbody td:nth-of-type(3),
+#empresa-table tbody th:nth-of-type(1),
+#empresa-table tbody td:nth-of-type(2) {
     max-width: 180px;
 }
 
