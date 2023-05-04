@@ -1,9 +1,3 @@
-$(document).ready(inicialitzarEvents);
-
-function inicialitzarEvents() {
-  //$("#darkmode").click(demanaDarkmode);
-}
-
 function demanaDarkmode(path) {
   var darkmode = 0;
   if ($("#darkmode").val() == 0) {

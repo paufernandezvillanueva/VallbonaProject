@@ -42,6 +42,6 @@
 
 </body>
 <script type="application/javascript">
-    document.getElementById("darkmode").addEventListener("click", function(){ demanaDarkmode("{{  url('') }}"); });
+    document.getElementById("darkmode").parentElement.addEventListener("click", function(){ demanaDarkmode("{{  url('') }}"); });
 </script>
 </html>
