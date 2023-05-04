@@ -24,20 +24,20 @@
     </div>
     <form id="filter-form" class="filter-form filter-form-closed-base" method="post" action="{{ route('empresa_list') }}">
         <div class="row d-flex justify-content-center">
-            <div class="col-md-1">
+            <div class="col-lg-1 col-3">
                 <label for="cif">CIF:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->cif) && $request->cif != "")
                 <input class="form-control" type="text" id="cif" name="cif" value="{{ $request->cif }}"></input>
                 @else
                 <input class="form-control" type="text" id="cif" name="cif"></input>
                 @endif
             </div>
-            <div class="col-md-1 offset-md-1">
+            <div class="col-lg-1 offset-lg-1 col-3">
                 <label for="nom">Nom:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->name) && $request->name != "")
                 <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}"></input>
                 @else
@@ -46,10 +46,10 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-md-1">
+            <div class="col-lg-1 col-3">
                 <label for="cicle">Cicle:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->cicle) && $request->cicle != "")
                 <select class="form-select" id="cicle" name="cicle" value="{{ $request->cicle }}">
                     <option value="">Selecciona un cicle...</option>
@@ -70,10 +70,10 @@
                 </select>
                 @endif
             </div>
-            <div class="col-md-1 offset-md-1">
+            <div class="col-lg-1 offset-lg-1 col-3">
                 <label for="sector">Sector:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->sector) && $request->sector != "")
                 <input class="form-control" type="text" id="sector" name="sector" value="{{ $request->sector }}"></input>
                 @else
@@ -82,10 +82,10 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-md-1">
+            <div class="col-lg-1 col-3">
                 <label for="comarca">Comarca:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->comarca) && $request->comarca != "")
                 <select class="form-select" id="comarca" name="comarca" value="{{ $request->comarca }}">
                     <option value="">Selecciona una comarca...</option>
@@ -106,10 +106,10 @@
                 </select>
                 @endif
             </div>
-            <div class="col-md-1 offset-md-1">
+            <div class="col-lg-1 offset-lg-1 col-3">
                 <label for="poblacio">Població:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->poblacio) && $request->poblacio != "")
                 <select class="form-select" id="poblacio" name="poblacio" value="{{ $request->poblacio }}">
                     <option value="">Selecciona una comarca...</option>
@@ -122,20 +122,20 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-md-1">
+            <div class="col-lg-1 col-3">
                 <label for="estadas">Estades:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-lg-5 col-5">
                         @if (isset($request->minEstadas) && $request->minEstadas != "")
                         <input class="form-control" type="number" id="minEstadas" placeholder="Mínim" name="minEstadas" min="0" value="{{ $request->minEstadas }}" />
                         @else
                         <input class="form-control" type="number" id="minEstadas" placeholder="Mínim" name="minEstadas" min="0" />
                         @endif
                     </div>
-                    <div class="col-md-2 text-center">-</div>
-                    <div class="col-md-5">
+                    <div class="col-lg-2 col-2 text-center">-</div>
+                    <div class="col-lg-5 col-5">
                         @if (isset($request->maxEstadas) && $request->maxEstadas != "")
                         <input class="form-control" type="number" id="maxEstadas" placeholder="Màxim" name="maxEstadas" min="0" value="{{ $request->maxEstadas }}" />
                         @else
@@ -144,20 +144,20 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-1 offset-md-1">
+            <div class="col-lg-1 offset-lg-1 col-3">
                 <label for="valoracio">Valoració:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-lg-5 col-5">
                         @if (isset($request->minValoracio) && $request->minValoracio != "")
                         <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" value="{{ $request->minValoracio }}" />
                         @else
                         <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" />
                         @endif
                     </div>
-                    <div class="col-md-2 text-center">-</div>
-                    <div class="col-md-5">
+                    <div class="col-lg-2 col-2 text-center">-</div>
+                    <div class="col-lg-5 col-5">
                         @if (isset($request->maxValoracio) && $request->maxValoracio != "")
                         <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10" value="{{ $request->maxValoracio }}" />
                         @else
