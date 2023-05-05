@@ -24,10 +24,6 @@
                 <label for="sector">Sector</label>
                 <input type="text" name="sector"/>
             </div>
-            <!-- <div>
-                <label for="comarca_id">Comarca</label>
-                <input type="text" name="comarca_id"/>
-            </div> -->
             <div>
                 <label for="poblacio_id">Població</label>
                 <input type="text" name="poblacio_id"/>
