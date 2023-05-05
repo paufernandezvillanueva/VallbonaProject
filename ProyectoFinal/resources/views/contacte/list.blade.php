@@ -22,6 +22,7 @@
         </div>
     </div>
     <form id="filter-form" class="filter-form filter-form-closed-base" method="post" action="{{ route('contacte_list') }}">
+        @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-md-1">
                 <label for="name">Nom:</label>

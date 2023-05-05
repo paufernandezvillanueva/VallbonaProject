@@ -23,6 +23,7 @@
         </div>
     </div>
     <form id="filter-form" class="filter-form filter-form-closed-base" method="post" action="{{ route('empresa_list') }}">
+        @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-lg-1 col-3">
                 <label for="cif">CIF:</label>
@@ -251,7 +252,6 @@
             </div>
             <form id="addForm" name="addEmpresaForm" method="POST" action="{{ route('empresa_new') }}">
                 <div class="modal-body">
-                    @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="cif">CIF</label>
