@@ -1,5 +1,5 @@
-html {
-    min-width: 636px;
+.container {
+    min-width: 405px;
 }
 
 @media screen and (max-width: 1100px) {
