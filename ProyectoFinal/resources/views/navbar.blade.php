@@ -1,4 +1,6 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-custom bg-2" style="width: 200px; height: 100vh;">
+
+
+<div id="navbar" class="flex-column flex-shrink-0 p-3 text-custom bg-2" style="width: 200px; height: 100vh; display:flex">
     <a id="navbar-header" href="{{ route('empresa_list') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-custom text-decoration-none">
         <span class="fs-3 logo">
             <img src=" {{ asset ('/img/logo-vallbona.png' )}}" alt="Vallbona" height="85px">
@@ -8,13 +10,13 @@
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
             @if (route('empresa_list') == url()->full())
-                <a href="{{ route('empresa_list') }}" class="nav-link text-custom actual-page" aria-current="page">
+            <a href="{{ route('empresa_list') }}" class="nav-link text-custom actual-page" aria-current="page">
                 Empreses
-                </a>
+            </a>
             @else
-                <a href="{{ route('empresa_list') }}" class="nav-link text-custom" aria-current="page">
+            <a href="{{ route('empresa_list') }}" class="nav-link text-custom" aria-current="page">
                 Empreses
-                </a>
+            </a>
             @endif
         </li>
         <li>
@@ -126,7 +128,9 @@
                     @endif
                 </div>
             </li>
-            <li><hr class="dropdown-divider"></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
             <li>
                 <form method="POST" id="logout" action="{{ route('logout') }}">
                     @csrf
@@ -136,3 +140,5 @@
         </ul>
     </div>
 </div>
+
+<button id="toggleButton" class="btn" onclick="toggleDiv()"><i class="bi bi-arrow-bar-left"></i></button>

@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Projecte - @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @section('stylesheets')
-        @if (Auth::user()->darkmode == 0)
-            <link rel="stylesheet" id="skin" href="{{ asset('css/lightmode.css') }}" />
-        @else
-            <link rel="stylesheet" id="skin" href="{{ asset('css/darkmode.css') }}" />
-        @endif
-        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    @if (Auth::user()->darkmode == 0)
+    <link rel="stylesheet" id="skin" href="{{ asset('css/lightmode.css') }}" />
+    @else
+    <link rel="stylesheet" id="skin" href="{{ asset('css/darkmode.css') }}" />
+    @endif
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     @show
 
     <script src="{{ asset('../resources/js/scripts.js') }}"></script>
@@ -25,23 +26,38 @@
     <title>Document</title>
 
 </head>
+
 <body>
 
 
-<main>
+    <main>
 
-    @include('navbar')
-    <div class="bodyTable">
+        @include('navbar')
+        <div class="bodyTable">
+            <div class="container">
+                @yield('content')
 
-    <div class="container">
-        @yield('content')
-    </div>
-    </div>
+            </div>
+        </div>
 
-</main>
+    </main>
 
 </body>
 <script type="application/javascript">
-    document.getElementById("darkmode").parentElement.addEventListener("click", function(){ demanaDarkmode("{{  url('') }}"); });
+    document.getElementById("darkmode").parentElement.addEventListener("click", function() {
+        demanaDarkmode("{{  url('') }}");
+    });
+
+    function toggleDiv() {
+        var div = document.getElementById("navbar");
+        if (div.style.display === "flex") {
+            div.style.display = "none";
+            document.getElementById("toggleButton").innerHTML = '<i class="bi bi-arrow-bar-right"></i>';
+        } else {
+            div.style.display = "flex";
+            document.getElementById("toggleButton").innerHTML = '<i class="bi bi-arrow-bar-left"></i>';
+        }
+    }
 </script>
+
 </html>
