@@ -1,3 +1,7 @@
+.container {
+    min-width: 405px;
+}
+
 @media screen and (max-width: 991px) {
     .table-responsive {
         width: 95%;
@@ -118,4 +122,27 @@
 
 #filter-form div:nth-of-type(4) div:nth-of-type(2){
     display: block;
+}
+
+@media screen and (min-width: 992px) {
+    .filter-form div label {
+        float: none;
+        margin: -7px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .filter-form div label {
+        float: none;
+        margin-top: 20px;
+        margin-left: 15px;
+    }
+
+    #filter-form .row {
+        padding-right: 20px;
+    }
+    
+    #filter-form .row .row{
+        padding-right: 0px;
+    }
 }

@@ -9,7 +9,7 @@
     margin-bottom: 10px;
 }
 
-.modal-body>.row {
+.modal-body > .row {
     margin-top: 5px;
     margin-left: 10px;
 }
@@ -73,7 +73,7 @@
 }
 
 #usuari-table tbody td:nth-of-type(3) a:hover,
-#usuari-table tbody td:nth-of-type(4) a:hover  {
+#usuari-table tbody td:nth-of-type(4) a:hover {
     display: block;
     color: rgb(0, 132, 255);
     padding: 0.5rem 0.5rem;
@@ -106,6 +106,3 @@
 #import-button {
     width: 40px;
 }
-
-
-

@@ -128,9 +128,9 @@
                             <select class="form-select" name="registered_by">
                                 @foreach($users as $user)
                                     @if ($user->id == $estada->registered_by)
-                                        <option value="{{ $user->id }}" selected>{{ $user->nomCognoms() }}</option>
+                                        <option value="{{ $user->id }}" selected>{{ $user->name }}</option>
                                     @else
-                                        <option value="{{ $user->id }}">{{ $user->nomCognoms() }}</option>
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
                                     @endif
                                 @endforeach
                             </select>
