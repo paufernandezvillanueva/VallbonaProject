@@ -45,4 +45,9 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+
+    public function error(): View
+    {
+        return view('auth.error');
+    }
 }

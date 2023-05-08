@@ -109,18 +109,9 @@
                             <label class="col-form-label" for="firstname">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="firstname" />
+                            <input class="form-control" type="text" name="name" />
                         </div>
                         <div class="error" id="firstname-add-user-error"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="lastname">Cognoms</label>
-                        </div>
-                        <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="lastname" />
-                        </div>
-                        <div class="error" id="lastname-add-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
@@ -179,7 +170,7 @@
     <table id="usuari-table" class="table table-striped table-dark">
         <thead>
             <tr>
-                <th>Nom i cognoms</th>
+                <th>Nom</th>
                 <th>Correu electrònic</th>
                 <th>Cicle</th>
                 <th>Rol</th>
@@ -193,7 +184,7 @@
         <tbody>
             @foreach ($users as $user)
             <tr>
-                <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->nomCognoms() }}</a></td>
+                <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->name }}</a></td>
                 <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->email }}</a></td>
                 <td>
                     <form action="{{ route('user_list') }}" method="GET">

@@ -30,6 +30,10 @@ class EmpresaController extends BaseController
     join('comarcas', 'poblacios.comarca_id', '=', 'comarcas.id')->
     leftjoin('estadas', 'empresas.id', '=', 'estadas.empresa_id');
 
+    if ($request->isMethod('post')) {
+      return "Working";
+    }
+
     if (isset($request->cif)) {
       if ($request->cif != "") {
         $empresas = $empresas->where('empresas.cif', 'like', '%' . $request->cif . '%');

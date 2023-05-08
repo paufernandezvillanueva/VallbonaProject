@@ -26,7 +26,7 @@ class UserController extends BaseController
 
       if (isset($request->name)) {
         if ($request->name != "") {
-          $users = $users->where('users.firstname', 'like', "%" . $request->name . "%")->orWhere('users.lastname', 'like', "%" . $request->name . "%");
+          $users = $users->where('users.name', 'like', "%" . $request->name . "%");
         }
       }
 
@@ -42,7 +42,7 @@ class UserController extends BaseController
         }
       }
 
-      $users = $users->distinct("users.*")->orderBy('users.firstname', 'asc')->orderBy('users.lastname', 'asc')->get("users.*");
+      $users = $users->distinct("users.*")->orderBy('users.name', 'asc')->get("users.*");
 
       $cicles = Cicle::all();
       $rols = Rol::all();
@@ -64,8 +64,7 @@ class UserController extends BaseController
   function update(Request $request)
   {
     $user = auth()->user();
-    $user->firstname = $request->firstname;
-    $user->lastname = $request->lastname;
+    $user->name = $request->name;
     $user->email = $request->email;
     if (!empty($request->password)) {
       if ($request->password != $request->password_confirmation) {
@@ -86,8 +85,7 @@ class UserController extends BaseController
         // recollim els camps del formulari en un objecte user
 
         //$user = new User;
-        $user->firstname = $request->firstname;
-        $user->lastname = $request->lastname;
+        $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->cicle_id = $request->cicle_id;
@@ -117,8 +115,7 @@ class UserController extends BaseController
         // recollim els camps del formulari en un objecte user
 
         $user = new User;
-        $user->firstname = $request->firstname;
-        $user->lastname = $request->lastname;
+        $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->cicle_id = $request->cicle_id;
