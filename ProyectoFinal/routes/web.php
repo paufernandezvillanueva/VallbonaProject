@@ -12,8 +12,11 @@ use App\Http\Controllers\PoblacioController;
 use App\Http\Controllers\EstadaController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\CursController;
+use App\Http\Controllers\LoginWithGoogleController;
 
 
+Route::get('authorized/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
+Route::get('authorized/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
 
 /*
 |--------------------------------------------------------------------------
@@ -156,3 +159,17 @@ Route::get('/poblacio/delete/{id}', [PoblacioController::class, 'delete'])->name
 Route::match(['get', 'post'], '/poblacio/detail/{id}', [PoblacioController::class, 'detail'])->name('poblacio_detail')->middleware('auth');
 
 require __DIR__.'/auth.php';
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+Route::post('test', function(){
+    return 'Post is working';
+})->name('test');

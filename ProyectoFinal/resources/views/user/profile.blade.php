@@ -17,31 +17,14 @@
                         <div class="card-body">
                             <form method="POST" action="{{ route('user_update',['id' => $user->id]) }}">
                                 @csrf
-
                                 <div class="row">
                                     <div class="col-md-3 col-sm-3">
-                                        <label for="firstname" class="col-form-label">{{ __('Nom:') }}</label>
+                                        <label for="name" class="col-form-label">{{ __('Nom:') }}</label>
                                     </div>
                                     <div class="col-md-9 col-sm-9">
-                                        <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname', $user->firstname) }}" required autocomplete="firstname" autofocus>
+                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}" required autocomplete="name" autofocus>
 
                                         @error('firstname')
-                                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-3">
-                                        <label for="lastname" class="col-form-label">{{ __('Cognoms:') }}</label>
-                                    </div>
-
-                                    <div class="col-md-9 col-sm-9">
-                                        <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname', $user->lastname) }}" required autocomplete="lastname" autofocus>
-
-                                        @error('lastname')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -90,6 +73,18 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-form-label">
+                                        {{ __('Vinculado con gmail:') }}
+                                        @if (Auth::user()->google_id == null)
+                                            <i class="bi bi-x-lg text-danger ms-1"></i>
+                                        @else
+                                            <i class="bi bi-check-lg text-success ms-1"></i>
+                                        @endif
+                                    </div>
+                                </div>
+
                                 <div id="card-form-button">
                                     <button type="submit" class="btn btn-secondary">
                                         {{ __('Actualitzar') }}

@@ -31,4 +31,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google' => [
+        'client_id' => '1020679330502-fq2flcres9its3gqu1h70pmrmjovcn6f.apps.googleusercontent.com',
+        'client_secret' => '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',
+        'redirect' => 'http://localhost/archivos_personales/M12/VallbonaProject/ProyectoFinal/public/authorized/google/callback',
+    ],
+
+
 ];

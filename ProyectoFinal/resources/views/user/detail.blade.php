@@ -24,8 +24,8 @@
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
-                        <th scope="row">Nom i Cognoms</th>
-                        <td>{{ $user->nomCognoms() }}</td>
+                        <th scope="row">Nom</th>
+                        <td>{{ $user->name }}</td>
                     </tr>
                     <tr>
                         <th>Email</th>
@@ -60,18 +60,9 @@
                             <label class="col-form-label" for="firstname">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="firstname" value="{{ $user->firstname }}" />
+                            <input class="form-control" type="text" name="firstname" value="{{ $user->name }}" />
                         </div>
                         <div class="error" id="firstname-edit-user-error"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="lastname">Cognoms</label>
-                        </div>
-                        <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="lastname" value="{{ $user->lastname }}" />
-                        </div>
-                        <div class="error" id="lastname-edit-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
