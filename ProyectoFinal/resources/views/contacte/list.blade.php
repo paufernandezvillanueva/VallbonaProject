@@ -24,20 +24,20 @@
     <form id="filter-form" class="filter-form filter-form-closed-base" method="post" action="{{ route('contacte_list') }}">
         @csrf
         <div class="row d-flex justify-content-center">
-            <div class="col-md-1">
+            <div class="col-lg-1 col-3">
                 <label for="name">Nom:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->name) && $request->name != "")
                 <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}"></input>
                 @else
                 <input class="form-control" type="text" id="name" name="name"></input>
                 @endif
             </div>
-            <div class="col-md-1 offset-md-1">
+            <div class="col-lg-1 offset-lg-1 col-3">
                 <label for="empresa">Empresa:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->empresa) && $request->empresa != "")
                 <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}"></input>
                 @else

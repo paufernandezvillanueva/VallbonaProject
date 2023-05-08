@@ -13,6 +13,23 @@
     margin-bottom: 10px;
 }
 
+.modal-body > .row {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 575px) {
+    label {
+        float: left;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    label {
+        float: right;
+    }
+}
+
 #empresa-table thead th {
     text-align: center;
     padding: 0.5rem 0.5rem;
@@ -83,23 +100,6 @@
     padding: 7px 8px;
 }
 
-.modal-body > .row {
-    margin-top: 5px;
-    margin-left: 10px;
-}
-
-@media screen and (max-width: 575px) {
-    label {
-        float: left;
-    }
-}
-
-@media screen and (min-width: 576px) {
-    label {
-        float: right;
-    }
-}
-
 #empresa-table tbody .iconBasura {
     text-decoration: none;
 }
@@ -114,25 +114,6 @@
 #filter-button,
 #import-button {
     width: 40px;
-}
-
-.iconBasura {
-    text-decoration: none;
-}
-
-.iconBasura:hover {
-    cursor: pointer;
-    color: red;
-}
-
-.iconAdd {
-    color: var(--text-color);
-    text-decoration: none;
-}
-
-.iconAdd:hover {
-    color: rgb(0, 132, 255);
-    cursor: pointer;
 }
 
 #filter {
@@ -181,6 +162,11 @@
     float: left;
 }
 
+#filter-form div div div:nth-of-type(2) {
+    padding-top: 0px !important;
+    display: block;
+}
+
 @media screen and (min-width: 992px) {
     .filter-form div label {
         float: none;
@@ -198,13 +184,27 @@
     #filter-form .row {
         padding-right: 20px;
     }
-    
-    #filter-form .row .row{
+
+    #filter-form .row .row {
         padding-right: 0px;
     }
 }
 
-#filter-form div div div:nth-of-type(2) {
-    padding-top: 0px !important;
-    display: block;
+.iconAdd {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.iconAdd:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+}
+
+.iconBasura {
+    text-decoration: none;
+}
+
+.iconBasura:hover {
+    cursor: pointer;
+    color: red;
 }
