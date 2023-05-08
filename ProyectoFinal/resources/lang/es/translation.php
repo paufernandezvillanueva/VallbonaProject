@@ -11,7 +11,7 @@ return [
     'company' => 'Empresa',
     'contacts' => 'Contactos',
     'confirm' => 'Confirmar',
-    'confirm_delete' => '¿Estás seguro de querer eliminar esta empresa?',
+    'confirm_delete' => '¿Estás seguro de querer eliminar?',
     'course' => 'Curso',
     'delete' => 'Eliminar',
     'delete_empresa' => 'Eliminar empresa',
@@ -52,7 +52,13 @@ return [
     'valoration' => 'Valoración',
     'you_are' => 'Eres',
     'create_empresa' => 'Crear empresa',
-
+    'list_contact' => 'Lista de contactos',
+    'fullname'=>'Nombre y apellidos',
+    'create_contact'=>'Crear contacto',
+    'select_company' => 'Selecciona una empresa...',
+    'delete_contact' => 'Eliminar contacto',
+    'edit_company' => 'Editar empresa',
+    'back'=> 'Volver'
 
 
 

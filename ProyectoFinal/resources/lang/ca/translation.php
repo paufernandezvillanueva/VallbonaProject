@@ -11,7 +11,7 @@ return [
     'company' => 'Empresa',
     'contacts' => 'Contactes',
     'confirm' => 'Confirmar',
-    'confirm_delete' => 'Esteu segur que voleu eliminar aquesta empresa?',
+    'confirm_delete' => 'Esteu segur que voleu eliminar?',
     'course' => 'Curs',
     'delete' => 'Eliminar',
     'delete_empresa' => 'Eliminar empresa',
@@ -55,6 +55,13 @@ return [
     'comarca_error' => 'Heu de triar una comarca',
     'poblacio_error' => 'Heu de triar una població',
     'create_empresa' => 'Crear empresa',
+    'list_contact' => 'Llista de contactes',
+    'fullname'=>'Nom i cognoms',
+    'create_contact'=>'Crear contacte',
+    'select_company' => 'Selecciona una empresa...',
+    'delete_contact' => 'Eliminar contacte',
+    'edit_company' => 'Editar empresa',
+    'back'=> 'Torna'
 
 
 ];

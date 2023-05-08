@@ -11,7 +11,7 @@ return [
     'company' => 'Company',
     'contacts' => 'Contacts',
     'confirm' => 'Confirm',
-    'confirm_delete' => 'Are you sure you want to delete this company?',
+    'confirm_delete' => 'Are you sure you want to delete?',
     'course' => 'Course',
     'delete' => 'Delete',
     'delete_empresa' => 'Delete company',
@@ -52,4 +52,13 @@ return [
     'valoration' => 'Valoration',
     'you_are' => 'You are',
     'create_empresa' => 'Create a company',
+    'list_contact' => 'List of contacts',
+    'fullname'=>'Name and lastnames',
+    'create_contact'=>'Create a contact',
+    'select_company' => 'Select a company...',
+    'delete_contact' => 'Delete contact',
+    'edit_company' => 'Edit company',
+    'back'=> 'Back'
+
+
 ];

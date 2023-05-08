@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="titulo">
-    <h1>Llistat de contactes</h1>
+    <h1>{{ trans('translation.list_contact') }}</h1>
 </div>
 
 <div id="filter">
@@ -25,7 +25,7 @@
         @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-md-1">
-                <label for="name">Nom:</label>
+                <label for="name">{{ trans('translation.name') }}:</label>
             </div>
             <div class="col-md-4">
                 @if (isset($request->name) && $request->name != "")
@@ -35,7 +35,7 @@
                 @endif
             </div>
             <div class="col-md-1 offset-md-1">
-                <label for="empresa">Empresa:</label>
+                <label for="empresa">{{ trans('translation.company') }}:</label>
             </div>
             <div class="col-md-4">
                 @if (isset($request->empresa) && $request->empresa != "")
@@ -46,8 +46,8 @@
             </div>
         </div>
         <div id="filter-form-button">
-            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />
-            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="Filtrar" />
+            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="{{ trans('translation.reset') }}" />
+            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="{{ trans('translation.filter') }}" />
         </div>
     </form>
 </div>
@@ -56,10 +56,10 @@
     <table id="contacte-table" class="table table-striped table-dark">
         <thead>
             <tr>
-                <th>Nom i cognoms</th>
-                <th>Empresa</th>
-                <th>Correu electrònic</th>
-                <th>Telèfon</th>
+                <th>{{ trans('translation.fullname') }}</th>
+                <th>{{ trans('translation.company') }}</th>
+                <th>{{ trans('translation.email') }}</th>
+                <th>{{ trans('translation.phone') }}</th>
                 <th>
                     <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newContacte">
                         <i class="bi bi-plus-square-fill"></i>
@@ -94,7 +94,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newContacteLabel">Afegir contacte</h5>
+                <h5 class="modal-title" id="newContacteLabel">{{ trans('translation.create_contact') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addContacteForm" action="{{ route('contacte_new') }}">
@@ -103,7 +103,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="name">Nom i cognoms</label>
+                            <label class="col-form-label" for="name">{{ trans('translation.fullname') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="name" required />
@@ -112,11 +112,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="empresa_id">Empresa</label>
+                            <label class="col-form-label" for="empresa_id">{{ trans('translation.company') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="empresa_id">
-                                <option value="default">Selecciona una empresa...</option>
+                                <option value="default">{{ trans('translation.select_company') }}</option>
                                 @foreach ($empresas as $empresa)
                                 <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
                                 @endforeach
@@ -126,7 +126,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="email">Correu electrònic</label>
+                            <label class="col-form-label" for="email">{{ trans('translation.email') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="email" required />
@@ -135,7 +135,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="phonenumber">Telèfon</label>
+                            <label class="col-form-label" for="phonenumber">{{ trans('translation.phone') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="phonenumber" required />
@@ -144,8 +144,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>
@@ -162,7 +162,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar contacte</h5>
+                <h5 class="modal-title" id="confirmDeleteLabel">{{ trans('translation.delete_contact') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="GET">
@@ -177,11 +177,11 @@
                         });
                     </script>
                     @csrf
-                    <p>Estàs segur de voler eliminar aquest contacte?</p>
+                    <p>{{ trans('translation.confirm_delete') }}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-success" id="btnConfirmar">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>
