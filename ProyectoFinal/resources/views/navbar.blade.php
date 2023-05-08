@@ -1,6 +1,6 @@
 
 
-<div id="navbar" class="flex-column flex-shrink-0 p-3 text-custom bg-2" style="width: 200px; height: 100vh; display:flex">
+<div id="navbar" class="flex-column flex-shrink-0 text-custom bg-2 navbar-origin-open" style="width: 200px; height: 100vh; display:flex">
     <a id="navbar-header" href="{{ route('empresa_list') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-custom text-decoration-none">
         <span class="fs-3 logo">
             <img src=" {{ asset ('/img/logo-vallbona.png' )}}" alt="Vallbona" height="85px">
