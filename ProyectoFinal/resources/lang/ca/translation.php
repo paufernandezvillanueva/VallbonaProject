@@ -61,7 +61,20 @@ return [
     'select_company' => 'Selecciona una empresa...',
     'delete_contact' => 'Eliminar contacte',
     'edit_company' => 'Editar empresa',
-    'back'=> 'Torna'
+    'back'=> 'Torna',
+    'list_estades' =>'Llista de estades',
+    'select_course' => 'Selecciona un curs...',
+    'select_type' => 'Selecciona el tipus...',
+    'create_stay' => 'Crear estada',
+    'name_student' => "Nom del estudiant",
+    'select_tutor' => 'Selecciona un tutor...',
+    'delete_stay' => 'Eliminar estada',
+    'stay_type' => "Tipus d'estada",
+    'edit_stay' => 'Editar estada',
+    'tutor' => 'Tutor',
+
+
+
 
 
 ];

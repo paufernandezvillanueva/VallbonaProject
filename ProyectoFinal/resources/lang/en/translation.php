@@ -17,7 +17,7 @@ return [
     'delete_empresa' => 'Delete company',
     'edit' => 'Edit',
     'email' => 'Email',
-    'estades' => 'Stays',
+    'estades' => 'states',
     'farewell' => 'Goodbye',
     'filter' => 'Filter',
     'info' => 'Information',
@@ -58,7 +58,22 @@ return [
     'select_company' => 'Select a company...',
     'delete_contact' => 'Delete contact',
     'edit_company' => 'Edit company',
-    'back'=> 'Back'
+    'back'=> 'Back',
+    'list_estades' =>'List of states',
+    'select_course' => 'Select a course...',
+    'select_type' => 'Select the type...',
+    'create_stay' => 'Create a stay',
+    'name_student' => "Student's name",
+    'select_tutor' => 'Select a tutor...',
+    'delete_stay' => 'Delete stay',
+    'stay_type' => 'Type of stay',
+    'edit_stay' => 'Edite stay',
+    'tutor' => 'Tutor',
+
+
+
+
+
 
 
 ];

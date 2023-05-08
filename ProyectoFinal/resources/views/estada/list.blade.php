@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="titulo">
-    <h1>Llistat d'estades</h1>
+    <h1>{{ trans('translation.list_estades') }}</h1>
 </div>
 
 <div id="filter">
@@ -25,7 +25,7 @@
         @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-md-1">
-                <label for="name">Nom:</label>
+                <label for="name">{{ trans('translation.name') }}:</label>
             </div>
             <div class="col-md-4">
                 @if (isset($request->name) && $request->name != "")
@@ -35,12 +35,12 @@
                 @endif
             </div>
             <div class="col-md-2 offset-md-1">
-                <label for="curs">Curs:</label>
+                <label for="curs">{{ trans('translation.course') }}:</label>
             </div>
             <div class="col-md-3">
                 @if (isset($request->curs) && $request->curs != "")
                 <select class="form-select" id="curs" name="curs" value="{{ $request->curs }}">
-                    <option value="">Selecciona un curs...</option>
+                    <option value="">{{ trans('translation.select_course') }}</option>
                     @foreach($cursos as $curs)
                     @if ($request->curs == $curs->id)
                     <option value="{{ $curs->id }}" selected>{{ $curs->name }}</option>
@@ -51,7 +51,7 @@
                 </select>
                 @else
                 <select class="form-select" id="curs" name="curs">
-                    <option value="">Selecciona un curs...</option>
+                    <option value="">{{ trans('translation.select_course') }}</option>
                     @foreach($cursos as $curs)
                     <option value="{{ $curs->id }}">{{ $curs->name }}</option>
                     @endforeach
@@ -61,12 +61,12 @@
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-md-1">
-                <label for="cicle">Cicle:</label>
+                <label for="cicle">{{ trans('translation.cicle') }}:</label>
             </div>
             <div class="col-md-4">
                 @if (isset($request->cicle) && $request->cicle != "")
                 <select class="form-select" id="cicle" name="cicle" value="{{ $request->cicle }}">
-                    <option value="">Selecciona un cicle...</option>
+                    <option value="">{{ trans('translation.select_cicle') }}</option>
                     @foreach($cicles as $cicle)
                     @if ($request->cicle == $cicle->id)
                     <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
@@ -77,7 +77,7 @@
                 </select>
                 @else
                 <select class="form-select" id="cicle" name="cicle">
-                    <option value="">Selecciona un cicle...</option>
+                    <option value="">{{ trans('translation.select_cicle') }}</option>
                     @foreach($cicles as $cicle)
                     <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                     @endforeach
@@ -85,7 +85,7 @@
                 @endif
             </div>
             <div class="col-md-2 offset-md-1">
-                <label for="registeredBy">Registrat per:</label>
+                <label for="registeredBy">{{ trans('translation.registered_by') }}:</label>
             </div>
             <div class="col-md-3">
                 @if (isset($request->registeredBy) && $request->registeredBy != "")
@@ -97,7 +97,7 @@
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-md-1">
-                <label for="empresa">Empresa:</label>
+                <label for="empresa">{{ trans('translation.company') }}:</label>
             </div>
             <div class="col-md-4">
                 @if (isset($request->empresa) && $request->empresa != "")
@@ -107,12 +107,12 @@
                 @endif
             </div>
             <div class="col-md-2 offset-md-1">
-                <label for="tipus">Tipus:</label>
+                <label for="tipus">{{ trans('translation.type') }}:</label>
             </div>
             <div class="col-md-3">
                 @if (isset($request->tipus) && $request->tipus != "")
                 <select class="form-select" id="tipus" name="tipus" value="{{ $request->tipus }}">
-                    <option value="">Selecciona el tipus...</option>
+                    <option value="">{{ trans('translation.select_type') }}</option>
                     @if ($request->tipus == 0)
                     <option value="0" selected>FCT</option>
                     <option value="1">Dual</option>
@@ -123,7 +123,7 @@
                 </select>
                 @else
                 <select class="form-select" id="tipus" name="tipus">
-                    <option value="">Selecciona el tipus...</option>
+                    <option value="">{{ trans('translation.select_type') }}</option>
                     <option value="0">FCT</option>
                     <option value="1">Dual</option>
                 </select>
@@ -132,23 +132,23 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-1">
-                <label for="valoracio">Valoració:</label>
+                <label for="valoracio">{{ trans('translation.valoration') }}:</label>
             </div>
             <div class="col-md-4">
                 <div class="row">
                     <div class="col-md-5">
                         @if (isset($request->minValoracio) && $request->minValoracio != "")
-                        <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" value="{{ $request->minValoracio }}" />
+                        <input class="form-control" type="number" id="minValoracio" placeholder="{{ trans('translation.min') }}" name="minValoracio" min="0" max="10" value="{{ $request->minValoracio }}" />
                         @else
-                        <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" />
+                        <input class="form-control" type="number" id="minValoracio" placeholder="{{ trans('translation.min') }}" name="minValoracio" min="0" max="10" />
                         @endif
                     </div>
                     <div class="col-md-2 text-center">-</div>
                     <div class="col-md-5">
                         @if (isset($request->maxValoracio) && $request->maxValoracio != "")
-                        <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10" value="{{ $request->maxValoracio }}" />
+                        <input class="form-control" type="number" id="maxValoracio" placeholder="{{ trans('translation.max') }}" name="maxValoracio" min="0" max="10" value="{{ $request->maxValoracio }}" />
                         @else
-                        <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10" />
+                        <input class="form-control" type="number" id="maxValoracio" placeholder="{{ trans('translation.max') }}" name="maxValoracio" min="0" max="10" />
                         @endif
                     </div>
                 </div>
@@ -159,8 +159,8 @@
             </div>
         </div>
         <div id="filter-form-button">
-            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />
-            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="Filtrar" />
+            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="{{ trans('translation.reset') }}" />
+            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="{{ trans('translation.filter') }}" />
         </div>
     </form>
 </div>
@@ -169,7 +169,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newEstadaLabel">Crear una estada</h5>
+                <h5 class="modal-title" id="newEstadaLabel">{{ trans('translation.create_stay') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addEstadaForm" action="{{ route('estada_new') }}">
@@ -178,7 +178,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="student_name">Nom Alumne</label>
+                            <label class="col-form-label" for="student_name">{{ trans('translation.name_student') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="student_name" required />
@@ -187,11 +187,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="curs_id">Curs</label>
+                            <label class="col-form-label" for="curs_id">{{ trans('translation.course') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="curs_id">
-                                <option value="default">Selecciona un curs...</option>
+                                <option value="default">{{ trans('translation.select_course') }}</option>
                                 @foreach($cursos as $curs)
                                 <option value="{{ $curs->id }}">{{ $curs->name }}</option>
                                 @endforeach
@@ -201,11 +201,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="cicle_id">Cicle</label>
+                            <label class="col-form-label" for="cicle_id">{{ trans('translation.cicle') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="cicle_id">
-                                <option value="default">Selecciona un cicle...</option>
+                                <option value="default">{{ trans('translation.select_cicle') }}</option>
                                 @foreach($cicles as $cicle)
                                 <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                                 @endforeach
@@ -215,11 +215,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="registered_by">Registrat per</label>
+                            <label class="col-form-label" for="registered_by">{{ trans('translation.registered_by') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="registered_by">
-                                <option value="default">Selecciona un tutor...</option>
+                                <option value="default">{{ trans('translation.select_tutor') }}</option>
                                 @foreach($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                                 @endforeach
@@ -229,11 +229,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="empresa_id">Empresa</label>
+                            <label class="col-form-label" for="empresa_id">{{ trans('translation.company') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="empresa_id">
-                                <option value="default">Selecciona una empresa...</option>
+                                <option value="default">{{ trans('translation.select_company') }}</option>
                                 @foreach ($empresas as $empresa)
                                 <option value="{{ $empresa->id }}">{{ $empresa->name }}</option>
                                 @endforeach
@@ -243,11 +243,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="dual">Tipus</label>
+                            <label class="col-form-label" for="dual">{{ trans('translation.type') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="dual">
-                                <option value="default">Selecciona el tipus...</option>
+                                <option value="default">{{ trans('translation.select_type') }}</option>
                                 <option value="0">FCT</option>
                                 <option value="1">Dual</option>
                             </select>
@@ -256,7 +256,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="evaluation">Valoració</label>
+                            <label class="col-form-label" for="evaluation">{{ trans('translation.valoration') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" required />
@@ -265,7 +265,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="comment">Comentaris</label>
+                            <label class="col-form-label" for="comment">{{ trans('translation.comment') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="comment" />
@@ -273,8 +273,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>
@@ -285,13 +285,13 @@
     <table id="estada-table" class="table table-striped table-dark">
         <thead>
             <tr>
-                <th>Alumne</th>
-                <th>Curs</th>
-                <th>Cicle</th>
-                <th>Registrat per</th>
-                <th>Empresa</th>
-                <th>Tipus</th>
-                <th>Valoració</th>
+                <th>{{ trans('translation.student') }}</th>
+                <th>{{ trans('translation.course') }}</th>
+                <th>{{ trans('translation.cicle') }}</th>
+                <th>{{ trans('translation.registered_by') }}</th>
+                <th>{{ trans('translation.company') }}</th>
+                <th>{{ trans('translation.type') }}</th>
+                <th>{{ trans('translation.valoration') }}</th>
                 <th>
                     <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newEstada">
                         <i class="bi bi-plus-square-fill"></i>
@@ -346,7 +346,6 @@
                 </td>
                 <td>
                     <a data-id="{{ $estada->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
-                    <!-- <a href="{{ route('estada_edit', ['id' => $estada->id]) }}">Editar</a> -->
                 </td>
             </tr>
             @endforeach
@@ -358,7 +357,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar estada</h5>
+                <h5 class="modal-title" id="confirmDeleteLabel">{{ trans('translation.delete_stay') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="GET">
@@ -373,11 +372,11 @@
                         });
                     </script>
                     @csrf
-                    <p>Estàs segur de voler eliminar aquesta estada?</p>
+                    <p>{{ trans('translation.confirm_delete') }}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-success" id="btnConfirmar">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>
