@@ -51,12 +51,20 @@
     // Abrir/Cerrar Menú
     function toggleDiv() {
         var div = document.getElementById("navbar");
-        if (div.style.display === "flex") {
-            div.style.display = "none";
+        if (div.classList.contains("navbar-origin-open")) {
+            div.classList.replace("navbar-origin-open", "navbar-close");
             document.getElementById("toggleButton").innerHTML = '<i class="bi bi-arrow-bar-right"></i>';
             localStorage.setItem("menuState", "hidden");
-        } else {
-            div.style.display = "flex";
+        } else if (div.classList.contains("navbar-origin-close")) {
+            div.classList.replace("navbar-origin-close", "navbar-open");
+            document.getElementById("toggleButton").innerHTML = '<i class="bi bi-arrow-bar-left"></i>';
+            localStorage.setItem("menuState", "visible");
+        } else if (div.classList.contains("navbar-open")) {
+            div.classList.replace("navbar-open", "navbar-close");
+            document.getElementById("toggleButton").innerHTML = '<i class="bi bi-arrow-bar-right"></i>';
+            localStorage.setItem("menuState", "hidden");
+        } else if (div.classList.contains("navbar-close")) {
+            div.classList.replace("navbar-close", "navbar-open");
             document.getElementById("toggleButton").innerHTML = '<i class="bi bi-arrow-bar-left"></i>';
             localStorage.setItem("menuState", "visible");
         }
@@ -66,7 +74,7 @@
     var menuState = localStorage.getItem("menuState");
     if (menuState === "hidden") {
         var div = document.getElementById("navbar");
-        div.style.display = "none";
+        div.classList.replace("navbar-origin-open", "navbar-origin-close");
         document.getElementById("toggleButton").innerHTML = '<i class="bi bi-arrow-bar-right"></i>';
     }
 </script>
