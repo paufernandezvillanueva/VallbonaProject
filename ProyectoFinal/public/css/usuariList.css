@@ -1,3 +1,7 @@
+.container {
+    min-width: 405px;
+}
+
 @media screen and (max-width: 585px) {
     .table-responsive {
         width: 95%;
@@ -36,18 +40,9 @@
     cursor: pointer;
 }
 
-.iconBasura {
-    text-decoration: none;
-}
-
-.iconBasura:hover {
-    cursor: pointer;
-    color: red;
-}
-
 .col-form-label {
     white-space: nowrap;
-}
+} 
 
 #usuari-table thead th {
     text-align: center;
@@ -105,4 +100,27 @@
 #filter-button,
 #import-button {
     width: 40px;
+}
+
+@media screen and (min-width: 992px) {
+    .filter-form div label {
+        float: none;
+        margin: -7px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .filter-form div label {
+        float: none;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+
+    #filter-form .row {
+        padding-right: 20px;
+    }
+    
+    #filter-form .row .row{
+        padding-right: 0px;
+    }
 }

@@ -24,20 +24,20 @@
     <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('user_list') }}">
         @csrf
         <div class="row d-flex justify-content-center">
-            <div class="col-md-1">
+            <div class="col-lg-1 col-3">
                 <label for="name">Nom:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->name) && $request->name != "")
                 <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
                 @else
                 <input class="form-control" type="text" id="name" name="name" />
                 @endif
             </div>
-            <div class="col-md-1 offset-md-1">
+            <div class="col-lg-1 offset-lg-1 col-3">
                 <label for="rol">Rol:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->rol) && $request->rol != "")
                 <select class="form-select" id="rol" name="rol" value="{{ $request->rol }}">
                     <option value="">Selecciona un rol...</option>
@@ -60,19 +60,19 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-md-1">
+            <div class="col-lg-1 col-3">
                 <label for="cicle">Cicle:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->cicle) && $request->cicle != "")
                 <select class="form-select" id="cicle" name="cicle" value="{{ $request->cicle }}">
                     <option value="">Selecciona un cicle...</option>
                     @foreach($cicles as $cicle)
-                        @if ($request->cicle == $cicle->id)
-                            <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
-                        @else
-                            <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
-                        @endif
+                    @if ($request->cicle == $cicle->id)
+                    <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                    @else
+                    <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                    @endif
                     @endforeach
                 </select>
                 @else
@@ -84,8 +84,8 @@
                 </select>
                 @endif
             </div>
-            <div class="col-md-1 offset-md-1"></div>
-            <div class="col-md-4"></div>
+            <div class="col-lg-1 offset-lg-1 col-3"></div>
+            <div class="col-lg-4 col-9"></div>
         </div>
         <div id="filter-form-button">
             <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />
@@ -111,7 +111,7 @@
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="name" />
                         </div>
-                        <div class="error" id="firstname-add-user-error"></div>
+                        <div class="error" id="name-add-user-error"></div>
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">

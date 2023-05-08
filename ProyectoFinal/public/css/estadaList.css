@@ -40,15 +40,6 @@
     cursor: pointer;
 }
 
-.iconBasura {
-    text-decoration: none;
-}
-
-.iconBasura:hover {
-    cursor: pointer;
-    color: red;
-}
-
 .col-form-label {
     white-space: nowrap;
 }

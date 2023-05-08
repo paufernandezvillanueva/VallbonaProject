@@ -1,7 +1,6 @@
 let user_edit_control = {
-    "firstname": [isAlphabet, "El nom no pot tenir numeros o simbols"],
-    "lastname": [isAlphabet, "El cognom no pot tenir numeros o simbols"],
-    "email": [emailValidator, "Aquest correu electrònic no es valid"],
+    "name": [isAlphabet, "El nom no pot tenir nómeros o símbols"],
+    "email": [emailValidator, "Aquest correu electrònic no és valid"],
     "cicle_id": [madeSelection, "Cal escollir un cicle"],
     "rol_id": [madeSelection, "Cal escollir un rol"],
 };
