@@ -127,8 +127,12 @@
 @media screen and (min-width: 992px) {
     .filter-form div label {
         float: none;
-        margin: -7px;
+        margin: -8px;
     }
+    label#registeredBy {
+        margin-left: -40px;
+    }
+    
 }
 
 @media screen and (max-width: 991px) {

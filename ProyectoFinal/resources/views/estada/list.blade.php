@@ -24,20 +24,20 @@
     <form id="filter-form" class="filter-form filter-form-closed-base" method="post" action="{{ route('estada_list') }}">
         @csrf
         <div class="row d-flex justify-content-center">
-            <div class="col-md-1">
+            <div class="col-lg-1 col-3">
                 <label for="name">Nom:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->name) && $request->name != "")
                 <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
                 @else
                 <input class="form-control" type="text" id="name" name="name" />
                 @endif
             </div>
-            <div class="col-md-2 offset-md-1">
+            <div class="col-lg-1 offset-lg-1 col-3">
                 <label for="curs">Curs:</label>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->curs) && $request->curs != "")
                 <select class="form-select" id="curs" name="curs" value="{{ $request->curs }}">
                     <option value="">Selecciona un curs...</option>
@@ -60,10 +60,10 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-md-1">
+            <div class="col-lg-1 col-3">
                 <label for="cicle">Cicle:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->cicle) && $request->cicle != "")
                 <select class="form-select" id="cicle" name="cicle" value="{{ $request->cicle }}">
                     <option value="">Selecciona un cicle...</option>
@@ -84,10 +84,10 @@
                 </select>
                 @endif
             </div>
-            <div class="col-md-2 offset-md-1">
-                <label for="registeredBy">Registrat per:</label>
+            <div class="col-lg-1 offset-lg-1 col-3">
+                <label for="registeredBy" id="registeredBy">Registrat per:</label>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->registeredBy) && $request->registeredBy != "")
                 <input class="form-control" type="text" id="registeredBy" name="registeredBy" value="{{ $request->registeredBy }}" />
                 @else
@@ -96,20 +96,20 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-md-1">
+            <div class="col-lg-1 col-3">
                 <label for="empresa">Empresa:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->empresa) && $request->empresa != "")
                 <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}" />
                 @else
                 <input class="form-control" type="text" id="empresa" name="empresa" />
                 @endif
             </div>
-            <div class="col-md-2 offset-md-1">
+            <div class="col-lg-1 offset-lg-1 col-3">
                 <label for="tipus">Tipus:</label>
             </div>
-            <div class="col-md-3">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->tipus) && $request->tipus != "")
                 <select class="form-select" id="tipus" name="tipus" value="{{ $request->tipus }}">
                     <option value="">Selecciona el tipus...</option>
@@ -131,31 +131,31 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-1">
+            <div class="col-lg-1 col-3">
                 <label for="valoracio">Valoració:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 <div class="row">
-                    <div class="col-md-5">
+                    <div class="col-lg-5 col-5">
                         @if (isset($request->minValoracio) && $request->minValoracio != "")
-                        <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" value="{{ $request->minValoracio }}" />
+                        <input class="form-control" type="number" id="minValoracio" placeholder="{{ trans('translation.min') }}" name="minValoracio" min="0" max="10" value="{{ $request->minValoracio }}" />
                         @else
-                        <input class="form-control" type="number" id="minValoracio" placeholder="Mínim" name="minValoracio" min="0" max="10" />
+                        <input class="form-control" type="number" id="minValoracio" placeholder="{{ trans('translation.min') }}" name="minValoracio" min="0" max="10" />
                         @endif
                     </div>
-                    <div class="col-md-2 text-center">-</div>
-                    <div class="col-md-5">
+                    <div class="col-lg-2 col-2 text-center">-</div>
+                    <div class="col-lg-5 col-5">
                         @if (isset($request->maxValoracio) && $request->maxValoracio != "")
-                        <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10" value="{{ $request->maxValoracio }}" />
+                        <input class="form-control" type="number" id="maxValoracio" placeholder="{{ trans('translation.max') }}" name="maxValoracio" min="0" max="10" value="{{ $request->maxValoracio }}" />
                         @else
-                        <input class="form-control" type="number" id="maxValoracio" placeholder="Màxim" name="maxValoracio" min="0" max="10" />
+                        <input class="form-control" type="number" id="maxValoracio" placeholder="{{ trans('translation.max') }}" name="maxValoracio" min="0" max="10" />
                         @endif
                     </div>
                 </div>
             </div>
-            <div class="col-md-1 offset-md-1">
+            <div class="col-lg-1 offset-lg-1 col-3">
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
             </div>
         </div>
         <div id="filter-form-button">
