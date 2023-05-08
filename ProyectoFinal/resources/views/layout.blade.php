@@ -48,15 +48,26 @@
         demanaDarkmode("{{  url('') }}");
     });
 
+    // Abrir/Cerrar Menú
     function toggleDiv() {
         var div = document.getElementById("navbar");
         if (div.style.display === "flex") {
             div.style.display = "none";
             document.getElementById("toggleButton").innerHTML = '<i class="bi bi-arrow-bar-right"></i>';
+            localStorage.setItem("menuState", "hidden");
         } else {
             div.style.display = "flex";
             document.getElementById("toggleButton").innerHTML = '<i class="bi bi-arrow-bar-left"></i>';
+            localStorage.setItem("menuState", "visible");
         }
+    }
+
+    // Restaurar el estado del menú al cargar la página
+    var menuState = localStorage.getItem("menuState");
+    if (menuState === "hidden") {
+        var div = document.getElementById("navbar");
+        div.style.display = "none";
+        document.getElementById("toggleButton").innerHTML = '<i class="bi bi-arrow-bar-right"></i>';
     }
 </script>
 
