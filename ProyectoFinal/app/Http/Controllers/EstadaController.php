@@ -41,7 +41,7 @@ class EstadaController extends Controller
     }
     if (isset($request->registeredBy)) {
       if ($request->registeredBy != "") {
-        $estadas = $estadas->where('users.firstname', 'like', "%" . $request->registeredBy . "%")->orWhere('users.lastname', 'like', "%" . $request->registeredBy . "%");
+        $estadas = $estadas->where('users.name', 'like', "%" . $request->registeredBy . "%")->orWhere('users.lastname', 'like', "%" . $request->registeredBy . "%");
       }
     }
 
@@ -73,7 +73,7 @@ class EstadaController extends Controller
     $empresas = Empresa::orderBy('name', 'asc')->get();
     $users = User::all();
     $cursos = Curs::all();
-    $tutors = User::orderBy('firstname', 'asc')->orderBy('lastname', 'asc')->get();
+    $tutors = User::orderBy('name', 'asc')->get();
 
     return view('estada.list', ['estadas' => $estadas, 'cicles' => $cicles, 'empresas' => $empresas, 'users' => $users, 'cursos' => $cursos,
     'request' => $request, 'tutors' => $tutors]);

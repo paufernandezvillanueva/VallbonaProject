@@ -221,7 +221,7 @@
                             <select class="form-select" type="text" name="registered_by">
                                 <option value="default">Selecciona un tutor...</option>
                                 @foreach($users as $user)
-                                <option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
+                                <option value="{{ $user->id }}">{{ $user->name }}</option>
                                 @endforeach
                             </select>
                         </div>
