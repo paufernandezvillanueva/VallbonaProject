@@ -82,9 +82,6 @@ class UserController extends BaseController
     if (Auth::user()->rol_id == 5076) {
       $user = User::find($id);
       if ($request->isMethod('post')) {
-        // recollim els camps del formulari en un objecte user
-
-        //$user = new User;
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
@@ -112,8 +109,6 @@ class UserController extends BaseController
   {
     if (Auth::user()->rol_id == 5076) {
       if ($request->isMethod('post')) {
-        // recollim els camps del formulari en un objecte user
-
         $user = new User;
         $user->name = $request->name;
         $user->email = $request->email;

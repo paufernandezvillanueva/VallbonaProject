@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', $user->nomCognoms())
+@section('title', $user->name)
 
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/usuariDetail.css') }}" />
@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="titulo">
-    <h1>{{ $user->nomCognoms() }}</h1>
+    <h1>{{ $user->name }}</h1>
 </div>
 <div class="containerUsuari">
     <div>
@@ -57,10 +57,10 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="firstname">Nom</label>
+                            <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="firstname" value="{{ $user->name }}" />
+                            <input class="form-control" type="text" name="name" value="{{ $user->name }}" />
                         </div>
                         <div class="error" id="firstname-edit-user-error"></div>
                     </div>

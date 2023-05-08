@@ -23,7 +23,7 @@ class Estada extends Model
     public function tutor()
     {
         $user = $this->join('users', 'users.id', '=', 'estadas.registered_by')->where('users.id', '=', $this->registered_by)->first("users.*");
-        return $user->firstname . " " . $user->lastname;
+        return $user->name;
     }
 
     public function curs()
