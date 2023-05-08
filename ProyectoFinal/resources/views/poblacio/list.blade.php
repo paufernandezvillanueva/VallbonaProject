@@ -21,29 +21,28 @@
             <button id="filter-button"><i class="bi bi-filter"></i></button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('poblacio_list') }}">@csrf
-        <div id="filter-form-container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-1">
-                    <label for="name">Població:</label>
-                </div>
-                <div class="col-md-4">
-                    @if (isset($request->name) && $request->name != "")
-                    <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
-                    @else
-                    <input class="form-control" type="text" id="name" name="name" />
-                    @endif
-                </div>
-                <div class="col-md-1 offset-md-1">
-                    <label for="comarca">Comarca:</label>
-                </div>
-                <div class="col-md-4">
-                    @if (isset($request->comarca) && $request->comarca != "")
-                    <input class="form-control" type="text" id="comarca" name="comarca" value="{{ $request->comarca }}" />
-                    @else
-                    <input class="form-control" type="text" id="comarca" name="comarca" />
-                    @endif
-                </div>
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('poblacio_list') }}">
+        @csrf
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="name">Població:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->name) && $request->name != "")
+                <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+                @else
+                <input class="form-control" type="text" id="name" name="name" />
+                @endif
+            </div>
+            <div class="col-md-1 offset-md-1">
+                <label for="comarca">Comarca:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->comarca) && $request->comarca != "")
+                <input class="form-control" type="text" id="comarca" name="comarca" value="{{ $request->comarca }}" />
+                @else
+                <input class="form-control" type="text" id="comarca" name="comarca" />
+                @endif
             </div>
         </div>
         <div id="filter-form-button">
@@ -53,37 +52,39 @@
     </form>
 </div>
 
-<table id="poblacio-table" class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Comarca</th>
-            <th>
-                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#novaPoblacio">
-                    <i class="bi bi-plus-square-fill"></i>
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($poblacions as $poblacio)
-        <tr>
-            <td><a href="{{ route('poblacio_detail', $poblacio->id) }}">{{ $poblacio->name }}</a></td>
-            <td>
-                <form action="{{ route('poblacio_list') }}" method="GET">
-                    <input type="hidden" name="comarca" value="{{ $poblacio->comarca->name }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $poblacio->comarca->name }}</a>
-                </form>
-            </td>
-            <td>
-                <a data-id="{{ $poblacio->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
-                    <i class="bi bi-trash3-fill"></i>
-                </a>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table id="poblacio-table" class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Comarca</th>
+                <th>
+                    <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#novaPoblacio">
+                        <i class="bi bi-plus-square-fill"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($poblacions as $poblacio)
+            <tr>
+                <td><a href="{{ route('poblacio_detail', $poblacio->id) }}">{{ $poblacio->name }}</a></td>
+                <td>
+                    <form action="{{ route('poblacio_list') }}" method="GET">
+                        <input type="hidden" name="comarca" value="{{ $poblacio->comarca->name }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $poblacio->comarca->name }}</a>
+                    </form>
+                </td>
+                <td>
+                    <a data-id="{{ $poblacio->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 <div class="modal fade" id="novaPoblacio" tabindex="-1" aria-labelledby="novaPoblacioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">

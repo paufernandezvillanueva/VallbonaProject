@@ -1,14 +1,12 @@
-table {
-    text-align: center;
+@media screen and (max-width: 407px) {
+    .table-responsive {
+        width: 95%;
+        margin: auto;
+    }
 }
 
-td a, th a {
-    text-decoration: none;
-    color: white;
-}
-
-td a:hover {
-    color: rgb(0, 132, 255);
+#comarca-table {
+    margin-bottom: 10px;
 }
 
 .modal-body>.row {
@@ -82,7 +80,7 @@ label, p {
 }
 
 #comarca-table tbody tr:hover td {
-    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 0 9999px var(--table-hover);
 } 
 
 #comarca-table tbody .iconBasura {
@@ -104,4 +102,3 @@ label, p {
 #import-button {
     width: 40px;
 }
-

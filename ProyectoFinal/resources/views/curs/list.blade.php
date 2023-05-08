@@ -50,23 +50,22 @@
             <button id="filter-button"><i class="bi bi-filter"></i></button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('curs_list') }}">@csrf
-        <div id="filter-form-container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-1">
-                    <label for="name">Nom:</label>
-                </div>
-                <div class="col-md-4">
-                    @if (isset($request->name) && $request->name != "")
-                    <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
-                    @else
-                    <input class="form-control" type="text" id="name" name="name" />
-                    @endif
-                </div>
-                <div class="col-md-1 offset-md-1">
-                </div>
-                <div class="col-md-4">
-                </div>
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('curs_list') }}">
+        @csrf
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="name">Nom:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->name) && $request->name != "")
+                <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+                @else
+                <input class="form-control" type="text" id="name" name="name" />
+                @endif
+            </div>
+            <div class="col-md-1 offset-md-1">
+            </div>
+            <div class="col-md-4">
             </div>
         </div>
         <div id="filter-form-button">
@@ -76,30 +75,32 @@
     </form>
 </div>
 
-<table id="curs-table" class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>
-                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newCurs">
-                    <i class="bi bi-plus-square-fill"></i>
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($cursos as $curs)
-        <tr>
-            <td><a href="{{ route('curs_detail', $curs->id) }}">{{ $curs->name }}</a></td>
-            <td>
-                <a data-id="{{ $curs->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
-                    <i class="bi bi-trash3-fill"></i>
-                </a>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table id="curs-table" class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>
+                    <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newCurs">
+                        <i class="bi bi-plus-square-fill"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($cursos as $curs)
+            <tr>
+                <td><a href="{{ route('curs_detail', $curs->id) }}">{{ $curs->name }}</a></td>
+                <td>
+                    <a data-id="{{ $curs->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

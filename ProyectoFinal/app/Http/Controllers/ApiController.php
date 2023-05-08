@@ -6,11 +6,13 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
 use App\Models\Comarca;
 use App\Models\Poblacio;
+use App\Models\User;
 
 class ApiController extends BaseController
 {
@@ -34,6 +36,14 @@ class ApiController extends BaseController
         }
 
         return "{".implode(",", $elementos_json)."}";
+    }
+    
+    function setDarkMode(Request $request, $id, $darkmode) {
+        $user = User::find($id);
+        $user->darkmode = $darkmode;
+        $user->save();
+
+        return "Mode cambiat a " . $darkmode . " correctamente";
     }
 
 }

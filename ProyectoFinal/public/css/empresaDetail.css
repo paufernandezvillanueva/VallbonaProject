@@ -83,7 +83,7 @@
 }
 #contactes-table tbody tr:hover th,
 #contactes-table tbody tr:hover td {
-    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 0 9999px var(--table-hover);
 }
 #contactes-table span,
 #contactes-table a {
@@ -158,7 +158,7 @@
 }
 #estades-table tbody tr:hover th,
 #estades-table tbody tr:hover td {
-    box-shadow: inset 0 0 0 9999px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 0 9999px var(--table-hover);
 }
 #estades-table span,
 #estades-table a {
@@ -213,7 +213,7 @@
     height: 25px;
     padding: 0 10px;
     background-color: var(--button-background-color);
-    color: var(--button--text-color);
+    color: var(--button-text-color);
 }
 .filtrar:hover {
     border-radius: 20px;

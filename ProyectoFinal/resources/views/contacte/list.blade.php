@@ -21,7 +21,8 @@
             </button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" action="{{ route('contacte_list') }}">
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="post" action="{{ route('contacte_list') }}">
+        @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-md-1">
                 <label for="name">Nom:</label>
@@ -51,41 +52,43 @@
     </form>
 </div>
 
-<table id="contacte-table" class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>Nom i cognoms</th>
-            <th>Empresa</th>
-            <th>Correu electrònic</th>
-            <th>Telèfon</th>
-            <th>
-                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newContacte">
-                    <i class="bi bi-plus-square-fill"></i>
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($contactes as $contacte)
-        <tr>
-            <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->name }}</a></td>
-            <td>
-                <form action="{{ route('contacte_list') }}" method="GET">
-                    <input type="hidden" name="empresa" value="{{ $contacte->empresa->name }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $contacte->empresa->name }}</a>
-                </form>
-            </td>
-            <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->email }}</a></td>
-            <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->phonenumber }}</a></td>
-            <td>
-                <a data-id="{{ $contacte->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
-                    <i class="bi bi-trash3-fill"></i>
-                </a>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table id="contacte-table" class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Nom i cognoms</th>
+                <th>Empresa</th>
+                <th>Correu electrònic</th>
+                <th>Telèfon</th>
+                <th>
+                    <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newContacte">
+                        <i class="bi bi-plus-square-fill"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($contactes as $contacte)
+            <tr>
+                <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->name }}</a></td>
+                <td>
+                    <form action="{{ route('contacte_list') }}" method="GET">
+                        <input type="hidden" name="empresa" value="{{ $contacte->empresa->name }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $contacte->empresa->name }}</a>
+                    </form>
+                </td>
+                <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->email }}</a></td>
+                <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->phonenumber }}</a></td>
+                <td>
+                    <a data-id="{{ $contacte->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 <div class="modal fade" id="newContacte" tabindex="-1" aria-labelledby="newContacteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">

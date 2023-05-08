@@ -21,74 +21,71 @@
             <button id="filter-button"><i class="bi bi-filter"></i></button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('user_list') }}">@csrf
-        <div id="filter-form-container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-1">
-                    <label for="name">Nom:</label>
-                </div>
-                <div class="col-md-4">
-                    @if (isset($request->name) && $request->name != "")
-                    <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('user_list') }}">
+        @csrf
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="name">Nom:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->name) && $request->name != "")
+                <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}" />
+                @else
+                <input class="form-control" type="text" id="name" name="name" />
+                @endif
+            </div>
+            <div class="col-md-1 offset-md-1">
+                <label for="rol">Rol:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->rol) && $request->rol != "")
+                <select class="form-select" id="rol" name="rol" value="{{ $request->rol }}">
+                    <option value="">Selecciona un rol...</option>
+                    @foreach($rols as $rol)
+                    @if ($request->rol == $rol->id)
+                    <option value="{{ $rol->id }}" selected>{{ $rol->name }}</option>
                     @else
-                    <input class="form-control" type="text" id="name" name="name" />
+                    <option value="{{ $rol->id }}">{{ $rol->name }}</option>
                     @endif
-                </div>
-                <div class="col-md-1 offset-md-1">
-                    <label for="cicle">Cicle:</label>
-                </div>
-                <div class="col-md-4">
-                    @if (isset($request->cicle) && $request->cicle != "")
-                    <select class="form-select" id="cicle" name="cicle" value="{{ $request->cicle }}">
-                        <option value="">Selecciona un cicle...</option>
-                        @foreach($cicles as $cicle)
+                    @endforeach
+                </select>
+                @else
+                <select class="form-select" id="rol" name="rol">
+                    <option value="">Selecciona un rol...</option>
+                    @foreach($rols as $rol)
+                    <option value="{{ $rol->id }}">{{ $rol->name }}</option>
+                    @endforeach
+                </select>
+                @endif
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-1">
+                <label for="cicle">Cicle:</label>
+            </div>
+            <div class="col-md-4">
+                @if (isset($request->cicle) && $request->cicle != "")
+                <select class="form-select" id="cicle" name="cicle" value="{{ $request->cicle }}">
+                    <option value="">Selecciona un cicle...</option>
+                    @foreach($cicles as $cicle)
                         @if ($request->cicle == $cicle->id)
-                        <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                            <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                         @else
-                        <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                            <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                         @endif
-                        @endforeach
-                    </select>
-                    @else
-                    <select class="form-select" id="cicle" name="cicle">
-                        <option value="">Selecciona un cicle...</option>
-                        @foreach($cicles as $cicle)
-                        <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
-                        @endforeach
-                    </select>
-                    @endif
-                </div>
+                    @endforeach
+                </select>
+                @else
+                <select class="form-select" id="cicle" name="cicle">
+                    <option value="">Selecciona un cicle...</option>
+                    @foreach($cicles as $cicle)
+                    <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
+                    @endforeach
+                </select>
+                @endif
             </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-1">
-                    <label for="rol">Rol:</label>
-                </div>
-                <div class="col-md-4">
-                    @if (isset($request->rol) && $request->rol != "")
-                    <select class="form-select" id="rol" name="rol" value="{{ $request->rol }}">
-                        <option value="">Selecciona un rol...</option>
-                        @foreach($rols as $rol)
-                        @if ($request->rol == $rol->id)
-                        <option value="{{ $rol->id }}" selected>{{ $rol->name }}</option>
-                        @else
-                        <option value="{{ $rol->id }}">{{ $rol->name }}</option>
-                        @endif
-                        @endforeach
-                    </select>
-                    @else
-                    <select class="form-select" id="rol" name="rol">
-                        <option value="">Selecciona un rol...</option>
-                        @foreach($rols as $rol)
-                        <option value="{{ $rol->id }}">{{ $rol->name }}</option>
-                        @endforeach
-                    </select>
-                    @endif
-                </div>
-                <div class="col-md-1 offset-md-1">
-                </div>
-                <div class="col-md-4">
-                </div>
-            </div>
+            <div class="col-md-1 offset-md-1"></div>
+            <div class="col-md-4"></div>
         </div>
         <div id="filter-form-button">
             <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />
@@ -178,46 +175,48 @@
 </div>
 @endif
 
-<table id="usuari-table" class="table table-striped table-dark">
-    <thead>
-        <tr>
-            <th>Nom i cognoms</th>
-            <th>Correu electrònic</th>
-            <th>Cicle</th>
-            <th>Rol</th>
-            <th>
-                <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newUsuari">
-                    <i class="bi bi-plus-square-fill"></i>
-                </a>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($users as $user)
-        <tr>
-            <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->nomCognoms() }}</a></td>
-            <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->email }}</a></td>
-            <td>
-                <form action="{{ route('user_list') }}" method="GET">
-                    <input type="hidden" name="cicle" value="{{ $user->cicle->id }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $user->cicle->shortname }}</a>
-                </form>
-            </td>
-            <td>
-                <form action="{{ route('user_list') }}" method="GET">
-                    <input type="hidden" name="rol" value="{{ $user->rol->id }}" />
-                    <a href="#" onclick="this.parentNode.submit()">{{ $user->rol->name }}</a>
-                </form>
-            </td>
-            <td>
-                <a data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
-                    <i class="bi bi-trash3-fill"></i>
-                </a>
-            </td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table id="usuari-table" class="table table-striped table-dark">
+        <thead>
+            <tr>
+                <th>Nom i cognoms</th>
+                <th>Correu electrònic</th>
+                <th>Cicle</th>
+                <th>Rol</th>
+                <th>
+                    <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newUsuari">
+                        <i class="bi bi-plus-square-fill"></i>
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($users as $user)
+            <tr>
+                <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->nomCognoms() }}</a></td>
+                <td><a href="{{ route('user_detail', $user->id) }}">{{ $user->email }}</a></td>
+                <td>
+                    <form action="{{ route('user_list') }}" method="GET">
+                        <input type="hidden" name="cicle" value="{{ $user->cicle->id }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $user->cicle->shortname }}</a>
+                    </form>
+                </td>
+                <td>
+                    <form action="{{ route('user_list') }}" method="GET">
+                        <input type="hidden" name="rol" value="{{ $user->rol->id }}" />
+                        <a href="#" onclick="this.parentNode.submit()">{{ $user->rol->name }}</a>
+                    </form>
+                </td>
+                <td>
+                    <a data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 
 <div class="modal fade" id="confirmDelete" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

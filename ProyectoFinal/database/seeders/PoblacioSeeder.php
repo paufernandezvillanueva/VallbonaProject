@@ -43,11 +43,11 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 1,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Masó",
+            'name' => "La Masó",
             'comarca_id' => 1,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Milà",
+            'name' => "El Milà",
             'comarca_id' => 1,
         ]);
         DB::table('poblacios')->insert([
@@ -63,11 +63,11 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 1,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Pla de Santa Maria",
+            'name' => "El Pla de Santa Maria",
             'comarca_id' => 1,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Pont d'Armentera",
+            'name' => "El Pont d'Armentera",
             'comarca_id' => 1,
         ]);
         DB::table('poblacios')->insert([
@@ -79,7 +79,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 1,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Riba",
+            'name' => "La Riba",
             'comarca_id' => 1,
         ]);
         DB::table('poblacios')->insert([
@@ -87,7 +87,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 1,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Rourell",
+            'name' => "El Rourell",
             'comarca_id' => 1,
         ]);
         DB::table('poblacios')->insert([
@@ -183,7 +183,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 2,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Far d'Empordà",
+            'name' => "El Far d'Empordà",
             'comarca_id' => 2,
         ]);
         DB::table('poblacios')->insert([
@@ -203,7 +203,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 2,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Jonquera",
+            'name' => "La Jonquera",
             'comarca_id' => 2,
         ]);
         DB::table('poblacios')->insert([
@@ -267,7 +267,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 2,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Port de la Selva",
+            'name' => "El Port de la Selva",
             'comarca_id' => 2,
         ]);
         DB::table('poblacios')->insert([
@@ -315,7 +315,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 2,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Selva de Mar",
+            'name' => "La Selva de Mar",
             'comarca_id' => 2,
         ]);
         DB::table('poblacios')->insert([
@@ -331,7 +331,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 2,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Vajol",
+            'name' => "La Vajol",
             'comarca_id' => 2,
         ]);
         DB::table('poblacios')->insert([
@@ -383,7 +383,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 3,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Cabanyes",
+            'name' => "Les Cabanyes",
             'comarca_id' => 3,
         ]);
         DB::table('poblacios')->insert([
@@ -403,7 +403,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 3,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Granada",
+            'name' => "La Granada",
             'comarca_id' => 3,
         ]);
         DB::table('poblacios')->insert([
@@ -423,7 +423,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 3,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Pla del Penedès",
+            'name' => "El Pla del Penedès",
             'comarca_id' => 3,
         ]);
         DB::table('poblacios')->insert([
@@ -539,7 +539,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 4,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Pont de Bar",
+            'name' => "El Pont de Bar",
             'comarca_id' => 4,
         ]);
         DB::table('poblacios')->insert([
@@ -547,27 +547,27 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 4,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Seu d'Urgell",
+            'name' => "La Seu d'Urgell",
             'comarca_id' => 4,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Valls d'Aguilar",
+            'name' => "Les Valls d'Aguilar",
             'comarca_id' => 4,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Valls de Valira",
+            'name' => "Les Valls de Valira",
             'comarca_id' => 4,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Vansa i Fórnols",
+            'name' => "La Vansa i Fórnols",
             'comarca_id' => 4,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Pont de Suert",
+            'name' => "El Pont de Suert",
             'comarca_id' => 5,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Vall de Boí",
+            'name' => "La Vall de Boí",
             'comarca_id' => 5,
         ]);
         DB::table('poblacios')->insert([
@@ -583,7 +583,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 6,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Bruc",
+            'name' => "El Bruc",
             'comarca_id' => 6,
         ]);
         DB::table('poblacios')->insert([
@@ -631,7 +631,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 6,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Llacuna",
+            'name' => "La Llacuna",
             'comarca_id' => 6,
         ]);
         DB::table('poblacios')->insert([
@@ -655,7 +655,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 6,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Pobla de Claramunt",
+            'name' => "La Pobla de Claramunt",
             'comarca_id' => 6,
         ]);
         DB::table('poblacios')->insert([
@@ -691,7 +691,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 6,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Torre de Claramunt",
+            'name' => "La Torre de Claramunt",
             'comarca_id' => 6,
         ]);
         DB::table('poblacios')->insert([
@@ -775,7 +775,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 7,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Pont de Vilomara i Rocafort",
+            'name' => "El Pont de Vilomara i Rocafort",
             'comarca_id' => 7,
         ]);
         DB::table('poblacios')->insert([
@@ -843,7 +843,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 8,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Borges del Camp",
+            'name' => "Les Borges del Camp",
             'comarca_id' => 8,
         ]);
         DB::table('poblacios')->insert([
@@ -871,7 +871,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 8,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Febró",
+            'name' => "La Febró",
             'comarca_id' => 8,
         ]);
         DB::table('poblacios')->insert([
@@ -911,7 +911,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 8,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Selva del Camp",
+            'name' => "La Selva del Camp",
             'comarca_id' => 8,
         ]);
         DB::table('poblacios')->insert([
@@ -967,7 +967,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 9,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Perelló",
+            'name' => "El Perelló",
             'comarca_id' => 9,
         ]);
         DB::table('poblacios')->insert([
@@ -999,7 +999,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 10,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Bisbal d'Empordà",
+            'name' => "La Bisbal d'Empordà",
             'comarca_id' => 10,
         ]);
         DB::table('poblacios')->insert([
@@ -1019,7 +1019,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 10,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "Monells i Sant Sadurní de l'Heura Cruïlles",
+            'name' => "Cruïlles, Monells i Sant Sadurní de l'Heura",
             'comarca_id' => 10,
         ]);
         DB::table('poblacios')->insert([
@@ -1071,7 +1071,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 10,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Pera",
+            'name' => "La Pera",
             'comarca_id' => 10,
         ]);
         DB::table('poblacios')->insert([
@@ -1095,7 +1095,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 10,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Tallada d'Empordà",
+            'name' => "La Tallada d'Empordà",
             'comarca_id' => 10,
         ]);
         DB::table('poblacios')->insert([
@@ -1191,15 +1191,15 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 11,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Palma de Cervelló",
+            'name' => "La Palma de Cervelló",
             'comarca_id' => 11,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Papiol",
+            'name' => "El Papiol",
             'comarca_id' => 11,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Prat de Llobregat",
+            'name' => "El Prat de Llobregat",
             'comarca_id' => 11,
         ]);
         DB::table('poblacios')->insert([
@@ -1267,7 +1267,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 12,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Bisbal del Penedès",
+            'name' => "La Bisbal del Penedès",
             'comarca_id' => 12,
         ]);
         DB::table('poblacios')->insert([
@@ -1291,7 +1291,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 12,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Montmell",
+            'name' => "El Montmell",
             'comarca_id' => 12,
         ]);
         DB::table('poblacios')->insert([
@@ -1303,7 +1303,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 12,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Vendrell",
+            'name' => "El Vendrell",
             'comarca_id' => 12,
         ]);
         DB::table('poblacios')->insert([
@@ -1399,7 +1399,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 14,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Nou de Berguedà",
+            'name' => "La Nou de Berguedà",
             'comarca_id' => 14,
         ]);
         DB::table('poblacios')->insert([
@@ -1407,7 +1407,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 14,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Pobla de Lillet",
+            'name' => "La Pobla de Lillet",
             'comarca_id' => 14,
         ]);
         DB::table('poblacios')->insert([
@@ -1415,7 +1415,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 14,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Quar",
+            'name' => "La Quar",
             'comarca_id' => 14,
         ]);
         DB::table('poblacios')->insert([
@@ -1551,7 +1551,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 16,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Piles",
+            'name' => "Les Piles",
             'comarca_id' => 16,
         ]);
         DB::table('poblacios')->insert([
@@ -1647,7 +1647,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Borges Blanques",
+            'name' => "Les Borges Blanques",
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
@@ -1663,7 +1663,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Cogul",
+            'name' => "El Cogul",
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
@@ -1671,7 +1671,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Floresta",
+            'name' => "La Floresta",
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
@@ -1679,7 +1679,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Granadella",
+            'name' => "La Granadella",
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
@@ -1699,7 +1699,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Pobla de Cérvoles",
+            'name' => "La Pobla de Cérvoles",
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
@@ -1707,7 +1707,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Soleràs",
+            'name' => "El Soleràs",
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
@@ -1719,7 +1719,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Vilosell",
+            'name' => "El Vilosell",
             'comarca_id' => 18,
         ]);
         DB::table('poblacios')->insert([
@@ -1759,11 +1759,11 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 19,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Planes d'Hostoles",
+            'name' => "Les Planes d'Hostoles",
             'comarca_id' => 19,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Preses",
+            'name' => "Les Preses",
             'comarca_id' => 19,
         ]);
         DB::table('poblacios')->insert([
@@ -1803,11 +1803,11 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 19,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Vall d'en Bas",
+            'name' => "La Vall d'en Bas",
             'comarca_id' => 19,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Vall de Bianya",
+            'name' => "La Vall de Bianya",
             'comarca_id' => 19,
         ]);
         DB::table('poblacios')->insert([
@@ -1963,7 +1963,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 21,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Masnou",
+            'name' => "El Masnou",
             'comarca_id' => 21,
         ]);
         DB::table('poblacios')->insert([
@@ -2051,7 +2051,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 22,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Galera",
+            'name' => "La Galera",
             'comarca_id' => 22,
         ]);
         DB::table('poblacios')->insert([
@@ -2067,7 +2067,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 22,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Ràpita",
+            'name' => "La Ràpita",
             'comarca_id' => 22,
         ]);
         DB::table('poblacios')->insert([
@@ -2079,7 +2079,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 22,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Sénia",
+            'name' => "La Sénia",
             'comarca_id' => 22,
         ]);
         DB::table('poblacios')->insert([
@@ -2107,7 +2107,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 23,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Avellanes i Santa Linya",
+            'name' => "Les Avellanes i Santa Linya",
             'comarca_id' => 23,
         ]);
         DB::table('poblacios')->insert([
@@ -2115,7 +2115,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 23,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Baronia de Rialb",
+            'name' => "La Baronia de Rialb",
             'comarca_id' => 23,
         ]);
         DB::table('poblacios')->insert([
@@ -2179,7 +2179,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 23,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Sentiu de Sió",
+            'name' => "La Sentiu de Sió",
             'comarca_id' => 23,
         ]);
         DB::table('poblacios')->insert([
@@ -2215,7 +2215,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 24,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Brull",
+            'name' => "El Brull",
             'comarca_id' => 24,
         ]);
         DB::table('poblacios')->insert([
@@ -2255,11 +2255,11 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 24,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Masies de Roda",
+            'name' => "Les Masies de Roda",
             'comarca_id' => 24,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Masies de Voltregà",
+            'name' => "Les Masies de Voltregà",
             'comarca_id' => 24,
         ]);
         DB::table('poblacios')->insert([
@@ -2431,7 +2431,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 25,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Pobla de Segur",
+            'name' => "La Pobla de Segur",
             'comarca_id' => 25,
         ]);
         DB::table('poblacios')->insert([
@@ -2455,7 +2455,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 25,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Torre de Cabdella",
+            'name' => "La Torre de Cabdella",
             'comarca_id' => 25,
         ]);
         DB::table('poblacios')->insert([
@@ -2491,7 +2491,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 26,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Guingueta d'Àneu",
+            'name' => "La Guingueta d'Àneu",
             'comarca_id' => 26,
         ]);
         DB::table('poblacios')->insert([
@@ -2563,11 +2563,11 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 27,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Palau d'Anglesola",
+            'name' => "El Palau d'Anglesola",
             'comarca_id' => 27,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Poal",
+            'name' => "El Poal",
             'comarca_id' => 27,
         ]);
         DB::table('poblacios')->insert([
@@ -2635,7 +2635,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Bisbal de Falset",
+            'name' => "La Bisbal de Falset",
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
@@ -2655,7 +2655,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Figuera",
+            'name' => "La Figuera",
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
@@ -2667,7 +2667,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Lloar",
+            'name' => "El Lloar",
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
@@ -2679,15 +2679,15 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Masroig",
+            'name' => "El Masroig",
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Molar",
+            'name' => "El Molar",
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Morera de Montsant",
+            'name' => "La Morera de Montsant",
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
@@ -2703,7 +2703,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Torre de Fontaubella",
+            'name' => "La Torre de Fontaubella",
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
@@ -2715,11 +2715,11 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Vilella Alta",
+            'name' => "La Vilella Alta",
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Vilella Baixa",
+            'name' => "La Vilella Baixa",
             'comarca_id' => 29,
         ]);
         DB::table('poblacios')->insert([
@@ -2755,7 +2755,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 30,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Palma d'Ebre",
+            'name' => "La Palma d'Ebre",
             'comarca_id' => 30,
         ]);
         DB::table('poblacios')->insert([
@@ -2771,7 +2771,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 30,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Torre de l'Espanyol",
+            'name' => "La Torre de l'Espanyol",
             'comarca_id' => 30,
         ]);
         DB::table('poblacios')->insert([
@@ -2799,7 +2799,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 31,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Llosses",
+            'name' => "Les Llosses",
             'comarca_id' => 31,
         ]);
         DB::table('poblacios')->insert([
@@ -2895,7 +2895,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 32,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Oluges",
+            'name' => "Les Oluges",
             'comarca_id' => 32,
         ]);
         DB::table('poblacios')->insert([
@@ -3011,7 +3011,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 33,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Granja d'Escarp",
+            'name' => "La Granja d'Escarp",
             'comarca_id' => 33,
         ]);
         DB::table('poblacios')->insert([
@@ -3035,7 +3035,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 33,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Portella",
+            'name' => "La Portella",
             'comarca_id' => 33,
         ]);
         DB::table('poblacios')->insert([
@@ -3119,7 +3119,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 34,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Cellera de Ter",
+            'name' => "La Cellera de Ter",
             'comarca_id' => 34,
         ]);
         DB::table('poblacios')->insert([
@@ -3203,7 +3203,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 35,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Coma i la Pedra",
+            'name' => "La Coma i la Pedra",
             'comarca_id' => 35,
         ]);
         DB::table('poblacios')->insert([
@@ -3216,7 +3216,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 35,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Molsosa",
+            'name' => "La Molsosa",
             'comarca_id' => 35,
         ]);
         DB::table('poblacios')->insert([
@@ -3256,11 +3256,11 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Canonja",
+            'name' => "La Canonja",
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Catllar",
+            'name' => "El Catllar",
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
@@ -3272,11 +3272,11 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Morell",
+            'name' => "El Morell",
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Nou de Gaià",
+            'name' => "La Nou de Gaià",
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
@@ -3288,11 +3288,11 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Pobla de Mafumet",
+            'name' => "La Pobla de Mafumet",
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Pobla de Montornès",
+            'name' => "La Pobla de Montornès",
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
@@ -3300,7 +3300,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Riera de Gaià",
+            'name' => "La Riera de Gaià",
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
@@ -3316,7 +3316,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Secuita",
+            'name' => "La Secuita",
             'comarca_id' => 36,
         ]);
         DB::table('poblacios')->insert([
@@ -3360,7 +3360,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 37,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Fatarella",
+            'name' => "La Fatarella",
             'comarca_id' => 37,
         ]);
         DB::table('poblacios')->insert([
@@ -3372,11 +3372,11 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 37,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "el Pinell de Brai",
+            'name' => "El Pinell de Brai",
             'comarca_id' => 37,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Pobla de Massaluca",
+            'name' => "La Pobla de Massaluca",
             'comarca_id' => 37,
         ]);
         DB::table('poblacios')->insert([
@@ -3412,7 +3412,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 38,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Fuliola",
+            'name' => "La Fuliola",
             'comarca_id' => 38,
         ]);
         DB::table('poblacios')->insert([
@@ -3636,11 +3636,11 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 41,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "les Franqueses del Vallès",
+            'name' => "Les Franqueses del Vallès",
             'comarca_id' => 41,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Garriga",
+            'name' => "La Garriga",
             'comarca_id' => 41,
         ]);
         DB::table('poblacios')->insert([
@@ -3652,7 +3652,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 41,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Llagosta",
+            'name' => "La Llagosta",
             'comarca_id' => 41,
         ]);
         DB::table('poblacios')->insert([
@@ -3692,7 +3692,7 @@ class PoblacioSeeder extends Seeder
             'comarca_id' => 41,
         ]);
         DB::table('poblacios')->insert([
-            'name' => "la Roca del Vallès",
+            'name' => "La Roca del Vallès",
             'comarca_id' => 41,
         ]);
         DB::table('poblacios')->insert([
