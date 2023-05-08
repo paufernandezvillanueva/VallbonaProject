@@ -817,7 +817,7 @@ class PoblacioSeeder extends Seeder
         DB::table('poblacios')->insert([
             'name' => "Talamanca",
             'comarca_id' => 7,
-        ]); 
+        ]);
         DB::table('poblacios')->insert([
             'name' => "l'Albiol",
             'comarca_id' => 8,
@@ -1129,7 +1129,7 @@ class PoblacioSeeder extends Seeder
         DB::table('poblacios')->insert([
             'name' => "Vilopriu",
             'comarca_id' => 10,
-        ]); 
+        ]);
         DB::table('poblacios')->insert([
             'name' => "Abrera",
             'comarca_id' => 11,
@@ -1449,7 +1449,7 @@ class PoblacioSeeder extends Seeder
         DB::table('poblacios')->insert([
             'name' => "Viver i Serrateix",
             'comarca_id' => 14,
-        ]); 
+        ]);
         DB::table('poblacios')->insert([
             'name' => "Alp",
             'comarca_id' => 15,
@@ -1809,7 +1809,7 @@ class PoblacioSeeder extends Seeder
         DB::table('poblacios')->insert([
             'name' => "la Vall de Bianya",
             'comarca_id' => 19,
-        ]); 
+        ]);
         DB::table('poblacios')->insert([
             'name' => "Aiguaviva",
             'comarca_id' => 20,
@@ -1917,7 +1917,7 @@ class PoblacioSeeder extends Seeder
         DB::table('poblacios')->insert([
             'name' => "Viladasens",
             'comarca_id' => 20,
-        ]); 
+        ]);
         DB::table('poblacios')->insert([
             'name' => "Alella",
             'comarca_id' => 21,
@@ -2405,7 +2405,7 @@ class PoblacioSeeder extends Seeder
         DB::table('poblacios')->insert([
             'name' => "Vilanova de Sau",
             'comarca_id' => 24,
-        ]); 
+        ]);
         DB::table('poblacios')->insert([
             'name' => "Abella de la Conca",
             'comarca_id' => 25,
@@ -2629,7 +2629,7 @@ class PoblacioSeeder extends Seeder
         DB::table('poblacios')->insert([
             'name' => "Vilademuls",
             'comarca_id' => 28,
-        ]); 
+        ]);
         DB::table('poblacios')->insert([
             'name' => "Bellmunt del Priorat",
             'comarca_id' => 29,
@@ -2853,7 +2853,7 @@ class PoblacioSeeder extends Seeder
         DB::table('poblacios')->insert([
             'name' => "Vilallonga de Ter",
             'comarca_id' => 31,
-        ]); 
+        ]);
         DB::table('poblacios')->insert([
             'name' => "Biosca",
             'comarca_id' => 32,
@@ -3193,7 +3193,7 @@ class PoblacioSeeder extends Seeder
         DB::table('poblacios')->insert([
             'name' => "Vilobí d'Onyar",
             'comarca_id' => 34,
-        ]); 
+        ]);
         DB::table('poblacios')->insert([
             'name' => "Castellar de la Ribera",
             'comarca_id' => 35,
@@ -3790,6 +3790,6 @@ class PoblacioSeeder extends Seeder
         DB::table('poblacios')->insert([
             'name' => "Santa Maria d'Oló",
             'comarca_id' => 42,
-        ]); 
+        ]);
     }
 }
