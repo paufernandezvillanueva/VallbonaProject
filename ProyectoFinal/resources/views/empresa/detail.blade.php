@@ -15,48 +15,48 @@
 <div class="containerEmpresa">
     <div>
         <div class="btnTorna">
-            <a href="{{ route('empresa_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+            <a href="{{ route('empresa_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> {{ trans('translation.back') }}</a>
         </div>
         <div class="labels">
             <div class="infoEmpresa">
                 <div class="list-header">
-                    <div id="info">Informació</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar</button></div>
+                    <div id="info">{{ trans('translation.info') }}</div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">{{ trans('translation.edit') }}</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
-                        <th scope="row">CIF</th>
+                        <th scope="row">{{ trans('translation.cif') }}</th>
                         <td>{{ $empresa->cif }}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Nom</th>
+                        <th scope="row">{{ trans('translation.name') }}</th>
                         <td>{{ $empresa->name }}</td>
                     </tr>
                     <tr>
-                        <th>Sector</th>
+                        <th>{{ trans('translation.sector') }}</th>
                         <td>{{ $empresa->sector }}</td>
                     </tr>
                     <tr>
-                        <th>Comarca</th>
+                        <th>{{ trans('translation.comarca') }}</th>
                         <td>{{ $poblacio->comarca->name }}</td>
                     </tr>
                     <tr>
-                        <th>Poblacio</th>
+                        <th>{{ trans('translation.city') }}</th>
                         <td>{{ $poblacio->name }}</td>
                     </tr>
                 </table>
             </div>
             <div class="contactes">
                 <div class="list-header">
-                    <div id="contactes">Contactes</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newContact">Crear</button></div>
+                    <div id="contactes">{{ trans('translation.contacts') }}</div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newContact">{{ trans('translation.create') }}</button></div>
                 </div>
                 <table id="contactes-table" class="table table-striped table-dark">
                     <thead>
                         <tr>
-                            <th scope="col"><span>Nom</span></th>
-                            <th scope="col"><span>Correu Electrònic</span></th>
-                            <th scope="col"><span>Telèfon</span></th>
+                            <th scope="col"><span>{{ trans('translation.name') }}</span></th>
+                            <th scope="col"><span>{{ trans('translation.email') }}</span></th>
+                            <th scope="col"><span>{{ trans('translation.phone') }}</span></th>
                         </tr>
                     </thead>
                     <tbody id="contactes-info">
@@ -74,18 +74,18 @@
     </div>
     <div class="estades">
         <div class="list-header">
-            <div id="estades">Estades</div>
-            <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newEstada">Crear</button></div>
+            <div id="estades">{{ trans('translation.stays') }}</div>
+            <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#newEstada">{{ trans('translation.create') }}</button></div>
         </div>
         <table id="estades-table" class="table table-striped table-dark">
             <thead>
                 <tr>
-                    <th scope="col"><span>Alumne</span></th>
-                    <th scope="col"><span>Curs</span></th>
-                    <th scope="col"><span>Cicle</span></th>
-                    <th scope="col"><span>Tutor</span></th>
-                    <th scope="col"><span>Tipus</span></th>
-                    <th scope="col"><span>Valoració</span></th>
+                    <th scope="col"><span>{{ trans('translation.name_student') }}</span></th>
+                    <th scope="col"><span>{{ trans('translation.course') }}</span></th>
+                    <th scope="col"><span>{{ trans('translation.cicle') }}</span></th>
+                    <th scope="col"><span>{{ trans('translation.tutor') }}</span></th>
+                    <th scope="col"><span>{{ trans('translation.type') }}</span></th>
+                    <th scope="col"><span>{{ trans('translation.valoration') }}</span></th>
                 </tr>
             </thead>
             <tbody id="estades-info">
@@ -116,7 +116,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editInfoLabel">Editar empresa</h5>
+                <h5 class="modal-title" id="editInfoLabel">{{ trans('translation.edit').' '.trans('translation.company') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="editEmpresaForm" action="{{ route('empresa_edit', $empresa->id) }}">
@@ -133,7 +133,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="name">Nom</label>
+                            <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="name" value="{{ $empresa->name }}" required />
@@ -142,7 +142,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="sector">Sector</label>
+                            <label class="col-form-label" for="sector">{{ trans('translation.sector') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="sector" value="{{ $empresa->sector }}" list="sectors" required />
@@ -156,7 +156,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="comarca_id">Comarca</label>
+                            <label class="col-form-label" for="comarca_id">{{ trans('translation.comarca') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="comarca_id" id="comarca_id" value="{{ $poblacio->comarca_id }}">
@@ -173,19 +173,19 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="poblacio_id">Població</label>
+                            <label class="col-form-label" for="poblacio_id">{{ trans('translation.city') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" id="poblacio_id" name="poblacio_id" value="{{ $empresa->poblacio_id }}">
-                                <option value="default">Selecciona una comarca...</option>
+                                <option value="default">{{ trans('translation.select_comarca') }}</option>
                             </select>
                         </div>
                         <div class="error" id="poblacio_id-edit-empresa-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>
@@ -195,7 +195,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newContactLabel">Crear un contacte</h5>
+                <h5 class="modal-title" id="newContactLabel">{{ trans('translation.create').' '.trans('translation.contact') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addContacteForm" action="{{ route('contacte_new') }}">
@@ -204,7 +204,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="name">Nom</label>
+                            <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="name" />
@@ -215,7 +215,7 @@
                     <div id="empresa_id-add-contacte-error"></div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="email">Email</label>
+                            <label class="col-form-label" for="email">{{ trans('translation.email') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="email" />
@@ -224,7 +224,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="phonenumber">Telèfon</label>
+                            <label class="col-form-label" for="phonenumber">{{ trans('translation.phone') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="phonenumber" />
@@ -233,8 +233,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>
@@ -245,7 +245,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newEstadaLabel">Crear una estada</h5>
+                <h5 class="modal-title" id="newEstadaLabel">{{ trans('translation.create').' '.trans('translation.stay') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addEstadaForm" action="{{ route('estada_new') }}">
@@ -254,7 +254,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="student_name">Nom Estudiant</label>
+                            <label class="col-form-label" for="student_name">{{ trans('translation.name_student') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="student_name" required />
@@ -263,11 +263,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="curs_id">Curs</label>
+                            <label class="col-form-label" for="curs_id">{{ trans('translation.course') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="curs_id">
-                                <option value="default">Selecciona un curs...</option>
+                                <option value="default">{{ trans('translation.select_course') }}</option>
                                 @foreach($cursos as $curs)
                                 <option value="{{ $curs->id }}">{{ $curs->name }}</option>
                                 @endforeach
@@ -277,11 +277,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="cicle_id">Cicle</label>
+                            <label class="col-form-label" for="cicle_id">{{ trans('translation.cicle') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="cicle_id">
-                                <option value="default">Selecciona un cicle...</option>
+                                <option value="default">{{ trans('translation.select_cicle') }}</option>
                                 @foreach($cicles as $cicle)
                                 <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                                 @endforeach
@@ -291,11 +291,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="registered_by">Registrado por</label>
+                            <label class="col-form-label" for="registered_by">{{ trans('translation.registered_by') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="registered_by">
-                                <option value="default">Selecciona un tutor...</option>
+                                <option value="default">{{ trans('translation.select_tutor') }}</option>
                                 @foreach($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
                                 @endforeach
@@ -306,11 +306,11 @@
                     <input type="hidden" name="empresa_id" value="{{ $empresa->id }}" />
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="dual">Tipus estada</label>
+                            <label class="col-form-label" for="dual">{{ trans('translation.type').' '.trans('translation.stay') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" type="text" name="dual">
-                                <option value="default">Selecciona un tipus d'estada...</option>
+                                <option value="default">{{ trans('translation.select_type') }}</option>
                                 <option value="0">FCT</option>
                                 <option value="1">Dual</option>
                             </select>
@@ -319,7 +319,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="evaluation">Valoració</label>
+                            <label class="col-form-label" for="evaluation">{{ trans('translation.valoration') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" required />
@@ -328,7 +328,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="comment">Comentaris</label>
+                            <label class="col-form-label" for="comment">{{ trans('translation.comment') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="comment" />
@@ -336,8 +336,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>

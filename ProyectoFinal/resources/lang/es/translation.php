@@ -91,6 +91,8 @@ return [
     'populations' => 'Poblaciones',
     'lightmode' => 'Modo claro',
     'darkmode' => 'Modo oscuro',
+    'contact' => 'Contacto',
+    'stay' => 'Estada',
 
 
 

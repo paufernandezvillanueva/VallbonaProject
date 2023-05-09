@@ -91,6 +91,9 @@ return [
     'populations' => 'Populations',
     'lightmode' => 'Lightmode',
     'darkmode' => 'Darkmode',
+    'contact' => 'Contact',
+    'stay' => 'Stay',
+
 
 
 
