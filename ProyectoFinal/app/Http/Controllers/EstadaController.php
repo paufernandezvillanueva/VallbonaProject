@@ -82,6 +82,9 @@ class EstadaController extends Controller
   function detail(Request $request, $id)
   {
     $estada = Estada::find($id);
+    if (!isset($estada->id)) {
+      return redirect()->route('estada_list');
+    }
     $cursos = Curs::all();
     $cicles = Cicle::all();
     $users = User::all();

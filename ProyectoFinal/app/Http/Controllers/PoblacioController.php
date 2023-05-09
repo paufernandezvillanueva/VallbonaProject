@@ -47,6 +47,9 @@ class PoblacioController extends BaseController
     {
         if (Auth::user()->rol_id == 5076) {
             $poblacio = Poblacio::find($id);
+            if (!isset($poblacio->id)) {
+                return redirect()->route('poblacio_list');
+            }
             $comarques = Comarca::all();
 
             return view('poblacio.detail', ['poblacio' => $poblacio, 'comarques' => $comarques]);

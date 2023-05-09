@@ -35,6 +35,9 @@ class CicleController extends Controller
     function detail(Request $request, $id)
     {
         $cicle = Cicle::find($id);
+        if (!isset($cicle->id)) {
+            return redirect()->route('cicle_list');
+        }
 
         return view('cicle.detail', ['cicle' => $cicle]);
     }

@@ -106,6 +106,9 @@ class EmpresaController extends BaseController
   function detail(Request $request, $id)
   {
     $empresa = Empresa::find($id);
+    if (!isset($empresa->id)) {
+      return redirect()->route('empresa_list');
+    }
     $poblacio = Poblacio::find($empresa->poblacio_id);
     $contactes = Contacte::orderBy('name', 'asc')->where('empresa_id', '=', $empresa->id)->get();
     $estades = Estada::orderBy('student_name', 'asc')->where('empresa_id', '=', $empresa->id)->get();
