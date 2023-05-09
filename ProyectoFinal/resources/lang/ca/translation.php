@@ -84,6 +84,16 @@ return [
     'list_cicle' => 'Llista de cicles',
     'list_comarca' => 'Llista de comarques',
     'list_poblacio' => 'Llista de poblacións',
+    'companies' => 'Empreses',
+    'stays' => 'Estades',
+    'users' => 'Usuaris',
+    'roles' => 'Rols',
+    'courses' => 'Cursos',
+    'cicles' => 'Cicles',
+    'regions' => 'Comarques',
+    'populations' => 'Poblacions',
+    'lightmode' => 'Mode clar',
+    'darkmode' => 'Mode oscur',
 
 
 

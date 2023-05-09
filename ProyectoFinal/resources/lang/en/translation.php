@@ -81,6 +81,26 @@ return [
     'list_cicle' => 'List of cycles',
     'list_comarca' => 'List of Regions',
     'list_poblacio' => 'List of population',
+    'companies' => 'Companies',
+    'stays' => 'Stays',
+    'users' => 'Users',
+    'roles' => 'Roles',
+    'courses' => 'Courses',
+    'cicles' => 'Cycles',
+    'regions' => 'Regions',
+    'populations' => 'Populations',
+    'lightmode' => 'Lightmode',
+    'darkmode' => 'Darkmode',
+
+
+
+
+
+
+
+
+
+
 
 
 
