@@ -79,6 +79,9 @@ return [
     'create' => 'Create',
     'list_curs' => 'List of courses',
     'list_cicle' => 'List of cycles',
+    'list_comarca' => 'List of Regions',
+    'list_poblacio' => 'List of population',
+
 
 
 

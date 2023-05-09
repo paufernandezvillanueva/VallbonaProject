@@ -79,6 +79,8 @@ return [
     'create' => 'Crear',
     'list_curs' => 'Lista de cursos',
     'list_cicle' => 'Lista de ciclos',
+    'list_comarca' => 'Lista de comarcas',
+    'list_poblacio' => 'Lista de poblaciones',
 
 
 

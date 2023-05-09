@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="titulo">
-    <h1>Llistat de poblacions</h1>
+    <h1>{{ trans('translation.list_poblacio') }}</h1>
 </div>
 
 <div id="filter">
@@ -25,7 +25,7 @@
         @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-md-1">
-                <label for="name">Població:</label>
+                <label for="name">{{ trans('translation.city') }}: </label>
             </div>
             <div class="col-md-4">
                 @if (isset($request->name) && $request->name != "")
@@ -35,7 +35,7 @@
                 @endif
             </div>
             <div class="col-md-1 offset-md-1">
-                <label for="comarca">Comarca:</label>
+                <label for="comarca">{{ trans('translation.comarca') }}:</label>
             </div>
             <div class="col-md-4">
                 @if (isset($request->comarca) && $request->comarca != "")
@@ -46,8 +46,8 @@
             </div>
         </div>
         <div id="filter-form-button">
-            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />
-            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="Filtrar" />
+            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="{{ trans('translation.reset') }}" />
+            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="{{ trans('translation.filter') }}" />
         </div>
     </form>
 </div>
@@ -56,8 +56,8 @@
     <table id="poblacio-table" class="table table-striped table-dark">
         <thead>
             <tr>
-                <th>Nom</th>
-                <th>Comarca</th>
+                <th>{{ trans('translation.name') }}</th>
+                <th>{{ trans('translation.comarca') }}</th>
                 <th>
                     <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#novaPoblacio">
                         <i class="bi bi-plus-square-fill"></i>
@@ -90,7 +90,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addPoblacioLabel">Crear una Població</h5>
+                <h5 class="modal-title" id="addPoblacioLabel">{{ trans('translation.create').' '.trans('translation.city') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addPoblacioForm" action="{{ route('poblacio_new') }}">
@@ -98,7 +98,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="name">Nom</label>
+                            <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="name" required />
@@ -107,11 +107,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="comarca_id">Comarca</label>
+                            <label class="col-form-label" for="comarca_id">{{ trans('translation.comarca') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-control" name="comarca_id">
-                                <option value="default">Selecciona una comarca...</option>
+                                <option value="default">{{ trans('translation.select_comarca') }}</option>
                                 @foreach($comarques as $comarca)
                                 <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
                                 @endforeach
@@ -121,8 +121,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>
@@ -132,7 +132,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar població</h5>
+                <h5 class="modal-title" id="confirmDeleteLabel">{{ trans('translation.delete').' '.trans('translation.city') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="GET">
@@ -148,11 +148,11 @@
                         });
                     </script>
                     @csrf
-                    <p>Estàs segur de voler eliminar aquesta població?</p>
+                    <p>{{ trans('translation.confirm_delete') }}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-success" id="btnConfirmar">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>
