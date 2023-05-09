@@ -78,6 +78,8 @@ return [
     'list_role' => 'List of roles',
     'create' => 'Create',
     'list_curs' => 'List of courses',
+    'list_cicle' => 'List of cycles',
+
 
 
 

@@ -81,6 +81,8 @@ return [
     'list_role' => 'Llista de rols',
     'create' => 'Crear',
     'list_curs' => 'Llista de cursos',
+    'list_cicle' => 'Llista de cicles',
+
 
 
 
