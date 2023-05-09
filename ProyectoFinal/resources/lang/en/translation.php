@@ -59,7 +59,7 @@ return [
     'delete_contact' => 'Delete contact',
     'edit_company' => 'Edit company',
     'back'=> 'Back',
-    'list_estades' =>'List of states',
+    'list_estades' =>'List of stays',
     'select_course' => 'Select a course...',
     'select_type' => 'Select the type...',
     'create_stay' => 'Create a stay',
@@ -69,6 +69,16 @@ return [
     'stay_type' => 'Type of stay',
     'edit_stay' => 'Edite stay',
     'tutor' => 'Tutor',
+    'list_user' => 'List of users',
+    'select_rol' => 'Select a role...',
+    'create_user' => 'Create user',
+    'user' => 'user',
+    'update' => 'Update',
+    'link_gmail' => 'Linked with Gmail',
+
+
+
+
 
 
 

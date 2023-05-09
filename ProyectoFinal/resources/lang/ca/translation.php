@@ -72,7 +72,12 @@ return [
     'stay_type' => "Tipus d'estada",
     'edit_stay' => 'Editar estada',
     'tutor' => 'Tutor',
-
+    'list_user' => "Llista d'usuaris",
+    'select_rol' => 'Selecciona un rol...',
+    'create_user' => 'Crear usuari',
+    'user' => 'usuari',
+    'update' => 'Actualitzar',
+    'link_gmail' => 'Vinculat amb Gmail',
 
 
 

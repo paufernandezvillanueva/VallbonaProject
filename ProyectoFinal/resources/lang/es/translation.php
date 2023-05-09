@@ -69,6 +69,13 @@ return [
     'stay_type' => 'Tipo de estada',
     'edit_stay' => 'Editar estada',
     'tutor' => 'Tutor',
+    'list_user' => 'Lista de usuarios',
+    'select_rol' => 'Selecciona un rol...',
+    'create_user' => 'Crear usuario',
+    'user' => 'usuario',
+    'update' => 'Actualizar',
+    'link_gmail' => 'Vinculado con Gmail',
+
 
 
 
