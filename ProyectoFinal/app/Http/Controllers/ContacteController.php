@@ -44,6 +44,24 @@ class ContacteController extends Controller
 
         return view('contacte.detail', ['contacte' => $contacte, 'empresas' => $empresas]);
     }
+
+    function import(Request $request)
+    {
+        $file = fopen($_FILES["csv"]["tmp_name"], "r");
+        $all_data = array();
+        while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+        if ($data[3] != "name") {
+            $contacte = new Contacte;
+            $contacte->name = $data[3];
+            $contacte->empresa_id = $data[4];
+            $contacte->email = $data[5];
+            $contacte->phonenumber = $data[6];
+            $contacte->save();
+        }
+        }
+        
+        return redirect()->route('contacte_list');
+    }
     
     function new(Request $request)
     {

@@ -54,6 +54,22 @@ class PoblacioController extends BaseController
             return redirect('');
         }
     }
+
+    function import(Request $request)
+    {
+        $file = fopen($_FILES["csv"]["tmp_name"], "r");
+        $all_data = array();
+        while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+            if ($data[3] != "name") {
+                $poblacio = new Poblacio;
+                $poblacio->name = $data[3];
+                $poblacio->comarca_id = $data[4];
+                $poblacio->save();
+            }
+        }
+        
+        return redirect()->route('poblacio_list');
+    }
     
     function new(Request $request) 
     {

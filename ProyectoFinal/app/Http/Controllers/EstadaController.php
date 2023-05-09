@@ -90,6 +90,28 @@ class EstadaController extends Controller
     return view('estada.detail', ['estada' => $estada, 'cursos' => $cursos, 'cicles' => $cicles, 'users' => $users, 'empresas' => $empresas]);
   }
 
+  function import(Request $request)
+  {
+      $file = fopen($_FILES["csv"]["tmp_name"], "r");
+      $all_data = array();
+      while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+      if ($data[3] != "student_name") {
+          $estada = new Estada;
+          $estada->student_name = $data[3];
+          $estada->cicle_id = $data[4];
+          $estada->empresa_id = $data[5];
+          $estada->evaluation = $data[6];
+          $estada->comment = $data[7];
+          $estada->dual = $data[8];
+          $estada->registered_by = $data[9];
+          $estada->curs_id = $data[10];
+          $estada->save();
+      }
+      }
+      
+      return redirect()->route('estada_list');
+  }
+
   function new(Request $request)
   {
     if ($request->isMethod('post')) {

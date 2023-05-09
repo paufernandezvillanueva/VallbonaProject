@@ -41,6 +41,21 @@ class CursController extends Controller
         return view('curs.detail', ['curs' => $curs]);
     }
 
+    function import(Request $request)
+    {
+        $file = fopen($_FILES["csv"]["tmp_name"], "r");
+        $all_data = array();
+        while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+            if ($data[3] != "name") {
+                $curs = new Curs;
+                $curs->name = $data[3];
+                $curs->save();
+            }
+        }
+        
+        return redirect()->route('curs_list');
+    }
+
     function new(Request $request)
     {
         if (Auth::user()->rol_id == 5076) {

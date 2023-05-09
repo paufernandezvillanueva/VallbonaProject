@@ -15,10 +15,14 @@
 <div id="filter">
     <div id="filter-header">
         <div>
-            <button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button>
+            <button id="import-button" data-bs-toggle="modal" data-bs-target="#importComarques">
+                <i class="bi bi-cloud-upload-fill"></i>
+            </button>
         </div>
         <div>
-            <button id="filter-button"><i class="bi bi-filter"></i></button>
+            <button id="filter-button">
+                <i class="bi bi-filter"></i>
+            </button>
         </div>
     </div>
     <form id="filter-form" class="filter-form filter-form-closed-base" method="POST" action="{{ route('comarca_list') }}">
@@ -126,6 +130,36 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="importComarques" tabindex="-1" aria-labelledby="importComarquesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="importComarquesLabel">Importar CSV</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <form id="addForm" name="importComarquesForm" action="{{ route('comarca_import') }}" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                @csrf
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <label class="col-form-label" for="csv">CSV</label>
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">Importar</button>
                 </div>
             </form>
         </div>

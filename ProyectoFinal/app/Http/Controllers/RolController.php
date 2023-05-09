@@ -40,6 +40,21 @@ class RolController extends Controller
         return view('rol.detail', ['rol' => $rol]);
     }
 
+    function import(Request $request)
+    {
+        $file = fopen($_FILES["csv"]["tmp_name"], "r");
+        $all_data = array();
+        while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+        if ($data[3] != "name") {
+                $rol = new Rol;
+                $rol->name = $data[3];
+                $rol->save();
+        }
+        }
+        
+        return redirect()->route('estada_list');
+    }
+
     function new(Request $request)
     {
         if (Auth::user()->rol_id == 5076) {
