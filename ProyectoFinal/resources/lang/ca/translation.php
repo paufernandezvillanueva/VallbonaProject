@@ -78,6 +78,8 @@ return [
     'user' => 'usuari',
     'update' => 'Actualitzar',
     'link_gmail' => 'Vinculat amb Gmail',
+    'list_role' => 'Llista de rols',
+    'create' => 'Crear',
 
 
 

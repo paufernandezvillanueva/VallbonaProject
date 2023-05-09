@@ -75,6 +75,9 @@ return [
     'user' => 'user',
     'update' => 'Update',
     'link_gmail' => 'Linked with Gmail',
+    'list_role' => 'List of roles',
+    'create' => 'Create',
+
 
 
 
