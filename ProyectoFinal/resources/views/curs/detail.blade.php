@@ -14,17 +14,17 @@
 <div class="containerCurs">
     <div>
         <div class="btnTorna">
-            <a href="{{ route('curs_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+            <a href="{{ route('curs_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> {{ trans('translation.back') }}</a>
         </div>
         <div class="labels">
             <div class="infoCurs">
                 <div class="list-header">
-                    <div id="info">Informació</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar</button></div>
+                    <div id="info">{{ trans('translation.info') }}</div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">{{ trans('translation.edit') }}</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
-                        <th scope="row">Curs</th>
+                        <th scope="row">{{ trans('translation.course') }}</th>
                         <td>{{ $curs->name }}</td>
                     </tr>
                 </table>
@@ -37,7 +37,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editInfoLabel">Editar curs</h5>
+                <h5 class="modal-title" id="editInfoLabel">{{ trans('translation.edit').' '.trans('translation.course') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="editCursForm" action="{{ route('curs_edit', $curs->id) }}">
@@ -45,7 +45,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="name">Nom</label>
+                            <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="name" value="{{ $curs->name }}" placeholder="Ex: 1995-1996" required/>
@@ -54,8 +54,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>

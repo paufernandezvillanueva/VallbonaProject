@@ -11,33 +11,33 @@
         <li class="nav-item">
             @if (route('empresa_list') == url()->full() || Str::contains(url()->full(), url("empresa")) || Str::contains(url()->full(), url("?")))
             <a href="{{ route('empresa_list') }}" class="nav-link text-custom actual-page" aria-current="page">
-                Empreses
+                {{ trans('translation.companies') }}
             </a>
             @else
             <a href="{{ route('empresa_list') }}" class="nav-link text-custom" aria-current="page">
-                Empreses
+                {{ trans('translation.companies') }}
             </a>
             @endif
         </li>
         <li>
             @if (Str::contains(url()->full(), url("contacte")))
             <a href="{{ route('contacte_list') }}" class="nav-link text-custom actual-page">
-                Contactes
+                {{ trans('translation.contacts') }}
             </a>
             @else
             <a href="{{ route('contacte_list') }}" class="nav-link text-custom">
-                Contactes
+                {{ trans('translation.contacts') }}
             </a>
             @endif
         </li>
         <li>
             @if (Str::contains(url()->full(), url("estada")))
             <a href="{{ route('estada_list') }}" class="nav-link text-custom actual-page">
-                Estades
+                {{ trans('translation.stays') }}
             </a>
             @else
             <a href="{{ route('estada_list') }}" class="nav-link text-custom">
-                Estades
+                {{ trans('translation.stays') }}
             </a>
             @endif
         </li>
@@ -45,66 +45,66 @@
         <li>
             @if (Str::contains(url()->full(), url("user")))
             <a href="{{ route('user_list') }}" class="nav-link text-custom actual-page">
-                Usuaris
+                {{ trans('translation.users') }}
             </a>
             @else
             <a href="{{ route('user_list') }}" class="nav-link text-custom">
-                Usuaris
+                {{ trans('translation.users') }}
             </a>
             @endif
         </li>
         <li>
             @if (Str::contains(url()->full(), url("rol")))
             <a href="{{ route('rol_list') }}" class="nav-link text-custom actual-page">
-                Rols
+                {{ trans('translation.roles') }}
             </a>
             @else
             <a href="{{ route('rol_list') }}" class="nav-link text-custom">
-                Rols
+                {{ trans('translation.roles') }}
             </a>
             @endif
         </li>
         <li>
             @if (Str::contains(url()->full(), url("curs")))
             <a href="{{ route('curs_list') }}" class="nav-link text-custom actual-page">
-                Cursos
+                {{ trans('translation.courses') }}
             </a>
             @else
             <a href="{{ route('curs_list') }}" class="nav-link text-custom">
-                Cursos
+                {{ trans('translation.courses') }}
             </a>
             @endif
         </li>
         <li>
             @if (Str::contains(url()->full(), url("cicle")))
             <a href="{{ route('cicle_list') }}" class="nav-link text-custom actual-page">
-                Cicles
+                {{ trans('translation.cicles') }}
             </a>
             @else
             <a href="{{ route('cicle_list') }}" class="nav-link text-custom">
-                Cicles
+                {{ trans('translation.cicles') }}
             </a>
             @endif
         </li>
         <li>
             @if (Str::contains(url()->full(), url("comarca")))
             <a href="{{ route('comarca_list') }}" class="nav-link text-custom actual-page">
-                Comarques
+                {{ trans('translation.regions') }}
             </a>
             @else
             <a href="{{ route('comarca_list') }}" class="nav-link text-custom">
-                Comarques
+                {{ trans('translation.regions') }}
             </a>
             @endif
         </li>
         <li>
             @if (Str::contains(url()->full(), url("poblacio")))
             <a href="{{ route('poblacio_list') }}" class="nav-link text-custom actual-page">
-                Poblacions
+                {{ trans('translation.populations') }}
             </a>
             @else
             <a href="{{ route('poblacio_list') }}" class="nav-link text-custom">
-                Poblacions
+                {{ trans('translation.populations') }}
             </a>
             @endif
         </li>
@@ -117,14 +117,14 @@
             <i class="bi bi-caret-down-fill"></i>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow login-dropdown" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="{{ route('user_profile') }}">Perfil</a></li>
+            <li><a class="dropdown-item" href="{{ route('user_profile') }}">{{ trans('translation.profile') }}</a></li>
             <input type="hidden" id="userid" value="{{ Auth::id() }}">
             <li>
                 <div class="dropdown-item">
                     @if (Auth::user()->darkmode == 0)
-                    <button id="darkmode" class="lightmode" value="0"><i class='bi bi-sun-fill'></i> Mode dia</button>
+                    <button id="darkmode" class="lightmode" value="0"><i class='bi bi-sun-fill'></i> {{ trans('translation.lightmode') }}</button>
                     @else
-                    <button id="darkmode" class="darkmode" value="1">Mode nit <i class="bi bi-moon-fill"></i></button>
+                    <button id="darkmode" class="darkmode" value="1">{{ trans('translation.darkmode') }} <i class="bi bi-moon-fill"></i></button>
                     @endif
                 </div>
             </li>
@@ -134,7 +134,7 @@
             <li>
                 <form method="POST" id="logout" action="{{ route('logout') }}">
                     @csrf
-                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">{{ trans('translation.logout') }}</a>
                 </form>
             </li>
         </ul>

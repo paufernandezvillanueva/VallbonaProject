@@ -14,33 +14,33 @@
 <div class="containerEstada">
     <div>
         <div class="btnTorna">
-            <a href="{{ route('estada_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> Torna</a>
+            <a href="{{ route('estada_list') }}"><i class="bi bi-arrow-left-circle-fill"></i> {{ trans('translation.back') }}</a>
         </div>
         <div class="labels">
             <div class="infoEstada">
                 <div class="list-header">
-                    <div id="info">Info estada</div>
-                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">Editar</button></div>
+                    <div id="info">{{ trans('translation.info').' '. trans('translation.estades')  }}</div>
+                    <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">{{ trans('translation.edit') }}</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
-                        <th scope="row">Nom Alumne</th>
+                        <th scope="row">{{ trans('translation.name_student') }}</th>
                         <td>{{ $estada->student_name }}</td>
                     </tr>
                     <tr>
-                        <th>Curs</th>
+                        <th>{{ trans('translation.course') }}</th>
                         <td>{{ $estada->curs->name }}</td>
                     </tr>
                     <tr>
-                        <th>Cicle</th>
+                        <th>{{ trans('translation.cicle') }}</th>
                         <td>{{ $estada->cicle->shortname }}</td>
                     </tr>
                     <tr>
-                        <th>Tutor</th>
+                        <th>{{ trans('translation.tutor') }}</th>
                         <td>{{ $estada->tutor() }}</td>
                     </tr>
                     <tr>
-                        <th>Tipus estada</th>
+                        <th>{{ trans('translation.stay_type') }}</th>
                         <td>
                             @if ($estada->dual == true)
                                 Dual
@@ -50,15 +50,15 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>Empresa</th>
+                        <th>{{ trans('translation.company') }}</th>
                         <td>{{ $estada->empresa->name }}</td>
                     </tr>
                     <tr>
-                        <th>Valoració</th>
+                        <th>{{ trans('translation.valoration') }}</th>
                         <td>{{ $estada->evaluation }}</td>
                     </tr>
                     <tr>
-                        <th>Comentari</th>
+                        <th>{{ trans('translation.comment') }}</th>
                         <td>{{ $estada->comment }}</td>
                     </tr>
                 </table>
@@ -71,7 +71,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editInfoLabel">Editar estada</h5>
+                <h5 class="modal-title" id="editInfoLabel">{{ trans('translation.edit_stay') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="editEstadaForm" action="{{ route('estada_edit', $estada->id) }}">
@@ -79,7 +79,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" id="student_name" for="student_name">Nom Estudiant</label>
+                            <label class="col-form-label" id="student_name" for="student_name">{{ trans('translation.name_student') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="student_name" value="{{ $estada->student_name }}" required/>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="curs_id">Curs</label>
+                            <label class="col-form-label" for="curs_id">{{ trans('translation.course') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="curs_id">
@@ -105,7 +105,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="cicle_id">Cicle</label>
+                            <label class="col-form-label" for="cicle_id">{{ trans('translation.cicle') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="cicle_id">
@@ -122,7 +122,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="registered_by">Tutor</label>
+                            <label class="col-form-label" for="registered_by">{{ trans('translation.registered_by') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="registered_by">
@@ -139,7 +139,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label"for="dual">Tipus d'estada</label>
+                            <label class="col-form-label"for="dual">{{ trans('translation.stay_type') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="dual">
@@ -156,7 +156,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="empresa_id">Empresa</label>
+                            <label class="col-form-label" for="empresa_id">{{ trans('translation.company') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="empresa_id">
@@ -173,7 +173,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="evaluation">Valoració</label>
+                            <label class="col-form-label" for="evaluation">{{ trans('translation.valoration') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="number" name="evaluation" value="{{ $estada->evaluation }}" min="0" max="10" required/>
@@ -182,7 +182,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="comment">Comentari</label>
+                            <label class="col-form-label" for="comment">{{ trans('translation.comment') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <textarea class="form-control" name="comment">{{ $estada->comment }}</textarea>
@@ -190,8 +190,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>

@@ -19,7 +19,7 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-3 col-sm-3">
-                                        <label for="name" class="col-form-label">{{ __('Nom:') }}</label>
+                                        <label for="name" class="col-form-label">{{ trans('translation.name').':' }}</label>
                                     </div>
                                     <div class="col-md-9 col-sm-9">
                                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}" required autocomplete="name" autofocus>
@@ -34,7 +34,7 @@
 
                                 <div class="row">
                                     <div class="col-md-3 col-sm-3">
-                                        <label for="email" class="col-form-label">{{ __('Email:') }}</label>
+                                        <label for="email" class="col-form-label">{{ trans('translation.email').':' }}</label>
                                     </div>
 
                                     <div class="col-md-9 col-sm-9">
@@ -50,7 +50,7 @@
 
                                 <div class="row">
                                     <div class="col-md-3 col-sm-3">
-                                        <label for="password" class="col-form-label">{{ __('Contrasenya:') }}</label>
+                                        <label for="password" class="col-form-label">{{ trans('translation.password').':' }}</label>
                                     </div>
 
                                     <div class="col-md-9 col-sm-9">
@@ -66,7 +66,7 @@
 
                                 <div class="row">
                                     <div class="col-md-3 col-sm-3">
-                                        <label for="password-confirm" class="col-form-label">{{ __('Confirmar contrasenya:') }}</label>
+                                        <label for="password-confirm" class="col-form-label">{{ trans('translation.confirm').' '.trans('translation.password').':' }}</label>
                                     </div>
 
                                     <div class="col-md-9 col-sm-9">
@@ -76,7 +76,7 @@
 
                                 <div class="row">
                                     <div class="col-form-label">
-                                        {{ __('Vinculado con gmail:') }}
+                                        {{ trans('translation.link_gmail').':' }}
                                         @if (Auth::user()->google_id == null)
                                             <i class="bi bi-x-lg text-danger ms-1"></i>
                                         @else
@@ -87,7 +87,7 @@
 
                                 <div id="card-form-button">
                                     <button type="submit" class="btn btn-secondary">
-                                        {{ __('Actualitzar') }}
+                                        {{ trans('translation.update') }}
                                     </button>
                                 </div>
                             </form>

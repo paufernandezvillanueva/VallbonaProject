@@ -9,7 +9,7 @@
 
 @section('content')
 <div class="titulo">
-    <h1>Llistat d'usuaris</h1>
+    <h1>{{ trans('translation.list_user') }}</h1>
 </div>
 
 <div id="filter">
@@ -29,7 +29,7 @@
         @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-lg-1 col-3">
-                <label for="name">Nom:</label>
+                <label for="name">{{ trans('translation.name') }}:</label>
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->name) && $request->name != "")
@@ -39,12 +39,12 @@
                 @endif
             </div>
             <div class="col-lg-1 offset-lg-1 col-3">
-                <label for="rol">Rol:</label>
+                <label for="rol">{{ trans('translation.role') }}:</label>
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->rol) && $request->rol != "")
                 <select class="form-select" id="rol" name="rol" value="{{ $request->rol }}">
-                    <option value="">Selecciona un rol...</option>
+                    <option value="">{{ trans('translation.select_rol') }}</option>
                     @foreach($rols as $rol)
                     @if ($request->rol == $rol->id)
                     <option value="{{ $rol->id }}" selected>{{ $rol->name }}</option>
@@ -55,7 +55,7 @@
                 </select>
                 @else
                 <select class="form-select" id="rol" name="rol">
-                    <option value="">Selecciona un rol...</option>
+                    <option value="">{{ trans('translation.select_rol') }}</option>
                     @foreach($rols as $rol)
                     <option value="{{ $rol->id }}">{{ $rol->name }}</option>
                     @endforeach
@@ -65,12 +65,12 @@
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-lg-1 col-3">
-                <label for="cicle">Cicle:</label>
+                <label for="cicle">{{ trans('translation.cicle') }}:</label>
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->cicle) && $request->cicle != "")
                 <select class="form-select" id="cicle" name="cicle" value="{{ $request->cicle }}">
-                    <option value="">Selecciona un cicle...</option>
+                    <option value="">{{ trans('translation.select_cicle') }}</option>
                     @foreach($cicles as $cicle)
                     @if ($request->cicle == $cicle->id)
                     <option value="{{ $cicle->id }}" selected>{{ $cicle->shortname }} - {{ $cicle->name }}</option>
@@ -81,7 +81,7 @@
                 </select>
                 @else
                 <select class="form-select" id="cicle" name="cicle">
-                    <option value="">Selecciona un cicle...</option>
+                    <option value="">{{ trans('translation.select_cicle') }}</option>
                     @foreach($cicles as $cicle)
                     <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                     @endforeach
@@ -92,8 +92,8 @@
             <div class="col-lg-4 col-9"></div>
         </div>
         <div id="filter-form-button">
-            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />
-            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="Filtrar" />
+            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="{{ trans('translation.reset') }}" />
+            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="{{ trans('translation.filter') }}" />
         </div>
     </form>
 </div>
@@ -102,7 +102,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="newUsuariLabel">Afegir usuari</h5>
+                <h5 class="modal-title" id="newUsuariLabel">{{ trans('translation.create_user') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addUserForm" action="{{ route('user_new') }}">
@@ -110,7 +110,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="name">Nom</label>
+                            <label class="col-form-label" for="firstname">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="name" />
@@ -119,7 +119,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="email">Correu electrònic</label>
+                            <label class="col-form-label" for="email">{{ trans('translation.email') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="email" />
@@ -128,11 +128,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="cicle_id">Cicle</label>
+                            <label class="col-form-label" for="cicle_id">{{ trans('translation.cicle') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="cicle_id">
-                                <option value="default">Selecciona un cicle...</option>
+                                <option value="default">{{ trans('translation.select_cicle') }}</option>
                                 @foreach ($cicles as $cicle)
                                 <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
                                 @endforeach
@@ -142,11 +142,11 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="rol_id">Rol</label>
+                            <label class="col-form-label" for="rol_id">{{ trans('translation.role') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <select class="form-select" name="rol_id">
-                                <option value="default">Selecciona un rol...</option>
+                                <option value="default">{{ trans('translation.select_rol') }}</option>
                                 @foreach ($rols as $rol)
                                 <option value="{{ $rol->id }}">{{ $rol->name }}</option>
                                 @endforeach
@@ -156,8 +156,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>
@@ -174,10 +174,10 @@
     <table id="usuari-table" class="table table-striped table-dark">
         <thead>
             <tr>
-                <th>Nom</th>
-                <th>Correu electrònic</th>
-                <th>Cicle</th>
-                <th>Rol</th>
+                <th>{{ trans('translation.name') }}</th>
+                <th>{{ trans('translation.email') }}</th>
+                <th>{{ trans('translation.cicle') }}</th>
+                <th>{{ trans('translation.role') }}</th>
                 <th>
                     <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newUsuari">
                         <i class="bi bi-plus-square-fill"></i>
@@ -217,7 +217,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar usuari</h5>
+                <h5 class="modal-title" id="confirmDeleteLabel">{{ trans('translation.delete') .' '. trans('translation.user') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="GET">
@@ -232,11 +232,11 @@
                             });
                         });
                     </script>
-                    <p>Estàs segur de voler eliminar aquest usuari?</p>
+                    <p>{{ trans('translation.confirm_delete') }}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-success" id="btnConfirmar">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>
