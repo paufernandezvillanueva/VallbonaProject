@@ -52,7 +52,7 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" value="{{ $poblacio->name }}" required/>
+                            <input class="form-control" type="text" name="name" value="{{ $poblacio->name }}" />
                         </div>
                         <div class="error" id="name-edit-poblacio-error"></div>
                     </div>

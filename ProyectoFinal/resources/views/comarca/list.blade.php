@@ -92,7 +92,7 @@
                             <label class="col-form-label" for="name">Nom</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" required />
+                            <input class="form-control" type="text" name="name"  />
                         </div>
                         <div class="error" id="name-add-comarca-error"></div>
                     </div>

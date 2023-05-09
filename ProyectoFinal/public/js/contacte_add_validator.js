@@ -1,10 +1,9 @@
 let contacte_add_control = {
-    "name": [isAlphabet, "El nom no pot tenir numeros o simbols"],
-    "empresa_id": [madeSelection, "Cal escollir una empresa"],
-    "email": [emailValidator, "Aquest correu electrònic no es valid"],
-    "phonenumber": [isPhonenumber, "Aquest telefon no es valid"]
+    "name": [isAlphabet, "El nom no pot tenir números o símbols"],
+    "empresa_id": [madeSelection, "Cal escollir una comarca"],
+    "email": [emailValidatorOrNull, "Aquest correu electrònic no és valid"],
+    "phonenumber": [isPhonenumberOrNull, "Aquest telèfon no es valid"]
 };
-
 
 window.onload = function() {
     document.forms['addContacteForm'].addEventListener("submit", formValidator);

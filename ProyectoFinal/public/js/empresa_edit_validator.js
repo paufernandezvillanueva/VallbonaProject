@@ -108,9 +108,9 @@ function madeSelectionEmpresa(elem, helperMsg) {
 }
 
 let contacte_add_control = {
-    "name": [isAlphabetContacte, "El nom no pot tenir numeros o simbols"],
-    "email": [emailValidatorContacte, "Aquest correu electrònic no es valid"],
-    "phonenumber": [isPhonenumberContacte, "Aquest telefon no es valid"]
+    "name": [isAlphabetContacte, "El nom no pot tenir números o símbols"],
+    "email": [emailValidatorContacte, "Aquest correu electrònic no és vàlid"],
+    "phonenumber": [isPhonenumberContacte, "Aquest telèfon no és valid"]
 };
 
 function formValidatorContacte(e) {
@@ -175,7 +175,7 @@ function madeSelectionContacte(elem, helperMsg) {
 }
 
 function emailValidatorContacte(elem, helperMsg) {
-    var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+    var emailExp = /^([\wçÇñÑ\-\.\+]+@[a-zA-Z0-9çÇñÑ\.\-]+\.[a-zA-Z0-9çÇñÑ]{2,})?$/;
     var result = true;
     if (!elem.value.match(emailExp)) {
         result = false;
@@ -186,7 +186,7 @@ function emailValidatorContacte(elem, helperMsg) {
 }
 
 function isPhonenumberContacte(elem, helperMsg) {
-    var phoneExp = /^[0-9]{9}$/;
+    var phoneExp = /^([0-9]{9})?$/;
     var result = false;
     if (elem.value.match(phoneExp)) {
         result = true;
@@ -268,9 +268,13 @@ function madeSelectionEstada(elem, helperMsg) {
 function lengthRestrictionEstada(elem) {
     var uInput = elem.value;
     var result = false;
-    if (uInput >= 10 && uInput <= 10) {
+    if (uInput >= 0 && uInput <= 10) {
         result = true;
     }
-    tractarErrorEstada(elem, result, "La valoracio ha de ser entre " + 0 + " i " + 10);
+    tractarError(
+        elem,
+        result,
+        "La valoració ha de ser entre " + 0 + " i " + 10
+    );
     return result;
 }

@@ -260,7 +260,7 @@
                             <label class="col-form-label" for="cif">{{ trans('translation.cif') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" required />
+                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000"  />
                         </div>
                         <div class="error" id="cif-add-empresa-error"></div>
                     </div>
@@ -269,7 +269,7 @@
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" required />
+                            <input class="form-control" type="text" name="name"  />
                         </div>
                         <div class="error" id="name-add-empresa-error"></div>
                     </div>

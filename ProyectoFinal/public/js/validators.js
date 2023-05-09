@@ -82,8 +82,8 @@ function oneIsSelected(elem, helperMsg) {
     return result;
 }
 
-function emailValidator(elem, helperMsg) {
-    var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+function emailValidatorOrNull(elem, helperMsg) {
+    var emailExp = /^([\wçÇñÑ\-\.\+]+@[a-zA-Z0-9çÇñÑ\.\-]+\.[a-zA-Z0-9çÇñÑ]{2,})?$/;
     var result = true;
     if (!elem.value.match(emailExp)) {
         result = false;
@@ -112,8 +112,8 @@ function isCIF(elem, helperMsg) {
     return result;
 }
 
-function isPhonenumber(elem, helperMsg) {
-    var phoneExp = /^[0-9]{9}$/;
+function isPhonenumberOrNull(elem, helperMsg) {
+    var phoneExp = /^([0-9]{9})?$/;
     var result = false;
     if (elem.value.match(phoneExp)) {
         result = true;
