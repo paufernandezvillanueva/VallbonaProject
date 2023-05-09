@@ -9,14 +9,14 @@
 
 @section('content')
 <div class="titulo">
-    <h1>Llistat de cursos</h1>
+    <h1>{{ trans('translation.list_curs') }}</h1>
 </div>
 
 <div class="modal fade" id="newCurs" tabindex="-1" aria-labelledby="newCursLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" style="width: 100%; text-align: center;" id="newCursLabel">Afegir curs</h5>
+                <h5 class="modal-title" style="width: 100%; text-align: center;" id="newCursLabel">{{ trans('translation.create').' '. trans('translation.course')  }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addCursForm" action="{{ route('curs_new') }}">
@@ -24,7 +24,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
-                            <label class="col-form-label" for="name">Nom</label>
+                            <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
                             <input class="form-control" type="text" name="name" placeholder="Ex: 1995-1996" required />
@@ -33,8 +33,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>
@@ -54,7 +54,7 @@
         @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-md-1">
-                <label for="name">Nom:</label>
+                <label for="name">{{ trans('translation.name') }}:</label>
             </div>
             <div class="col-md-4">
                 @if (isset($request->name) && $request->name != "")
@@ -69,8 +69,8 @@
             </div>
         </div>
         <div id="filter-form-button">
-            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="Reiniciar" />
-            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="Filtrar" />
+            <input class="btn btn-danger" type="button" onclick="reiniciarFiltres()" value="{{ trans('translation.reset') }}" />
+            <input class="btn btn-secondary" type="submit" id="btnFiltrar" value="{{ trans('translation.filter') }}" />
         </div>
     </form>
 </div>
@@ -79,7 +79,7 @@
     <table id="curs-table" class="table table-striped table-dark">
         <thead>
             <tr>
-                <th>Nom</th>
+                <th>{{ trans('translation.name') }}</th>
                 <th>
                     <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newCurs">
                         <i class="bi bi-plus-square-fill"></i>
@@ -106,7 +106,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="confirmDeleteLabel">Eliminar curs</h5>
+                <h5 class="modal-title" id="confirmDeleteLabel">{{ trans('translation.delete').' '.trans('translation.course') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="GET">
@@ -121,11 +121,11 @@
                         });
                     </script>
                     @csrf
-                    <p>Estàs segur de voler eliminar aquest curs?</p>
+                    <p>{{ trans('translation.confirm_delete') }}</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-success" id="btnConfirmar">Confirmar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-success" id="btnConfirmar">{{ trans('translation.confirm') }}</button>
                 </div>
             </form>
         </div>

@@ -77,6 +77,8 @@ return [
     'link_gmail' => 'Vinculado con Gmail',
     'list_role' => 'List of roles',
     'create' => 'Crear',
+    'list_curs' => 'Lista de cursos',
+
 
 
 

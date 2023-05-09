@@ -80,6 +80,7 @@ return [
     'link_gmail' => 'Vinculat amb Gmail',
     'list_role' => 'Llista de rols',
     'create' => 'Crear',
+    'list_curs' => 'Llista de cursos',
 
 
 
