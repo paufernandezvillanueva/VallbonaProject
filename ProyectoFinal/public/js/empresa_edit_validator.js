@@ -1,7 +1,7 @@
 let empresa_edit_control = {
     "cif": [isCIFEmpresa, "El CIF introduit no és vàlid"],
     "name": [isAlphabetEmpresa, "El nom no pot tenir números o símbols"],
-    "sector": [isAlphabetEmpresa, "El sector no pot tenir números o símbols"],
+    "sector": [isAlphabetEmpresaOrNull, "El sector no pot tenir números o símbols"],
     "comarca_id": [madeSelectionEmpresa, "Cal escollir una comarca"],
     "poblacio_id": [madeSelectionEmpresa, "Cal escollir una població"]
 };
@@ -80,6 +80,16 @@ function isCIFEmpresa(elem, helperMsg) {
 
 function isAlphabetEmpresa(elem, helperMsg) {
     var alphaExp = /^[A-Za-zà-üÀ-Ü ]+$/;
+    var result = false;
+    if (elem.value.match(alphaExp)) {
+        result = true;
+    }
+    tractarErrorEmpresa(elem, result, helperMsg);
+    return result;
+}
+
+function isAlphabetEmpresaOrNull(elem, helperMsg) {
+    var alphaExp = /^[A-Za-zà-üÀ-Ü ]*$/;
     var result = false;
     if (elem.value.match(alphaExp)) {
         result = true;

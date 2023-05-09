@@ -27,6 +27,16 @@ function isAlphabet(elem, helperMsg) {
     return result;
 }
 
+function isAlphabetOrNull(elem, helperMsg) {
+    var alphaExp = /^[A-Za-zà-üÀ-Ü ]*$/;
+    var result = false;
+    if (elem.value.match(alphaExp)) {
+        result = true;
+    }
+    tractarError(elem, result, helperMsg);
+    return result;
+}
+
 function isAlphanumeric(elem, helperMsg) {
     var alphaExp = /^[0-9a-zA-Z]+$/;
     var result = false;
@@ -43,7 +53,11 @@ function lengthRestriction(elem) {
     if (uInput >= 0 && uInput <= 10) {
         result = true;
     }
-    tractarError(elem, result, "La valoració ha de ser entre " + 0 + " i " + 10);
+    tractarError(
+        elem,
+        result,
+        "La valoració ha de ser entre " + 0 + " i " + 10
+    );
     return result;
 }
 
