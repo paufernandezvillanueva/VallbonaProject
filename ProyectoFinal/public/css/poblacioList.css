@@ -1,15 +1,12 @@
-@media screen and (max-width: 738px) {
-    .table-responsive {
-        width: 95%;
-        margin: auto;
-    }
+.container {
+    min-width: 460px;
 }
 
 #poblacio-table {
     margin-bottom: 10px;
 }
 
-.modal-body>.row {
+.modal-body > .row {
     margin-top: 5px;
     margin-left: 10px;
 }
@@ -27,22 +24,13 @@
 }
 
 .iconAdd {
-color: var(--text-color);
-text-decoration: none;
-}
-
-.iconAdd:hover {
-color: rgb(0, 132, 255);
-cursor: pointer;
-}
-
-.iconBasura {
+    color: var(--text-color);
     text-decoration: none;
 }
 
-.iconBasura:hover {
+.iconAdd:hover {
+    color: rgb(0, 132, 255);
     cursor: pointer;
-    color: red;
 }
 
 #poblacio-table thead th {
@@ -73,7 +61,7 @@ cursor: pointer;
 
 #poblacio-table tbody tr:hover td {
     box-shadow: inset 0 0 0 9999px var(--table-hover);
-} 
+}
 
 #poblacio-table tbody .iconBasura {
     text-decoration: none;
@@ -97,4 +85,26 @@ cursor: pointer;
 
 #poblacio-table tbody tr td:nth-of-type(2) a:hover {
     color: rgb(0, 132, 255);
+}
+
+@media screen and (min-width: 992px) {
+    .filter-form div label {
+        float: none;
+        margin-left: -7px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .filter-form div label {
+        float: none;
+        margin-left: 35px;
+    }
+
+    #filter-form .row {
+        padding-right: 20px;
+    }
+
+    #filter-form .row .row {
+        padding-right: 0px;
+    }
 }

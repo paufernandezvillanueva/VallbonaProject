@@ -1,5 +1,5 @@
 .container {
-    min-width: 405px;
+    min-width: 500px;
 }
 
 @media screen and (max-width: 991px) {
@@ -128,15 +128,14 @@
 @media screen and (max-width: 991px) {
     .filter-form div label {
         float: none;
-        margin-top: 20px;
-        margin-left: 15px;
+        margin-left: 35px;
     }
 
     #filter-form .row {
         padding-right: 20px;
     }
-    
-    #filter-form .row .row{
+
+    #filter-form .row .row {
         padding-right: 0px;
     }
 }

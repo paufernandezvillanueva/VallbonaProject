@@ -217,6 +217,7 @@
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="GET">
+                @csrf
                 <div class="modal-body">
                     <script>
                         document.querySelectorAll('.iconBasura').forEach(elem => {
@@ -227,7 +228,6 @@
                             });
                         });
                     </script>
-                    @csrf
                     <p>Estàs segur de voler eliminar aquest usuari?</p>
                 </div>
                 <div class="modal-footer">
