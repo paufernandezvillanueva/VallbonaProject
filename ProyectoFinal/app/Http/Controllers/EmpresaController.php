@@ -119,6 +119,24 @@ class EmpresaController extends BaseController
     "users" => $users, "cursos" => $cursos, "cicles" => $cicles, "comarques" => $comarques, "sectors" => $sectors]);
   }
 
+  function import(Request $request)
+  {
+    $file = fopen($_FILES["csv"]["tmp_name"], "r");
+    $all_data = array();
+    while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+      if ($data[3] != "cif") {
+        $empresa = new Empresa;
+        $empresa->cif = $data[3];
+        $empresa->name = $data[4];
+        $empresa->sector = $data[5];
+        $empresa->poblacio_id = $data[6];
+        $empresa->save();
+      }
+    }
+    
+    return redirect()->route('empresa_list');
+  }
+
   function edit(Request $request, $id)
   {
     $empresa = Empresa::find($id);

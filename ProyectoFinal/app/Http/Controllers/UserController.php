@@ -53,6 +53,69 @@ class UserController extends BaseController
     }
   }
 
+  function import(Request $request)
+  {
+      $file = fopen($_FILES["csv"]["tmp_name"], "r");
+      $all_data = array();
+      while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+        if ($data[3] != "name") {
+          $user = new User;
+          $user->name = $data[3];
+          $user->email = $data[4];
+
+          if ($data[5] != 'NULL') {
+            $user->email_verified_at = $data[5];
+          }
+
+          $user->password = $data[6];
+
+          if ($data[7] != 'NULL') {
+            $user->two_factor_secret = $data[7];
+          }
+
+          if ($data[8] != 'NULL') {
+            $user->two_factor_recovery_codes = $data[8];
+          }
+
+          if ($data[9] != 'NULL') {
+            $user->two_factor_confirmed_at = $data[9];
+          }
+
+          if ($data[10] != 'NULL') {
+            $user->remember_token = $data[10];
+          }
+
+          if ($data[11] != 'NULL') {
+            $user->current_team_id = $data[11];
+          }
+
+          if ($data[12] != 'NULL') {
+            $user->profile_photo_path = $data[12];
+          }
+
+          if ($data[13] != 'NULL') {
+            $user->darkmode = $data[13];
+          }
+
+          if ($data[14] != 'NULL') {
+            $user->cicle_id = $data[14];
+          }
+
+          $user->rol_id = $data[15];
+
+          if ($data[16] != 'NULL') {
+            $user->google_id = $data[16];
+          } else {
+            $user->google_id = null;
+          }
+          
+          $user->save();
+        }
+      }
+      
+      return redirect()->route('user_list');
+  }
+
   function profile()
   {
     $user = auth()->user();

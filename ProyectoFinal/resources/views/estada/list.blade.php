@@ -14,7 +14,11 @@
 
 <div id="filter">
     <div id="filter-header">
-        <div><button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button></div>
+        <div>
+            <button id="import-button" data-bs-toggle="modal" data-bs-target="#importEstades">
+                <i class="bi bi-cloud-upload-fill"></i>
+            </button>
+        </div>
         <div>
             <button id="filter-button">
                 <i class="bi bi-filter"></i>
@@ -383,6 +387,35 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="importEstades" tabindex="-1" aria-labelledby="importEstadesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="importEstadesLabel">Importar CSV</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form id="addForm" name="importEstadesForm" action="{{ route('estada_import') }}" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                @csrf
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <label class="col-form-label" for="csv">CSV</label>
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">Importar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
