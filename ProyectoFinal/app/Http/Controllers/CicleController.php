@@ -35,8 +35,27 @@ class CicleController extends Controller
     function detail(Request $request, $id)
     {
         $cicle = Cicle::find($id);
+        if (!isset($cicle->id)) {
+            return redirect()->route('cicle_list');
+        }
 
         return view('cicle.detail', ['cicle' => $cicle]);
+    }
+
+    function import(Request $request)
+    {
+        $file = fopen($_FILES["csv"]["tmp_name"], "r");
+        $all_data = array();
+        while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+            if ($data[3] != "shortname") {
+                $cicle = new Cicle;
+                $cicle->shortname = $data[3];
+                $cicle->name = $data[4];
+                $cicle->save();
+            }
+        }
+        
+        return redirect()->route('cicle_list');
     }
 
     function new(Request $request)

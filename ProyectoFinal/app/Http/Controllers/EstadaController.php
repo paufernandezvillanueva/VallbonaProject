@@ -41,7 +41,7 @@ class EstadaController extends Controller
     }
     if (isset($request->registeredBy)) {
       if ($request->registeredBy != "") {
-        $estadas = $estadas->where('users.name', 'like', "%" . $request->registeredBy . "%")->orWhere('users.lastname', 'like', "%" . $request->registeredBy . "%");
+        $estadas = $estadas->where('users.name', 'like', "%" . $request->registeredBy . "%");
       }
     }
 
@@ -82,12 +82,37 @@ class EstadaController extends Controller
   function detail(Request $request, $id)
   {
     $estada = Estada::find($id);
+    if (!isset($estada->id)) {
+      return redirect()->route('estada_list');
+    }
     $cursos = Curs::all();
     $cicles = Cicle::all();
     $users = User::all();
     $empresas = Empresa::all();
 
     return view('estada.detail', ['estada' => $estada, 'cursos' => $cursos, 'cicles' => $cicles, 'users' => $users, 'empresas' => $empresas]);
+  }
+
+  function import(Request $request)
+  {
+      $file = fopen($_FILES["csv"]["tmp_name"], "r");
+      $all_data = array();
+      while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+      if ($data[3] != "student_name") {
+          $estada = new Estada;
+          $estada->student_name = $data[3];
+          $estada->cicle_id = $data[4];
+          $estada->empresa_id = $data[5];
+          $estada->evaluation = $data[6];
+          $estada->comment = $data[7];
+          $estada->dual = $data[8];
+          $estada->registered_by = $data[9];
+          $estada->curs_id = $data[10];
+          $estada->save();
+      }
+      }
+      
+      return redirect()->route('estada_list');
   }
 
   function new(Request $request)

@@ -13,6 +13,7 @@ use App\Http\Controllers\EstadaController;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\CursController;
 use App\Http\Controllers\LoginWithGoogleController;
+use App\Http\Controllers\Controller;
 
 
 Route::get('authorized/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
@@ -58,6 +59,8 @@ Route::get('/empresa/delete/{id}', [EmpresaController::class, 'delete'])->name('
 
 Route::match(['get', 'post'], '/empresa/detail/{id}', [EmpresaController::class, 'detail'])->name('empresa_detail')->middleware('auth');
 
+Route::match(['get', 'post'], '/empresa/import', [EmpresaController::class, 'import'])->name('empresa_import')->middleware('auth');
+
 //// CONTACTES
 
 Route::match(['get', 'post'],'/contacte/list', [ContacteController::class, 'list'])->name('contacte_list')->middleware('auth');
@@ -70,6 +73,8 @@ Route::get('/contacte/delete/{id}', [ContacteController::class, 'delete'])->name
 
 Route::match(['get', 'post'], '/contacte/detail/{id}', [ContacteController::class, 'detail'])->name('contacte_detail')->middleware('auth');
 
+Route::match(['get', 'post'], '/contacte/import', [ContacteController::class, 'import'])->name('contacte_import')->middleware('auth');
+
 //// ESTADES
 
 Route::match(['get', 'post'],'/estada/list', [EstadaController::class, 'list'])->name('estada_list')->middleware('auth');
@@ -81,6 +86,8 @@ Route::match(['get', 'post'], '/estada/new', [EstadaController::class, 'new'])->
 Route::get('/estada/delete/{id}', [EstadaController::class, 'delete'])->name('estada_delete')->middleware('auth');
 
 Route::match(['get', 'post'], '/estada/detail/{id}', [EstadaController::class, 'detail'])->name('estada_detail')->middleware('auth');
+
+Route::match(['get', 'post'], '/estada/import', [EstadaController::class, 'import'])->name('estada_import')->middleware('auth');
 
 //// USERS
 
@@ -98,6 +105,8 @@ Route::get('/user/delete/{id}', [UserController::class, 'delete'])->name('user_d
 
 Route::match(['get', 'post'], '/user/detail/{id}', [UserController::class, 'detail'])->name('user_detail')->middleware('auth');
 
+Route::match(['get', 'post'], '/user/import', [UserController::class, 'import'])->name('user_import')->middleware('auth');
+
 ////ROLS
 
 Route::match(['get', 'post'],'/rol/list', [RolController::class, 'list'])->name('rol_list')->middleware('auth');
@@ -109,6 +118,8 @@ Route::match(['get', 'post'], '/rol/new', [RolController::class, 'new'])->name('
 Route::get('/rol/delete/{id}', [RolController::class, 'delete'])->name('rol_delete')->middleware('auth');
 
 Route::match(['get', 'post'], '/rol/detail/{id}', [RolController::class, 'detail'])->name('rol_detail')->middleware('auth');
+
+Route::match(['get', 'post'], '/rol/import', [RolController::class, 'import'])->name('rol_import')->middleware('auth');
 
 //// CURSOS
 
@@ -122,6 +133,8 @@ Route::get('/curs/delete/{id}', [CursController::class, 'delete'])->name('curs_d
 
 Route::match(['get', 'post'], '/curs/detail/{id}', [CursController::class, 'detail'])->name('curs_detail')->middleware('auth');
 
+Route::match(['get', 'post'], '/curs/import', [CursController::class, 'import'])->name('curs_import')->middleware('auth');
+
 //// CICLES
 
 Route::match(['get', 'post'],'/cicle/list', [CicleController::class, 'list'])->name('cicle_list')->middleware('auth');
@@ -133,6 +146,8 @@ Route::match(['get', 'post'], '/cicle/new', [CicleController::class, 'new'])->na
 Route::get('/cicle/delete/{id}', [CicleController::class, 'delete'])->name('cicle_delete')->middleware('auth');
 
 Route::match(['get', 'post'], '/cicle/detail/{id}', [CicleController::class, 'detail'])->name('cicle_detail')->middleware('auth');
+
+Route::match(['get', 'post'], '/cicle/import', [CicleController::class, 'import'])->name('cicle_import')->middleware('auth');
 
 ////COMARCAS
 
@@ -146,6 +161,8 @@ Route::get('/comarca/delete/{id}', [ComarcaController::class, 'delete'])->name('
 
 Route::match(['get', 'post'], '/comarca/detail/{id}', [ComarcaController::class, 'detail'])->name('comarca_detail')->middleware('auth');
 
+Route::match(['get', 'post'], '/comarca/import', [ComarcaController::class, 'import'])->name('comarca_import')->middleware('auth');
+
 //// POBLACIONS
 
 Route::match(['get', 'post'],'/poblacio/list', [PoblacioController::class, 'list'])->name('poblacio_list')->middleware('auth');
@@ -157,6 +174,8 @@ Route::match(['get', 'post'], '/poblacio/new', [PoblacioController::class, 'new'
 Route::get('/poblacio/delete/{id}', [PoblacioController::class, 'delete'])->name('poblacio_delete')->middleware('auth');
 
 Route::match(['get', 'post'], '/poblacio/detail/{id}', [PoblacioController::class, 'detail'])->name('poblacio_detail')->middleware('auth');
+
+Route::match(['get', 'post'], '/poblacio/import', [PoblacioController::class, 'import'])->name('poblacio_import')->middleware('auth');
 
 require __DIR__.'/auth.php';
 

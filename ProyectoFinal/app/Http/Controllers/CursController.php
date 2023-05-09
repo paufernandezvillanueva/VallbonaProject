@@ -37,8 +37,26 @@ class CursController extends Controller
     function detail(Request $request, $id)
     {
         $curs = Curs::find($id);
+        if (!isset($curs->id)) {
+          return redirect()->route('curs_list');
+        }
 
         return view('curs.detail', ['curs' => $curs]);
+    }
+
+    function import(Request $request)
+    {
+        $file = fopen($_FILES["csv"]["tmp_name"], "r");
+        $all_data = array();
+        while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+            if ($data[3] != "name") {
+                $curs = new Curs;
+                $curs->name = $data[3];
+                $curs->save();
+            }
+        }
+        
+        return redirect()->route('curs_list');
     }
 
     function new(Request $request)

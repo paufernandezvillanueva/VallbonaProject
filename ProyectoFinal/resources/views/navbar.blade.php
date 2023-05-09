@@ -1,6 +1,6 @@
 
 
-<div id="navbar" class="flex-column flex-shrink-0 p-3 text-custom bg-2" style="width: 200px; height: 100vh; display:flex">
+<div id="navbar" class="flex-column flex-shrink-0 text-custom bg-2 navbar-origin-open" style="width: 200px; height: 100vh; display:flex">
     <a id="navbar-header" href="{{ route('empresa_list') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-custom text-decoration-none">
         <span class="fs-3 logo">
             <img src=" {{ asset ('/img/logo-vallbona.png' )}}" alt="Vallbona" height="85px">
@@ -9,7 +9,7 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            @if (route('empresa_list') == url()->full())
+            @if (route('empresa_list') == url()->full() || Str::contains(url()->full(), url("empresa")) || Str::contains(url()->full(), url("?")))
             <a href="{{ route('empresa_list') }}" class="nav-link text-custom actual-page" aria-current="page">
                 {{ trans('translation.companies') }}
             </a>
@@ -20,7 +20,7 @@
             @endif
         </li>
         <li>
-            @if (route('contacte_list') == url()->full())
+            @if (Str::contains(url()->full(), url("contacte")))
             <a href="{{ route('contacte_list') }}" class="nav-link text-custom actual-page">
                 {{ trans('translation.contacts') }}
             </a>
@@ -31,7 +31,7 @@
             @endif
         </li>
         <li>
-            @if (route('estada_list') == url()->full())
+            @if (Str::contains(url()->full(), url("estada")))
             <a href="{{ route('estada_list') }}" class="nav-link text-custom actual-page">
                 {{ trans('translation.stays') }}
             </a>
@@ -43,7 +43,7 @@
         </li>
         @if (Auth::user()->rol_id == 5076)
         <li>
-            @if (route('user_list') == url()->full())
+            @if (Str::contains(url()->full(), url("user")))
             <a href="{{ route('user_list') }}" class="nav-link text-custom actual-page">
                 {{ trans('translation.users') }}
             </a>
@@ -54,7 +54,7 @@
             @endif
         </li>
         <li>
-            @if (route('rol_list') == url()->full())
+            @if (Str::contains(url()->full(), url("rol")))
             <a href="{{ route('rol_list') }}" class="nav-link text-custom actual-page">
                 {{ trans('translation.roles') }}
             </a>
@@ -65,7 +65,7 @@
             @endif
         </li>
         <li>
-            @if (route('curs_list') == url()->full())
+            @if (Str::contains(url()->full(), url("curs")))
             <a href="{{ route('curs_list') }}" class="nav-link text-custom actual-page">
                 {{ trans('translation.courses') }}
             </a>
@@ -76,7 +76,7 @@
             @endif
         </li>
         <li>
-            @if (route('cicle_list') == url()->full())
+            @if (Str::contains(url()->full(), url("cicle")))
             <a href="{{ route('cicle_list') }}" class="nav-link text-custom actual-page">
                 {{ trans('translation.cicles') }}
             </a>
@@ -87,7 +87,7 @@
             @endif
         </li>
         <li>
-            @if (route('comarca_list') == url()->full())
+            @if (Str::contains(url()->full(), url("comarca")))
             <a href="{{ route('comarca_list') }}" class="nav-link text-custom actual-page">
                 {{ trans('translation.regions') }}
             </a>
@@ -98,7 +98,7 @@
             @endif
         </li>
         <li>
-            @if (route('poblacio_list') == url()->full())
+            @if (Str::contains(url()->full(), url("poblacio")))
             <a href="{{ route('poblacio_list') }}" class="nav-link text-custom actual-page">
                 {{ trans('translation.populations') }}
             </a>

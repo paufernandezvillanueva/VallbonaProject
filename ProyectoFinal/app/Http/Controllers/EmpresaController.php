@@ -106,6 +106,9 @@ class EmpresaController extends BaseController
   function detail(Request $request, $id)
   {
     $empresa = Empresa::find($id);
+    if (!isset($empresa->id)) {
+      return redirect()->route('empresa_list');
+    }
     $poblacio = Poblacio::find($empresa->poblacio_id);
     $contactes = Contacte::orderBy('name', 'asc')->where('empresa_id', '=', $empresa->id)->get();
     $estades = Estada::orderBy('student_name', 'asc')->where('empresa_id', '=', $empresa->id)->get();
@@ -117,6 +120,24 @@ class EmpresaController extends BaseController
 
     return view('empresa.detail', ['empresa' => $empresa, "poblacio" => $poblacio, "contactes" => $contactes, "estades" => $estades,
     "users" => $users, "cursos" => $cursos, "cicles" => $cicles, "comarques" => $comarques, "sectors" => $sectors]);
+  }
+
+  function import(Request $request)
+  {
+    $file = fopen($_FILES["csv"]["tmp_name"], "r");
+    $all_data = array();
+    while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+      if ($data[3] != "cif") {
+        $empresa = new Empresa;
+        $empresa->cif = $data[3];
+        $empresa->name = $data[4];
+        $empresa->sector = $data[5];
+        $empresa->poblacio_id = $data[6];
+        $empresa->save();
+      }
+    }
+    
+    return redirect()->route('empresa_list');
   }
 
   function edit(Request $request, $id)

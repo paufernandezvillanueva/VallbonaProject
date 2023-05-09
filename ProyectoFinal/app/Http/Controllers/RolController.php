@@ -36,8 +36,26 @@ class RolController extends Controller
     function detail(Request $request, $id)
     {
         $rol = Rol::find($id);
+        if (!isset($rol->id)) {
+            return redirect()->route('rol_list');
+        }
 
         return view('rol.detail', ['rol' => $rol]);
+    }
+
+    function import(Request $request)
+    {
+        $file = fopen($_FILES["csv"]["tmp_name"], "r");
+        $all_data = array();
+        while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+        if ($data[3] != "name") {
+                $rol = new Rol;
+                $rol->name = $data[3];
+                $rol->save();
+        }
+        }
+        
+        return redirect()->route('estada_list');
     }
 
     function new(Request $request)

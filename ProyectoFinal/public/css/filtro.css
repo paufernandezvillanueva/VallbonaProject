@@ -150,12 +150,6 @@
     width: 50%;
 }
 
-.filter-form div label {
-    float: none;
-    margin: 10px;
-    color: var(--text-color);
-}
-
 .filter-form-opened {
     animation: filter-opening 2s;
     animation-iteration-count: 1;

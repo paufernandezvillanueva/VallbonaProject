@@ -14,7 +14,7 @@
 
 <div id="filter">
     <div id="filter-header">
-        <div><button id="import-button"><i class="bi bi-cloud-upload-fill"></i></button></div>
+        <div><button id="import-button" data-bs-toggle="modal" data-bs-target="#importContactes"><i class="bi bi-cloud-upload-fill"></i></button></div>
         <div>
             <button id="filter-button">
                 <i class="bi bi-filter"></i>
@@ -24,20 +24,20 @@
     <form id="filter-form" class="filter-form filter-form-closed-base" method="post" action="{{ route('contacte_list') }}">
         @csrf
         <div class="row d-flex justify-content-center">
-            <div class="col-md-1">
+            <div class="col-lg-1 col-3">
                 <label for="name">{{ trans('translation.name') }}:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->name) && $request->name != "")
                 <input class="form-control" type="text" id="name" name="name" value="{{ $request->name }}"></input>
                 @else
                 <input class="form-control" type="text" id="name" name="name"></input>
                 @endif
             </div>
-            <div class="col-md-1 offset-md-1">
+            <div class="col-lg-1 offset-lg-1 col-3">
                 <label for="empresa">{{ trans('translation.company') }}:</label>
             </div>
-            <div class="col-md-4">
+            <div class="col-lg-4 col-9">
                 @if (isset($request->empresa) && $request->empresa != "")
                 <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}"></input>
                 @else
@@ -187,6 +187,35 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="importContactes" tabindex="-1" aria-labelledby="importContactesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="importContactesLabel">Importar CSV</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <form method="POST" name="addContacteForm" action="{{ route('contacte_import') }}" enctype="multipart/form-data">
+                <div class="modal-body">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <label class="col-form-label" for="csv">CSV</label>
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary">Importar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>

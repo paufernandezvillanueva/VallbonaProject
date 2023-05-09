@@ -16,7 +16,7 @@ class ComarcaController extends Controller
     function list(Request $request)
     {
         if (Auth::user()->rol_id == 5076) {
-            $comarcas = Comarca::join("poblacios", "comarcas.id", "=", "poblacios.comarca_id");
+            $comarcas = Comarca::leftjoin("poblacios", "comarcas.id", "=", "poblacios.comarca_id");
 
             if (isset($request->name)) {
                 if ($request->name != "") {
@@ -35,11 +35,29 @@ class ComarcaController extends Controller
     {
         if (Auth::user()->rol_id == 5076) {
             $comarca = Comarca::find($id);
+            if (!isset($comarca->id)) {
+                return redirect()->route('comarca_list');
+            }
 
             return view('comarca.detail', ['comarca' => $comarca]);
         } else {
             return redirect('');
         }
+    }
+
+    function import(Request $request)
+    {
+        $file = fopen($_FILES["csv"]["tmp_name"], "r");
+        $all_data = array();
+        while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+            if ($data[3] != "name") {
+                $comarca = new Comarca;
+                $comarca->name = $data[3];
+                $comarca->save();
+            }
+        }
+        
+        return redirect()->route('comarca_list');
     }
 
     function new(Request $request)

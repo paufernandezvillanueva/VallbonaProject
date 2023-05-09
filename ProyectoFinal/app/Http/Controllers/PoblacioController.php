@@ -47,12 +47,31 @@ class PoblacioController extends BaseController
     {
         if (Auth::user()->rol_id == 5076) {
             $poblacio = Poblacio::find($id);
+            if (!isset($poblacio->id)) {
+                return redirect()->route('poblacio_list');
+            }
             $comarques = Comarca::all();
 
             return view('poblacio.detail', ['poblacio' => $poblacio, 'comarques' => $comarques]);
         } else {
             return redirect('');
         }
+    }
+
+    function import(Request $request)
+    {
+        $file = fopen($_FILES["csv"]["tmp_name"], "r");
+        $all_data = array();
+        while (($data = fgetcsv($file, 0, ",")) !== FALSE ) {
+            if ($data[3] != "name") {
+                $poblacio = new Poblacio;
+                $poblacio->name = $data[3];
+                $poblacio->comarca_id = $data[4];
+                $poblacio->save();
+            }
+        }
+        
+        return redirect()->route('poblacio_list');
     }
     
     function new(Request $request) 

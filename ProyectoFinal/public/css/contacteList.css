@@ -1,4 +1,8 @@
-@media screen and (max-width: 778px) {
+.container {
+    min-width: 500px;
+}
+
+@media screen and (max-width: 840px) {
     .table-responsive {
         width: 95%;
         margin: auto;
@@ -26,10 +30,6 @@
     }
 }
 
-.col-form-label {
-    white-space: nowrap;
-}
-
 .iconAdd {
     color: var(--text-color);
     text-decoration: none;
@@ -40,13 +40,8 @@
     cursor: pointer;
 }
 
-.iconBasura {
-    text-decoration: none;
-}
-
-.iconBasura:hover {
-    cursor: pointer;
-    color: red;
+.col-form-label {
+    white-space: nowrap;
 }
 
 #contacte-table thead th {
@@ -103,4 +98,26 @@
 #filter-button,
 #import-button {
     width: 40px;
+}
+
+@media screen and (min-width: 992px) {
+    .filter-form div label {
+        float: none;
+        margin-left: -7px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .filter-form div label {
+        float: none;
+        margin-left: 35px;
+    }
+
+    #filter-form .row {
+        padding-right: 20px;
+    }
+
+    #filter-form .row .row {
+        padding-right: 0px;
+    }
 }

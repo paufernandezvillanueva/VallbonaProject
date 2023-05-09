@@ -60,7 +60,7 @@
                             <label class="col-form-label" for="firstname">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="firstname" value="{{ $user->name }}" />
+                            <input class="form-control" type="text" name="name" value="{{ $user->name }}" />
                         </div>
                         <div class="error" id="firstname-edit-user-error"></div>
                     </div>
