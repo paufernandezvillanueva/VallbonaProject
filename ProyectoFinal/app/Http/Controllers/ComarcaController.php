@@ -35,6 +35,9 @@ class ComarcaController extends Controller
     {
         if (Auth::user()->rol_id == 5076) {
             $comarca = Comarca::find($id);
+            if (!isset($comarca->id)) {
+                return redirect()->route('comarca_list');
+            }
 
             return view('comarca.detail', ['comarca' => $comarca]);
         } else {

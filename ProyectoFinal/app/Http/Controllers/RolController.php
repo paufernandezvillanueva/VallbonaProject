@@ -36,6 +36,9 @@ class RolController extends Controller
     function detail(Request $request, $id)
     {
         $rol = Rol::find($id);
+        if (!isset($rol->id)) {
+            return redirect()->route('rol_list');
+        }
 
         return view('rol.detail', ['rol' => $rol]);
     }

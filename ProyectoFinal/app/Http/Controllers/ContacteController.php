@@ -40,6 +40,9 @@ class ContacteController extends Controller
     function detail(Request $request, $id)
     {
         $contacte = Contacte::find($id);
+        if (!isset($contacte->id)) {
+            return redirect()->route('contacte_list');
+        }
         $empresas = Empresa::orderBy('name', 'asc')->get();
 
         return view('contacte.detail', ['contacte' => $contacte, 'empresas' => $empresas]);

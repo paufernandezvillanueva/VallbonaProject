@@ -162,6 +162,9 @@ class UserController extends BaseController
   function detail(Request $request, $id)
   {
     $user = User::find($id);
+    if (!isset($user->id)) {
+        return redirect()->route('user_list');
+    }
     $cicles = Cicle::all();
     $rols = Rol::all();
 

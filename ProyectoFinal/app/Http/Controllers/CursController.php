@@ -37,6 +37,9 @@ class CursController extends Controller
     function detail(Request $request, $id)
     {
         $curs = Curs::find($id);
+        if (!isset($curs->id)) {
+          return redirect()->route('curs_list');
+        }
 
         return view('curs.detail', ['curs' => $curs]);
     }
