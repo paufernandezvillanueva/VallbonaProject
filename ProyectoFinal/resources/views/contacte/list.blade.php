@@ -106,7 +106,7 @@
                             <label class="col-form-label" for="name">{{ trans('translation.fullname') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" required />
+                            <input class="form-control" type="text" name="name"  />
                         </div>
                         <div class="error" id="name-add-contacte-error"></div>
                     </div>
@@ -129,7 +129,7 @@
                             <label class="col-form-label" for="email">{{ trans('translation.email') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="email" required />
+                            <input class="form-control" type="text" name="email" />
                         </div>
                         <div id="email-add-contacte-error"></div>
                     </div>
@@ -138,7 +138,7 @@
                             <label class="col-form-label" for="phonenumber">{{ trans('translation.phone') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="phonenumber" required />
+                            <input class="form-control" type="text" name="phonenumber" />
                         </div>
                         <div class="error" id="phonenumber-add-contacte-error"></div>
                     </div>
@@ -203,7 +203,7 @@
                             <label class="col-form-label" for="csv">CSV</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv" required/>
+                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv" />
                         </div>
                     </div>
                 </div>

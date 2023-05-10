@@ -59,7 +59,7 @@
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" value="{{ $contacte->name }}" required/>
+                            <input class="form-control" type="text" name="name" value="{{ $contacte->name }}"  />
                         </div>
                         <div class="error" id="name-edit-contacte-error"></div>
                     </div>
@@ -85,7 +85,7 @@
                             <label class="col-form-label" for="email">{{ trans('translation.email') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="email" value="{{ $contacte->email }}" required/>
+                            <input class="form-control" type="text" name="email" value="{{ $contacte->email }}" />
                         </div>
                         <div class="error" id="email-edit-contacte-error"></div>
                     </div>
@@ -94,7 +94,7 @@
                             <label class="col-form-label" for="phonenumber">{{ trans('translation.phone') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="phonenumber" value="{{ $contacte->phonenumber }}" required/>
+                            <input class="form-control" type="text" name="phonenumber" value="{{ $contacte->phonenumber }}" />
                         </div>
                         <div class="error" id="phonenumber-edit-contacte-error"></div>
                     </div>

@@ -1,28 +1,46 @@
 let empresa_edit_control = {
-    "cif": [isCIFEmpresa, "El CIF introduit no és vàlid"],
-    "name": [isAlphabetEmpresa, "El nom no pot tenir números o símbols"],
-    "sector": [isAlphabetEmpresa, "El sector no pot tenir números o símbols"],
-    "comarca_id": [madeSelectionEmpresa, "Cal escollir una comarca"],
-    "poblacio_id": [madeSelectionEmpresa, "Cal escollir una població"]
+    cif: [isCIFEmpresa, "El CIF introduit no és vàlid"],
+    name: [isAlphabetEmpresa, "El nom no pot tenir números o símbols"],
+    sector: [isAlphabetOrNull, "El sector no pot tenir números o símbols"],
+    comarca_id: [madeSelectionEmpresa, "Cal escollir una comarca"],
+    poblacio_id: [madeSelectionEmpresa, "Cal escollir una població"],
 };
 
-window.onload = function() {
-    document.forms['editEmpresaForm'].addEventListener("submit", formValidatorEmpresa);
+window.onload = function () {
+    document.forms["editEmpresaForm"].addEventListener(
+        "submit",
+        formValidatorEmpresa
+    );
 
     for (let x in empresa_edit_control) {
-        document.forms['editEmpresaForm'][x].addEventListener("change", ErrorVisibilityEmpresa);
+        document.forms["editEmpresaForm"][x].addEventListener(
+            "change",
+            ErrorVisibilityEmpresa
+        );
     }
 
-    document.forms['addContacteForm'].addEventListener("submit", formValidatorContacte);
+    document.forms["addContacteForm"].addEventListener(
+        "submit",
+        formValidatorContacte
+    );
 
     for (let x in contacte_add_control) {
-        document.forms['addContacteForm'][x].addEventListener("change", ErrorVisibilityContacte);
+        document.forms["addContacteForm"][x].addEventListener(
+            "change",
+            ErrorVisibilityContacte
+        );
     }
 
-    document.forms['addEstadaForm'].addEventListener("submit", formValidatorEstada);
+    document.forms["addEstadaForm"].addEventListener(
+        "submit",
+        formValidatorEstada
+    );
 
     for (let x in estada_add_control) {
-        document.forms['addEstadaForm'][x].addEventListener("change", ErrorVisibilityEstada);
+        document.forms["addEstadaForm"][x].addEventListener(
+            "change",
+            ErrorVisibilityEstada
+        );
     }
 };
 
@@ -31,16 +49,22 @@ function formValidatorEmpresa(e) {
     var first_error = null;
 
     for (let x in empresa_edit_control) {
-        elem = document.forms['editEmpresaForm'][x];
+        elem = document.forms["editEmpresaForm"][x];
 
-        if (!empresa_edit_control[x][0](elem, empresa_edit_control[x][1], empresa_edit_control[x][2])) {
+        if (
+            !empresa_edit_control[x][0](
+                elem,
+                empresa_edit_control[x][1],
+                empresa_edit_control[x][2]
+            )
+        ) {
             result = false;
             if (first_error == null) {
-                first_error = document.forms['editEmpresaForm'][x];
+                first_error = document.forms["editEmpresaForm"][x];
             }
         }
     }
-    
+
     if (!result) {
         if (first_error != null) {
             first_error.focus();
@@ -51,20 +75,26 @@ function formValidatorEmpresa(e) {
     return result;
 }
 
-function ErrorVisibilityEmpresa(e){
-    empresa_edit_control[e.target.name][0](e.target, empresa_edit_control[e.target.name][1]);
+function ErrorVisibilityEmpresa(e) {
+    empresa_edit_control[e.target.name][0](
+        e.target,
+        empresa_edit_control[e.target.name][1]
+    );
 }
 
-function tractarErrorEmpresa(elem, noError, msgError){
-    
-    if (noError){
-        elem.parentElement.classList = "col-md-10 col-sm-10"
-        document.getElementById(elem.name + "-edit-empresa-error").classList = "error"
-        document.getElementById(elem.name + "-edit-empresa-error").innerHTML = "";
-    } else { 
-        elem.parentElement.classList = "col-md-5 col-sm-5"
-        document.getElementById(elem.name + "-edit-empresa-error").classList = "error col-md-5 col-sm-5"
-        document.getElementById(elem.name + "-edit-empresa-error").innerHTML = msgError;
+function tractarErrorEmpresa(elem, noError, msgError) {
+    if (noError) {
+        elem.parentElement.classList = "col-md-10 col-sm-10";
+        document.getElementById(elem.name + "-edit-empresa-error").classList =
+            "error";
+        document.getElementById(elem.name + "-edit-empresa-error").innerHTML =
+            "";
+    } else {
+        elem.parentElement.classList = "col-md-5 col-sm-5";
+        document.getElementById(elem.name + "-edit-empresa-error").classList =
+            "error col-md-5 col-sm-5";
+        document.getElementById(elem.name + "-edit-empresa-error").innerHTML =
+            msgError;
     }
 }
 
@@ -88,6 +118,16 @@ function isAlphabetEmpresa(elem, helperMsg) {
     return result;
 }
 
+function isAlphabetOrNull(elem, helperMsg) {
+    var alphaExp = /^[A-Za-zà-üÀ-Ü ]*$/;
+    var result = false;
+    if (elem.value.match(alphaExp)) {
+        result = true;
+    }
+    tractarErrorEmpresa(elem, result, helperMsg);
+    return result;
+}
+
 function madeSelectionEmpresa(elem, helperMsg) {
     var result = true;
     if (elem.value == "default") {
@@ -98,9 +138,9 @@ function madeSelectionEmpresa(elem, helperMsg) {
 }
 
 let contacte_add_control = {
-    "name": [isAlphabetContacte, "El nom no pot tenir numeros o simbols"],
-    "email": [emailValidatorContacte, "Aquest correu electrònic no es valid"],
-    "phonenumber": [isPhonenumberContacte, "Aquest telefon no es valid"]
+    name: [isAlphabetContacte, "El nom no pot tenir numeros o simbols"],
+    email: [emailValidatorContacte, "Aquest correu electrònic no es valid"],
+    phonenumber: [isPhonenumberContacte, "Aquest telefon no es valid"],
 };
 
 function formValidatorContacte(e) {
@@ -108,16 +148,22 @@ function formValidatorContacte(e) {
     var first_error = null;
 
     for (let x in contacte_add_control) {
-        elem = document.forms['addContacteForm'][x];
+        elem = document.forms["addContacteForm"][x];
 
-        if (!contacte_add_control[x][0](elem, contacte_add_control[x][1], contacte_add_control[x][2])) {
+        if (
+            !contacte_add_control[x][0](
+                elem,
+                contacte_add_control[x][1],
+                contacte_add_control[x][2]
+            )
+        ) {
             result = false;
             if (first_error == null) {
-                first_error = document.forms['addContacteForm'][x];
+                first_error = document.forms["addContacteForm"][x];
             }
         }
     }
-    
+
     if (!result) {
         if (first_error != null) {
             first_error.focus();
@@ -128,20 +174,26 @@ function formValidatorContacte(e) {
     return result;
 }
 
-function ErrorVisibilityContacte(e){
-    contacte_add_control[e.target.name][0](e.target, contacte_add_control[e.target.name][1]);
+function ErrorVisibilityContacte(e) {
+    contacte_add_control[e.target.name][0](
+        e.target,
+        contacte_add_control[e.target.name][1]
+    );
 }
 
-function tractarErrorContacte(elem, noError, msgError){
-    
-    if (noError){
-        elem.parentElement.classList = "col-md-10 col-sm-10"
-        document.getElementById(elem.name + "-add-contacte-error").classList = "error"
-        document.getElementById(elem.name + "-add-contacte-error").innerHTML = "";
-    } else { 
-        elem.parentElement.classList = "col-md-5 col-sm-5"
-        document.getElementById(elem.name + "-add-contacte-error").classList = "error col-md-5 col-sm-5"
-        document.getElementById(elem.name + "-add-contacte-error").innerHTML = msgError;
+function tractarErrorContacte(elem, noError, msgError) {
+    if (noError) {
+        elem.parentElement.classList = "col-md-10 col-sm-10";
+        document.getElementById(elem.name + "-add-contacte-error").classList =
+            "error";
+        document.getElementById(elem.name + "-add-contacte-error").innerHTML =
+            "";
+    } else {
+        elem.parentElement.classList = "col-md-5 col-sm-5";
+        document.getElementById(elem.name + "-add-contacte-error").classList =
+            "error col-md-5 col-sm-5";
+        document.getElementById(elem.name + "-add-contacte-error").innerHTML =
+            msgError;
     }
 }
 
@@ -186,12 +238,12 @@ function isPhonenumberContacte(elem, helperMsg) {
 }
 
 let estada_add_control = {
-    "student_name": [isAlphabetEstada, "El nom no pot tenir numeros o simbols"],
-    "curs_id": [madeSelectionEstada, "Cal escollir un curs"],
-    "cicle_id": [madeSelectionEstada, "Cal escollir un cicle"],
-    "registered_by": [madeSelectionEstada, "Cal escollir un tutor"],
-    "dual": [madeSelectionEstada, "Cal escollir un tipus"],
-    "evaluation": [lengthRestrictionEstada, 0, 10],
+    student_name: [isAlphabetEstada, "El nom no pot tenir numeros o simbols"],
+    curs_id: [madeSelectionEstada, "Cal escollir un curs"],
+    cicle_id: [madeSelectionEstada, "Cal escollir un cicle"],
+    registered_by: [madeSelectionEstada, "Cal escollir un tutor"],
+    dual: [madeSelectionEstada, "Cal escollir un tipus"],
+    evaluation: [lengthRestrictionEstada, 0, 10],
 };
 
 function formValidatorEstada(e) {
@@ -199,16 +251,22 @@ function formValidatorEstada(e) {
     var first_error = null;
 
     for (let x in estada_add_control) {
-        elem = document.forms['addEstadaForm'][x];
+        elem = document.forms["addEstadaForm"][x];
 
-        if (!estada_add_control[x][0](elem, estada_add_control[x][1], estada_add_control[x][2])) {
+        if (
+            !estada_add_control[x][0](
+                elem,
+                estada_add_control[x][1],
+                estada_add_control[x][2]
+            )
+        ) {
             result = false;
             if (first_error == null) {
-                first_error = document.forms['addEstadaForm'][x];
+                first_error = document.forms["addEstadaForm"][x];
             }
         }
     }
-    
+
     if (!result) {
         if (first_error != null) {
             first_error.focus();
@@ -219,25 +277,30 @@ function formValidatorEstada(e) {
     return result;
 }
 
-function ErrorVisibilityEstada(e){
-    estada_add_control[e.target.name][0](e.target, estada_add_control[e.target.name][1]);
+function ErrorVisibilityEstada(e) {
+    estada_add_control[e.target.name][0](
+        e.target,
+        estada_add_control[e.target.name][1]
+    );
 }
 
-function tractarErrorEstada(elem, noError, msgError){
-    
-    if (noError){
-        elem.parentElement.classList = "col-md-10 col-sm-10"
-        document.getElementById(elem.name + "-add-estada-error").classList = "error"
+function tractarErrorEstada(elem, noError, msgError) {
+    if (noError) {
+        elem.parentElement.classList = "col-md-10 col-sm-10";
+        document.getElementById(elem.name + "-add-estada-error").classList =
+            "error";
         document.getElementById(elem.name + "-add-estada-error").innerHTML = "";
-    } else { 
-        elem.parentElement.classList = "col-md-5 col-sm-5"
-        document.getElementById(elem.name + "-add-estada-error").classList = "error col-md-5 col-sm-5"
-        document.getElementById(elem.name + "-add-estada-error").innerHTML = msgError;
+    } else {
+        elem.parentElement.classList = "col-md-5 col-sm-5";
+        document.getElementById(elem.name + "-add-estada-error").classList =
+            "error col-md-5 col-sm-5";
+        document.getElementById(elem.name + "-add-estada-error").innerHTML =
+            msgError;
     }
 }
 
 function isAlphabetEstada(elem, helperMsg) {
-    var alphaExp = /^[A-Za-zà-üÀ-Ü ]+$/;
+    var alphaExp = /^[A-Za-zà-üÀ-Ü][A-Za-zà-üÀ-Ü ]*$/;
     var result = false;
     if (elem.value.match(alphaExp)) {
         result = true;
@@ -258,9 +321,13 @@ function madeSelectionEstada(elem, helperMsg) {
 function lengthRestrictionEstada(elem) {
     var uInput = elem.value;
     var result = false;
-    if (uInput >= 10 && uInput <= 10) {
+    if (uInput >= 0 && uInput <= 10) {
         result = true;
     }
-    tractarErrorEstada(elem, result, "La valoracio ha de ser entre " + 0 + " i " + 10);
+    tractarErrorEstada(
+        elem,
+        result,
+        "La valoracio ha de ser entre " + 0 + " i " + 10
+    );
     return result;
 }

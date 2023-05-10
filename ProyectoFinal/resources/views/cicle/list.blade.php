@@ -94,7 +94,7 @@
                             <label class="col-form-label" for="shortname">{{ trans('translation.acronimo') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="shortname" required />
+                            <input class="form-control" type="text" name="shortname"  />
                         </div>
                         <div class="error" id="shortname-add-cicle-error"></div>
                     </div>
@@ -103,7 +103,7 @@
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" required />
+                            <input class="form-control" type="text" name="name"  />
                         </div>
                         <div class="error" id="name-add-cicle-error"></div>
                     </div>

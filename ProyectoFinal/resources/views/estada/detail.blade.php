@@ -82,7 +82,7 @@
                             <label class="col-form-label" id="student_name" for="student_name">{{ trans('translation.name_student') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="student_name" value="{{ $estada->student_name }}" required/>
+                            <input class="form-control" type="text" name="student_name" value="{{ $estada->student_name }}" />
                         </div>
                         <div class="error" id="student_name-edit-estada-error"></div>
                     </div>
@@ -176,7 +176,7 @@
                             <label class="col-form-label" for="evaluation">{{ trans('translation.valoration') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="number" name="evaluation" value="{{ $estada->evaluation }}" min="0" max="10" required/>
+                            <input class="form-control" type="number" name="evaluation" value="{{ $estada->evaluation }}" min="0" max="10" />
                         </div>
                         <div class="error" id="evaluation-edit-estada-error"></div>
                     </div>
