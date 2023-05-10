@@ -1,7 +1,7 @@
 let empresa_edit_control = {
     "cif": [isCIFEmpresa, "El CIF introduit no és vàlid"],
     "name": [isAlphabetEmpresa, "El nom no pot tenir números o símbols"],
-    "sector": [isAlphabetEmpresaOrNull, "El sector no pot tenir números o símbols"],
+    "sector": [isAlphabetEmpresa, "El sector no pot tenir números o símbols"],
     "comarca_id": [madeSelectionEmpresa, "Cal escollir una comarca"],
     "poblacio_id": [madeSelectionEmpresa, "Cal escollir una població"]
 };
@@ -88,16 +88,6 @@ function isAlphabetEmpresa(elem, helperMsg) {
     return result;
 }
 
-function isAlphabetEmpresaOrNull(elem, helperMsg) {
-    var alphaExp = /^[A-Za-zà-üÀ-Ü ]*$/;
-    var result = false;
-    if (elem.value.match(alphaExp)) {
-        result = true;
-    }
-    tractarErrorEmpresa(elem, result, helperMsg);
-    return result;
-}
-
 function madeSelectionEmpresa(elem, helperMsg) {
     var result = true;
     if (elem.value == "default") {
@@ -108,9 +98,9 @@ function madeSelectionEmpresa(elem, helperMsg) {
 }
 
 let contacte_add_control = {
-    "name": [isAlphabetContacte, "El nom no pot tenir números o símbols"],
-    "email": [emailValidatorContacte, "Aquest correu electrònic no és vàlid"],
-    "phonenumber": [isPhonenumberContacte, "Aquest telèfon no és valid"]
+    "name": [isAlphabetContacte, "El nom no pot tenir numeros o simbols"],
+    "email": [emailValidatorContacte, "Aquest correu electrònic no es valid"],
+    "phonenumber": [isPhonenumberContacte, "Aquest telefon no es valid"]
 };
 
 function formValidatorContacte(e) {
@@ -175,7 +165,7 @@ function madeSelectionContacte(elem, helperMsg) {
 }
 
 function emailValidatorContacte(elem, helperMsg) {
-    var emailExp = /^([\wçÇñÑ\-\.\+]+@[a-zA-Z0-9çÇñÑ\.\-]+\.[a-zA-Z0-9çÇñÑ]{2,})?$/;
+    var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
     var result = true;
     if (!elem.value.match(emailExp)) {
         result = false;
@@ -186,7 +176,7 @@ function emailValidatorContacte(elem, helperMsg) {
 }
 
 function isPhonenumberContacte(elem, helperMsg) {
-    var phoneExp = /^([0-9]{9})?$/;
+    var phoneExp = /^[0-9]{9}$/;
     var result = false;
     if (elem.value.match(phoneExp)) {
         result = true;
@@ -196,7 +186,7 @@ function isPhonenumberContacte(elem, helperMsg) {
 }
 
 let estada_add_control = {
-    "student_name": [isAlphabetEstada, "El nom no pot tenir números o símbols"],
+    "student_name": [isAlphabetEstada, "El nom no pot tenir numeros o simbols"],
     "curs_id": [madeSelectionEstada, "Cal escollir un curs"],
     "cicle_id": [madeSelectionEstada, "Cal escollir un cicle"],
     "registered_by": [madeSelectionEstada, "Cal escollir un tutor"],
@@ -247,7 +237,7 @@ function tractarErrorEstada(elem, noError, msgError){
 }
 
 function isAlphabetEstada(elem, helperMsg) {
-    var alphaExp = /^[A-Za-zà-üÀ-Ü ]+$/;
+    var alphaExp = /^[A-Za-zà-üÀ-Ü][A-Za-zà-üÀ-Ü ]*$/;
     var result = false;
     if (elem.value.match(alphaExp)) {
         result = true;
@@ -271,10 +261,6 @@ function lengthRestrictionEstada(elem) {
     if (uInput >= 0 && uInput <= 10) {
         result = true;
     }
-    tractarError(
-        elem,
-        result,
-        "La valoració ha de ser entre " + 0 + " i " + 10
-    );
+    tractarErrorEstada(elem, result, "La valoracio ha de ser entre " + 0 + " i " + 10);
     return result;
 }
