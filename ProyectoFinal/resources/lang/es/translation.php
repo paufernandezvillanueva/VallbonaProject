@@ -93,6 +93,11 @@ return [
     'darkmode' => 'Modo oscuro',
     'contact' => 'Contacto',
     'stay' => 'Estada',
+    'forgot_password' => '¿Has olvidado la contraseña?',
+    'remember' => "Recuérdame",
+    'login' => 'Iniciar sessión',
+    'db_companies' => 'BASE DE DATOS DE EMPRESAS',
+
 
 
 
