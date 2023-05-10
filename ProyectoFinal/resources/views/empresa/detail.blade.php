@@ -123,28 +123,28 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="cif">CIF</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" value="{{ $empresa->cif }}"  />
                         </div>
                         <div id="cif-edit-empresa-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="name" value="{{ $empresa->name }}"  />
                         </div>
                         <div class="error" id="name-edit-empresa-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="sector">{{ trans('translation.sector') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="sector" value="{{ $empresa->sector }}" list="sectors" />
                             <datalist id="sectors">
                                 @foreach($sectors as $sector)
@@ -155,10 +155,10 @@
                         <div class="error" id="sector-edit-empresa-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="comarca_id">{{ trans('translation.comarca') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="comarca_id" id="comarca_id" value="{{ $poblacio->comarca_id }}">
                                 @foreach($comarques as $comarca)
                                 @if ( $comarca->id == $poblacio->comarca_id )
@@ -172,10 +172,10 @@
                         <div class="error" id="comarca_id-edit-empresa-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="poblacio_id">{{ trans('translation.city') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" id="poblacio_id" name="poblacio_id" value="{{ $empresa->poblacio_id }}">
                                 <option value="default">{{ trans('translation.select_comarca') }}</option>
                             </select>
