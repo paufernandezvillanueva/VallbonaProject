@@ -122,7 +122,7 @@
 #info,
 #contactes,
 #estades {
-    color: var(--text-color);;
+    color: var(--text-color);
     text-align: center;
     width: fit-content;
     float: left;
@@ -197,7 +197,7 @@
 #estades-table span,
 #estades-table a {
     display: block;
-    color: var(--text-color);;
+    color: var(--text-color);
     text-decoration: none;
     padding: 0.5rem 0.5rem;
     overflow: hidden;
@@ -269,15 +269,22 @@
     background-color: var(--button-background-color-hover);
 }
 
-.col-form-label {
-    white-space: nowrap;
-}
-
 label,
 p {
     color: black;
 }
 
+.form-control,
+.form-select {
+    margin-left: 10px !important;
+}
+
+@media screen and (min-width: 992px) {
+    .col-form-label:not(#student_name) {
+        white-space: nowrap;
+    }
+}
+
 .modal-content {
-    min-width:245px
+    min-width: 245px;
 }
