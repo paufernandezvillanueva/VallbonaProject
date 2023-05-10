@@ -151,7 +151,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="importCiclesLabel">Importar CSV</h5>
+                <h5 class="modal-title" id="importCiclesLabel">{{ trans('translation.import_csv') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close">
                     <i class="bi bi-x-lg"></i>
                 </button>
@@ -170,7 +170,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
-                    <button type="submit" class="btn btn-secondary">Importar</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.import') }}</button>
                 </div>
             </form>
         </div>

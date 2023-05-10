@@ -97,8 +97,8 @@ return [
     'remember' => "Recuérdame",
     'login' => 'Iniciar sessión',
     'db_companies' => 'BASE DE DATOS DE EMPRESAS',
-
-
+    'import_csv' => 'Importar CSV',
+    'import' => 'Importar',
 
 
 

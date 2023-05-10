@@ -100,6 +100,9 @@ return [
     'remember' => "Recorda'm",
     'login' => 'Iniciar sessió',
     'db_companies' => 'BASE DE DADES DE EMPRESES',
+    'import_csv' => 'Importar CSV',
+    'import' => 'Importar',
+
 
 
 
