@@ -196,7 +196,7 @@ function isPhonenumberContacte(elem, helperMsg) {
 }
 
 let estada_add_control = {
-    "student_name": [isAlphabetEstada, "El nom no pot tenir numeros o simbols"],
+    "student_name": [isAlphabetEstada, "El nom no pot tenir números o símbols"],
     "curs_id": [madeSelectionEstada, "Cal escollir un curs"],
     "cicle_id": [madeSelectionEstada, "Cal escollir un cicle"],
     "registered_by": [madeSelectionEstada, "Cal escollir un tutor"],
