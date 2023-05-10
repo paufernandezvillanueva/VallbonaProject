@@ -14,7 +14,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="{{ asset('css/lightmode.css') }}" />
-        
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
@@ -23,8 +23,9 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
             <div id="container-form" class="w-full sm:max-w-md mt-6 px-6 py-4 shadow-md overflow-hidden sm:rounded-lg">
                 <div id="school-logo" href="/">
-                    <img src="{{ asset ('/img/logo-vallbona.png' )}}" class="w-20 h-20 fill-current text-gray-500"/><div>BASE DE DADES DE EMPRESES</div>
-                </div> 
+                    <img src="{{ asset ('/img/logo-vallbona.png' )}}" class="w-20 h-20 fill-current text-gray-500"/><div>
+                    {{ trans('translation.db_companies') }}</div>
+                </div>
                 {{ $slot }}
             </div>
         </div>

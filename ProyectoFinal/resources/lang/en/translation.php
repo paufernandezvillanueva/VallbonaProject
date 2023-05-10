@@ -93,6 +93,10 @@ return [
     'darkmode' => 'Darkmode',
     'contact' => 'Contact',
     'stay' => 'Stay',
+    'forgot_password' => 'Forgot your password?',
+    'remember' => "Remember me",
+    'login' => 'Login',
+    'db_companies' => 'COMPANY DATABASE',
 
 
 
