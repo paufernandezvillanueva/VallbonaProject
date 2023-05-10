@@ -183,3 +183,8 @@
 .modal-content {
     min-width:245px
 }
+
+#nombreEmpresa {
+    font-weight: bold;
+    text-decoration: underline;
+}

@@ -236,7 +236,7 @@
             </td>
             <td><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->contactes() }}</a></td>
             <td>
-                <a data-id="{{ $empresa->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                <a data-id="{{ $empresa->id }}" data-name="{{ $empresa->name }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
                 </a>
             </td>
@@ -260,7 +260,7 @@
                             <label class="col-form-label" for="cif">{{ trans('translation.cif') }}</label>
                         </div>
                         <div class="col-md-10 col-12">
-                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000"  />
+                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" />
                         </div>
                         <div class="error" id="cif-add-empresa-error"></div>
                     </div>
@@ -269,7 +269,7 @@
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-12">
-                            <input class="form-control" type="text" name="name"  />
+                            <input class="form-control" type="text" name="name" />
                         </div>
                         <div class="error" id="name-add-empresa-error"></div>
                     </div>
@@ -329,15 +329,18 @@
                     <script>
                         document.querySelectorAll('.iconBasura').forEach(elem => {
                             elem.addEventListener('click', () => {
-                                var dataId = elem.dataset.id;
+                                var idEmpresa = elem.dataset.id;
                                 var form = document.querySelector('#confirmDelete form');
-                                form.action = "empresa/delete/" + dataId;
+                                form.action = "empresa/delete/" + idEmpresa;
                                 console.log(form.action);
+
+                                var dataName = elem.dataset.name;
+                                document.getElementById("nombreEmpresa").innerHTML = dataName;
                             });
                         });
                     </script>
                     @csrf
-                    <p>{{ trans('translation.confirm_delete') }}</p>
+                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreEmpresa"></span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>

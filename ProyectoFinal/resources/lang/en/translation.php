@@ -11,7 +11,7 @@ return [
     'company' => 'Company',
     'contacts' => 'Contacts',
     'confirm' => 'Confirm',
-    'confirm_delete' => 'Are you sure you want to delete?',
+    'confirm_delete' => 'Are you sure you want to delete',
     'course' => 'Course',
     'delete' => 'Delete',
     'delete_empresa' => 'Delete company',
@@ -93,31 +93,4 @@ return [
     'darkmode' => 'Darkmode',
     'contact' => 'Contact',
     'stay' => 'Stay',
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ];
