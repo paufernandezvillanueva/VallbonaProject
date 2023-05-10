@@ -48,7 +48,7 @@
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" value="{{ $rol->name }}" required/>
+                            <input class="form-control" type="text" name="name" value="{{ $rol->name }}" />
                         </div>
                         <div class="error" id="name-edit-rol-error"></div>
                     </div>

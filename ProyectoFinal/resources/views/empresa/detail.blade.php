@@ -127,7 +127,7 @@
                             <label class="col-form-label" for="cif">CIF</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" value="{{ $empresa->cif }}" required />
+                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" value="{{ $empresa->cif }}"  />
                         </div>
                         <div id="cif-edit-empresa-error"></div>
                     </div>
@@ -136,7 +136,7 @@
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" value="{{ $empresa->name }}" required />
+                            <input class="form-control" type="text" name="name" value="{{ $empresa->name }}"  />
                         </div>
                         <div class="error" id="name-edit-empresa-error"></div>
                     </div>
@@ -145,11 +145,11 @@
                             <label class="col-form-label" for="sector">{{ trans('translation.sector') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="sector" value="{{ $empresa->sector }}" list="sectors" required />
+                            <input class="form-control" type="text" name="sector" value="{{ $empresa->sector }}" list="sectors" />
                             <datalist id="sectors">
                                 @foreach($sectors as $sector)
-                                    <option value="{{ $sector->sector }}">
-                                @endforeach
+                                <option value="{{ $sector->sector }}">
+                                    @endforeach
                             </datalist>
                         </div>
                         <div class="error" id="sector-edit-empresa-error"></div>
@@ -257,7 +257,7 @@
                             <label class="col-form-label" for="student_name">{{ trans('translation.name_student') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="student_name" required />
+                            <input class="form-control" type="text" name="student_name"  />
                         </div>
                         <div class="error" id="student_name-add-estada-error"></div>
                     </div>
@@ -297,7 +297,7 @@
                             <select class="form-select" type="text" name="registered_by">
                                 <option value="default">{{ trans('translation.select_tutor') }}</option>
                                 @foreach($users as $user)
-                                <option value="{{ $user->id }}">{{ $user->firstname }} {{ $user->lastname }}</option>
+                                <option value="{{ $user->id }}">{{ $user->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -322,7 +322,7 @@
                             <label class="col-form-label" for="evaluation">{{ trans('translation.valoration') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" required />
+                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation"  />
                         </div>
                         <div class="error" id="evaluation-add-estada-error"></div>
                     </div>

@@ -237,7 +237,7 @@ function tractarErrorEstada(elem, noError, msgError){
 }
 
 function isAlphabetEstada(elem, helperMsg) {
-    var alphaExp = /^[A-Za-zà-üÀ-Ü ]+$/;
+    var alphaExp = /^[A-Za-zà-üÀ-Ü][A-Za-zà-üÀ-Ü ]*$/;
     var result = false;
     if (elem.value.match(alphaExp)) {
         result = true;
@@ -258,7 +258,7 @@ function madeSelectionEstada(elem, helperMsg) {
 function lengthRestrictionEstada(elem) {
     var uInput = elem.value;
     var result = false;
-    if (uInput >= 10 && uInput <= 10) {
+    if (uInput >= 0 && uInput <= 10) {
         result = true;
     }
     tractarErrorEstada(elem, result, "La valoracio ha de ser entre " + 0 + " i " + 10);

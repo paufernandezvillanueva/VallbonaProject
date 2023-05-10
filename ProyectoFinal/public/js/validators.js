@@ -27,6 +27,16 @@ function isAlphabet(elem, helperMsg) {
     return result;
 }
 
+function isAlphabetOrNull(elem, helperMsg) {
+    var alphaExp = /^[A-Za-zà-üÀ-Ü ]*$/;
+    var result = false;
+    if (elem.value.match(alphaExp)) {
+        result = true;
+    }
+    tractarError(elem, result, helperMsg);
+    return result;
+}
+
 function isAlphanumeric(elem, helperMsg) {
     var alphaExp = /^[0-9a-zA-Z]+$/;
     var result = false;
@@ -43,7 +53,11 @@ function lengthRestriction(elem) {
     if (uInput >= 0 && uInput <= 10) {
         result = true;
     }
-    tractarError(elem, result, "La valoració ha de ser entre " + 0 + " i " + 10);
+    tractarError(
+        elem,
+        result,
+        "La valoració ha de ser entre " + 0 + " i " + 10
+    );
     return result;
 }
 
@@ -68,8 +82,8 @@ function oneIsSelected(elem, helperMsg) {
     return result;
 }
 
-function emailValidator(elem, helperMsg) {
-    var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+function emailValidatorOrNull(elem, helperMsg) {
+    var emailExp = /^([\wçÇñÑ\-\.\+]+@[a-zA-Z0-9çÇñÑ\.\-]+\.[a-zA-Z0-9çÇñÑ]{2,})?$/;
     var result = true;
     if (!elem.value.match(emailExp)) {
         result = false;
@@ -98,8 +112,8 @@ function isCIF(elem, helperMsg) {
     return result;
 }
 
-function isPhonenumber(elem, helperMsg) {
-    var phoneExp = /^[0-9]{9}$/;
+function isPhonenumberOrNull(elem, helperMsg) {
+    var phoneExp = /^([0-9]{9})?$/;
     var result = false;
     if (elem.value.match(phoneExp)) {
         result = true;

@@ -27,7 +27,7 @@
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" placeholder="Ex: 1995-1996" required />
+                            <input class="form-control" type="text" name="name" placeholder="Ex: 1995-1996"  />
                         </div>
                         <div class="error" id="name-add-curs-error"></div>
                     </div>

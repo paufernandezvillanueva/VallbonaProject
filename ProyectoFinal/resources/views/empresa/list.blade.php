@@ -260,7 +260,7 @@
                             <label class="col-form-label" for="cif">{{ trans('translation.cif') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" required />
+                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000"  />
                         </div>
                         <div class="error" id="cif-add-empresa-error"></div>
                     </div>
@@ -269,7 +269,7 @@
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name" required />
+                            <input class="form-control" type="text" name="name"  />
                         </div>
                         <div class="error" id="name-add-empresa-error"></div>
                     </div>
@@ -278,7 +278,7 @@
                             <label class="col-form-label" for="sector">{{ trans('translation.sector') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="sector" required />
+                            <input class="form-control" type="text" name="sector" />
                         </div>
                         <div class="error" id="sector-add-empresa-error"></div>
                     </div>
@@ -357,13 +357,13 @@
             </div>
             <form id="addForm" name="importEmpresesForm" action="{{ route('empresa_import') }}" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
-                @csrf
+                    @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="csv">CSV</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" placeholder="Ex: A-00000000" type="file" name="csv" id="csv" accept=".csv"/>
+                            <input class="form-control" placeholder="Ex: A-00000000" type="file" name="csv" id="csv" accept=".csv" />
                         </div>
                     </div>
                 </div>
