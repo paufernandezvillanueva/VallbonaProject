@@ -97,5 +97,7 @@ return [
     'remember' => "Remember me",
     'login' => 'Login',
     'db_companies' => 'COMPANY DATABASE',
+    'import_csv' => 'Import CSV',
+    'import' => 'Import',
 
 ];
