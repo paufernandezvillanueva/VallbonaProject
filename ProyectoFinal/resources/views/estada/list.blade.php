@@ -185,7 +185,7 @@
                             <label class="col-form-label" for="student_name">{{ trans('translation.name_student') }}</label>
                         </div>
                         <div class="col-md-10 col-12">
-                            <input class="form-control" type="text" name="student_name"  />
+                            <input class="form-control" type="text" name="student_name" />
                         </div>
                         <div class="error" id="student_name-add-estada-error"></div>
                     </div>
@@ -263,7 +263,7 @@
                             <label class="col-form-label" for="evaluation">{{ trans('translation.valoration') }}</label>
                         </div>
                         <div class="col-md-10 col-12">
-                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation"  />
+                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" />
                         </div>
                         <div class="error" id="evaluation-add-estada-error"></div>
                     </div>
@@ -349,7 +349,7 @@
                     </form>
                 </td>
                 <td>
-                    <a data-id="{{ $estada->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
+                    <a data-id="{{ $estada->id }}" data-name="{{ $estada->student_name }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
                 </td>
             </tr>
             @endforeach
@@ -372,11 +372,14 @@
                                 var dataId = elem.dataset.id;
                                 var form = document.querySelector('#confirmDelete form');
                                 form.action = "delete/" + dataId;
+
+                                var dataName = elem.dataset.name;
+                                document.getElementById("nombreDelete").innerHTML = dataName;
                             });
                         });
                     </script>
                     @csrf
-                    <p>{{ trans('translation.confirm_delete') }}</p>
+                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreDelete"></span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
@@ -396,13 +399,13 @@
             </div>
             <form id="addForm" name="importEstadesForm" action="{{ route('estada_import') }}" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
-                @csrf
+                    @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="csv">CSV</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv"/>
+                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv" />
                         </div>
                     </div>
                 </div>

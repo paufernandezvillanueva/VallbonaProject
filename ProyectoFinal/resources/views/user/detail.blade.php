@@ -56,10 +56,10 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="firstname">{{ trans('translation.name') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="name" value="{{ $user->name }}" />
                         </div>
                         <div class="error" id="firstname-edit-user-error"></div>
@@ -68,16 +68,16 @@
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="email">{{ trans('translation.email') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="email" value="{{ $user->email }}" />
                         </div>
                         <div class="error" id="email-edit-user-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="cicle_id">{{ trans('translation.cicle') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="cicle_id" value="{{ $user->cicle->id }}">
                                 @foreach($cicles as $cicle)
                                     @if ($cicle->id == $user->cicle_id)
@@ -91,10 +91,10 @@
                         <div class="error" id="cicle_id-edit-user-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="rol_id">{{ trans('translation.role') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="rol_id" value="{{ $user->rol->id }}">
                                 @foreach($rols as $rol)
                                     @if ($rol->id == $user->rol_id)

@@ -329,9 +329,9 @@
                     <script>
                         document.querySelectorAll('.iconBasura').forEach(elem => {
                             elem.addEventListener('click', () => {
-                                var idEmpresa = elem.dataset.id;
+                                var dataId = elem.dataset.id;
                                 var form = document.querySelector('#confirmDelete form');
-                                form.action = "empresa/delete/" + idEmpresa;
+                                form.action = "empresa/delete/" + dataId;
                                 console.log(form.action);
 
                                 var dataName = elem.dataset.name;
