@@ -78,19 +78,19 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" id="student_name" for="student_name">{{ trans('translation.name_student') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="student_name" value="{{ $estada->student_name }}" />
                         </div>
                         <div class="error" id="student_name-edit-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="curs_id">{{ trans('translation.course') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="curs_id">
                                 @foreach($cursos as $curs)
                                     @if ($curs->id == $estada->curs_id)
@@ -104,10 +104,10 @@
                         <div class="error" id="curs_id-edit-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="cicle_id">{{ trans('translation.cicle') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="cicle_id">
                                 @foreach($cicles as $cicle)
                                     @if ($cicle->id == $estada->cicle_id)
@@ -121,10 +121,10 @@
                         <div class="error" id="cicle_id-edit-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="registered_by">{{ trans('translation.registered_by') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="registered_by">
                                 @foreach($users as $user)
                                     @if ($user->id == $estada->registered_by)
@@ -138,10 +138,10 @@
                         <div class="error" id="registered_by-edit-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label"for="dual">{{ trans('translation.stay_type') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="dual">
                                 @if ($estada->dual == 1)
                                     <option value="0">FCT</option>
@@ -155,10 +155,10 @@
                         <div class="error" id="dual-edit-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="empresa_id">{{ trans('translation.company') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="empresa_id">
                                 @foreach($empresas as $empresa)
                                     @if ($empresa->id == $estada->empresa_id)
@@ -172,19 +172,19 @@
                         <div class="error" id="empresa_id-edit-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="evaluation">{{ trans('translation.valoration') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="number" name="evaluation" value="{{ $estada->evaluation }}" min="0" max="10" />
                         </div>
                         <div class="error" id="evaluation-edit-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="comment">{{ trans('translation.comment') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <textarea class="form-control" name="comment">{{ $estada->comment }}</textarea>
                         </div>
                     </div>

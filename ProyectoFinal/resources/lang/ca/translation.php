@@ -16,7 +16,7 @@ return [
     'delete' => 'Eliminar',
     'delete_empresa' => 'Eliminar empresa',
     'edit' => 'Editar',
-    'email' => 'Correu electronic',
+    'email' => 'Correu electrònic',
     'estades' => 'Estades',
     'farewell' => 'Adeu',
     'filter' => 'Filtrar',
