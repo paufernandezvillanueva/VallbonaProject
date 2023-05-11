@@ -43,7 +43,7 @@
         </li>
         @if (Auth::user()->rol_id == 5076)
         <li>
-            @if (Str::contains(url()->full(), url("user")))
+            @if (Str::contains(url()->full(), url("user")) && route('user_profile') != url()->full())
             <a href="{{ route('user_list') }}" class="nav-link text-custom actual-page">
                 Usuaris
             </a>
