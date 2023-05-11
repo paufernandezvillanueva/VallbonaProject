@@ -48,19 +48,19 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="shortname">{{ trans('translation.acronimo') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="shortname" value="{{ $cicle->shortname }}" />
                         </div>
                         <div class="error" id="shortname-edit-cicle-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="name" value="{{ $cicle->name }}" />
                         </div>
                         <div class="error" id="name-edit-cicle-error"></div>

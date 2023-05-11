@@ -18,18 +18,6 @@
     margin-left: 10px;
 }
 
-@media screen and (max-width: 575px) {
-    label {
-        float: left;
-    }
-}
-
-@media screen and (min-width: 576px) {
-    label {
-        float: right;
-    }
-}
-
 .iconAdd {
     color: var(--text-color);
     text-decoration: none;
@@ -38,10 +26,6 @@
 .iconAdd:hover {
     color: rgb(0, 132, 255);
     cursor: pointer;
-}
-
-.col-form-label {
-    white-space: nowrap;
 }
 
 #cicle-table thead th {
@@ -114,4 +98,13 @@
     #filter-form .row .row {
         padding-right: 0px;
     }
+}
+
+.modal-content {
+    min-width: 245px;
+}
+
+#nombreDelete {
+    font-weight: bold;
+    text-decoration: underline;
 }

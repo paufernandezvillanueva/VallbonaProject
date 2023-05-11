@@ -21,10 +21,6 @@
     cursor: pointer;
 }
 
-.col-form-label {
-    white-space: nowrap;
-}
-
 #rol-table thead th {
     text-align: center;
     padding: 0.5rem 0.5rem;
