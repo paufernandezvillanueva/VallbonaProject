@@ -181,19 +181,19 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="student_name">{{ trans('translation.name_student') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="student_name"  />
                         </div>
                         <div class="error" id="student_name-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="curs_id">{{ trans('translation.course') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" type="text" name="curs_id">
                                 <option value="default">{{ trans('translation.select_course') }}</option>
                                 @foreach($cursos as $curs)
@@ -204,10 +204,10 @@
                         <div class="error" id="curs_id-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="cicle_id">{{ trans('translation.cicle') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" type="text" name="cicle_id">
                                 <option value="default">{{ trans('translation.select_cicle') }}</option>
                                 @foreach($cicles as $cicle)
@@ -218,10 +218,10 @@
                         <div class="error" id="cicle_id-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="registered_by">{{ trans('translation.registered_by') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" type="text" name="registered_by">
                                 <option value="default">{{ trans('translation.select_tutor') }}</option>
                                 @foreach($users as $user)
@@ -232,10 +232,10 @@
                         <div class="error" id="registered_by-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="empresa_id">{{ trans('translation.company') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="empresa_id">
                                 <option value="default">{{ trans('translation.select_company') }}</option>
                                 @foreach ($empresas as $empresa)
@@ -246,10 +246,10 @@
                         <div class="error" id="empresa_id-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="dual">{{ trans('translation.type') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" type="text" name="dual">
                                 <option value="default">{{ trans('translation.select_type') }}</option>
                                 <option value="0">FCT</option>
@@ -259,19 +259,19 @@
                         <div class="error" id="dual-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="evaluation">{{ trans('translation.valoration') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation"  />
                         </div>
                         <div class="error" id="evaluation-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="comment">{{ trans('translation.comment') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="comment" />
                         </div>
                     </div>

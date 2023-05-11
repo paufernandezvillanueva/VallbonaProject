@@ -57,14 +57,13 @@
 }
 
 #info-table tbody tr th {
-    width: 130px;
+    width: 160px;;
 }
 
 #info-table tbody th,
 #info-table tbody td {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 #info-table tbody tr:last-child th,
