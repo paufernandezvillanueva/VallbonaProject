@@ -11,7 +11,7 @@ return [
     'company' => 'Empresa',
     'contacts' => 'Contactos',
     'confirm' => 'Confirmar',
-    'confirm_delete' => '¿Estás seguro de querer eliminar?',
+    'confirm_delete' => '¿Estás seguro de querer eliminar',
     'course' => 'Curso',
     'delete' => 'Eliminar',
     'delete_empresa' => 'Eliminar empresa',
@@ -93,7 +93,12 @@ return [
     'darkmode' => 'Modo oscuro',
     'contact' => 'Contacto',
     'stay' => 'Estada',
-
+    'forgot_password' => '¿Has olvidado la contraseña?',
+    'remember' => "Recuérdame",
+    'login' => 'Iniciar sessión',
+    'db_companies' => 'BASE DE DATOS DE EMPRESAS',
+    'import_csv' => 'Importar CSV',
+    'import' => 'Importar',
 
 
 

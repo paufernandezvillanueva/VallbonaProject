@@ -80,7 +80,7 @@
                 <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->email }}</a></td>
                 <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->phonenumber }}</a></td>
                 <td>
-                    <a data-id="{{ $contacte->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                    <a data-id="{{ $contacte->id }}" data-name="{{ $contacte->name }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                         <i class="bi bi-trash3-fill"></i>
                     </a>
                 </td>
@@ -106,7 +106,7 @@
                             <label class="col-form-label" for="name">{{ trans('translation.fullname') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name"  />
+                            <input class="form-control" type="text" name="name" />
                         </div>
                         <div class="error" id="name-add-contacte-error"></div>
                     </div>
@@ -173,11 +173,14 @@
                                 var dataId = elem.dataset.id;
                                 var form = document.querySelector('#confirmDelete form');
                                 form.action = "delete/" + dataId;
+
+                                var dataName = elem.dataset.name;
+                                document.getElementById("nombreDelete").innerHTML = dataName;
                             });
                         });
                     </script>
                     @csrf
-                    <p>{{ trans('translation.confirm_delete') }}</p>
+                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreDelete"></span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
@@ -192,7 +195,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="importContactesLabel">Importar CSV</h5>
+                <h5 class="modal-title" id="importContactesLabel">{{ trans('translation.import_csv') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="addContacteForm" action="{{ route('contacte_import') }}" enctype="multipart/form-data">
@@ -208,8 +211,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-secondary">Importar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.import') }}</button>
                 </div>
             </form>
         </div>

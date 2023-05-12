@@ -236,7 +236,7 @@
             </td>
             <td><a href="{{ route('empresa_detail', $empresa->id) }}">{{ $empresa->contactes() }}</a></td>
             <td>
-                <a data-id="{{ $empresa->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                <a data-id="{{ $empresa->id }}" data-name="{{ $empresa->name }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                     <i class="bi bi-trash3-fill"></i>
                 </a>
             </td>
@@ -256,37 +256,37 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="cif">{{ trans('translation.cif') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000"  />
+                        <div class="col-md-10 col-12">
+                            <input class="form-control" type="text" name="cif" placeholder="Ex: A-00000000" />
                         </div>
                         <div class="error" id="cif-add-empresa-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name"  />
+                        <div class="col-md-10 col-12">
+                            <input class="form-control" type="text" name="name" />
                         </div>
                         <div class="error" id="name-add-empresa-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="sector">{{ trans('translation.sector') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="sector" />
                         </div>
                         <div class="error" id="sector-add-empresa-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="comarca_id">{{ trans('translation.comarca') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="comarca_id" id="comarca_id">
                                 <option value="">{{ trans('translation.select_comarca') }}</option>
                                 @foreach($comarques as $comarca)
@@ -297,10 +297,10 @@
                         <div class="error" id="comarca_id-add-empresa-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="poblacio_id">{{ trans('translation.city') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" id="poblacio_id" name="poblacio_id">
                                 <option value="default">{{ trans('translation.select_poblacio') }}</option>
                             </select>
@@ -333,11 +333,14 @@
                                 var form = document.querySelector('#confirmDelete form');
                                 form.action = "empresa/delete/" + dataId;
                                 console.log(form.action);
+
+                                var dataName = elem.dataset.name;
+                                document.getElementById("nombreEmpresa").innerHTML = dataName;
                             });
                         });
                     </script>
                     @csrf
-                    <p>{{ trans('translation.confirm_delete') }}</p>
+                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreEmpresa"></span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
@@ -352,7 +355,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="importEmpresesLabel">Importar CSV</h5>
+                <h5 class="modal-title" id="importEmpresesLabel">{{ trans('translation.import_csv') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form id="addForm" name="importEmpresesForm" action="{{ route('empresa_import') }}" method="post" enctype="multipart/form-data">
@@ -369,7 +372,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
-                    <button type="submit" class="btn btn-secondary">Importar</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.import') }}</button>
                 </div>
             </form>
         </div>

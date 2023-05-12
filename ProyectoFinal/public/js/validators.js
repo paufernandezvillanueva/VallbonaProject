@@ -82,6 +82,17 @@ function oneIsSelected(elem, helperMsg) {
     return result;
 }
 
+function emailValidator(elem, helperMsg) {
+    var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+    var result = true;
+    if (!elem.value.match(emailExp)) {
+        result = false;
+        elem.focus();
+    }
+    tractarError(elem, result, helperMsg);
+    return result;
+}
+
 function emailValidatorOrNull(elem, helperMsg) {
     var emailExp = /^([\wçÇñÑ\-\.\+]+@[a-zA-Z0-9çÇñÑ\.\-]+\.[a-zA-Z0-9çÇñÑ]{2,})?$/;
     var result = true;

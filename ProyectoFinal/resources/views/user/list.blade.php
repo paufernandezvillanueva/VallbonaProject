@@ -109,28 +109,28 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="firstname">{{ trans('translation.name') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="name" />
                         </div>
                         <div class="error" id="name-add-user-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="email">{{ trans('translation.email') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="email" />
                         </div>
                         <div class="error" id="email-add-user-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="cicle_id">{{ trans('translation.cicle') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="cicle_id">
                                 <option value="default">{{ trans('translation.select_cicle') }}</option>
                                 @foreach ($cicles as $cicle)
@@ -141,10 +141,10 @@
                         <div class="error" id="cicle_id-add-user-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="rol_id">{{ trans('translation.role') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="rol_id">
                                 <option value="default">{{ trans('translation.select_rol') }}</option>
                                 @foreach ($rols as $rol)
@@ -203,7 +203,7 @@
                     </form>
                 </td>
                 <td>
-                    <a data-id="{{ $user->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                    <a data-id="{{ $user->id }}" data-name="{{ $user->name }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                         <i class="bi bi-trash3-fill"></i>
                     </a>
                 </td>
@@ -229,10 +229,14 @@
                                 var dataId = elem.dataset.id;
                                 var form = document.querySelector('#confirmDelete form');
                                 form.action = "delete/" + dataId;
+
+                                var dataName = elem.dataset.name;
+                                document.getElementById("nombreDelete").innerHTML = dataName;
                             });
                         });
                     </script>
-                    <p>{{ trans('translation.confirm_delete') }}</p>
+                    @csrf
+                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreDelete"></span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
@@ -247,24 +251,24 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="importUsersLabel">Importar CSV</h5>
+                <h5 class="modal-title" id="importUsersLabel">{{ trans('translation.import_csv') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form id="addForm" name="importUsersForm" action="{{ route('user_import') }}" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
-                @csrf
+                    @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="csv">CSV</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv"/>
+                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv" />
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
-                    <button type="submit" class="btn btn-secondary">Importar</button>
+                    <button type="submit" class="btn btn-secondary">{{ trans('translation.import') }}</button>
                 </div>
             </form>
         </div>

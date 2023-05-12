@@ -11,12 +11,12 @@ return [
     'company' => 'Empresa',
     'contacts' => 'Contactes',
     'confirm' => 'Confirmar',
-    'confirm_delete' => 'Esteu segur que voleu eliminar?',
+    'confirm_delete' => 'Estàs segur de voler eliminar',
     'course' => 'Curs',
     'delete' => 'Eliminar',
     'delete_empresa' => 'Eliminar empresa',
     'edit' => 'Editar',
-    'email' => 'Correu electronic',
+    'email' => 'Correu electrònic',
     'estades' => 'Estades',
     'farewell' => 'Adeu',
     'filter' => 'Filtrar',
@@ -96,6 +96,13 @@ return [
     'darkmode' => 'Mode oscur',
     'contact' => 'Contacte',
     'stay' => 'Estada',
+    'forgot_password' => 'Has oblidat la contrasenya?',
+    'remember' => "Recorda'm",
+    'login' => 'Iniciar sessió',
+    'db_companies' => 'BASE DE DADES DE EMPRESES',
+    'import_csv' => 'Importar CSV',
+    'import' => 'Importar',
+
 
 
 
