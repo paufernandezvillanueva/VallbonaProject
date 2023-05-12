@@ -2,10 +2,24 @@
     min-width: 500px;
 }
 
-@media screen and (max-width: 991px) {
-    .table-responsive {
-        width: 95%;
-        margin: auto;
+@media (max-width: 776px) {
+    #estada-table tr th:nth-of-type(3),
+    #estada-table tr td:nth-of-type(3) {
+        display: none;
+    }
+}
+
+@media (max-width: 870px) {
+    #estada-table tr th:nth-of-type(2),
+    #estada-table tr td:nth-of-type(2) {
+        display: none;
+    }
+}
+
+@media (max-width: 1128px) {
+    #estada-table tr th:nth-of-type(4),
+    #estada-table tr td:nth-of-type(4) {
+        display: none;
     }
 }
 
