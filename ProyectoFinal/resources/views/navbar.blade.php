@@ -9,7 +9,6 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            {{ url()->full() }} {{ url("empresa") }}
             @if (route('empresa_list') == url()->full() || Str::contains(url()->full(), url("empresa")) || Str::contains(url()->full(), url("?")))
             <a href="{{ route('empresa_list') }}" class="nav-link text-custom actual-page" aria-current="page">
                 {{ trans('translation.companies') }}
