@@ -179,16 +179,6 @@ Route::match(['get', 'post'], '/poblacio/import', [PoblacioController::class, 'i
 
 require __DIR__.'/auth.php';
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
-
 Route::post('test', function(){
     return 'Post is working';
 })->name('test');
