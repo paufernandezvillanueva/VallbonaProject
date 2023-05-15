@@ -29,7 +29,7 @@
         @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-lg-1 col-3">
-                <label for="name">{{ trans('translation.city') }}: </label>
+                <label for="name">{{ trans('translation.name') }}: </label>
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->name) && $request->name != "")
@@ -43,9 +43,9 @@
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->comarca) && $request->comarca != "")
-                <input class="form-control" type="text" id="comarca" name="comarca" value="{{ $request->comarca }}" />
+                <input class="form-control" type="text" id="comarca" name="comarca" value="{{ $request->comarca }}" list="comarcas" />
                 @else
-                <input class="form-control" type="text" id="comarca" name="comarca" />
+                <input class="form-control" type="text" id="comarca" name="comarca" list="comarcas"/>
                 @endif
             </div>
         </div>
@@ -194,6 +194,12 @@
         </div>
     </div>
 </div>
+
+<datalist id="comarcas">
+    @foreach($comarques as $comarca)
+        <option value="{{ $comarca->name }}">
+    @endforeach
+</datalist>
 
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>

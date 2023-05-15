@@ -26,7 +26,7 @@
             </button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" method="get" action="{{ route('empresa_list') }}">
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="post" action="{{ route('empresa_list') }}">
         @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-lg-1 col-3">
@@ -80,9 +80,9 @@
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->sector) && $request->sector != "")
-                <input class="form-control" type="text" id="sector" name="sector" value="{{ $request->sector }}"></input>
+                <input class="form-control" type="text" id="sector" name="sector" value="{{ $request->sector }}" list="sectors"></input>
                 @else
-                <input class="form-control" type="text" id="sector" name="sector"></input>
+                <input class="form-control" type="text" id="sector" name="sector" list="sectors"></input>
                 @endif
             </div>
         </div>
@@ -278,7 +278,7 @@
                             <label class="col-form-label" for="sector">{{ trans('translation.sector') }}</label>
                         </div>
                         <div class="col-md-10 col-12">
-                            <input class="form-control" type="text" name="sector" />
+                            <input class="form-control" type="text" name="sector" list="sectors" />
                         </div>
                         <div class="error" id="sector-add-empresa-error"></div>
                     </div>
@@ -378,6 +378,12 @@
         </div>
     </div>
 </div>
+
+<datalist id="sectors">
+    @foreach($sectors as $sector)
+        <option value="{{ $sector->sector }}">
+    @endforeach
+</datalist>
 
 <script type="text/javascript" src="{{ asset('js/empresa_list_poblacions_json.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>

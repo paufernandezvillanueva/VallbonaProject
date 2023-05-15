@@ -39,9 +39,9 @@
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->empresa) && $request->empresa != "")
-                <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}"></input>
+                <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}" list="empresas"></input>
                 @else
-                <input class="form-control" type="text" id="empresa" name="empresa"></input>
+                <input class="form-control" type="text" id="empresa" name="empresa" list="empresas"></input>
                 @endif
             </div>
         </div>
@@ -218,6 +218,12 @@
         </div>
     </div>
 </div>
+
+<datalist id="empresas">
+    @foreach($empresas as $empresa)
+        <option value="{{ $empresa->name }}">
+    @endforeach
+</datalist>
 
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
