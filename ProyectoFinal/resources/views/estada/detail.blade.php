@@ -19,7 +19,7 @@
         <div class="labels">
             <div class="infoEstada">
                 <div class="list-header">
-                    <div id="info">{{ trans('translation.info').' '. trans('translation.estades')  }}</div>
+                    <div id="info">{{ trans('translation.info')  }}</div>
                     <div class="filtro"><button class="filtrar" data-bs-toggle="modal" data-bs-target="#editInfo">{{ trans('translation.edit') }}</button></div>
                 </div>
                 <table id="info-table" class="table table-striped table-dark">

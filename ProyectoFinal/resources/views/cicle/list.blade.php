@@ -69,7 +69,7 @@
                 <td><a href="{{ route('cicle_detail', $cicle->id) }}">{{ $cicle->shortname }}</a></td>
                 <td><a href="{{ route('cicle_detail', $cicle->id) }}">{{ $cicle->name }}</a></td>
                 <td>
-                    <a data-id="{{ $cicle->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                    <a data-id="{{ $cicle->id }}" data-name="{{ $cicle->shortname }} ({{ $cicle->name }})" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                         <i class="bi bi-trash3-fill"></i>
                     </a>
                 </td>
@@ -90,20 +90,20 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="shortname">{{ trans('translation.acronimo') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="shortname"  />
+                        <div class="col-md-10 col-12">
+                            <input class="form-control" type="text" name="shortname" />
                         </div>
                         <div class="error" id="shortname-add-cicle-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name"  />
+                        <div class="col-md-10 col-12">
+                            <input class="form-control" type="text" name="name" />
                         </div>
                         <div class="error" id="name-add-cicle-error"></div>
                     </div>
@@ -132,11 +132,14 @@
                                 var dataId = elem.dataset.id;
                                 var form = document.querySelector('#confirmDelete form');
                                 form.action = "delete/" + dataId;
+
+                                var dataName = elem.dataset.name;
+                                document.getElementById("nombreDelete").innerHTML = dataName;
                             });
                         });
                     </script>
                     @csrf
-                    <p>{{ trans('translation.confirm_delete') }}</p>
+                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreDelete"></span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
@@ -158,13 +161,13 @@
             </div>
             <form id="addForm" name="importCiclesForm" action="{{ route('cicle_import') }}" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
-                @csrf
+                    @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="csv">CSV</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv"/>
+                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv" />
                         </div>
                     </div>
                 </div>

@@ -11,18 +11,6 @@
     margin-left: 10px;
 }
 
-@media screen and (max-width: 575px) {
-    label {
-        float: left;
-    }
-}
-
-@media screen and (min-width: 576px) {
-    label {
-        float: right;
-    }
-}
-
 #poblacio-table tr th:nth-of-type(1),
 #poblacio-table tr td:nth-of-type(1) {
     width: 50%;

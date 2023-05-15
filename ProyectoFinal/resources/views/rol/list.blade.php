@@ -61,10 +61,10 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="name" />
                         </div>
                         <div class="error" id="name-add-rol-error"></div>
@@ -96,7 +96,7 @@
             <tr>
                 <td><a href="{{ route('rol_detail', $rol->id) }}">{{ $rol->name }}</a></td>
                 <td>
-                    <a data-id="{{ $rol->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                    <a data-id="{{ $rol->id }}" data-name="{{ $rol->name }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                         <i class="bi bi-trash3-fill"></i>
                     </a>
                 </td>
@@ -121,11 +121,14 @@
                                 var dataId = elem.dataset.id;
                                 var form = document.querySelector('#confirmDelete form');
                                 form.action = "delete/" + dataId;
+
+                                var dataName = elem.dataset.name;
+                                document.getElementById("nombreDelete").innerHTML = dataName;
                             });
                         });
                     </script>
                     @csrf
-                    <p>{{ trans('translation.confirm_delete') }}</p>
+                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreDelete"></span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
@@ -146,13 +149,13 @@
             </div>
             <form id="addForm" name="importRolsForm" action="{{ route('rol_import') }}" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
-                @csrf
+                    @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="csv">CSV</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv"/>
+                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv" />
                         </div>
                     </div>
                 </div>

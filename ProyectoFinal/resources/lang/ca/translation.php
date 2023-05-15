@@ -83,7 +83,7 @@ return [
     'list_curs' => 'Llista de cursos',
     'list_cicle' => 'Llista de cicles',
     'list_comarca' => 'Llista de comarques',
-    'list_poblacio' => 'Llista de poblacións',
+    'list_poblacio' => 'Llista de poblacions',
     'companies' => 'Empreses',
     'stays' => 'Estades',
     'users' => 'Usuaris',
