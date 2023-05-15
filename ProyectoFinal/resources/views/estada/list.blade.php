@@ -93,9 +93,9 @@
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->registeredBy) && $request->registeredBy != "")
-                <input class="form-control" type="text" id="registeredBy" name="registeredBy" value="{{ $request->registeredBy }}" />
+                <input class="form-control" type="text" id="registeredBy" name="registeredBy" value="{{ $request->registeredBy }}" list="registered_by" />
                 @else
-                <input class="form-control" type="text" id="registeredBy" name="registeredBy" />
+                <input class="form-control" type="text" id="registeredBy" name="registeredBy" list="registered_by" />
                 @endif
             </div>
         </div>
@@ -105,9 +105,9 @@
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->empresa) && $request->empresa != "")
-                <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}" />
+                <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}" list="empresas" />
                 @else
-                <input class="form-control" type="text" id="empresa" name="empresa" />
+                <input class="form-control" type="text" id="empresa" name="empresa" list="empresas" />
                 @endif
             </div>
             <div class="col-lg-1 offset-lg-1 col-3">
@@ -417,6 +417,18 @@
         </div>
     </div>
 </div>
+
+<datalist id="registered_by">
+    @foreach($users as $user)
+        <option value="{{ $user->name }}">
+    @endforeach
+</datalist>
+
+<datalist id="empresas">
+    @foreach($empresas as $empresa)
+        <option value="{{ $empresa->name }}">
+    @endforeach
+</datalist>
 
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
