@@ -43,9 +43,9 @@
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->comarca) && $request->comarca != "")
-                <input class="form-control" type="text" id="comarca" name="comarca" value="{{ $request->comarca }}" list="comarcas" />
+                <input class="form-control" type="text" id="comarca" name="comarca" value="{{ $request->comarca }}" autocomplete="off" list="comarcas" />
                 @else
-                <input class="form-control" type="text" id="comarca" name="comarca" list="comarcas"/>
+                <input class="form-control" type="text" id="comarca" name="comarca" autocomplete="off" list="comarcas"/>
                 @endif
             </div>
         </div>

@@ -145,7 +145,7 @@
                             <label class="col-form-label" for="sector">{{ trans('translation.sector') }}</label>
                         </div>
                         <div class="col-md-10 col-12">
-                            <input class="form-control" type="text" name="sector" value="{{ $empresa->sector }}" list="sectors" />
+                            <input class="form-control" type="text" name="sector" value="{{ $empresa->sector }}" autocomplete="off" list="sectors" />
                             <datalist id="sectors">
                                 @foreach($sectors as $sector)
                                 <option value="{{ $sector->sector }}">
