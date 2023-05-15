@@ -95,6 +95,8 @@
 }
 .filter-form {
     background-color: var(--background-color-1) !important;
+    overflow-y: hidden;
+    transition: max-height 2s, border-bottom 2s;
 }
 
 .filter-form #filter-form-button {
@@ -150,25 +152,20 @@
     width: 50%;
 }
 
-.filter-form-opened {
-    animation: filter-opening 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+.filter-form-opened-base {
     border-bottom: 1px var(--text-color) solid;
-    max-height: 100vh;
+}
+
+.filter-form-opened {
+    border-bottom: 1px var(--text-color) solid;
 }
 
 .filter-form-closed-base {
-    overflow-y: hidden;
-    max-height: 0;
+    max-height: 0px !important;
 }
 
 .filter-form-closed {
-    animation: filter-opening 1s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-    animation-direction: reverse;
-    max-height: 0vh;
+    max-height: 0px !important;
 }
 
 #filter-form div:nth-of-type(1){
@@ -177,7 +174,6 @@
 
 #filter-form div div {
     padding-top: 0px !important;
-    display: flex;
 }
 
 #filter-form .form-control, #filter-form .form-select {

@@ -108,28 +108,3 @@
         padding-right: 0px;
     }
 }
-
-.modal-content {
-    min-width: 245px;
-}
-
-#nombreDelete {
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-@keyframes filter-opening {
-    0% {
-        max-height: 0px;
-        overflow-y: hidden;
-        border-bottom: 0px var(--text-color) solid;
-    }
-    99.99% {
-        overflow-y: hidden;
-    }
-    100% {
-        overflow-y: visible;
-        max-height: 117px;
-        border-bottom: 1px var(--text-color) solid;
-    }
-}
