@@ -120,9 +120,3 @@
         padding-right: 0px;
     }
 }
-
-@keyframes filter-opening {
-    0% { max-height: 0px; overflow-y: hidden; border-bottom: 0px var(--text-color) solid;}
-    99.99% { overflow-y: hidden; }
-    100% { overflow-y: visible; max-height: 117px; border-bottom: 1px var(--text-color) solid;}
-}
