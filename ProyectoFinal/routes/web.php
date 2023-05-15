@@ -48,8 +48,11 @@ Route::middleware('auth')->group(function () {
 
 //// EMPRESES
 
-Route::match(['get', 'post'], '/', [EmpresaController::class, 'list'])->name('empresa_list')->middleware('auth');
-// Route::get('/empresa/list', [EmpresaController::class, 'list'])->name('empresa_list');
+Route::get('/', function () {
+    return redirect("empresa/list");
+})->name('home');
+
+Route::match(['get', 'post'], '/empresa/list', [EmpresaController::class, 'list'])->name('empresa_list')->middleware('auth');
 
 Route::match(['get', 'post'], '/empresa/edit/{id}', [EmpresaController::class, 'edit'])->name('empresa_edit')->middleware('auth');
 

@@ -107,6 +107,13 @@
         </div>
     </div>
 </div>
+
+<datalist id="empresas">
+    @foreach($empresas as $empresa)
+        <option value="{{ $empresa->name }}">
+    @endforeach
+</datalist>
+
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/contacte_edit_validator.js') }}"></script>
 <br>

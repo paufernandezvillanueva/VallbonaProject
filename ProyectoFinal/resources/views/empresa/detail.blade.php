@@ -149,7 +149,7 @@
                             <datalist id="sectors">
                                 @foreach($sectors as $sector)
                                 <option value="{{ $sector->sector }}">
-                                    @endforeach
+                                @endforeach
                             </datalist>
                         </div>
                         <div class="error" id="sector-edit-empresa-error"></div>
