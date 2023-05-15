@@ -93,9 +93,9 @@
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->registeredBy) && $request->registeredBy != "")
-                <input class="form-control" type="text" id="registeredBy" name="registeredBy" value="{{ $request->registeredBy }}" list="registered_by" />
+                <input class="form-control" type="text" id="registeredBy" name="registeredBy" value="{{ $request->registeredBy }}" autocomplete="off" list="registered_by" />
                 @else
-                <input class="form-control" type="text" id="registeredBy" name="registeredBy" list="registered_by" />
+                <input class="form-control" type="text" id="registeredBy" name="registeredBy" autocomplete="off" list="registered_by" />
                 @endif
             </div>
         </div>
@@ -105,9 +105,9 @@
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->empresa) && $request->empresa != "")
-                <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}" list="empresas" />
+                <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}" autocomplete="off" list="empresas" />
                 @else
-                <input class="form-control" type="text" id="empresa" name="empresa" list="empresas" />
+                <input class="form-control" type="text" id="empresa" name="empresa" autocomplete="off" list="empresas" />
                 @endif
             </div>
             <div class="col-lg-1 offset-lg-1 col-3">

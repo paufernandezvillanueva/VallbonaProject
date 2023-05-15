@@ -80,9 +80,9 @@
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->sector) && $request->sector != "")
-                <input class="form-control" type="text" id="sector" name="sector" value="{{ $request->sector }}" list="sectors"></input>
+                <input autocomplete="off" class="form-control" type="text" id="sector" name="sector" value="{{ $request->sector }}" autocomplete="off" list="sectors"></input>
                 @else
-                <input class="form-control" type="text" id="sector" name="sector" list="sectors"></input>
+                <input class="form-control" type="text" id="sector" name="sector" autocomplete="off" list="sectors"></input>
                 @endif
             </div>
         </div>

@@ -64,7 +64,7 @@
 #contactes-table #contactes-info {
     display: block;
     overflow-y: scroll;
-    height: 165px;
+    height: 164px;
     border: 1px #626262 solid;
     border-top: 0px;
 }
@@ -246,7 +246,6 @@
 
 #info-table tbody {
     display: block;
-    height: 207px;
     border: 1px #626262 solid;
 }
 
