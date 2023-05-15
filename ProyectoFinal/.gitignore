@@ -24,3 +24,5 @@ Homestead.json
 
 /.idea/
 /../.idea/
+
+app/Providers/AppServiceProvider.php

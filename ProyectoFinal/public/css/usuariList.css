@@ -21,6 +21,20 @@
     cursor: pointer;
 }
 
+@media (max-width: 646px) {
+    #usuari-table tr th:nth-of-type(4),
+    #usuari-table tr td:nth-of-type(4) {
+        display: none;
+    }
+}
+
+@media (max-width: 702px) {
+    #usuari-table tr th:nth-of-type(3),
+    #usuari-table tr td:nth-of-type(3) {
+        display: none;
+    }
+}
+
 @media screen and (min-width: 992px) {
     .col-form-label {
         white-space: nowrap;

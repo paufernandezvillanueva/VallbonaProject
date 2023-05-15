@@ -1,3 +1,30 @@
+@media (max-width: 754px) { 
+    #empresa-table tr th:nth-of-type(3),
+    #empresa-table tr td:nth-of-type(3) {
+        display: none;
+    }
+}
+@media (max-width: 936px) { 
+    #empresa-table tr th:nth-of-type(4),
+    #empresa-table tr td:nth-of-type(4) {
+        display: none;
+    }
+}
+
+@media (max-width: 1018px) { 
+    #empresa-table tr th:nth-of-type(5),
+    #empresa-table tr td:nth-of-type(5) {
+        display: none;
+    }
+}
+
+@media (max-width: 1194px) { 
+    #empresa-table tr th:nth-of-type(7),
+    #empresa-table tr td:nth-of-type(7) {
+        display: none;
+    }
+}
+
 .container {
     min-width: 500px;
 }

@@ -96,6 +96,13 @@ return [
     'darkmode' => 'Mode oscur',
     'contact' => 'Contacte',
     'stay' => 'Estada',
+    'forgot_password' => 'Has oblidat la contrasenya?',
+    'remember' => "Recorda'm",
+    'login' => 'Iniciar sessió',
+    'db_companies' => 'BASE DE DADES DE EMPRESES',
+    'import_csv' => 'Importar CSV',
+    'import' => 'Importar',
+
 
 
 
