@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat d\'estades')
+@section('title', trans('translation.list_estades'))
 
 @section('stylesheets')
 @parent
@@ -25,7 +25,7 @@
             </button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" method="post" action="{{ route('estada_list') }}">
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="post" style="max-height: 0px;" action="{{ route('estada_list') }}">
         @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-lg-1 col-3">
@@ -93,9 +93,9 @@
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->registeredBy) && $request->registeredBy != "")
-                <input class="form-control" type="text" id="registeredBy" name="registeredBy" value="{{ $request->registeredBy }}" />
+                <input class="form-control" type="text" id="registeredBy" name="registeredBy" value="{{ $request->registeredBy }}" autocomplete="off" list="registered_by" />
                 @else
-                <input class="form-control" type="text" id="registeredBy" name="registeredBy" />
+                <input class="form-control" type="text" id="registeredBy" name="registeredBy" autocomplete="off" list="registered_by" />
                 @endif
             </div>
         </div>
@@ -105,9 +105,9 @@
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->empresa) && $request->empresa != "")
-                <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}" />
+                <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}" autocomplete="off" list="empresas" />
                 @else
-                <input class="form-control" type="text" id="empresa" name="empresa" />
+                <input class="form-control" type="text" id="empresa" name="empresa" autocomplete="off" list="empresas" />
                 @endif
             </div>
             <div class="col-lg-1 offset-lg-1 col-3">
@@ -181,19 +181,19 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="student_name">{{ trans('translation.name_student') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="student_name"  />
+                        <div class="col-md-10 col-12">
+                            <input class="form-control" type="text" name="student_name" />
                         </div>
                         <div class="error" id="student_name-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="curs_id">{{ trans('translation.course') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" type="text" name="curs_id">
                                 <option value="default">{{ trans('translation.select_course') }}</option>
                                 @foreach($cursos as $curs)
@@ -204,10 +204,10 @@
                         <div class="error" id="curs_id-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="cicle_id">{{ trans('translation.cicle') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" type="text" name="cicle_id">
                                 <option value="default">{{ trans('translation.select_cicle') }}</option>
                                 @foreach($cicles as $cicle)
@@ -218,10 +218,10 @@
                         <div class="error" id="cicle_id-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="registered_by">{{ trans('translation.registered_by') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" type="text" name="registered_by">
                                 <option value="default">{{ trans('translation.select_tutor') }}</option>
                                 @foreach($users as $user)
@@ -232,10 +232,10 @@
                         <div class="error" id="registered_by-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="empresa_id">{{ trans('translation.company') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" name="empresa_id">
                                 <option value="default">{{ trans('translation.select_company') }}</option>
                                 @foreach ($empresas as $empresa)
@@ -246,10 +246,10 @@
                         <div class="error" id="empresa_id-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="dual">{{ trans('translation.type') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-select" type="text" name="dual">
                                 <option value="default">{{ trans('translation.select_type') }}</option>
                                 <option value="0">FCT</option>
@@ -259,19 +259,19 @@
                         <div class="error" id="dual-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="evaluation">{{ trans('translation.valoration') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation"  />
+                        <div class="col-md-10 col-12">
+                            <input class="form-control" type="number" min="0" max="10" value="5" name="evaluation" />
                         </div>
                         <div class="error" id="evaluation-add-estada-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2  col-12">
                             <label class="col-form-label" for="comment">{{ trans('translation.comment') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="comment" />
                         </div>
                     </div>
@@ -349,7 +349,7 @@
                     </form>
                 </td>
                 <td>
-                    <a data-id="{{ $estada->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
+                    <a data-id="{{ $estada->id }}" data-name="{{ $estada->student_name }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete"><i class="bi bi-trash3-fill"></i></a>
                 </td>
             </tr>
             @endforeach
@@ -372,11 +372,14 @@
                                 var dataId = elem.dataset.id;
                                 var form = document.querySelector('#confirmDelete form');
                                 form.action = "delete/" + dataId;
+
+                                var dataName = elem.dataset.name;
+                                document.getElementById("nombreDelete").innerHTML = dataName;
                             });
                         });
                     </script>
                     @csrf
-                    <p>{{ trans('translation.confirm_delete') }}</p>
+                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreDelete"></span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
@@ -396,13 +399,13 @@
             </div>
             <form id="addForm" name="importEstadesForm" action="{{ route('estada_import') }}" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
-                @csrf
+                    @csrf
                     <div class="row">
                         <div class="col-md-2 col-sm-2">
                             <label class="col-form-label" for="csv">CSV</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv"/>
+                            <input class="form-control" type="file" name="csv" id="csv" accept=".csv" />
                         </div>
                     </div>
                 </div>
@@ -415,7 +418,20 @@
     </div>
 </div>
 
+<datalist id="registered_by">
+    @foreach($users as $user)
+        <option value="{{ $user->name }}">
+    @endforeach
+</datalist>
+
+<datalist id="empresas">
+    @foreach($empresas as $empresa)
+        <option value="{{ $empresa->name }}">
+    @endforeach
+</datalist>
+
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/filter_size.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/estada_add_validator.js') }}"></script>

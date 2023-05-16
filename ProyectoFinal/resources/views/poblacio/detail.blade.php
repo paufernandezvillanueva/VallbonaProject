@@ -3,8 +3,8 @@
 @section('title', $poblacio->name)
 
 @section('stylesheets')
-    <link rel="stylesheet" href="{{ asset('css/poblacioDetail.css') }}" />
-    @parent
+<link rel="stylesheet" href="{{ asset('css/poblacioDetail.css') }}" />
+@parent
 @endsection
 
 @section('content')
@@ -49,26 +49,26 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="name" value="{{ $poblacio->name }}" />
                         </div>
                         <div class="error" id="name-edit-poblacio-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-12">
                             <label class="col-form-label" for="comarca_id">{{ trans('translation.comarca') }}</label>
                         </div>
-                        <div class="col-md-10 col-sm-10">
+                        <div class="col-md-10 col-12">
                             <select class="form-control" name="comarca_id" value="{{ $poblacio->comarca_id }}">
                                 @foreach($comarques as $comarca)
-                                    @if ($comarca->id == $poblacio->comarca_id)
-                                        <option value="{{ $comarca->id }}" selected>{{ $comarca->name }}</option>
-                                    @else
-                                        <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
-                                    @endif
+                                @if ($comarca->id == $poblacio->comarca_id)
+                                <option value="{{ $comarca->id }}" selected>{{ $comarca->name }}</option>
+                                @else
+                                <option value="{{ $comarca->id }}">{{ $comarca->name }}</option>
+                                @endif
                                 @endforeach
                             </select>
                         </div>

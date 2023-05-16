@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Projecte - @yield('title')</title>
+    <title>@yield('title') - {{ trans('translation.db_companies') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @section('stylesheets')
     @if (Auth::user()->darkmode == 0)
@@ -23,7 +23,6 @@
     <!-- BOOTSTRAP ICONS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
     <!--  -->
-    <title>Document</title>
 
 </head>
 

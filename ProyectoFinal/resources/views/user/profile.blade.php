@@ -1,15 +1,16 @@
 @extends('layout')
 
-@section('title', 'Llistat de users')
+@section('title', Auth::user()->name)
 
 @section('stylesheets')
     @parent
     <link rel="stylesheet" href="{{ asset('css/card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
 @endsection
 
 @section('content')
     <div class="titulo">
-        <h1>{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h1>
+        <h1>{{ Auth::user()->name }}</h1>
     </div>
             <div class="row justify-content-center">
                 <div class="col-md-8" style="width: 95%">
@@ -66,7 +67,7 @@
 
                                 <div class="row">
                                     <div class="col-md-3 col-sm-3">
-                                        <label for="password-confirm" class="col-form-label">{{ trans('translation.confirm').' '.trans('translation.password').':' }}</label>
+                                        <label for="password-confirm" class="col-form-label">{{ trans('translation.confirm_password').':' }}</label>
                                     </div>
 
                                     <div class="col-md-9 col-sm-9">
@@ -75,7 +76,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-form-label">
+                                    <div id="gmail" class="col-form-label">
                                         {{ trans('translation.link_gmail').':' }}
                                         @if (Auth::user()->google_id == null)
                                             <i class="bi bi-x-lg text-danger ms-1"></i>
