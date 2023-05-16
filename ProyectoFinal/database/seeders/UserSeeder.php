@@ -16,11 +16,12 @@ class UserSeeder extends Seeder
     {
         //
         DB::table('users')->insert([
-            'id' => 1,
-            'username' => "admin",
+            'name' => "admin",
             'email' => "admin@email.com",
             'password' => Hash::make("admin"),
-            'rol_id' => 1,
+            'cicle_id' => 1,
+            'rol_id' => 5076,
+            'darkmode' => false,
         ]);
     }
 }

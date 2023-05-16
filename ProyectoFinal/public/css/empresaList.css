@@ -1,0 +1,217 @@
+@media (max-width: 754px) { 
+    #empresa-table tr th:nth-of-type(3),
+    #empresa-table tr td:nth-of-type(3) {
+        display: none;
+    }
+}
+@media (max-width: 936px) { 
+    #empresa-table tr th:nth-of-type(4),
+    #empresa-table tr td:nth-of-type(4) {
+        display: none;
+    }
+}
+
+@media (max-width: 1018px) { 
+    #empresa-table tr th:nth-of-type(5),
+    #empresa-table tr td:nth-of-type(5) {
+        display: none;
+    }
+}
+
+@media (max-width: 1194px) { 
+    #empresa-table tr th:nth-of-type(7),
+    #empresa-table tr td:nth-of-type(7) {
+        display: none;
+    }
+}
+
+.container {
+    min-width: 500px;
+}
+
+#empresa-table {
+    margin-bottom: 10px;
+}
+
+.modal-body > .row {
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.iconAdd {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.iconAdd:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+}
+
+#empresa-table thead th {
+    text-align: center;
+    padding: 0.5rem 0.5rem;
+}
+
+#empresa-table tbody th,
+#empresa-table tbody td {
+    text-align: center;
+    padding: 0;
+}
+
+#empresa-table tbody th:nth-of-type(2),
+#empresa-table tbody td:nth-of-type(3),
+#empresa-table tbody th:nth-of-type(1),
+#empresa-table tbody td:nth-of-type(2) {
+    max-width: 180px;
+}
+
+#empresa-table tbody th:nth-of-type(7),
+#empresa-table tbody td:nth-of-type(7) {
+    max-width: 100%;
+}
+
+#empresa-table tr td:nth-of-type(2) a,
+#empresa-table tr td:nth-of-type(3) a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#empresa-table tbody a,
+#empresa-table tbody span {
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#empresa-table tbody td:nth-of-type(1) a,
+#empresa-table tbody td:nth-of-type(2) a,
+#empresa-table tbody td:nth-of-type(7) a {
+    text-decoration: none;
+}
+
+#empresa-table tbody td:nth-of-type(3) a:hover,
+#empresa-table tbody td:nth-of-type(4) a:hover,
+#empresa-table tbody td:nth-of-type(5) a:hover,
+#empresa-table tbody td:nth-of-type(6) a:hover {
+    display: block;
+    color: rgb(0, 132, 255);
+    padding: 0.5rem 0.5rem;
+}
+
+#empresa-table tbody tr th,
+#empresa-table tbody tr td {
+    background-color: var(--background-color-1);
+}
+
+#empresa-table tbody tr:hover th,
+#empresa-table tbody tr:hover td {
+    box-shadow: inset 0 0 0 9999px var(--table-hover);
+}
+
+#empresa-table tbody td:last-child a {
+    padding: 7px 8px;
+}
+
+#empresa-table tbody .iconBasura {
+    text-decoration: none;
+}
+
+#empresa-table tbody .iconBasura:hover {
+    cursor: pointer;
+    color: red;
+}
+
+#empresa-table thead th:last-child,
+#empresa-table tbody td:last-child,
+#filter-button,
+#import-button {
+    width: 40px;
+}
+
+#filter {
+    background-color: var(--background-color-1);
+    width: 95%;
+    margin: auto;
+}
+
+#filter-header {
+    border-bottom: 1px var(--text-color) solid;
+    display: flex;
+}
+
+#filter-header div {
+    width: 50%;
+}
+
+#filter-header div:nth-of-type(1) {
+    text-align: left;
+}
+
+#filter-header div:nth-of-type(2) {
+    text-align: right;
+}
+
+#filter-button,
+#import-button {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 0;
+    padding: 0.5rem 0.5rem;
+}
+
+#filter-button:hover,
+#import-button:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+}
+
+.filter-form #filter-form-container {
+    display: flex;
+    height: fit-content;
+}
+
+.filter-form label {
+    float: left;
+}
+
+#filter-form div div div:nth-of-type(2) {
+    padding-top: 0px !important;
+    display: block;
+}
+
+@media screen and (min-width: 992px) {
+    .filter-form div label {
+        float: none;
+        margin-left: -7px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .filter-form div label {
+        float: none;
+        margin-left: 35px;
+    }
+
+    #filter-form .row {
+        padding-right: 20px;
+    }
+
+    #filter-form .row .row {
+        padding-right: 0px;
+    }
+}
+
+.modal-content {
+    min-width:245px
+}
+
+#nombreDelete {
+    font-weight: bold;
+    text-decoration: underline;
+}

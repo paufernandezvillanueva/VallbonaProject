@@ -1,0 +1,13 @@
+:root {
+    --background-color-1: rgb(250, 250, 250);
+    --background-color-2: #E9E9E9;
+    --background-color-3: rgb(220, 220, 220);
+    --background-color-4: #d9d9d9;
+    --text-color: black;
+    --button-background-color: #303030;
+    --button-background-color-hover: #505050;
+    --button-text-color: white;
+    --active-page-color: rgba(255, 0, 0, 0.8);
+    --active-page-color-hover: rgba(133, 0, 0, 0.5);
+    --table-hover: rgba(0, 0, 0, 0.35);
+}

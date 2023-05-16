@@ -1,0 +1,49 @@
+<x-guest-layout>
+    <x-validation-errors class="mb-4" />
+
+    @if (session('status'))
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {{ session('status') }}
+        </div>
+    @endif
+
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
+        <div class="flex items-center justify-center mb-1">
+            <a href="{{ url('authorized/google') }}">
+                <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png">
+            </a>
+        </div>
+
+        <hr class="mt-2 mb-2">
+
+        <div>
+            <x-label for="email" value="{{ trans('translation.email') }}" />
+            <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+        </div>
+
+        <div class="mt-4">
+            <x-label for="password" value="{{ trans('translation.password') }}" />
+            <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+        </div>
+
+        <div class="block mt-4">
+            <label for="remember_me" class="flex items-center">
+                <x-checkbox id="remember_me" name="remember" />
+                <span class="ml-2 text-sm text-gray-600">{{ trans('translation.remember') }}</span>
+            </label>
+        </div>
+
+        <div class="flex items-center justify-end mt-4">
+            @if (Route::has('password.request'))
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                    {{ trans('translation.forgot_password') }}
+                </a>
+            @endif
+
+            <x-button class="ml-4">
+                {{ trans('translation.login') }}
+            </x-button>
+        </div>
+    </form>
+</x-guest-layout>

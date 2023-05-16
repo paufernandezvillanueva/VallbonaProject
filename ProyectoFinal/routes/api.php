@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ApiController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/comarques', [ApiController::class, 'getComarques']);
+
+Route::get('/poblacio/{id}', [ApiController::class, 'getPoblacio']);
+
+Route::get('/darkmode/{id}/{darkmode}', [ApiController::class, 'setDarkMode']);
