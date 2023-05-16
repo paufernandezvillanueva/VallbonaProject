@@ -29,7 +29,7 @@
         @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-lg-1 col-3">
-                <label for="name">{{ trans('translation.name') }}:</label>
+                <label for="name">{{ trans('translation.student') }}:</label>
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->name) && $request->name != "")
@@ -182,7 +182,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-12">
-                            <label class="col-form-label" for="student_name">{{ trans('translation.name_student') }}</label>
+                            <label class="col-form-label" for="student_name">{{ trans('translation.student') }}</label>
                         </div>
                         <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="student_name" />

@@ -80,7 +80,7 @@
         <table id="estades-table" class="table table-striped table-dark">
             <thead>
                 <tr>
-                    <th scope="col"><span>{{ trans('translation.name_student') }}</span></th>
+                    <th scope="col"><span>{{ trans('translation.student') }}</span></th>
                     <th scope="col"><span>{{ trans('translation.course') }}</span></th>
                     <th scope="col"><span>{{ trans('translation.cicle') }}</span></th>
                     <th scope="col"><span>{{ trans('translation.tutor') }}</span></th>

@@ -24,7 +24,7 @@
                 </div>
                 <table id="info-table" class="table table-striped table-dark">
                     <tr>
-                        <th scope="row">{{ trans('translation.name_student') }}</th>
+                        <th scope="row">{{ trans('translation.student') }}</th>
                         <td>{{ $estada->student_name }}</td>
                     </tr>
                     <tr>
@@ -79,7 +79,7 @@
                     @csrf
                     <div class="row">
                         <div class="col-md-2 col-12">
-                            <label class="col-form-label" id="student_name" for="student_name">{{ trans('translation.name_student') }}</label>
+                            <label class="col-form-label" id="student_name" for="student_name">{{ trans('translation.student') }}</label>
                         </div>
                         <div class="col-md-10 col-12">
                             <input class="form-control" type="text" name="student_name" value="{{ $estada->student_name }}" />
