@@ -87,3 +87,6 @@ div .row {
 .col-md-5 {
     display: flex;
 }
+input::-webkit-calendar-picker-indicator {
+    display: none !important;
+}

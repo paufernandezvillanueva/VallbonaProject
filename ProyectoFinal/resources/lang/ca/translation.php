@@ -16,7 +16,7 @@ return [
     'delete' => 'Eliminar',
     'delete_empresa' => 'Eliminar empresa',
     'edit' => 'Editar',
-    'email' => 'Correu electronic',
+    'email' => 'Correu electrònic',
     'estades' => 'Estades',
     'farewell' => 'Adeu',
     'filter' => 'Filtrar',
@@ -34,6 +34,8 @@ return [
     'ninguna' => 'Cap',
     'ningun' => 'Cap',
     'password' => 'Contrasenya',
+    'confirm_password' => 'Confirmar contrasenya',
+    'reset_password' => 'Reiniciar contrasenya',
     'phone' => 'Telèfon',
     'profile' => 'Perfil',
     'registered_by' => 'Registrat per',
@@ -83,7 +85,7 @@ return [
     'list_curs' => 'Llista de cursos',
     'list_cicle' => 'Llista de cicles',
     'list_comarca' => 'Llista de comarques',
-    'list_poblacio' => 'Llista de poblacións',
+    'list_poblacio' => 'Llista de poblacions',
     'companies' => 'Empreses',
     'stays' => 'Estades',
     'users' => 'Usuaris',
@@ -99,7 +101,7 @@ return [
     'forgot_password' => 'Has oblidat la contrasenya?',
     'remember' => "Recorda'm",
     'login' => 'Iniciar sessió',
-    'db_companies' => 'BASE DE DADES DE EMPRESES',
+    'db_companies' => "Base de dades d'empreses",
     'import_csv' => 'Importar CSV',
     'import' => 'Importar',
     'language' => 'Idioma',
@@ -107,9 +109,11 @@ return [
     'spanish' => 'Castellà',
     'english' => 'Anglés',
     'select_language' => "Selecciona l'idioma",
-
-
-
+    'forgot_pass' => 'Contrasenya oblidada',
+    'forgot_pass_description' => "As oblidat la teva contrasenya? Cap problema. Només cal que ens indiquis la teva adreça de correu electrònic i t'enviarem un enllaç de restabliment de contrasenya que et permetrà triar-ne una de nova.",
+    'forgot_pass_rl' => 'Enllaç de restabliment',
+    'email_error' => 'Compte no registrat',
+    'email_error_description' => 'El compte escollit no está registrat.',
 
 
 

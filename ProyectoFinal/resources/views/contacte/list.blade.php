@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de contactes')
+@section('title', trans('translation.list_contact'))
 
 @section('stylesheets')
 @parent
@@ -21,7 +21,7 @@
             </button>
         </div>
     </div>
-    <form id="filter-form" class="filter-form filter-form-closed-base" method="post" action="{{ route('contacte_list') }}">
+    <form id="filter-form" class="filter-form filter-form-closed-base" method="post" style="max-height: 0px;" action="{{ route('contacte_list') }}">
         @csrf
         <div class="row d-flex justify-content-center">
             <div class="col-lg-1 col-3">
@@ -39,9 +39,9 @@
             </div>
             <div class="col-lg-4 col-9">
                 @if (isset($request->empresa) && $request->empresa != "")
-                <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}"></input>
+                <input class="form-control" type="text" id="empresa" name="empresa" value="{{ $request->empresa }}" autocomplete="off" list="empresas"></input>
                 @else
-                <input class="form-control" type="text" id="empresa" name="empresa"></input>
+                <input class="form-control" type="text" id="empresa" name="empresa" autocomplete="off" list="empresas"></input>
                 @endif
             </div>
         </div>
@@ -80,7 +80,7 @@
                 <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->email }}</a></td>
                 <td><a href="{{ route('contacte_detail', $contacte->id) }}">{{ $contacte->phonenumber }}</a></td>
                 <td>
-                    <a data-id="{{ $contacte->id }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                    <a data-id="{{ $contacte->id }}" data-name="{{ $contacte->name }}" class="iconBasura" data-bs-toggle="modal" data-bs-target="#confirmDelete">
                         <i class="bi bi-trash3-fill"></i>
                     </a>
                 </td>
@@ -106,7 +106,7 @@
                             <label class="col-form-label" for="name">{{ trans('translation.fullname') }}</label>
                         </div>
                         <div class="col-md-10 col-sm-10">
-                            <input class="form-control" type="text" name="name"  />
+                            <input class="form-control" type="text" name="name" />
                         </div>
                         <div class="error" id="name-add-contacte-error"></div>
                     </div>
@@ -173,11 +173,14 @@
                                 var dataId = elem.dataset.id;
                                 var form = document.querySelector('#confirmDelete form');
                                 form.action = "delete/" + dataId;
+
+                                var dataName = elem.dataset.name;
+                                document.getElementById("nombreDelete").innerHTML = dataName;
                             });
                         });
                     </script>
                     @csrf
-                    <p>{{ trans('translation.confirm_delete') }}</p>
+                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreDelete"></span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>
@@ -216,7 +219,14 @@
     </div>
 </div>
 
+<datalist id="empresas">
+    @foreach($empresas as $empresa)
+        <option value="{{ $empresa->name }}">
+    @endforeach
+</datalist>
+
 <script type="text/javascript" src="{{ asset('js/filter_animation.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/filter_size.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/reiniciar_filtres.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validators.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/contacte_add_validator.js') }}"></script>

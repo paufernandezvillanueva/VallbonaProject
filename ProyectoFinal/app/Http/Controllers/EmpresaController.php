@@ -30,10 +30,6 @@ class EmpresaController extends BaseController
     join('comarcas', 'poblacios.comarca_id', '=', 'comarcas.id')->
     leftjoin('estadas', 'empresas.id', '=', 'estadas.empresa_id');
 
-    if ($request->isMethod('post')) {
-      return "Working";
-    }
-
     if (isset($request->cif)) {
       if ($request->cif != "") {
         $empresas = $empresas->where('empresas.cif', 'like', '%' . $request->cif . '%');
@@ -99,7 +95,7 @@ class EmpresaController extends BaseController
 
     $cicles = Cicle::all();
     $comarques = Comarca::all();
-    return view('empresa.list', ['empresas' => $empresas, 'cicles' => $cicles, 'comarques' => $comarques, "request" => $request]);
+    return view('empresa.list', ['empresas' => $empresas, 'cicles' => $cicles, 'comarques' => $comarques, 'sectors' => $sectors, "request" => $request]);
 
   }
 

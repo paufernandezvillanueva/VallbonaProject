@@ -34,6 +34,8 @@ return [
     'ninguna' => 'Ninguna',
     'ningun' => 'Ninguno',
     'password' => 'Contraseña',
+    'confirm_password' => 'Confirmar contraseña',
+    'reset_password' => 'Reiniciar contraseña',
     'phone' => 'Teléfono',
     'profile' => 'Perfil',
     'registered_by' => 'Registrado por',
@@ -96,7 +98,7 @@ return [
     'forgot_password' => '¿Has olvidado la contraseña?',
     'remember' => "Recuérdame",
     'login' => 'Iniciar sessión',
-    'db_companies' => 'BASE DE DATOS DE EMPRESAS',
+    'db_companies' => 'Base de datos de empresas',
     'import_csv' => 'Importar CSV',
     'import' => 'Importar',
     'language' => 'Idioma',
@@ -104,6 +106,11 @@ return [
     'spanish' => 'Español',
     'english' => 'Inglés',
     'select_language' => "Selecciona el idioma",
+    'forgot_pass' => 'Contraseña olvidada',
+    'forgot_pass_description' => "¿Olvidaste tu contraseña? No hay problema. Solo necesitas proporcionarnos tu dirección de correo electrónico y te enviaremos un enlace para restablecer la contraseña que te permitirá elegir una nueva.",
+    'forgot_pass_rl' => 'Enlace de restablecimiento',
+    'email_error' => 'Cuenta no registrada',
+    'email_error_description' => 'La cuenta elegida no está registrada.',
 
 
 
