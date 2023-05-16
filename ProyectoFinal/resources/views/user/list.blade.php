@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat d\'usuaris')
+@section('title', trans('translation.list_user'))
 
 @section('stylesheets')
 @parent

@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de rols')
+@section('title', trans('translation.list_role'))
 
 @section('stylesheets')
 @parent

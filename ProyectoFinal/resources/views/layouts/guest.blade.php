@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>@yield('title') - {{ trans('translation.db_companies') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -24,7 +24,7 @@
             <div id="container-form" class="w-full sm:max-w-md mt-6 px-6 py-4 shadow-md overflow-hidden sm:rounded-lg">
                 <div id="school-logo" href="/">
                     <img src="{{ asset ('/img/logo-vallbona.png' )}}" class="w-20 h-20 fill-current text-gray-500"/><div>
-                    {{ trans('translation.db_companies') }}</div>
+                    {{ strtoupper(trans('translation.db_companies')) }}</div>
                 </div>
                 {{ $slot }}
             </div>

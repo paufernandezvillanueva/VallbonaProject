@@ -34,6 +34,8 @@ return [
     'ninguna' => 'Cap',
     'ningun' => 'Cap',
     'password' => 'Contrasenya',
+    'confirm_password' => 'Confirmar contrasenya',
+    'reset_password' => 'Reiniciar contrasenya',
     'phone' => 'Telèfon',
     'profile' => 'Perfil',
     'registered_by' => 'Registrat per',
@@ -99,12 +101,14 @@ return [
     'forgot_password' => 'Has oblidat la contrasenya?',
     'remember' => "Recorda'm",
     'login' => 'Iniciar sessió',
-    'db_companies' => 'BASE DE DADES DE EMPRESES',
+    'db_companies' => "Base de dades d'empreses",
     'import_csv' => 'Importar CSV',
     'import' => 'Importar',
-
-
-
+    'forgot_pass' => 'Contrasenya oblidada',
+    'forgot_pass_description' => "As oblidat la teva contrasenya? Cap problema. Només cal que ens indiquis la teva adreça de correu electrònic i t'enviarem un enllaç de restabliment de contrasenya que et permetrà triar-ne una de nova.",
+    'forgot_pass_rl' => 'Enllaç de restabliment',
+    'email_error' => 'Compte no registrat',
+    'email_error_description' => 'El compte escollit no está registrat.',
 
 
 

@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de poblacions')
+@section('title', trans('translation.list_poblacio'))
 
 @section('stylesheets')
 @parent

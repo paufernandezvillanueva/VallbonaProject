@@ -1,3 +1,5 @@
+@section('title', trans('translation.email_error'))
+
 <x-guest-layout>
     <x-validation-errors class="mb-4" />
 
@@ -7,8 +9,8 @@
         </div>
     @endif
 
-    <p>El compte escollit no está registrada.</p>
+    <p>{{ trans('translation.email_error_description') }}</p>
 
-    <a id="return" href="{{ route('login') }}">Volver</a>
+    <a id="return" href="{{ route('login') }}">{{ trans('translation.back') }}</a>
 
 </x-guest-layout>

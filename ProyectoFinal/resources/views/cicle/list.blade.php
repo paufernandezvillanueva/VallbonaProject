@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de cicles')
+@section('title', trans('translation.list_cicle'))
 
 @section('stylesheets')
 @parent

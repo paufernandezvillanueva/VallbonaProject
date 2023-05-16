@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de cursos')
+@section('title', trans('translation.list_curs'))
 
 @section('stylesheets')
 @parent
