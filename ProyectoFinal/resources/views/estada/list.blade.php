@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat d\'estades')
+@section('title', trans('translation.list_estades'))
 
 @section('stylesheets')
 @parent

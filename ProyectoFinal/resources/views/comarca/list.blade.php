@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de comarques')
+@section('title', trans('translation.list_comarca'))
 
 @section('stylesheets')
 <link rel="stylesheet" href="{{ asset('css/comarcaList.css') }}" />

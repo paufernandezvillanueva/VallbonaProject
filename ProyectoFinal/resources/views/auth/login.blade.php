@@ -1,3 +1,5 @@
+@section('title', trans('translation.login'))
+
 <x-guest-layout>
     <x-validation-errors class="mb-4" />
 

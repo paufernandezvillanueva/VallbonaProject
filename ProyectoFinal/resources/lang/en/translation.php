@@ -34,6 +34,8 @@ return [
     'ninguna' => 'None',
     'ningun' => 'None',
     'password' => 'Password',
+    'confirm_password' => 'Confirm password',
+    'reset_password' => 'Reset password',
     'phone' => 'Phone',
     'profile' => 'Profile',
     'registered_by' => 'Registered by',
@@ -96,8 +98,13 @@ return [
     'forgot_password' => 'Forgot your password?',
     'remember' => "Remember me",
     'login' => 'Login',
-    'db_companies' => 'COMPANY DATABASE',
+    'db_companies' => 'Company database',
     'import_csv' => 'Import CSV',
     'import' => 'Import',
+    'forgot_pass' => 'Forgotten password',
+    'forgot_pass_description' => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
+    'forgot_pass_rl' => 'Email Password Reset Link',
+    'email_error' => 'Account not registered',
+    'email_error_description' => 'The chosen account is not registered.',
 
 ];

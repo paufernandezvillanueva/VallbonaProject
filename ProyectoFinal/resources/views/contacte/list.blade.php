@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat de contactes')
+@section('title', trans('translation.list_contact'))
 
 @section('stylesheets')
 @parent

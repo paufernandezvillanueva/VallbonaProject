@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Llistat d\'empreses')
+@section('title', trans('translation.list_empresa'))
 
 @section('stylesheets')
 @parent
