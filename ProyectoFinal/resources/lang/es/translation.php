@@ -101,11 +101,17 @@ return [
     'db_companies' => 'Base de datos de empresas',
     'import_csv' => 'Importar CSV',
     'import' => 'Importar',
+    'language' => 'Idioma',
+    'catalan' => 'Catalán',
+    'spanish' => 'Español',
+    'english' => 'Inglés',
+    'select_language' => "Selecciona el idioma",
     'forgot_pass' => 'Contraseña olvidada',
     'forgot_pass_description' => "¿Olvidaste tu contraseña? No hay problema. Solo necesitas proporcionarnos tu dirección de correo electrónico y te enviaremos un enlace para restablecer la contraseña que te permitirá elegir una nueva.",
     'forgot_pass_rl' => 'Enlace de restablecimiento',
     'email_error' => 'Cuenta no registrada',
     'email_error_description' => 'La cuenta elegida no está registrada.',
+
 
 
 

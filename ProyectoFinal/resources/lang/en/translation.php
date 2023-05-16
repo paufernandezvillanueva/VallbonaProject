@@ -101,10 +101,16 @@ return [
     'db_companies' => 'Company database',
     'import_csv' => 'Import CSV',
     'import' => 'Import',
+    'language' => 'Language',
+    'catalan' => 'Catalan',
+    'spanish' => 'Spanish',
+    'english' => 'English',
+    'select_language' => "Select the language",
     'forgot_pass' => 'Forgotten password',
     'forgot_pass_description' => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
     'forgot_pass_rl' => 'Email Password Reset Link',
     'email_error' => 'Account not registered',
     'email_error_description' => 'The chosen account is not registered.',
+
 
 ];
