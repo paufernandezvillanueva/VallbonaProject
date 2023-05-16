@@ -11,7 +11,7 @@ return [
     'company' => 'Empresa',
     'contacts' => 'Contactos',
     'confirm' => 'Confirmar',
-    'confirm_delete' => '¿Estás seguro de querer eliminar',
+    'confirm_delete' => '¿Estás seguro de que quieres eliminar?',
     'course' => 'Curso',
     'delete' => 'Eliminar',
     'delete_empresa' => 'Eliminar empresa',

@@ -266,6 +266,12 @@ main {
     margin-right: 1em;
 }
 
+#userContainer hr {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+
 #navbar #navbar-header {
     margin-top: 1em;
     margin-left: 1em;
@@ -274,4 +280,8 @@ main {
 
 #navbar #navbar-header span {
     margin: auto;
+}
+
+#languageButton {
+    color: var(--text-color) !important;
 }
