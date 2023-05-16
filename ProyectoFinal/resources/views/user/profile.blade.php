@@ -5,6 +5,7 @@
 @section('stylesheets')
     @parent
     <link rel="stylesheet" href="{{ asset('css/card.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
 @endsection
 
 @section('content')
@@ -75,7 +76,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-form-label">
+                                    <div id="gmail" class="col-form-label">
                                         {{ trans('translation.link_gmail').':' }}
                                         @if (Auth::user()->google_id == null)
                                             <i class="bi bi-x-lg text-danger ms-1"></i>
