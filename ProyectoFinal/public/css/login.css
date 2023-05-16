@@ -57,3 +57,12 @@ button[type=submit]:hover {
   margin-top: 20px;
   text-align: center;
 }
+.language{
+    width: auto;
+    margin-top: 20px;
+}
+#changeLang {
+    width: 120px;
+    margin-left: 20px;
+}
+

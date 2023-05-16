@@ -28,6 +28,32 @@
                 </div>
                 {{ $slot }}
             </div>
+            <div class="language">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <label class="col-form-label" for="empresa_id">{{ trans('translation.language') }}</label>
+                    </div>
+            <div class="col-md-6 col-sm-6">
+                <select id="changeLang" class="form-select changeLang">
+                    <option value="ca" {{ session()->get('locale') == 'ca' ? 'selected' : '' }}>{{ trans('translation.catalan') }}</option>
+                    <option value="es" {{ session()->get('locale') == 'es' ? 'selected' : '' }}>{{ trans('translation.spanish') }}</option>
+                    <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>{{ trans('translation.english') }}</option>
+                </select>
+            </div>
+        </div>
+            </div>
         </div>
     </body>
+
 </html>
+
+<script type="text/javascript">
+
+    window.onload = function () {
+        var url = "{{ route('changeLang') }}";
+
+        document.getElementById("changeLang").addEventListener("change", function(){
+            window.location.href = url + "?lang="+ document.getElementById("changeLang").value;
+        })
+    }
+</script>
