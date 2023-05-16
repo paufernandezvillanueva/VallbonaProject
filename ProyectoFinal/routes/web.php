@@ -14,6 +14,8 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\CursController;
 use App\Http\Controllers\LoginWithGoogleController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\LanguageController;
+
 
 
 Route::get('authorized/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
@@ -176,6 +178,14 @@ Route::get('/poblacio/delete/{id}', [PoblacioController::class, 'delete'])->name
 Route::match(['get', 'post'], '/poblacio/detail/{id}', [PoblacioController::class, 'detail'])->name('poblacio_detail')->middleware('auth');
 
 Route::match(['get', 'post'], '/poblacio/import', [PoblacioController::class, 'import'])->name('poblacio_import')->middleware('auth');
+
+//// LANGUAGE
+
+Route::get('lang/home', [LanguageController::class, 'index'])->middleware('auth');
+
+Route::get('lang/change', [LanguageController::class, 'change'])->name('changeLang')->middleware('auth');
+
+
 
 require __DIR__.'/auth.php';
 

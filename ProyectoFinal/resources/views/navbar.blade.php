@@ -129,6 +129,12 @@
                 </div>
             </li>
             <li>
+                <div class="dropdown-item">
+                    <button id="languageButton" class="btn text-white" data-bs-toggle="modal" data-bs-target="#languageModal">{{ trans('translation.language') }}</button>
+                </div>
+            </li>
+
+            <li>
                 <hr class="dropdown-divider">
             </li>
             <li>
@@ -141,4 +147,48 @@
     </div>
 </div>
 
+<div class="modal fade" id="languageModal" tabindex="-1" aria-labelledby="languageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="languageModalLabel">{{ trans('translation.select_language') }}</h5>
+                <button type="button" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <select class="form-control changeLang">
+
+
+                    <option value="ca" {{ session()->get('locale') == 'ca' ? 'selected' : '' }}>{{ trans('translation.catalan') }}</option>
+                    <option value="es" {{ session()->get('locale') == 'es' ? 'selected' : '' }}>{{ trans('translation.spanish') }}</option>
+                    <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>{{ trans('translation.english') }}</option>
+
+                </select>
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <button id="toggleButton" class="btn" onclick="toggleDiv()"><i class="bi bi-arrow-bar-left"></i></button>
+
+<script type="text/javascript">
+
+
+
+    var url = "{{ route('changeLang') }}";
+
+
+
+    $(".changeLang").change(function(){
+
+        window.location.href = url + "?lang="+ $(this).val();
+
+    });
+
+
+
+</script>

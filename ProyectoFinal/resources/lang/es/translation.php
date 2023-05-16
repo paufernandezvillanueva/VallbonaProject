@@ -99,6 +99,11 @@ return [
     'db_companies' => 'BASE DE DATOS DE EMPRESAS',
     'import_csv' => 'Importar CSV',
     'import' => 'Importar',
+    'language' => 'Idioma',
+    'catalan' => 'Catalán',
+    'spanish' => 'Español',
+    'english' => 'Inglés',
+    'select_language' => "Selecciona el idioma",
 
 
 

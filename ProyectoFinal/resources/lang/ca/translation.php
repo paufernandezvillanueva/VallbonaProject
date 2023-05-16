@@ -102,6 +102,12 @@ return [
     'db_companies' => 'BASE DE DADES DE EMPRESES',
     'import_csv' => 'Importar CSV',
     'import' => 'Importar',
+    'language' => 'Idioma',
+    'catalan' => 'Català',
+    'spanish' => 'Castellà',
+    'english' => 'Anglés',
+    'select_language' => "Selecciona l'idioma",
+
 
 
 

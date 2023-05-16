@@ -99,5 +99,11 @@ return [
     'db_companies' => 'COMPANY DATABASE',
     'import_csv' => 'Import CSV',
     'import' => 'Import',
+    'language' => 'Language',
+    'catalan' => 'Catalan',
+    'spanish' => 'Spanish',
+    'english' => 'English',
+    'select_language' => "Select the language",
+
 
 ];
