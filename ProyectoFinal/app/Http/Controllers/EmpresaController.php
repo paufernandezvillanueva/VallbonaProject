@@ -26,77 +26,80 @@ class EmpresaController extends BaseController
 
   function list(Request $request)
   {
-    $empresas = Empresa::join('poblacios', 'empresas.poblacio_id', '=', 'poblacios.id')->
-    join('comarcas', 'poblacios.comarca_id', '=', 'comarcas.id')->
-    leftjoin('estadas', 'empresas.id', '=', 'estadas.empresa_id');
+    if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login', Auth::user()->id);
+    } else {
+      $empresas = Empresa::join('poblacios', 'empresas.poblacio_id', '=', 'poblacios.id')->
+      join('comarcas', 'poblacios.comarca_id', '=', 'comarcas.id')->
+      leftjoin('estadas', 'empresas.id', '=', 'estadas.empresa_id');
 
-    if (isset($request->cif)) {
-      if ($request->cif != "") {
-        $empresas = $empresas->where('empresas.cif', 'like', '%' . $request->cif . '%');
+      if (isset($request->cif)) {
+        if ($request->cif != "") {
+          $empresas = $empresas->where('empresas.cif', 'like', '%' . $request->cif . '%');
+        }
       }
-    }
 
-    if (isset($request->name)) {
-      if ($request->name != "") {
-        $empresas = $empresas->where('empresas.name', 'like', '%' . $request->name . '%');
+      if (isset($request->name)) {
+        if ($request->name != "") {
+          $empresas = $empresas->where('empresas.name', 'like', '%' . $request->name . '%');
+        }
       }
-    }
 
-    if (isset($request->cicle)) {
-      if ($request->cicle != 0) {
-        $empresas = $empresas->where('estadas.cicle_id', '=', $request->cicle);
+      if (isset($request->cicle)) {
+        if ($request->cicle != 0) {
+          $empresas = $empresas->where('estadas.cicle_id', '=', $request->cicle);
+        }
       }
-    }
 
-    if (isset($request->sector)) {
-      if ($request->sector != "") {
-        $empresas = $empresas->where('empresas.sector', 'like', '%' . $request->sector . '%');
+      if (isset($request->sector)) {
+        if ($request->sector != "") {
+          $empresas = $empresas->where('empresas.sector', 'like', '%' . $request->sector . '%');
+        }
       }
-    }
 
-    if (isset($request->comarca)) {
-      if ($request->comarca != 0) {
-        $empresas = $empresas->where('comarcas.id', '=', $request->comarca);
+      if (isset($request->comarca)) {
+        if ($request->comarca != 0) {
+          $empresas = $empresas->where('comarcas.id', '=', $request->comarca);
+        }
       }
-    }
 
-    if (isset($request->poblacio)) {
-      if ($request->poblacio != 0) {
-        $empresas = $empresas->where('poblacios.id', '=', $request->poblacio);
+      if (isset($request->poblacio)) {
+        if ($request->poblacio != 0) {
+          $empresas = $empresas->where('poblacios.id', '=', $request->poblacio);
+        }
       }
-    }
 
-    if (isset($request->minEstadas)) {
-      if (!isset($request->maxEstadas) || $request->maxEstadas >= $request->minEstadas) {
-        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.id)'), '>=', $request->minEstadas);
+      if (isset($request->minEstadas)) {
+        if (!isset($request->maxEstadas) || $request->maxEstadas >= $request->minEstadas) {
+          $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.id)'), '>=', $request->minEstadas);
+        }
       }
-    }
 
-    if (isset($request->maxEstadas)) {
-      $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.id)'), '<=', $request->maxEstadas);
-    }
-
-    if (isset($request->minValoracio)) {
-      if (!isset($request->maxValoracio) || $request->maxValoracio >= $request->minValoracio && $request->maxValoracio != "Ninguna") {
-        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('avg(estadas.evaluation)'), '>=', $request->minValoracio);
+      if (isset($request->maxEstadas)) {
+        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.id)'), '<=', $request->maxEstadas);
       }
-    }
 
-    if (isset($request->maxValoracio)) {
-      if ($request->maxValoracio != "Ninguna") {
-        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('round(avg(estadas.evaluation), 1)'), '<=', $request->maxValoracio);
-      } else {
-        $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.evaluation)'), '=', 0);
+      if (isset($request->minValoracio)) {
+        if (!isset($request->maxValoracio) || $request->maxValoracio >= $request->minValoracio && $request->maxValoracio != "Ninguna") {
+          $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('avg(estadas.evaluation)'), '>=', $request->minValoracio);
+        }
       }
+
+      if (isset($request->maxValoracio)) {
+        if ($request->maxValoracio != "Ninguna") {
+          $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('round(avg(estadas.evaluation), 1)'), '<=', $request->maxValoracio);
+        } else {
+          $empresas = $empresas->groupBy("empresas.id")->having(DB::raw('count(estadas.evaluation)'), '=', 0);
+        }
+      }
+
+      $sectors = Empresa::orderBy('sector', 'asc')->distinct("sector")->get("sector");
+      $empresas = $empresas->distinct("empresas.*")->orderBy('empresas.cif', 'asc')->orderBy('empresas.name', 'asc')->get("empresas.*");
+
+      $cicles = Cicle::all();
+      $comarques = Comarca::all();
+      return view('empresa.list', ['empresas' => $empresas, 'cicles' => $cicles, 'comarques' => $comarques, 'sectors' => $sectors, "request" => $request]);
     }
-
-    $sectors = Empresa::orderBy('sector', 'asc')->distinct("sector")->get("sector");
-    $empresas = $empresas->distinct("empresas.*")->orderBy('empresas.cif', 'asc')->orderBy('empresas.name', 'asc')->get("empresas.*");
-
-    $cicles = Cicle::all();
-    $comarques = Comarca::all();
-    return view('empresa.list', ['empresas' => $empresas, 'cicles' => $cicles, 'comarques' => $comarques, 'sectors' => $sectors, "request" => $request]);
-
   }
 
   function detail(Request $request, $id)

@@ -36,6 +36,7 @@ return [
     'password' => 'Contraseña',
     'confirm_password' => 'Confirmar contraseña',
     'reset_password' => 'Reiniciar contraseña',
+    'create_password' => 'Crear contraseña',
     'phone' => 'Teléfono',
     'profile' => 'Perfil',
     'registered_by' => 'Registrado por',

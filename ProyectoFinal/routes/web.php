@@ -112,6 +112,8 @@ Route::match(['get', 'post'], '/user/detail/{id}', [UserController::class, 'deta
 
 Route::match(['get', 'post'], '/user/import', [UserController::class, 'import'])->name('user_import')->middleware('auth');
 
+Route::match(['get', 'post'], '/user/first-login/{id}', [UserController::class, 'first_login'])->name('first_login')->middleware('auth');
+
 ////ROLS
 
 Route::match(['get', 'post'],'/rol/list', [RolController::class, 'list'])->name('rol_list')->middleware('auth');

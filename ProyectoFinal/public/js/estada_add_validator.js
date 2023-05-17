@@ -5,7 +5,7 @@ let estada_add_control = {
     "registered_by": [madeSelection, "Cal escollir un tutor"],
     "empresa_id": [madeSelection, "Cal escollir una empresa"],
     "dual": [madeSelection, "Cal escollir un tipus"],
-    "evaluation": [lengthRestriction, 0, 10],
+    "evaluation": [valueRestriction, 0, 10],
 };
 
 

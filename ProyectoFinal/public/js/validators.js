@@ -47,7 +47,17 @@ function isAlphanumeric(elem, helperMsg) {
     return result;
 }
 
-function lengthRestriction(elem) {
+function lengthRestriction(elem, min, max) {
+    var uInput = elem.value;
+    var result = false;
+    if (uInput.length >= min && uInput.length <= max) {
+        result = true;
+    }
+    tractarError(elem, result, "Ha de tenir entre " + min + " i " + max + " caracters");
+    return result;
+}
+
+function valueRestriction(elem) {
     var uInput = elem.value;
     var result = false;
     if (uInput >= 0 && uInput <= 10) {
@@ -137,6 +147,15 @@ function isYears(elem, helperMsg) {
     var yearExp = /^[0-9]{4}\-[0-9]{4}$/;
     var result = false;
     if (elem.value.match(yearExp)) {
+        result = true;
+    }
+    tractarError(elem, result, helperMsg);
+    return result;
+}
+
+function equalTo(elem, elemToCompare, helperMsg) {
+    var result = false;
+    if (elem.value.localeCompare(elemToCompare.value)) {
         result = true;
     }
     tractarError(elem, result, helperMsg);

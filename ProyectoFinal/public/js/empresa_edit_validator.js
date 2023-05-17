@@ -243,7 +243,7 @@ let estada_add_control = {
     cicle_id: [madeSelectionEstada, "Cal escollir un cicle"],
     registered_by: [madeSelectionEstada, "Cal escollir un tutor"],
     dual: [madeSelectionEstada, "Cal escollir un tipus"],
-    evaluation: [lengthRestrictionEstada, 0, 10],
+    evaluation: [valueRestrictionEstada, 0, 10],
 };
 
 function formValidatorEstada(e) {

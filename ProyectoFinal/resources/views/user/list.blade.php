@@ -109,29 +109,29 @@
                 <div class="modal-body">
                     @csrf
                     <div class="row">
-                        <div class="col-md-2 col-12">
-                            <label class="col-form-label" for="firstname">{{ trans('translation.name') }}</label>
+                        <div class="col-md-3 col-13">
+                            <label class="col-form-label" for="name">{{ trans('translation.name') }}</label>
                         </div>
-                        <div class="col-md-10 col-12">
-                            <input class="form-control" type="text" name="name" />
+                        <div class="col-md-9 col-11">
+                            <input class="form-control" type="text" name="name" id="name" required/>
                         </div>
                         <div class="error" id="name-add-user-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-12">
+                        <div class="col-md-3 col-13">
                             <label class="col-form-label" for="email">{{ trans('translation.email') }}</label>
                         </div>
-                        <div class="col-md-10 col-12">
-                            <input class="form-control" type="text" name="email" />
+                        <div class="col-md-9 col-11">
+                            <input class="form-control" type="text" name="email" id="email" required/>
                         </div>
                         <div class="error" id="email-add-user-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-12">
+                        <div class="col-md-3 col-13">
                             <label class="col-form-label" for="cicle_id">{{ trans('translation.cicle') }}</label>
                         </div>
-                        <div class="col-md-10 col-12">
-                            <select class="form-select" name="cicle_id">
+                        <div class="col-md-9 col-11">
+                            <select class="form-select" name="cicle_id" id="cicle_id">
                                 <option value="default">{{ trans('translation.select_cicle') }}</option>
                                 @foreach ($cicles as $cicle)
                                 <option value="{{ $cicle->id }}">{{ $cicle->shortname }} - {{ $cicle->name }}</option>
@@ -141,11 +141,11 @@
                         <div class="error" id="cicle_id-add-user-error"></div>
                     </div>
                     <div class="row">
-                        <div class="col-md-2 col-12">
+                        <div class="col-md-3 col-13">
                             <label class="col-form-label" for="rol_id">{{ trans('translation.role') }}</label>
                         </div>
-                        <div class="col-md-10 col-12">
-                            <select class="form-select" name="rol_id">
+                        <div class="col-md-9 col-11">
+                            <select class="form-select" id="rol_id" name="rol_id">
                                 <option value="default">{{ trans('translation.select_rol') }}</option>
                                 @foreach ($rols as $rol)
                                 <option value="{{ $rol->id }}">{{ $rol->name }}</option>
@@ -153,6 +153,24 @@
                             </select>
                         </div>
                         <div class="error" id="rol_id-add-user-error"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-13">
+                            <label class="col-form-label" for="password">{{ trans('translation.password') }}</label>
+                        </div>
+                        <div class="col-md-9 col-11">
+                            <input class="form-control" type="password" id="password" name="password" autocomplete="new-password" required/>
+                        </div>
+                        <div class="error" id="password-add-user-error"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-13">
+                            <label class="col-form-label" for="confirm_password">{{ trans('translation.confirm_password') }}</label>
+                        </div>
+                        <div class="col-md-9 col-11">
+                            <input class="form-control" type="password" id="confirm_password" name="confirm_password" autocomplete="new-password" required/>
+                        </div>
+                        <div class="error" id="confirm_password-add-user-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -36,6 +36,7 @@ return [
     'password' => 'Contrasenya',
     'confirm_password' => 'Confirmar contrasenya',
     'reset_password' => 'Reiniciar contrasenya',
+    'create_password' => 'Crear contrasenya',
     'phone' => 'Telèfon',
     'profile' => 'Perfil',
     'registered_by' => 'Registrat per',
