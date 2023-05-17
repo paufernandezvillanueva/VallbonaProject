@@ -15,6 +15,8 @@ use App\Models\User;
 use App\Models\Cicle;
 use App\Models\Rol;
 
+use DateTimeImmutable;
+
 class UserController extends BaseController
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
@@ -48,6 +50,10 @@ class UserController extends BaseController
       $rols = Rol::all();
 
       return view('user.list', ['users' => $users, 'cicles' => $cicles, 'rols' => $rols, 'request' => $request]);
+    } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
     } else {
       return redirect('');
     }
@@ -150,10 +156,13 @@ class UserController extends BaseController
         $user->password = Hash::make($request->password);
         $user->cicle_id = $request->cicle_id;
         $user->rol_id = $request->rol_id;
+        $user->password = Hash::make($request->password);
         $user->save();
 
         return redirect()->route('user_detail', ['id' => $id]);
       }
+    } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
     } else {
       return redirect('');
     }
@@ -191,6 +200,8 @@ class UserController extends BaseController
       $rols = Rol::all();
 
       return view('user.new', ['cicles' => $cicles, 'rols' => $rols]);
+    } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
     } else {
       return redirect('');
     }
@@ -203,6 +214,30 @@ class UserController extends BaseController
       $user->delete();
 
       return redirect()->route('user_list');
+    } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
+  }
+
+  function first_login($id, Request $request)
+  {
+    if (Auth::user()->first_login == null) {
+      if ($request->isMethod('post')) {
+        $date = new DateTimeImmutable();
+        
+        $user = User::find($id);
+        $user->password = Hash::make($request->password);
+        $user->first_login = $date->format("Y-m-d H:m:s");
+        $user->save();
+  
+        return redirect()->route('home');
+      }
+  
+      return view('user.first_login');
     } else {
       return redirect('');
     }

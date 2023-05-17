@@ -29,9 +29,11 @@ class CursController extends Controller
             $cursos = $cursos->distinct("cursos.*")->orderBy('cursos.name', 'asc')->get("cursos.*");
 
             return view('curs.list', ['cursos' => $cursos, 'request' => $request]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function detail(Request $request, $id)
@@ -71,9 +73,11 @@ class CursController extends Controller
             }
 
             return view('curs.new');
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function edit(Request $request, $id)
@@ -91,9 +95,11 @@ class CursController extends Controller
             $curs = Curs::find($id);
 
             return view('curs.edit', ['curs' => $curs]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function delete($id)
@@ -103,8 +109,10 @@ class CursController extends Controller
             $curs->delete();
 
             return redirect()->route('curs_list');
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 }

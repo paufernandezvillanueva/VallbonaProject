@@ -38,9 +38,11 @@ class PoblacioController extends BaseController
             $comarques = Comarca::orderBy('comarcas.name', 'asc')->get();
               
             return view('poblacio.list', ['poblacions' => $poblacions, 'comarques' => $comarques, 'request' => $request]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
     
     function detail(Request $request, $id)
@@ -53,9 +55,11 @@ class PoblacioController extends BaseController
             $comarques = Comarca::all();
 
             return view('poblacio.detail', ['poblacio' => $poblacio, 'comarques' => $comarques]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function import(Request $request)
@@ -88,9 +92,11 @@ class PoblacioController extends BaseController
             $comarques = Comarca::all();
 
             return view('poblacio.new', ['comarques' => $comarques]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function edit(Request $request, $id) 
@@ -108,9 +114,11 @@ class PoblacioController extends BaseController
             $comarques = Comarca::all();
 
             return view('poblacio.edit', ['poblacio' => $poblacio, 'comarques' => $comarques]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function delete($id) 
@@ -120,8 +128,10 @@ class PoblacioController extends BaseController
             $poblacio->delete();
 
             return redirect()->route('poblacio_list');
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 }

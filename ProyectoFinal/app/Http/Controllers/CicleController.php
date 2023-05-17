@@ -27,9 +27,11 @@ class CicleController extends Controller
             $cicles = $cicles->distinct("cicles.*")->orderBy('cicles.shortname', 'asc')->orderBy('cicles.name', 'asc')->get("cicles.*");
 
             return view('cicle.list', ['cicles' => $cicles, 'request' => $request]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function detail(Request $request, $id)
@@ -73,9 +75,11 @@ class CicleController extends Controller
             $cicles = Cicle::all();
 
             return view('cicle.new', ['cicles' => $cicles]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function edit(Request $request, $id)
@@ -92,9 +96,11 @@ class CicleController extends Controller
             $cicle = Cicle::find($id);
 
             return view('cicle.edit', ['cicle' => $cicle]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function delete($id)
@@ -103,8 +109,10 @@ class CicleController extends Controller
             $cicle = Cicle::find($id);
             $cicle->delete();
             return redirect()->route('cicle_list')->with('status', 'Cicle' . $cicle->nom . ' ' . $cicle->shortname . ' eliminat!');
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 }

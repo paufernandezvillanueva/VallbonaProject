@@ -28,9 +28,11 @@ class RolController extends Controller
             $rols = $rols->distinct("rols.*")->orderBy('rols.name', 'asc')->get("rols.*");
 
             return view('rol.list', ['rols' => $rols, 'request' => $request]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function detail(Request $request, $id)
@@ -69,9 +71,11 @@ class RolController extends Controller
             }
             $rols = Rol::all();
             return view('rol.new', ['rols' => $rols]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function edit(Request $request, $id)
@@ -84,9 +88,11 @@ class RolController extends Controller
                 $rol->save();
                 return redirect()->route('rol_detail', ['id' => $id]);
             }
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
     
     function delete($id)
@@ -95,8 +101,10 @@ class RolController extends Controller
             $rol = Rol::find($id);
             $rol->delete();
             return redirect()->route('rol_list');
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 }

@@ -3,6 +3,8 @@ let user_add_control = {
     "email": [emailValidator, "Aquest correu electrònic no és valid"],
     "cicle_id": [madeSelection, "Cal escollir un cicle"],
     "rol_id": [madeSelection, "Cal escollir un rol"],
+    "password": [lengthRestriction, 5, 20],
+    "confirm_password": [equalTo, $("#password"), "La contraseña no es igual"],
 };
 
 
@@ -40,18 +42,18 @@ function formValidator(e) {
 }
 
 function ErrorVisibility(e){
-    user_add_control[e.target.name][0](e.target, user_add_control[e.target.name][1]);
+    user_add_control[e.target.name][0](e.target, user_add_control[e.target.name][1], user_add_control[e.target.name][2]);
 }
 
 function tractarError(elem, noError, msgError){
     
     if (noError){
-        elem.parentElement.classList = "col-md-10 col-sm-10"
+        elem.parentElement.classList = "col-md-9 col-sm-11"
         document.getElementById(elem.name + "-add-user-error").classList = "error"
         document.getElementById(elem.name + "-add-user-error").innerHTML = "";
     } else { 
-        elem.parentElement.classList = "col-md-5 col-sm-5"
-        document.getElementById(elem.name + "-add-user-error").classList = "error col-md-5 col-sm-5"
+        elem.parentElement.classList = "col-md-4 col-sm-4"
+        document.getElementById(elem.name + "-add-user-error").classList = "error col-md-4 col-sm-4"
         document.getElementById(elem.name + "-add-user-error").innerHTML = msgError;
     }
 }

@@ -26,9 +26,11 @@ class ComarcaController extends Controller
 
             $comarcas = $comarcas->distinct("comarcas.*")->orderBy('comarcas.name', 'asc')->get("comarcas.*");
             return view('comarca.list', ['comarcas' => $comarcas, 'request' => $request]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
     
     function detail(Request $request, $id)
@@ -40,9 +42,11 @@ class ComarcaController extends Controller
             }
 
             return view('comarca.detail', ['comarca' => $comarca]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function import(Request $request)
@@ -76,9 +80,11 @@ class ComarcaController extends Controller
             $comarcas = Comarca::all();
 
             return view('comarca.new', ['comarcas' => $comarcas]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 
     function edit(Request $request, $id)
@@ -94,17 +100,21 @@ class ComarcaController extends Controller
             }
             $comarcas = Comarca::all();
             return view('comarca.list', ['comarcas' => $comarcas]);
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
     function delete($id){
         if (Auth::user()->rol_id == 5076) {
             $comarca = Comarca::find($id);
             $comarca->delete();
             return redirect()->route('comarca_list');
-        } else {
-            return redirect('');
-        }
+        } else if (Auth::user()->first_login == null) { 
+      return redirect()->route('first_login');
+    } else {
+      return redirect('');
+    }
     }
 }
