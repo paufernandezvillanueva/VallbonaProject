@@ -3,15 +3,16 @@
 namespace App\Notifications;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Notifications\Messages\MailMessage;
+
 class MyResetPassword extends ResetPassword
 {
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject(Lang::get('Reset Password Notification'))
-            ->line(Lang::get('You are receiving this email because we received a password reset request for your account.'))
-            ->action(Lang::get('Reset Password'), $url)
-            ->line(Lang::get('This password reset link will expire in :count minutes.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
-            ->line(Lang::get('If you did not request a password reset, no further action is required.'));
+            ->subject(Lang::get('Notificació de restabliment de contrasenya'))
+            ->line(Lang::get('Esteu rebent aquest correu electrònic perquè hem rebut una sol·licitud de restabliment de contrasenya per al vostre compte.'))
+            ->action(Lang::get('Reiniciar constrasenya'), $url)
+            ->line(Lang::get('Aquest enllaç de restabliment de contrasenya caducarà en :count minuts.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
+            ->line(Lang::get('Si no heu sol·licitat un restabliment de contrasenya, no cal prendre cap mesura addicional.'));
     }
 }
