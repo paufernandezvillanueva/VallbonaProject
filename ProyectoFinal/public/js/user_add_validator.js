@@ -3,8 +3,8 @@ let user_add_control = {
     "email": [emailValidator, "Aquest correu electrònic no és valid"],
     "cicle_id": [madeSelection, "Cal escollir un cicle"],
     "rol_id": [madeSelection, "Cal escollir un rol"],
-    "password": [lengthRestriction, 5, 20],
-    "confirm_password": [equalTo, $("#password"), "La contraseña no es igual"],
+    "password": [minLengthRestriction, 5],
+    "confirm_password": [equalTo, document.getElementById("password"), document.getElementById("confirm_password"), "La contraseña no es igual"],
 };
 
 
@@ -23,7 +23,7 @@ function formValidator(e) {
     for (let x in user_add_control) {
         elem = document.forms['addUserForm'][x];
 
-        if (!user_add_control[x][0](elem, user_add_control[x][1], user_add_control[x][2])) {
+        if (!user_add_control[x][0](elem, user_add_control[x][1], user_add_control[x][2], user_add_control[x][3])) {
             result = false;
             if (first_error == null) {
                 first_error = document.forms['addUserForm'][x];
@@ -42,7 +42,7 @@ function formValidator(e) {
 }
 
 function ErrorVisibility(e){
-    user_add_control[e.target.name][0](e.target, user_add_control[e.target.name][1], user_add_control[e.target.name][2]);
+    user_add_control[e.target.name][0](e.target, user_add_control[e.target.name][1], user_add_control[e.target.name][2], user_add_control[e.target.name][3]);
 }
 
 function tractarError(elem, noError, msgError){

@@ -112,6 +112,7 @@ return [
     'forgot_pass_rl' => 'Email Password Reset Link',
     'email_error' => 'Account not registered',
     'email_error_description' => 'The chosen account is not registered.',
+    'first_login_description' => 'Good morning! Before accessing the website, for security reasons, you need to change the password of your account.',
 
 
 ];

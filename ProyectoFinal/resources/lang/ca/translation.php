@@ -115,7 +115,7 @@ return [
     'forgot_pass_rl' => 'Enllaç de restabliment',
     'email_error' => 'Compte no registrat',
     'email_error_description' => 'El compte escollit no está registrat.',
-
+    'first_login_description' => 'Bon dia! Abans de ingressar a la web, per motius de seguretat, cal que canviis la contrasenya del compte.',
 
 
 
