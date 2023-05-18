@@ -183,3 +183,10 @@
     background-image: none !important;
     color: var(--text-color) !important;
 }
+
+.error {
+    color: red;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

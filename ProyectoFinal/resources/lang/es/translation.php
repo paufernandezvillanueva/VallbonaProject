@@ -112,7 +112,7 @@ return [
     'forgot_pass_rl' => 'Enlace de restablecimiento',
     'email_error' => 'Cuenta no registrada',
     'email_error_description' => 'La cuenta elegida no está registrada.',
-
+    'first_login_description' => '¡Buenos días! Antes de ingresar al sitio web, por razones de seguridad, es necesario que cambies la contraseña de tu cuenta.',
 
 
 

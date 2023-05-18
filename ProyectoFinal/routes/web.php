@@ -16,7 +16,7 @@ use App\Http\Controllers\LoginWithGoogleController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\LanguageController;
 
-
+use Illuminate\Notifications\Messages\MailMessage;
 
 Route::get('authorized/google', [LoginWithGoogleController::class, 'redirectToGoogle']);
 Route::get('authorized/google/callback', [LoginWithGoogleController::class, 'handleGoogleCallback']);
@@ -46,6 +46,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::get('/mail/html', function () {
+    return (new MailMessage)
+    ->subject(Lang::get('Notificació de restabliment de contrasenya'))
+    ->line(Lang::get('Esteu rebent aquest correu electrònic perquè hem rebut una sol·licitud de restabliment de contrasenya per al vostre compte.'))
+    ->action(Lang::get('Reiniciar constrasenya'), route("login"))
+    ->line(Lang::get('Aquest enllaç de restabliment de contrasenya caducarà en :count minuts.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
+    ->line(Lang::get('Si no heu sol·licitat un restabliment de contrasenya, no cal prendre cap mesura addicional.'));
 });
 
 //// EMPRESES

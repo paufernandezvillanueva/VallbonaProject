@@ -57,6 +57,16 @@ function lengthRestriction(elem, min, max) {
     return result;
 }
 
+function minLengthRestriction(elem, min) {
+    var uInput = elem.value;
+    var result = false;
+    if (uInput.length >= min) {
+        result = true;
+    }
+    tractarError(elem, result, "Ha de tenir minim " + min + " caracters");
+    return result;
+}
+
 function valueRestriction(elem) {
     var uInput = elem.value;
     var result = false;
@@ -153,11 +163,12 @@ function isYears(elem, helperMsg) {
     return result;
 }
 
-function equalTo(elem, elemToCompare, helperMsg) {
+function equalTo(elem, elemToCompare, elemToSendError, helperMsg) {
     var result = false;
-    if (elem.value.localeCompare(elemToCompare.value)) {
+    console.log(elem);
+    if (elem.value.includes(elemToCompare.value)) {
         result = true;
     }
-    tractarError(elem, result, helperMsg);
+    tractarError(elemToSendError, result, helperMsg);
     return result;
 }
