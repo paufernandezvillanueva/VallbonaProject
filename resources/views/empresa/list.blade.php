@@ -302,7 +302,7 @@
                         </div>
                         <div class="col-md-10 col-12">
                             <select class="form-select" id="poblacio_id" name="poblacio_id">
-                                <option value="default">{{ trans('translation.select_poblacio') }}</option>
+                                <option value="default">{{ trans('translation.select_comarca') }}</option>
                             </select>
                         </div>
                         <div class="error" id="poblacio_id-add-empresa-error"></div>

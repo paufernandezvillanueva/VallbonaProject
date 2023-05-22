@@ -5,7 +5,7 @@ if (document.getElementById("comarca").getAttribute("value") != null) {
 $("#comarca").change(filterDemanaPoblacio);
 
 function demanaPoblacio() {
-  fetch(`api/poblacio/` + $("#comarca_id").val()).then(function (response) {
+  fetch(`../api/poblacio/` + $("#comarca_id").val()).then(function (response) {
     if (response.ok) {
       response.json().then(mostraPoblacio);
     } else {
@@ -20,9 +20,9 @@ function demanaPoblacio() {
 
 function mostraPoblacio(dades) {
   $("#poblacio_id").html(function() {
-    $("#poblacio_id").html("<option value='default'>Carregant...</option>");
+    $("#poblacio_id").html("<option value='default'>Loading...</option>");
     setTimeout(function () {
-      $("#poblacio_id").html("<option value='default'>Selecciona una poblacio...</option>");
+      $("#poblacio_id").html("<option value='default'>Select a population...</option>");
       for (const element in dades) {
         if (element == document.getElementById("poblacio_id").getAttribute("value")) {
           $("#poblacio_id").append("<option value='" + element + "' selected>" + dades[element] + "</option>");
@@ -35,7 +35,7 @@ function mostraPoblacio(dades) {
 }
 
 function filterDemanaPoblacio() {
-  fetch(`api/poblacio/` + $("#comarca").val()).then(function (response) {
+  fetch(`../api/poblacio/` + $("#comarca").val()).then(function (response) {
     if (response.ok) {
       response.json().then(filterMostraPoblacio);
     } else {
@@ -50,9 +50,9 @@ function filterDemanaPoblacio() {
 
 function filterMostraPoblacio(dades) {
   $("#poblacio").html(function() {
-    $("#poblacio").html("<option value=\"\">Carregant...</option>");
+    $("#poblacio").html("<option value=\"\">Loading...</option>");
     setTimeout(function () {
-      $("#poblacio").html("<option value=\"\">Selecciona una poblacio...</option>");
+      $("#poblacio").html("<option value=\"\">Select a population...</option>");
       for (const element in dades) {
         if (element == document.getElementById("poblacio").getAttribute("value")) {
           $("#poblacio").append("<option value='" + element + "' selected>" + dades[element] + "</option>");
