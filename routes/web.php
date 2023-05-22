@@ -195,9 +195,8 @@ Route::match(['get', 'post'], '/poblacio/import', [PoblacioController::class, 'i
 
 //// LANGUAGE
 
-Route::get('lang/home', [LanguageController::class, 'index'])->middleware('auth');
+Route::match(['get', 'post'], 'lang/change', [LanguageController::class, 'change'])->name('changeLang');
 
-Route::get('lang/change', [LanguageController::class, 'change'])->name('changeLang')->middleware('auth');
 
 
 
