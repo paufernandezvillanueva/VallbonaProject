@@ -111,7 +111,7 @@ return [
     'english' => 'Anglés',
     'select_language' => "Selecciona l'idioma",
     'forgot_pass' => 'Contrasenya oblidada',
-    'forgot_pass_description' => "As oblidat la teva contrasenya? Cap problema. Només cal que ens indiquis la teva adreça de correu electrònic i t'enviarem un enllaç de restabliment de contrasenya que et permetrà triar-ne una de nova.",
+    'forgot_pass_description' => "Has oblidat la teva contrasenya? Cap problema. Només cal que ens indiquis la teva adreça de correu electrònic i t'enviarem un enllaç de restabliment de contrasenya que et permetrà triar-ne una de nova.",
     'forgot_pass_rl' => 'Enllaç de restabliment',
     'email_error' => 'Compte no registrat',
     'email_error_description' => 'El compte escollit no está registrat.',
