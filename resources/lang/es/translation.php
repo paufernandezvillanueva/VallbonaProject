@@ -78,7 +78,7 @@ return [
     'user' => 'usuario',
     'update' => 'Actualizar',
     'link_gmail' => 'Vinculado con Gmail',
-    'list_role' => 'List of roles',
+    'list_role' => 'Lista de roles',
     'create' => 'Crear',
     'list_curs' => 'Lista de cursos',
     'list_cicle' => 'Lista de ciclos',
