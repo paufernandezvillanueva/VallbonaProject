@@ -1,0 +1,118 @@
+.btnTorna {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.btnTorna a {
+    color: var(--text-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btnTorna a:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.labels {
+    color: white;
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    height: fit-content;
+}
+
+.list-header {
+    padding-bottom: 10px;
+}
+
+#info {
+    color: var(--text-color);
+    text-align: center;
+    width: fit-content;
+    float: left;
+}
+
+.infoCurs {
+    width: 100%;
+    padding-right: 20px;
+}
+
+#info-table {
+    width: 100%;
+    margin: 0;
+}
+
+#info-table tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    border-color: #373b3e;
+}
+
+#info-table tbody {
+    display: block;
+    border: 1px #626262 solid;
+}
+
+#info-table tbody tr th {
+    width: 130px;
+}
+
+#info-table tbody th,
+#info-table tbody td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#info-table tbody tr:last-child th,
+#info-table tbody tr:last-child td {
+    border-bottom-width: 0px;
+}
+
+.filtro {
+    text-align: right;
+}
+
+.filtrar {
+    border-radius: 20px;
+    font-size: 13px;
+    min-width: 70px;
+    border: none;
+    height: 25px;
+    padding: 0 10px;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+}
+
+.filtrar:hover {
+    border-radius: 20px;
+    font-size: 13px;
+    min-width: 70px;
+    border: none;
+    height: 25px;
+    padding: 0 10px;
+    background-color: var(--button-background-color-hover);
+}
+
+.col-form-label {
+    white-space: nowrap;
+}
+
+label,
+p {
+    color: black;
+}
+
+.containerCurs {
+    width: 95%;
+    margin: auto;
+    height: 83%;
+    background-color: var(--background-color-1);
+}
+
+.modal-content {
+    min-width: 245px;
+}
