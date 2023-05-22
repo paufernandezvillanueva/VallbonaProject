@@ -1,0 +1,92 @@
+main{
+    background-color: var(--background-color-2)
+}
+
+h1{
+    color: var(--text-color);
+}
+
+.bg-2 {
+    background-color: var(--background-color-1)
+}
+
+.titulo h1 {
+    margin: 0;
+}
+
+div .modal-content {
+    background-color: transparent;
+}
+
+div .row {
+    align-items: center;
+}
+
+.error {
+    color: red;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btnTorna {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.btnTorna a {
+    display: flex;
+    color: var(--text-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btnTorna a i {
+    margin-right: 5px;
+}
+
+.btnTorna a:hover {
+    color: rgb(0, 132, 255);
+    cursor: pointer;
+    text-decoration: underline;
+}
+.login-dropdown {
+    transform: translate(0px, -40px) !important;
+    width: 100%;
+}
+.dropdown-menu-dark {
+    background-color: var(--background-color-1) !important;
+}
+.dropdown-item {
+    color: var(--text-color) !important;
+    text-align: center !important;
+}
+.btn-danger {
+    color: var(--text-color) !important;
+}
+.btn-secondary {
+    background-color: var(--background-color-2) !important;
+    border-color: var(--background-color-4) !important;
+    color: var(--text-color) !important;
+}
+.btn-secondary:hover {
+    background-color: var(--background-color-4) !important;
+}
+.col-form-label {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+/*.row>* {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}*/
+.col-md-5 {
+    display: flex;
+}
+input::-webkit-calendar-picker-indicator {
+    display: none !important;
+}
