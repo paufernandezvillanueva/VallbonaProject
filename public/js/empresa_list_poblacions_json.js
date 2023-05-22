@@ -20,9 +20,21 @@ function demanaPoblacio() {
 
 function mostraPoblacio(dades) {
   $("#poblacio_id").html(function() {
-    $("#poblacio_id").html("<option value='default'>Loading...</option>");
+    if (locale == "en") {
+      $("#poblacio_id").html("<option value='default'>Loading...</option>");
+    } else if (locale == "ca") {
+      $("#poblacio_id").html("<option value='default'>Carregant...</option>");
+    } else if (locale == "es") {
+      $("#poblacio_id").html("<option value='default'>Cargando...</option>");
+    }
     setTimeout(function () {
-      $("#poblacio_id").html("<option value='default'>Select a population...</option>");
+      if (locale == "en") {
+        $("#poblacio_id").html("<option value='default'>Select a population...</option>");
+      } else if (locale == "ca") {
+        $("#poblacio_id").html("<option value='default'>Selecciona una poblacio...</option>");
+      } else if (locale == "es") {
+        $("#poblacio_id").html("<option value='default'>Selecciona una poblacion...</option>");
+      }
       for (const element in dades) {
         if (element == document.getElementById("poblacio_id").getAttribute("value")) {
           $("#poblacio_id").append("<option value='" + element + "' selected>" + dades[element] + "</option>");
@@ -50,9 +62,21 @@ function filterDemanaPoblacio() {
 
 function filterMostraPoblacio(dades) {
   $("#poblacio").html(function() {
-    $("#poblacio").html("<option value=\"\">Loading...</option>");
+    if (locale == "en") {
+      $("#poblacio").html("<option value='default'>Loading...</option>");
+    } else if (locale == "ca") {
+      $("#poblacio").html("<option value='default'>Carregant...</option>");
+    } else if (locale == "es") {
+      $("#poblacio").html("<option value='default'>Cargando...</option>");
+    }
     setTimeout(function () {
-      $("#poblacio").html("<option value=\"\">Select a population...</option>");
+      if (locale == "en") {
+        $("#poblacio").html("<option value='default'>Select a population...</option>");
+      } else if (locale == "ca") {
+        $("#poblacio").html("<option value='default'>Selecciona una poblacio...</option>");
+      } else if (locale == "es") {
+        $("#poblacio").html("<option value='default'>Selecciona una poblacion...</option>");
+      }
       for (const element in dades) {
         if (element == document.getElementById("poblacio").getAttribute("value")) {
           $("#poblacio").append("<option value='" + element + "' selected>" + dades[element] + "</option>");

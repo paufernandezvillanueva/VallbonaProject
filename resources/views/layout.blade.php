@@ -43,6 +43,7 @@
 
 </body>
 <script type="application/javascript">
+    var locale = "{{ Session::get('locale')}}";
     document.getElementById("darkmode").parentElement.addEventListener("click", function() {
         demanaDarkmode("{{  url('') }}");
     });
