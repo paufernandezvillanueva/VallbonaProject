@@ -48,7 +48,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editInfoLabel">{{ trans('translation.edit_company') }}</h5>
+                <h5 class="modal-title" id="editInfoLabel">{{ trans('translation.edit') }} {{ trans('translation.contact') }}</h5>
                 <button type="button" data-bs-dismiss="modal" aria-label="Close"><i class="bi bi-x-lg"></i></button>
             </div>
             <form method="POST" name="editContacteForm" action="{{ route('contacte_edit', $contacte->id) }}">
