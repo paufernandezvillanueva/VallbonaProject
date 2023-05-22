@@ -83,7 +83,7 @@
     <table id="rol-table" class="table table-striped table-dark">
         <thead>
             <tr>
-                <th>Nom</th>
+                <th>{{ trans('translation.name') }}</th>
                 <th>
                     <a class="iconAdd" data-bs-toggle="modal" data-bs-target="#newRol">
                         <i class="bi bi-plus-square-fill"></i>
