@@ -29,6 +29,8 @@ function mostraPoblacio(dades) {
       $("#poblacio_id").html("<option value='default'>Carregant...</option>");
     } else if (locale == "es") {
       $("#poblacio_id").html("<option value='default'>Cargando...</option>");
+    } else {
+      $("#poblacio_id").html("<option value='default'>Carregant...</option>");
     }
     setTimeout(function () {
       if (locale == "en") {
@@ -37,6 +39,8 @@ function mostraPoblacio(dades) {
         $("#poblacio_id").html("<option value='default'>Selecciona una poblacio...</option>");
       } else if (locale == "es") {
         $("#poblacio_id").html("<option value='default'>Selecciona una poblacion...</option>");
+      } else {
+        $("#poblacio_id").html("<option value='default'>Selecciona una poblacio...</option>");
       }
       for (const element in dades) {
         if (element == document.getElementById("poblacio_id").getAttribute("value")) {
