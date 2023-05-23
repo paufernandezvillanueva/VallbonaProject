@@ -24,7 +24,7 @@ class MyResetPassword extends ResetPassword
         return (new MailMessage)
             ->subject(Lang::get('Notificació de restabliment de contrasenya'))
             ->line(Lang::get('Esteu rebent aquest correu electrònic perquè hem rebut una sol·licitud de restabliment de contrasenya per al vostre compte.'))
-            ->action(Lang::get('Reiniciar constrasenya'), route("password.reset", ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()]))
+            ->action(Lang::get('Reiniciar contrasenya'), route("password.reset", ['token' => $this->token, 'email' => $notifiable->getEmailForPasswordReset()]))
             ->line(Lang::get('Aquest enllaç de restabliment de contrasenya caducarà en :count minuts.', ['count' => config('auth.passwords.'.config('auth.defaults.passwords').'.expire')]))
             ->line(Lang::get('Si no heu sol·licitat un restabliment de contrasenya, no cal prendre cap mesura addicional.'));
     }
