@@ -41,7 +41,11 @@ class Empresa extends Model
         if ($count == 0) {
             return "Ningun";
         } else if ($count == 1) {
-            return $firstContact->name . ": " . $firstContact->phonenumber;
+            if ($firstContact->phonenumber == "") {
+                return $firstContact->name . ": " . $firstContact->email;
+            } else {
+                return $firstContact->name . ": " . $firstContact->phonenumber;
+            }
         } else if ($count > 1) {
             $count--;
             return $firstContact->name . ": " . $firstContact->phonenumber . ", ...(" . $count . ")";
