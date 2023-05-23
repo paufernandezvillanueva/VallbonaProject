@@ -1,3 +1,4 @@
+@section('title', trans('translation.forgot_pass'))
 <x-guest-layout>
     <x-validation-errors class="mb-4" />
 
