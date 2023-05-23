@@ -335,12 +335,12 @@
                                 console.log(form.action);
 
                                 var dataName = elem.dataset.name;
-                                document.getElementById("nombreEmpresa").innerHTML = dataName;
+                                document.getElementById("nombreDelete").innerHTML = dataName;
                             });
                         });
                     </script>
                     @csrf
-                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreEmpresa"></span>?</p>
+                    <p>{{ trans('translation.confirm_delete') }} <span id="nombreDelete"></span>?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">{{ trans('translation.cancel') }}</button>

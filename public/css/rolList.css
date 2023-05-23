@@ -92,3 +92,12 @@
         padding-right: 0px;
     }
 }
+
+.modal-content {
+    min-width:245px
+}
+
+#nombreDelete {
+    font-weight: bold;
+    text-decoration: underline;
+}
