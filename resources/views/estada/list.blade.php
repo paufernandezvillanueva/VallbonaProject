@@ -139,7 +139,7 @@
                 <label for="valoracio">{{ trans('translation.valoration') }}:</label>
             </div>
             <div class="col-lg-4 col-9">
-                <div class="row">
+                <div class="row g-0">
                     <div class="col-lg-5 col-5">
                         @if (isset($request->minValoracio) && $request->minValoracio != "")
                         <input class="form-control" type="number" id="minValoracio" placeholder="{{ trans('translation.min') }}" name="minValoracio" min="0" max="10" value="{{ $request->minValoracio }}" />
